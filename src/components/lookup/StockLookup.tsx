@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   LineChart,
   Line,
@@ -282,6 +282,9 @@ export function StockLookup() {
               <StatCell label="저가" value={formatNum(quote.dayLow, isKRW)} />
               <StatCell label="거래량" value={formatVolume(quote.volume)} />
             </div>
+
+            {/* 관련 뉴스 섹션 */}
+            <NewsSection query={quote.name || input} />
           </>
         )}
 
@@ -318,4 +321,176 @@ function StatCell({ label, value }: { label: string; value: string }) {
       <div className="text-[13px] text-fg">{value}</div>
     </div>
   );
+}
+
+// ───────────────────────────────────────────
+// 관련 뉴스 섹션
+// ───────────────────────────────────────────
+
+interface NewsItem {
+  title: string;
+  link: string;
+  originalLink: string;
+  description: string;
+  pubDate: string;
+  publisher: string;
+}
+
+function NewsSection({ query }: { query: string }) {
+  const [news, setNews] = useState<NewsItem[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  // 처음엔 5개만 보이고, 더보기 누르면 전체
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      if (!query) return;
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(
+          `/api/news?query=${encodeURIComponent(query)}&display=20`
+        );
+        if (!res.ok) throw new Error("뉴스 조회 실패");
+        const data = await res.json();
+        if (!cancelled) {
+          setNews(data.items || []);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setError(err instanceof Error ? err.message : "뉴스 조회 실패");
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    load();
+    // 종목 바뀌면 이전 요청 결과 무시
+    return () => {
+      cancelled = true;
+    };
+  }, [query]);
+
+  if (loading && news.length === 0) {
+    return (
+      <div className="mt-4 text-fg-muted text-xs text-center py-4">
+        뉴스 로딩 중...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="mt-4 text-down text-xs">
+        뉴스 조회 오류: {error}
+      </div>
+    );
+  }
+
+  if (news.length === 0) {
+    return null;
+  }
+
+  const visibleNews = expanded ? news : news.slice(0, 5);
+  const remaining = news.length - 5;
+
+  return (
+    <div className="mt-4 bg-navy-light rounded-lg overflow-hidden">
+      {/* 헤더 */}
+      <div className="px-4 py-3 border-b border-navy flex justify-between items-center">
+        <div className="text-fg text-[13px] font-medium">📰 관련 뉴스</div>
+        <div className="text-fg-subtle text-[11px]">
+          최신순 · {news.length}건
+        </div>
+      </div>
+
+      {/* 뉴스 리스트 */}
+      {visibleNews.map((item, idx) => (
+        <NewsItemCard key={idx} item={item} />
+      ))}
+
+      {/* 더보기 */}
+      {!expanded && remaining > 0 && (
+        <div className="px-4 py-3 border-t border-navy text-center">
+          <button
+            onClick={() => setExpanded(true)}
+            className="text-[12px] text-up hover:underline"
+          >
+            더 많은 뉴스 보기 ({remaining}개 더) ↓
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function NewsItemCard({ item }: { item: NewsItem }) {
+  // 원본 매체 URL 우선, 없으면 네이버 URL
+  const url = item.originalLink || item.link;
+  const timeAgo = formatTimeAgo(item.pubDate);
+
+  return (
+    <div className="px-4 py-3 border-b border-navy last:border-b-0">
+      {/* 제목 + 시간 */}
+      <div className="flex justify-between items-start mb-1.5 gap-3">
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-fg text-[13px] font-medium leading-snug hover:underline flex-1"
+        >
+          {item.title}
+        </a>
+        <div className="text-fg-subtle text-[11px] whitespace-nowrap shrink-0">
+          {timeAgo}
+        </div>
+      </div>
+
+      {/* 발췌 */}
+      <div className="text-fg-muted text-[12px] leading-relaxed mb-1.5">
+        {item.description}
+      </div>
+
+      {/* 매체 + 원문 보기 */}
+      <div className="flex justify-between items-center">
+        <div className="text-fg-subtle text-[11px]">{item.publisher}</div>
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-up text-[11px] hover:underline"
+        >
+          원문 보기 ↗
+        </a>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * 발행 시간을 상대 표현으로 변환
+ * - 1시간 이내: "X분 전"
+ * - 24시간 이내: "X시간 전"
+ * - 7일 이내: "X일 전"
+ * - 그 이상: "MM/DD"
+ */
+function formatTimeAgo(isoDate: string): string {
+  const date = new Date(isoDate);
+  const now = new Date();
+  const diffMs = now.getTime() - date.getTime();
+  const diffMin = Math.floor(diffMs / 60000);
+  const diffHour = Math.floor(diffMs / 3600000);
+  const diffDay = Math.floor(diffMs / 86400000);
+
+  if (diffMin < 1) return "방금 전";
+  if (diffMin < 60) return `${diffMin}분 전`;
+  if (diffHour < 24) return `${diffHour}시간 전`;
+  if (diffDay < 7) return `${diffDay}일 전`;
+
+  // 7일 넘으면 날짜 표시
+  return `${date.getMonth() + 1}/${date.getDate()}`;
 }
