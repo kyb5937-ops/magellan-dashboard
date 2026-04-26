@@ -35,6 +35,8 @@ export function StockLookup() {
   const [error, setError] = useState<string | null>(null);
   // 한국 종목코드 → 한국어 회사명 매핑 (페이지 로드 시 한 번만)
   const [stockNames, setStockNames] = useState<Record<string, string>>({});
+  // 미국 티커 → 한국어 회사명 매핑
+  const [usStockNames, setUsStockNames] = useState<Record<string, string>>({});
 
   // 매핑 데이터 로드 (페이지 진입 시 한 번)
   useEffect(() => {
@@ -42,6 +44,20 @@ export function StockLookup() {
       .then((res) => (res.ok ? res.json() : {}))
       .then((data) => setStockNames(data))
       .catch(() => setStockNames({}));
+
+    fetch("/data/us-stock-names.json")
+      .then((res) => (res.ok ? res.json() : {}))
+      .then((data) => {
+        // _comment, _etfs 같은 메타 필드 제거
+        const filtered: Record<string, string> = {};
+        for (const [k, v] of Object.entries(data)) {
+          if (!k.startsWith("_") && typeof v === "string") {
+            filtered[k] = v;
+          }
+        }
+        setUsStockNames(filtered);
+      })
+      .catch(() => setUsStockNames({}));
   }, []);
 
   // 조회 실행
@@ -293,8 +309,10 @@ export function StockLookup() {
               <StatCell label="거래량" value={formatVolume(quote.volume)} />
             </div>
 
-            {/* 관련 뉴스 섹션 — 한국 종목은 한국어 이름으로 검색 (매핑 활용) */}
-            <NewsSection query={getNewsQuery(quote, input, stockNames)} />
+            {/* 관련 뉴스 섹션 — 한국·미국 종목은 한국어 이름으로 검색 (매핑 활용) */}
+            <NewsSection
+              query={getNewsQuery(quote, input, stockNames, usStockNames)}
+            />
           </>
         )}
 
@@ -337,14 +355,16 @@ function StatCell({ label, value }: { label: string; value: string }) {
  * 뉴스 검색에 사용할 쿼리 결정
  *
  * 우선순위:
- * 1. 한국 종목 + 매핑에 있음 → 한국어 회사명 (예: "삼성전자") ★ 최선
+ * 1. 한국 종목 + 매핑에 있음 → 한국어 회사명 (예: "삼성전자")
  * 2. 한국 종목 + 매핑에 없음 → 종목코드 (예: "005930")
- * 3. 미국·기타 → 영문 회사명 (예: "Apple Inc.")
+ * 3. 미국 종목 + 매핑에 있음 → 한국어 회사명 (예: "엔비디아")
+ * 4. 미국 종목 + 매핑에 없음 → 영문 회사명 fallback
  */
 function getNewsQuery(
   quote: QuoteData,
   userInput: string,
-  stockNames: Record<string, string>
+  stockNames: Record<string, string>,
+  usStockNames: Record<string, string>
 ): string {
   const symbol = quote.symbol || "";
 
@@ -366,7 +386,15 @@ function getNewsQuery(
     return code;
   }
 
-  // 미국 등 기타: 회사명 사용
+  // 미국 종목: 매핑에 한국어 이름 있으면 사용
+  // 사용자 입력값과 야후 심볼 둘 다 시도 (BRK-B vs BRK.B 같은 표기 차이 대비)
+  const upperSymbol = symbol.toUpperCase();
+  const upperInput = userInput.trim().toUpperCase();
+
+  if (usStockNames[upperSymbol]) return usStockNames[upperSymbol];
+  if (usStockNames[upperInput]) return usStockNames[upperInput];
+
+  // 미국 매핑에 없으면 영문 회사명 fallback
   return quote.name || userInput;
 }
 
