@@ -33,6 +33,16 @@ export function StockLookup() {
   // 로딩 / 오류 상태
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // 한국 종목코드 → 한국어 회사명 매핑 (페이지 로드 시 한 번만)
+  const [stockNames, setStockNames] = useState<Record<string, string>>({});
+
+  // 매핑 데이터 로드 (페이지 진입 시 한 번)
+  useEffect(() => {
+    fetch("/data/stock-names.json")
+      .then((res) => (res.ok ? res.json() : {}))
+      .then((data) => setStockNames(data))
+      .catch(() => setStockNames({}));
+  }, []);
 
   // 조회 실행
   async function handleLookup(newRange?: RangeKey) {
@@ -283,8 +293,8 @@ export function StockLookup() {
               <StatCell label="거래량" value={formatVolume(quote.volume)} />
             </div>
 
-            {/* 관련 뉴스 섹션 — 한국 종목은 종목코드로, 미국 종목은 회사명으로 검색 */}
-            <NewsSection query={getNewsQuery(quote, input)} />
+            {/* 관련 뉴스 섹션 — 한국 종목은 한국어 이름으로 검색 (매핑 활용) */}
+            <NewsSection query={getNewsQuery(quote, input, stockNames)} />
           </>
         )}
 
@@ -326,14 +336,16 @@ function StatCell({ label, value }: { label: string; value: string }) {
 /**
  * 뉴스 검색에 사용할 쿼리 결정
  *
- * - 한국 종목 (.KS, .KQ 또는 6자리 숫자 코드): 종목코드 사용
- *   → 네이버가 종목코드로 검색 시 한국어 기사 우선 매칭
- * - 미국·기타 종목: 회사명 사용
- *
- * 야후가 반환하는 quote.name 은 한국 종목도 영문이라 (예: "Samsung Electronics Co., Ltd.")
- * 네이버 한국어 뉴스 매칭이 잘 안 됨. 종목코드로 검색하면 해결.
+ * 우선순위:
+ * 1. 한국 종목 + 매핑에 있음 → 한국어 회사명 (예: "삼성전자") ★ 최선
+ * 2. 한국 종목 + 매핑에 없음 → 종목코드 (예: "005930")
+ * 3. 미국·기타 → 영문 회사명 (예: "Apple Inc.")
  */
-function getNewsQuery(quote: QuoteData, userInput: string): string {
+function getNewsQuery(
+  quote: QuoteData,
+  userInput: string,
+  stockNames: Record<string, string>
+): string {
   const symbol = quote.symbol || "";
 
   // 한국 종목 판별: .KS, .KQ 끝나거나 6자리 숫자
@@ -345,6 +357,12 @@ function getNewsQuery(quote: QuoteData, userInput: string): string {
   if (isKorean) {
     // 종목코드만 추출 (.KS, .KQ 제거)
     const code = symbol.replace(/\.KS$|\.KQ$/, "");
+
+    // 매핑에 한국어 이름 있으면 그걸 사용
+    const koreanName = stockNames[code];
+    if (koreanName) return koreanName;
+
+    // 없으면 종목코드 fallback
     return code;
   }
 
