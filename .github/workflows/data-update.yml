@@ -1,0 +1,67 @@
+name: 데이터 자동 갱신
+
+# 실행 조건
+on:
+  # 매일 한국시간 16:30 (UTC 07:30) — 한국 장 마감 + 1시간
+  schedule:
+    - cron: '30 7 * * 1-5'  # 월~금만, KRX 휴일은 무시되고 빈 데이터 됨
+  # GitHub Actions 탭에서 수동으로도 실행 가능
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 저장소 코드 체크아웃
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          # commit/push 권한 부여
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. Python 3.11 설치
+      - name: Python 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. 의존성 설치 (pykrx + pandas)
+      - name: 패키지 설치
+        run: |
+          pip install pykrx pandas requests
+
+      # 4. 어제 날짜 계산 (한국시간 기준)
+      # 오늘 16:30 실행 시 오늘 데이터 수집
+      - name: 오늘 날짜 계산
+        id: date
+        run: |
+          # 한국시간 (UTC+9) 기준 오늘 날짜
+          KST_DATE=$(TZ='Asia/Seoul' date +%Y%m%d)
+          echo "date=$KST_DATE" >> $GITHUB_OUTPUT
+          echo "오늘 (KST): $KST_DATE"
+
+      # 5. 데이터 수집 스크립트 실행
+      - name: 시장 데이터 수집
+        env:
+          KRX_ID: ${{ secrets.KRX_ID }}
+          KRX_PW: ${{ secrets.KRX_PW }}
+          TARGET_DATE: ${{ steps.date.outputs.date }}
+        run: |
+          python .github/scripts/fetch_market_data.py
+
+      # 6. 변경사항 commit + push (변경이 있을 때만)
+      - name: 변경사항 커밋
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/market-flow.json
+
+          # 변경사항이 있는지 확인
+          if git diff --staged --quiet; then
+            echo "변경사항 없음 — skip"
+          else
+            git commit -m "데이터 자동 갱신 ${{ steps.date.outputs.date }}"
+            git push
+            echo "✅ 갱신 완료"
+          fi
