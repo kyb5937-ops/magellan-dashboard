@@ -283,8 +283,8 @@ export function StockLookup() {
               <StatCell label="거래량" value={formatVolume(quote.volume)} />
             </div>
 
-            {/* 관련 뉴스 섹션 */}
-            <NewsSection query={quote.name || input} />
+            {/* 관련 뉴스 섹션 — 한국 종목은 종목코드로, 미국 종목은 회사명으로 검색 */}
+            <NewsSection query={getNewsQuery(quote, input)} />
           </>
         )}
 
@@ -321,6 +321,35 @@ function StatCell({ label, value }: { label: string; value: string }) {
       <div className="text-[13px] text-fg">{value}</div>
     </div>
   );
+}
+
+/**
+ * 뉴스 검색에 사용할 쿼리 결정
+ *
+ * - 한국 종목 (.KS, .KQ 또는 6자리 숫자 코드): 종목코드 사용
+ *   → 네이버가 종목코드로 검색 시 한국어 기사 우선 매칭
+ * - 미국·기타 종목: 회사명 사용
+ *
+ * 야후가 반환하는 quote.name 은 한국 종목도 영문이라 (예: "Samsung Electronics Co., Ltd.")
+ * 네이버 한국어 뉴스 매칭이 잘 안 됨. 종목코드로 검색하면 해결.
+ */
+function getNewsQuery(quote: QuoteData, userInput: string): string {
+  const symbol = quote.symbol || "";
+
+  // 한국 종목 판별: .KS, .KQ 끝나거나 6자리 숫자
+  const isKorean =
+    symbol.endsWith(".KS") ||
+    symbol.endsWith(".KQ") ||
+    /^\d{6}$/.test(userInput.trim());
+
+  if (isKorean) {
+    // 종목코드만 추출 (.KS, .KQ 제거)
+    const code = symbol.replace(/\.KS$|\.KQ$/, "");
+    return code;
+  }
+
+  // 미국 등 기타: 회사명 사용
+  return quote.name || userInput;
 }
 
 // ───────────────────────────────────────────

@@ -137,6 +137,34 @@ function extractPublisher(originalLink: string, link: string): string {
 }
 
 /**
+ * 한국 매체인지 판별
+ *
+ * 판별 기준 (하나라도 해당하면 한국 매체):
+ * 1. link 가 n.news.naver.com 으로 시작 (네이버 뉴스 = 한국어 매체만 등록)
+ * 2. originalLink 도메인이 .kr 또는 .co.kr 로 끝남
+ */
+function isKoreanPublisher(originalLink: string, link: string): boolean {
+  // 1) 네이버 뉴스 URL = 무조건 한국 매체
+  if (link && link.includes("n.news.naver.com")) return true;
+
+  // 2) 도메인 끝 확인
+  const url = originalLink || link;
+  if (!url) return false;
+
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return (
+      host.endsWith(".kr") ||
+      host.endsWith(".co.kr") ||
+      host.endsWith(".or.kr") ||
+      host.endsWith(".go.kr")
+    );
+  } catch {
+    return false;
+  }
+}
+
+/**
  * 종목명·키워드로 네이버 뉴스 검색
  *
  * @param query    검색어 (예: "두산에너빌리티")
@@ -177,7 +205,7 @@ export async function fetchNaverNews(
   const json: NaverNewsResponse = await res.json();
   const items = json.items || [];
 
-  return items.map((item) => ({
+  const mapped: NewsItem[] = items.map((item) => ({
     title: stripHtml(item.title),
     link: item.link,
     originalLink: item.originallink,
@@ -185,4 +213,26 @@ export async function fetchNaverNews(
     pubDate: new Date(item.pubDate).toISOString(),
     publisher: extractPublisher(item.originallink, item.link),
   }));
+
+  // 한국 매체 우선 + 각 그룹 내 시간순 (최신순)
+  // 야후가 영문 회사명을 줘서 영문 검색하면 외신이 위에 깔리는 문제 해결
+  const korean: NewsItem[] = [];
+  const foreign: NewsItem[] = [];
+
+  for (const item of mapped) {
+    if (isKoreanPublisher(item.originalLink, item.link)) {
+      korean.push(item);
+    } else {
+      foreign.push(item);
+    }
+  }
+
+  // 네이버는 이미 sort=date 로 보내줘서 각 그룹 안에선 이미 시간순
+  // 그래도 명시적으로 한 번 더 정렬 (네이버 응답이 살짝 어긋날 때 대비)
+  const byDate = (a: NewsItem, b: NewsItem) =>
+    new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+  korean.sort(byDate);
+  foreign.sort(byDate);
+
+  return [...korean, ...foreign];
 }
