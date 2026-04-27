@@ -3,17 +3,18 @@
 import { useEffect, useState } from "react";
 
 /**
- * EconomicCalendarSection v2.1
+ * EconomicCalendarSection v2.3
  *
- * 변경점 (vs v2.0):
- * - 섹션 라벨을 카드 바깥 작은 형태로 (다른 섹션과 동일한 패턴)
- *   "text-xs font-medium text-fg-muted mb-2 tracking-wider"
- * - 부제 제거
- * - 색상 톤을 대시보드 navy 테마에 맞춤
- *   bg-navy / bg-navy-light / text-fg / text-fg-muted / text-fg-subtle
- *   text-up / text-down / border-navy-light 등 프로젝트 커스텀 클래스 사용
+ * 변경점 (vs v2.2):
+ * - 우측 셀 (실제·예상·이전) 폭을 확실하게 늘림
+ *   기존 [80, 60, 90, 1fr, 60, 110, 100] (우측 합 270)
+ *   →     [80, 60, 90, 1fr, 70, 160, 140] (우측 합 370)
+ * - min-width 720 → 800
  *
- * 디자인 시안의 원래 의도(국가별 색상 라벨, 별 중요도, 메가 이벤트 강조)는 유지.
+ * 이유: v2.2의 whitespace-nowrap만으로는 부족.
+ *   Grid 셀 폭이 컨텐츠보다 작으면 nowrap 적용돼도 옆 셀 영역으로
+ *   시각적 침범이 일어남. 컬럼 폭 자체를 충분히 키워서 근본 해결.
+ *   "동결(3.50%~3.75%)" 같은 14자 텍스트도 여유 있게 한 줄에 표시.
  */
 
 type Importance = 3 | 4 | 5;
@@ -54,6 +55,11 @@ const COUNTRY_STYLE: Record<CountryCode, string> = {
   JP: "bg-emerald-950/50 text-emerald-300 border-emerald-900/40",
   EU: "bg-violet-950/50 text-violet-300 border-violet-900/40",
 };
+
+// 그리드 컬럼 정의 (헤더와 행에서 동일하게 사용)
+// 우측 셀(실제·예상·이전)을 여유 있게 잡아서 긴 텍스트(예: "동결(3.50%~3.75%)")도 한 줄로 표시
+const GRID_COLS =
+  "grid-cols-[80px_60px_90px_1fr_70px_160px_140px]";
 
 function StarRating({ count }: { count: Importance }) {
   return (
@@ -118,11 +124,11 @@ export function EconomicCalendarSection() {
       </div>
 
       <div className="bg-navy rounded-xl overflow-hidden">
-        {/* 가로 스크롤 wrapper (모바일 대응) */}
+        {/* 가로 스크롤 wrapper (모바일 + 긴 텍스트 대응) */}
         <div className="overflow-x-auto">
-          <div className="min-w-[680px]">
+          <div className="min-w-[800px]">
             {/* 컬럼 헤더 */}
-            <div className="grid grid-cols-[80px_60px_90px_1fr_70px_70px_70px] gap-3 px-5 py-2.5 text-[11px] text-fg-subtle border-b border-navy-light">
+            <div className={`grid ${GRID_COLS} gap-3 px-5 py-2.5 text-[11px] text-fg-subtle border-b border-navy-light`}>
               <div>시간(KST)</div>
               <div>국가</div>
               <div>중요도</div>
@@ -158,11 +164,11 @@ export function EconomicCalendarSection() {
                       return (
                         <div
                           key={`${key}-${idx}`}
-                          className={`grid grid-cols-[80px_60px_90px_1fr_70px_70px_70px] gap-3 px-5 py-2.5 text-sm items-center border-b border-navy-light/30 ${
+                          className={`grid ${GRID_COLS} gap-3 px-5 py-2.5 text-sm items-center border-b border-navy-light/30 ${
                             isMega ? "bg-red-950/30" : ""
                           }`}
                         >
-                          <div className="font-mono text-fg-muted text-[13px]">
+                          <div className="font-mono text-fg-muted text-[13px] whitespace-nowrap">
                             {event.time}
                             {event.timeNote && (
                               <span className="text-fg-subtle ml-0.5">{event.timeNote}</span>
@@ -177,13 +183,13 @@ export function EconomicCalendarSection() {
                           <div className={isMega ? "font-semibold text-fg" : "text-fg"}>
                             {event.name}
                           </div>
-                          <div className="text-right text-fg-subtle text-[13px]">
+                          <div className="text-right text-fg-subtle text-[13px] whitespace-nowrap">
                             {event.actual ?? "—"}
                           </div>
-                          <div className="text-right text-fg text-[13px]">
+                          <div className="text-right text-fg text-[13px] whitespace-nowrap">
                             {event.forecast ?? "—"}
                           </div>
-                          <div className="text-right text-fg text-[13px]">
+                          <div className="text-right text-fg text-[13px] whitespace-nowrap">
                             {event.previous ?? "—"}
                           </div>
                         </div>
