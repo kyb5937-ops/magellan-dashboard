@@ -3,36 +3,30 @@
 import { useEffect, useState } from "react";
 
 /**
- * EconomicCalendarSection v2.0
+ * EconomicCalendarSection v2.1
  *
- * 경제 캘린더 섹션 - public/data/economic-calendar.json을 fetch해서 렌더링.
- * 매주 일요일(또는 금요일 마감 후) economic-calendar.json만 갱신하면 됨.
+ * 변경점 (vs v2.0):
+ * - 섹션 라벨을 카드 바깥 작은 형태로 (다른 섹션과 동일한 패턴)
+ *   "text-xs font-medium text-fg-muted mb-2 tracking-wider"
+ * - 부제 제거
+ * - 색상 톤을 대시보드 navy 테마에 맞춤
+ *   bg-navy / bg-navy-light / text-fg / text-fg-muted / text-fg-subtle
+ *   text-up / text-down / border-navy-light 등 프로젝트 커스텀 클래스 사용
  *
- * 디자인:
- * - 다크 톤 카드 (warm dark, #1c1815 베이스)
- * - 7컬럼 그리드: 시간(KST) · 국가 · 중요도 · 이벤트 · 실제 · 예상 · 이전
- * - 국가별 색상 라벨 (한국 핑크 / 미국 파랑 / 중국 앰버 / 일본 그린 / 유럽 보라)
- * - 중요도 ★★★ ~ ★★★★★ (앰버), ★★★★★ 행은 배경 강조
- * - 모바일에서는 가로 스크롤
- *
- * 시간 처리:
- * - 모든 시간은 KST
- * - 그룹(date 필드)은 현지 발표일 기준
- *   예: FOMC 미국 동부 4/29 14:00 발표 → 한국 4/30 03:00
- *       → date: "2026-04-29", time: "03:00", timeNote: "(목)"
+ * 디자인 시안의 원래 의도(국가별 색상 라벨, 별 중요도, 메가 이벤트 강조)는 유지.
  */
 
 type Importance = 3 | 4 | 5;
 type CountryCode = "KR" | "US" | "CN" | "JP" | "EU";
 
 interface EconomicEvent {
-  date: string;          // YYYY-MM-DD (그룹용, 현지 발표일 기준)
-  dayOfWeek: string;     // "월" | "화" | "수" | "목" | "금"
-  time: string;          // "HH:MM" (KST)
-  timeNote?: string;     // "(목)" 같은 한국 요일 보조 표기 (옵션)
+  date: string;
+  dayOfWeek: string;
+  time: string;
+  timeNote?: string;
   country: CountryCode;
   importance: Importance;
-  name: string;          // 한국어 이벤트명
+  name: string;
   actual: string | null;
   forecast: string | null;
   previous: string | null;
@@ -54,18 +48,18 @@ const COUNTRY_LABEL: Record<CountryCode, string> = {
 };
 
 const COUNTRY_STYLE: Record<CountryCode, string> = {
-  KR: "bg-pink-950/60 text-pink-300 border-pink-900/60",
-  US: "bg-blue-950/60 text-blue-300 border-blue-900/60",
-  CN: "bg-amber-950/60 text-amber-300 border-amber-900/60",
-  JP: "bg-emerald-950/60 text-emerald-300 border-emerald-900/60",
-  EU: "bg-violet-950/60 text-violet-300 border-violet-900/60",
+  KR: "bg-pink-950/50 text-pink-300 border-pink-900/40",
+  US: "bg-blue-950/50 text-blue-300 border-blue-900/40",
+  CN: "bg-amber-950/50 text-amber-300 border-amber-900/40",
+  JP: "bg-emerald-950/50 text-emerald-300 border-emerald-900/40",
+  EU: "bg-violet-950/50 text-violet-300 border-violet-900/40",
 };
 
 function StarRating({ count }: { count: Importance }) {
   return (
     <span className="text-[13px] tracking-tight whitespace-nowrap">
       <span className="text-amber-400">{"★".repeat(count)}</span>
-      <span className="text-zinc-700">{"★".repeat(5 - count)}</span>
+      <span className="text-fg-subtle/40">{"★".repeat(5 - count)}</span>
     </span>
   );
 }
@@ -101,7 +95,7 @@ export function EconomicCalendarSection() {
       });
   }, []);
 
-  // 같은 (date, dow) 묶음으로 그룹핑 (events 배열 내 등장 순서 유지)
+  // 같은 (date, dow) 묶음으로 그룹핑 (events 배열 등장 순서 유지)
   const groups: { key: string; date: string; dow: string; events: EconomicEvent[] }[] = [];
   if (data) {
     const seen = new Map<string, number>();
@@ -117,24 +111,18 @@ export function EconomicCalendarSection() {
   }
 
   return (
-    <section className="my-8">
-      <div className="rounded-xl border border-[#2e2a26] bg-[#1c1815] overflow-hidden">
-        {/* 헤더 */}
-        <div className="px-5 pt-5 pb-3">
-          <h2 className="text-xl font-bold text-zinc-100 mb-1.5 flex items-center gap-2">
-            <span>📅</span>
-            <span>이번 주 경제 캘린더</span>
-          </h2>
-          <p className="text-sm text-zinc-500">
-            한국·미국·중국·일본·유럽 주요 매크로 이벤트 — 중요도 ★★★ 이상
-          </p>
-        </div>
+    <section className="mb-6">
+      {/* 섹션 라벨 - 다른 섹션(LiveCardSection, StockLookup)과 동일 */}
+      <div className="text-xs font-medium text-fg-muted mb-2 tracking-wider">
+        📅 이번 주 경제 캘린더
+      </div>
 
+      <div className="bg-navy rounded-xl overflow-hidden">
         {/* 가로 스크롤 wrapper (모바일 대응) */}
         <div className="overflow-x-auto">
           <div className="min-w-[680px]">
             {/* 컬럼 헤더 */}
-            <div className="grid grid-cols-[80px_60px_90px_1fr_70px_70px_70px] gap-3 px-5 py-2.5 text-[11px] text-zinc-500 border-y border-[#2e2a26]">
+            <div className="grid grid-cols-[80px_60px_90px_1fr_70px_70px_70px] gap-3 px-5 py-2.5 text-[11px] text-fg-subtle border-b border-navy-light">
               <div>시간(KST)</div>
               <div>국가</div>
               <div>중요도</div>
@@ -146,12 +134,12 @@ export function EconomicCalendarSection() {
 
             {/* 본문 */}
             {loading && (
-              <div className="px-5 py-10 text-sm text-zinc-500 text-center">
+              <div className="px-5 py-10 text-sm text-fg-muted text-center">
                 캘린더 불러오는 중…
               </div>
             )}
             {error && (
-              <div className="px-5 py-10 text-sm text-red-400 text-center">
+              <div className="px-5 py-10 text-sm text-down text-center">
                 데이터를 가져오지 못했어요. ({error})
               </div>
             )}
@@ -161,7 +149,7 @@ export function EconomicCalendarSection() {
                 return (
                   <div key={key}>
                     {/* 요일 구분선 */}
-                    <div className="px-5 py-2 bg-[#262220] text-xs font-medium text-zinc-300 border-y border-[#2e2a26]">
+                    <div className="px-5 py-2 bg-navy-light text-xs font-medium text-fg-muted">
                       {dow}요일 · {parseInt(m)}월 {parseInt(d)}일
                     </div>
                     {/* 이벤트 행 */}
@@ -170,14 +158,14 @@ export function EconomicCalendarSection() {
                       return (
                         <div
                           key={`${key}-${idx}`}
-                          className={`grid grid-cols-[80px_60px_90px_1fr_70px_70px_70px] gap-3 px-5 py-2.5 text-sm items-center border-b border-[#2a2724]/60 ${
-                            isMega ? "bg-[#2a1a18]" : ""
+                          className={`grid grid-cols-[80px_60px_90px_1fr_70px_70px_70px] gap-3 px-5 py-2.5 text-sm items-center border-b border-navy-light/30 ${
+                            isMega ? "bg-red-950/30" : ""
                           }`}
                         >
-                          <div className="font-mono text-zinc-400 text-[13px]">
+                          <div className="font-mono text-fg-muted text-[13px]">
                             {event.time}
                             {event.timeNote && (
-                              <span className="text-zinc-600 ml-0.5">{event.timeNote}</span>
+                              <span className="text-fg-subtle ml-0.5">{event.timeNote}</span>
                             )}
                           </div>
                           <div>
@@ -186,22 +174,16 @@ export function EconomicCalendarSection() {
                           <div>
                             <StarRating count={event.importance} />
                           </div>
-                          <div
-                            className={
-                              isMega
-                                ? "font-semibold text-zinc-50"
-                                : "text-zinc-200"
-                            }
-                          >
+                          <div className={isMega ? "font-semibold text-fg" : "text-fg"}>
                             {event.name}
                           </div>
-                          <div className="text-right text-zinc-500 text-[13px]">
+                          <div className="text-right text-fg-subtle text-[13px]">
                             {event.actual ?? "—"}
                           </div>
-                          <div className="text-right text-zinc-200 text-[13px]">
+                          <div className="text-right text-fg text-[13px]">
                             {event.forecast ?? "—"}
                           </div>
-                          <div className="text-right text-zinc-200 text-[13px]">
+                          <div className="text-right text-fg text-[13px]">
                             {event.previous ?? "—"}
                           </div>
                         </div>
@@ -214,13 +196,13 @@ export function EconomicCalendarSection() {
         </div>
 
         {/* 푸터 */}
-        <div className="px-5 py-3 text-[11px] text-zinc-500 flex items-center justify-between flex-wrap gap-2 border-t border-[#2e2a26]">
+        <div className="px-5 py-3 text-[11px] text-fg-subtle flex items-center justify-between flex-wrap gap-2 border-t border-navy-light">
           <div>
             중요도 <span className="text-amber-400">★★★</span>(중간) ·{" "}
             <span className="text-amber-400">★★★★</span>(높음) ·{" "}
             <span className="text-amber-400">★★★★★</span>(최고) · 시간 KST 기준
           </div>
-          <div className="text-zinc-600">
+          <div className="text-fg-subtle/70">
             출처: Investing.com · 한국은행 · 통계청 · BLS · BEA
           </div>
         </div>
