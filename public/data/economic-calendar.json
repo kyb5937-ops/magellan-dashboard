@@ -1,0 +1,96 @@
+{
+  "weekStart": "2026-04-27",
+  "weekEnd": "2026-05-01",
+  "lastUpdated": "2026-04-27",
+  "events": [
+    {
+      "date": "2026-04-27",
+      "dayOfWeek": "월",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "댈러스 연은 제조업 지수",
+      "actual": null,
+      "forecast": "-1.0",
+      "previous": "2.4"
+    },
+    {
+      "date": "2026-04-28",
+      "dayOfWeek": "화",
+      "time": "23:00",
+      "country": "US",
+      "importance": 4,
+      "name": "CB 소비자신뢰지수 (4월)",
+      "actual": null,
+      "forecast": "89.4",
+      "previous": "91.8"
+    },
+    {
+      "date": "2026-04-29",
+      "dayOfWeek": "수",
+      "time": "21:30",
+      "country": "US",
+      "importance": 4,
+      "name": "1Q GDP 속보치",
+      "actual": null,
+      "forecast": "2.3%",
+      "previous": "3.1%"
+    },
+    {
+      "date": "2026-04-29",
+      "dayOfWeek": "수",
+      "time": "03:00",
+      "timeNote": "(목)",
+      "country": "US",
+      "importance": 5,
+      "name": "FOMC 금리 결정 + 파월 회견",
+      "actual": null,
+      "forecast": "동결",
+      "previous": "4.50%"
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "10:30",
+      "country": "CN",
+      "importance": 3,
+      "name": "4월 NBS 제조업 PMI",
+      "actual": null,
+      "forecast": "50.5",
+      "previous": "50.5"
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 4,
+      "name": "3월 PCE 물가지수 (Core)",
+      "actual": null,
+      "forecast": "2.6%",
+      "previous": "2.8%"
+    },
+    {
+      "date": "2026-05-01",
+      "dayOfWeek": "금",
+      "time": "08:00",
+      "country": "KR",
+      "importance": 3,
+      "name": "4월 무역수지 (산업통상자원부)",
+      "actual": null,
+      "forecast": "$5.5B",
+      "previous": "$5.0B"
+    },
+    {
+      "date": "2026-05-01",
+      "dayOfWeek": "금",
+      "time": "21:30",
+      "country": "US",
+      "importance": 5,
+      "name": "4월 비농업 신규고용 (NFP)",
+      "actual": null,
+      "forecast": "125K",
+      "previous": "228K"
+    }
+  ]
+}
