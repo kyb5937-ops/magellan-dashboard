@@ -51,72 +51,6 @@
     {
       "date": "2026-04-30",
       "dayOfWeek": "목",
-      "time": "10:30",
-      "country": "CN",
-      "importance": 4,
-      "name": "NBS 제조업 PMI (중국, 4월)",
-      "actual": null,
-      "forecast": "50.2",
-      "previous": "50.4"
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "10:30",
-      "country": "CN",
-      "importance": 3,
-      "name": "NBS 비제조업 PMI (중국, 4월)",
-      "actual": null,
-      "forecast": "49.9",
-      "previous": "50.1"
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "10:45",
-      "country": "CN",
-      "importance": 3,
-      "name": "RatingDog 제조업 PMI (구 차이신, 중국, 4월)",
-      "actual": null,
-      "forecast": "50.5",
-      "previous": "50.8"
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "18:00",
-      "country": "EU",
-      "importance": 4,
-      "name": "GDP (1Q 속보치, 전년비)",
-      "actual": null,
-      "forecast": "0.8%",
-      "previous": "1.2%"
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "18:00",
-      "country": "EU",
-      "importance": 4,
-      "name": "소비자물가지수 (CPI, 4월 속보치, 전년비)",
-      "actual": null,
-      "forecast": "3.0%",
-      "previous": "2.6%"
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "21:15",
-      "country": "EU",
-      "importance": 5,
-      "name": "ECB 금리 결정 + 라가르드 회견",
-      "actual": null,
-      "forecast": "동결",
-      "previous": "동결"
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
       "time": "21:30",
       "country": "US",
       "importance": 4,
@@ -170,17 +104,6 @@
       "previous": null
     },
     {
-      "date": "2026-05-04",
-      "dayOfWeek": "월",
-      "time": "17:00",
-      "country": "EU",
-      "importance": 3,
-      "name": "HCOB 제조업 PMI 최종치 (4월)",
-      "actual": null,
-      "forecast": "52.2",
-      "previous": "51.6"
-    },
-    {
       "date": "2026-05-05",
       "dayOfWeek": "화",
       "time": "23:00",
@@ -216,39 +139,6 @@
     {
       "date": "2026-05-06",
       "dayOfWeek": "수",
-      "time": "10:45",
-      "country": "CN",
-      "importance": 3,
-      "name": "RatingDog 서비스업 PMI (구 차이신, 중국, 4월)",
-      "actual": null,
-      "forecast": "51.5",
-      "previous": "52.1"
-    },
-    {
-      "date": "2026-05-06",
-      "dayOfWeek": "수",
-      "time": "17:00",
-      "country": "EU",
-      "importance": 3,
-      "name": "HCOB 종합 PMI 최종치 (4월)",
-      "actual": null,
-      "forecast": "48.6",
-      "previous": "50.7"
-    },
-    {
-      "date": "2026-05-06",
-      "dayOfWeek": "수",
-      "time": "17:00",
-      "country": "EU",
-      "importance": 3,
-      "name": "HCOB 서비스업 PMI 최종치 (4월)",
-      "actual": null,
-      "forecast": "47.4",
-      "previous": "50.2"
-    },
-    {
-      "date": "2026-05-06",
-      "dayOfWeek": "수",
       "time": "21:15",
       "country": "US",
       "importance": 3,
@@ -256,28 +146,6 @@
       "actual": null,
       "forecast": "65K",
       "previous": "62K"
-    },
-    {
-      "date": "2026-05-07",
-      "dayOfWeek": "목",
-      "time": "08:30",
-      "country": "JP",
-      "importance": 4,
-      "name": "평균 현금급여 (3월, 전년비)",
-      "actual": null,
-      "forecast": "3.4%",
-      "previous": "3.3%"
-    },
-    {
-      "date": "2026-05-07",
-      "dayOfWeek": "목",
-      "time": "08:50",
-      "country": "JP",
-      "importance": 4,
-      "name": "BOJ 금융정책결정회의 의사록",
-      "actual": null,
-      "forecast": null,
-      "previous": null
     },
     {
       "date": "2026-05-07",
@@ -300,28 +168,6 @@
       "actual": null,
       "forecast": null,
       "previous": null
-    },
-    {
-      "date": "2026-05-08",
-      "dayOfWeek": "금",
-      "time": "09:30",
-      "country": "JP",
-      "importance": 3,
-      "name": "S&P Global 종합 PMI 최종치 (4월)",
-      "actual": null,
-      "forecast": "52.4",
-      "previous": "53.0"
-    },
-    {
-      "date": "2026-05-08",
-      "dayOfWeek": "금",
-      "time": "09:30",
-      "country": "JP",
-      "importance": 3,
-      "name": "S&P Global 서비스업 PMI 최종치 (4월)",
-      "actual": null,
-      "forecast": "51.2",
-      "previous": "53.4"
     },
     {
       "date": "2026-05-08",
