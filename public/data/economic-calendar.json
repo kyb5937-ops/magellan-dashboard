@@ -1,41 +1,8 @@
 {
-  "weekStart": "2026-04-27",
-  "weekEnd": "2026-05-01",
-  "lastUpdated": "2026-04-27",
+  "weekStart": "2026-04-29",
+  "weekEnd": "2026-05-08",
+  "lastUpdated": "2026-04-28",
   "events": [
-    {
-      "date": "2026-04-27",
-      "dayOfWeek": "월",
-      "time": "21:30",
-      "country": "US",
-      "importance": 3,
-      "name": "댈러스 연은 제조업 지수",
-      "actual": null,
-      "forecast": "-1.0",
-      "previous": "2.4"
-    },
-    {
-      "date": "2026-04-28",
-      "dayOfWeek": "화",
-      "time": "23:00",
-      "country": "US",
-      "importance": 4,
-      "name": "CB 소비자신뢰지수 (4월)",
-      "actual": null,
-      "forecast": "89.4",
-      "previous": "91.8"
-    },
-    {
-      "date": "2026-04-29",
-      "dayOfWeek": "수",
-      "time": "21:30",
-      "country": "US",
-      "importance": 4,
-      "name": "1Q GDP 속보치",
-      "actual": null,
-      "forecast": "2.3%",
-      "previous": "3.1%"
-    },
     {
       "date": "2026-04-29",
       "dayOfWeek": "수",
@@ -45,8 +12,52 @@
       "importance": 5,
       "name": "FOMC 금리 결정 + 파월 회견",
       "actual": null,
-      "forecast": "동결",
-      "previous": "4.50%"
+      "forecast": "동결(3.50%~3.75%)",
+      "previous": "3.50%~3.75%"
+    },
+    {
+      "date": "2026-04-29",
+      "dayOfWeek": "수",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "내구재 주문 (3월)",
+      "actual": null,
+      "forecast": "0.5%",
+      "previous": "-1.3%"
+    },
+    {
+      "date": "2026-04-29",
+      "dayOfWeek": "수",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "상품 무역수지 (3월)",
+      "actual": null,
+      "forecast": "-$86.30B",
+      "previous": "-$98.53B"
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "08:00",
+      "country": "KR",
+      "importance": 4,
+      "name": "산업활동동향 (3월)",
+      "actual": null,
+      "forecast": null,
+      "previous": null
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "10:30",
+      "country": "CN",
+      "importance": 4,
+      "name": "NBS 제조업 PMI (중국, 4월)",
+      "actual": null,
+      "forecast": "50.2",
+      "previous": "50.4"
     },
     {
       "date": "2026-04-30",
@@ -54,10 +65,54 @@
       "time": "10:30",
       "country": "CN",
       "importance": 3,
-      "name": "4월 NBS 제조업 PMI",
+      "name": "NBS 비제조업 PMI (중국, 4월)",
+      "actual": null,
+      "forecast": "49.9",
+      "previous": "50.1"
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "10:45",
+      "country": "CN",
+      "importance": 3,
+      "name": "RatingDog 제조업 PMI (구 차이신, 중국, 4월)",
       "actual": null,
       "forecast": "50.5",
-      "previous": "50.5"
+      "previous": "50.8"
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "18:00",
+      "country": "EU",
+      "importance": 4,
+      "name": "GDP (1Q 속보치, 전년비)",
+      "actual": null,
+      "forecast": "0.8%",
+      "previous": "1.2%"
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "18:00",
+      "country": "EU",
+      "importance": 4,
+      "name": "소비자물가지수 (CPI, 4월 속보치, 전년비)",
+      "actual": null,
+      "forecast": "3.0%",
+      "previous": "2.6%"
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "21:15",
+      "country": "EU",
+      "importance": 5,
+      "name": "ECB 금리 결정 + 라가르드 회견",
+      "actual": null,
+      "forecast": "동결",
+      "previous": "동결"
     },
     {
       "date": "2026-04-30",
@@ -65,32 +120,252 @@
       "time": "21:30",
       "country": "US",
       "importance": 4,
-      "name": "3월 PCE 물가지수 (Core)",
+      "name": "GDP (1Q 속보치, 전기비 연율)",
       "actual": null,
-      "forecast": "2.6%",
-      "previous": "2.8%"
+      "forecast": "2.2%",
+      "previous": "0.5%"
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 4,
+      "name": "Core PCE 물가지수 (3월, 전월비)",
+      "actual": null,
+      "forecast": "0.3%",
+      "previous": "0.4%"
     },
     {
       "date": "2026-05-01",
       "dayOfWeek": "금",
       "time": "08:00",
       "country": "KR",
-      "importance": 3,
-      "name": "4월 무역수지 (산업통상자원부)",
+      "importance": 4,
+      "name": "무역수지 (4월)",
       "actual": null,
-      "forecast": "$5.5B",
-      "previous": "$5.0B"
+      "forecast": null,
+      "previous": "$25.74B"
     },
     {
       "date": "2026-05-01",
       "dayOfWeek": "금",
+      "time": "23:00",
+      "country": "US",
+      "importance": 4,
+      "name": "ISM 제조업 PMI (4월)",
+      "actual": null,
+      "forecast": "53.2",
+      "previous": "52.7"
+    },
+    {
+      "date": "2026-05-04",
+      "dayOfWeek": "월",
+      "time": "09:30",
+      "country": "KR",
+      "importance": 3,
+      "name": "S&P Global 제조업 PMI (4월)",
+      "actual": null,
+      "forecast": null,
+      "previous": null
+    },
+    {
+      "date": "2026-05-04",
+      "dayOfWeek": "월",
+      "time": "17:00",
+      "country": "EU",
+      "importance": 3,
+      "name": "HCOB 제조업 PMI 최종치 (4월)",
+      "actual": null,
+      "forecast": "52.2",
+      "previous": "51.6"
+    },
+    {
+      "date": "2026-05-05",
+      "dayOfWeek": "화",
+      "time": "23:00",
+      "country": "US",
+      "importance": 4,
+      "name": "JOLTS 구인건수 (3월)",
+      "actual": null,
+      "forecast": null,
+      "previous": "6.882M"
+    },
+    {
+      "date": "2026-05-05",
+      "dayOfWeek": "화",
+      "time": "23:00",
+      "country": "US",
+      "importance": 4,
+      "name": "ISM 서비스업 PMI (4월)",
+      "actual": null,
+      "forecast": null,
+      "previous": "54.0"
+    },
+    {
+      "date": "2026-05-06",
+      "dayOfWeek": "수",
+      "time": "08:00",
+      "country": "KR",
+      "importance": 4,
+      "name": "소비자물가지수 (CPI, 4월, 전년비)",
+      "actual": null,
+      "forecast": null,
+      "previous": "2.2%"
+    },
+    {
+      "date": "2026-05-06",
+      "dayOfWeek": "수",
+      "time": "10:45",
+      "country": "CN",
+      "importance": 3,
+      "name": "RatingDog 서비스업 PMI (구 차이신, 중국, 4월)",
+      "actual": null,
+      "forecast": "51.5",
+      "previous": "52.1"
+    },
+    {
+      "date": "2026-05-06",
+      "dayOfWeek": "수",
+      "time": "17:00",
+      "country": "EU",
+      "importance": 3,
+      "name": "HCOB 종합 PMI 최종치 (4월)",
+      "actual": null,
+      "forecast": "48.6",
+      "previous": "50.7"
+    },
+    {
+      "date": "2026-05-06",
+      "dayOfWeek": "수",
+      "time": "17:00",
+      "country": "EU",
+      "importance": 3,
+      "name": "HCOB 서비스업 PMI 최종치 (4월)",
+      "actual": null,
+      "forecast": "47.4",
+      "previous": "50.2"
+    },
+    {
+      "date": "2026-05-06",
+      "dayOfWeek": "수",
+      "time": "21:15",
+      "country": "US",
+      "importance": 3,
+      "name": "ADP 민간고용 변화 (4월)",
+      "actual": null,
+      "forecast": "65K",
+      "previous": "62K"
+    },
+    {
+      "date": "2026-05-07",
+      "dayOfWeek": "목",
+      "time": "08:30",
+      "country": "JP",
+      "importance": 4,
+      "name": "평균 현금급여 (3월, 전년비)",
+      "actual": null,
+      "forecast": "3.4%",
+      "previous": "3.3%"
+    },
+    {
+      "date": "2026-05-07",
+      "dayOfWeek": "목",
+      "time": "08:50",
+      "country": "JP",
+      "importance": 4,
+      "name": "BOJ 금융정책결정회의 의사록",
+      "actual": null,
+      "forecast": null,
+      "previous": null
+    },
+    {
+      "date": "2026-05-07",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "비농업 생산성 잠정치 (1Q)",
+      "actual": null,
+      "forecast": null,
+      "previous": null
+    },
+    {
+      "date": "2026-05-08",
+      "dayOfWeek": "금",
+      "time": "08:00",
+      "country": "KR",
+      "importance": 3,
+      "name": "경상수지 (3월)",
+      "actual": null,
+      "forecast": null,
+      "previous": null
+    },
+    {
+      "date": "2026-05-08",
+      "dayOfWeek": "금",
+      "time": "09:30",
+      "country": "JP",
+      "importance": 3,
+      "name": "S&P Global 종합 PMI 최종치 (4월)",
+      "actual": null,
+      "forecast": "52.4",
+      "previous": "53.0"
+    },
+    {
+      "date": "2026-05-08",
+      "dayOfWeek": "금",
+      "time": "09:30",
+      "country": "JP",
+      "importance": 3,
+      "name": "S&P Global 서비스업 PMI 최종치 (4월)",
+      "actual": null,
+      "forecast": "51.2",
+      "previous": "53.4"
+    },
+    {
+      "date": "2026-05-08",
+      "dayOfWeek": "금",
       "time": "21:30",
       "country": "US",
       "importance": 5,
-      "name": "4월 비농업 신규고용 (NFP)",
+      "name": "비농업 신규고용 (NFP, 4월)",
       "actual": null,
-      "forecast": "125K",
-      "previous": "228K"
+      "forecast": "70K",
+      "previous": "178K"
+    },
+    {
+      "date": "2026-05-08",
+      "dayOfWeek": "금",
+      "time": "21:30",
+      "country": "US",
+      "importance": 5,
+      "name": "실업률 (4월)",
+      "actual": null,
+      "forecast": "4.3%",
+      "previous": "4.3%"
+    },
+    {
+      "date": "2026-05-08",
+      "dayOfWeek": "금",
+      "time": "21:30",
+      "country": "US",
+      "importance": 4,
+      "name": "평균 시간당 임금 (4월, 전월비)",
+      "actual": null,
+      "forecast": null,
+      "previous": "0.2%"
+    },
+    {
+      "date": "2026-05-08",
+      "dayOfWeek": "금",
+      "time": "23:00",
+      "country": "US",
+      "importance": 4,
+      "name": "미시간대 소비자심리지수 잠정치 (5월)",
+      "actual": null,
+      "forecast": null,
+      "previous": "49.8"
     }
   ]
 }
