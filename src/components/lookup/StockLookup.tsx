@@ -22,6 +22,17 @@ const RANGE_LABELS: Record<RangeKey, string> = {
   "3y": "3Y",
 };
 
+// 자동완성 검색 인덱스 항목
+type StockSuggestion = {
+  ticker: string;       // 선택 시 input에 들어갈 값 (KR 6자리 코드 / US 영문 티커)
+  name: string;         // 한국어 종목명
+  market: string;       // KOSPI / KOSDAQ / 한국증시 / 미국증시
+  rank: number | null;  // 시총 100위 안이면 rank, 밖이면 null
+  region: "KR" | "US";
+};
+
+const MAX_SUGGESTIONS = 8;
+
 export function StockLookup() {
   // 사용자 입력값
   const [input, setInput] = useState("005930");
@@ -37,33 +48,105 @@ export function StockLookup() {
   const [stockNames, setStockNames] = useState<Record<string, string>>({});
   // 미국 티커 → 한국어 회사명 매핑
   const [usStockNames, setUsStockNames] = useState<Record<string, string>>({});
+  // 자동완성용 통합 인덱스 (KR 2,770 + US 100여)
+  const [searchIndex, setSearchIndex] = useState<StockSuggestion[]>([]);
+  // 현재 매칭된 자동완성 결과
+  const [suggestions, setSuggestions] = useState<StockSuggestion[]>([]);
+  // 드롭다운 표시 여부
+  const [showDropdown, setShowDropdown] = useState(false);
+  // 키보드 네비게이션 선택 인덱스 (-1 = 미선택)
+  const [selectedIdx, setSelectedIdx] = useState(-1);
 
-  // 매핑 데이터 로드 (페이지 진입 시 한 번)
+  // 매핑 데이터 로드 + 자동완성 인덱스 구성 (페이지 진입 시 한 번)
   useEffect(() => {
-    fetch("/data/stock-names.json")
-      .then((res) => (res.ok ? res.json() : {}))
-      .then((data) => setStockNames(data))
-      .catch(() => setStockNames({}));
+    Promise.all([
+      fetch("/data/stock-names.json")
+        .then((r) => (r.ok ? r.json() : {}))
+        .catch(() => ({})),
+      fetch("/data/us-stock-names.json")
+        .then((r) => (r.ok ? r.json() : {}))
+        .catch(() => ({})),
+      fetch("/data/stock-symbols-100-kr.json")
+        .then((r) => (r.ok ? r.json() : { stocks: [] }))
+        .catch(() => ({ stocks: [] })),
+      fetch("/data/stock-symbols-100-us.json")
+        .then((r) => (r.ok ? r.json() : { stocks: [] }))
+        .catch(() => ({ stocks: [] })),
+    ]).then((results) => {
+      const krNames = results[0] as Record<string, string>;
+      const usNames = results[1] as Record<string, unknown>;
+      const krTop = results[2] as {
+        stocks?: { symbol: string; name: string; rank: number; market: string }[];
+      };
+      const usTop = results[3] as {
+        stocks?: { symbol: string; name: string; rank: number }[];
+      };
 
-    fetch("/data/us-stock-names.json")
-      .then((res) => (res.ok ? res.json() : {}))
-      .then((data) => {
-        // _comment, _etfs 같은 메타 필드 제거
-        const filtered: Record<string, string> = {};
-        for (const [k, v] of Object.entries(data)) {
-          if (!k.startsWith("_") && typeof v === "string") {
-            filtered[k] = v;
-          }
+      // _comment, _etfs 같은 메타 필드 제거
+      const usFiltered: Record<string, string> = {};
+      for (const [k, v] of Object.entries(usNames)) {
+        if (!k.startsWith("_") && typeof v === "string") {
+          usFiltered[k] = v;
         }
-        setUsStockNames(filtered);
-      })
-      .catch(() => setUsStockNames({}));
+      }
+
+      setStockNames(krNames);
+      setUsStockNames(usFiltered);
+
+      // 시총 100 lookup 테이블
+      const krTopMap = new Map<string, { rank: number; market: string }>();
+      for (const s of krTop.stocks || []) {
+        krTopMap.set(s.symbol, { rank: s.rank, market: s.market });
+      }
+      const usTopMap = new Map<string, number>();
+      for (const s of usTop.stocks || []) {
+        usTopMap.set(s.symbol, s.rank);
+      }
+
+      // 통합 인덱스 구성
+      const idx: StockSuggestion[] = [];
+      for (const [code, name] of Object.entries(krNames)) {
+        const top = krTopMap.get(code);
+        idx.push({
+          ticker: code,
+          name,
+          market: top?.market || "한국증시",
+          rank: top?.rank ?? null,
+          region: "KR",
+        });
+      }
+      for (const [ticker, name] of Object.entries(usFiltered)) {
+        idx.push({
+          ticker,
+          name,
+          market: "미국증시",
+          rank: usTopMap.get(ticker) ?? null,
+          region: "US",
+        });
+      }
+      setSearchIndex(idx);
+    });
   }, []);
 
-  // 조회 실행
-  async function handleLookup(newRange?: RangeKey) {
+  // 입력 변경 → 디바운스 → 자동완성 매칭
+  useEffect(() => {
+    const q = input.trim();
+    if (!q || searchIndex.length === 0) {
+      setSuggestions([]);
+      return;
+    }
+    const t = setTimeout(() => {
+      setSuggestions(searchSuggestions(q, searchIndex));
+      setSelectedIdx(-1);
+    }, 150);
+    return () => clearTimeout(t);
+  }, [input, searchIndex]);
+
+  // 조회 실행 (overrideSymbol — 자동완성에서 즉시 조회 시 사용)
+  async function handleLookup(newRange?: RangeKey, overrideSymbol?: string) {
     const targetRange = newRange || range;
-    if (!input.trim()) {
+    const symbol = (overrideSymbol ?? input).trim();
+    if (!symbol) {
       setError("종목코드를 입력해 주세요");
       return;
     }
@@ -74,9 +157,9 @@ export function StockLookup() {
     try {
       // 서버 사이드 API 라우트 통해 데이터 요청
       const [quoteRes, chartRes] = await Promise.all([
-        fetch(`/api/quote?symbol=${encodeURIComponent(input)}`),
+        fetch(`/api/quote?symbol=${encodeURIComponent(symbol)}`),
         fetch(
-          `/api/chart?symbol=${encodeURIComponent(input)}&range=${targetRange}`
+          `/api/chart?symbol=${encodeURIComponent(symbol)}&range=${targetRange}`
         ),
       ]);
 
@@ -104,9 +187,49 @@ export function StockLookup() {
     if (quote) handleLookup(newRange);
   }
 
-  // 엔터키로 조회
+  // 자동완성 항목 선택 → 티커로 즉시 조회
+  function selectSuggestion(s: StockSuggestion) {
+    setInput(s.ticker);
+    setShowDropdown(false);
+    setSelectedIdx(-1);
+    handleLookup(undefined, s.ticker);
+  }
+
+  // 키보드 처리: 드롭다운 활성 시 ↑↓ Enter ESC, 아니면 Enter로 조회
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter") handleLookup();
+    if (showDropdown && suggestions.length > 0) {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setSelectedIdx((i) => (i + 1) % suggestions.length);
+        return;
+      }
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setSelectedIdx((i) =>
+          i <= 0 ? suggestions.length - 1 : i - 1
+        );
+        return;
+      }
+      if (e.key === "Enter") {
+        if (selectedIdx >= 0 && selectedIdx < suggestions.length) {
+          e.preventDefault();
+          selectSuggestion(suggestions[selectedIdx]);
+          return;
+        }
+        // 키보드 선택 없이 Enter → 입력값 그대로 조회
+        setShowDropdown(false);
+        handleLookup();
+        return;
+      }
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setShowDropdown(false);
+        return;
+      }
+    }
+    if (e.key === "Enter") {
+      handleLookup();
+    }
   }
 
   const isKRW = quote?.currency === "KRW";
@@ -154,16 +277,50 @@ export function StockLookup() {
       </div>
 
       <div className="bg-navy rounded-xl p-5">
-        {/* 검색창 */}
+        {/* 검색창 + 자동완성 드롭다운 */}
         <div className="flex gap-2 mb-5">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="종목코드 (예: 005930) 또는 미국 티커 (예: NVDA)"
-            className="flex-1 bg-navy-darkest border border-navy-light text-fg px-3.5 py-2.5 rounded-lg text-sm placeholder:text-fg-subtle focus:outline-none focus:border-accent"
-          />
+          <div className="flex-1 relative">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+                setShowDropdown(true);
+              }}
+              onKeyDown={handleKeyDown}
+              onBlur={() => setShowDropdown(false)}
+              placeholder="종목명, 종목코드, 티커 (예: 삼성전자, 005930, NVDA)"
+              className="w-full bg-navy-darkest border border-navy-light text-fg px-3.5 py-2.5 rounded-lg text-sm placeholder:text-fg-subtle focus:outline-none focus:border-accent"
+            />
+            {showDropdown && suggestions.length > 0 && (
+              <ul
+                className="absolute top-full left-0 right-0 mt-1 bg-navy-darkest border border-navy-light rounded-lg overflow-hidden z-20 shadow-lg max-h-80 overflow-y-auto"
+                role="listbox"
+              >
+                {suggestions.map((s, i) => (
+                  <li
+                    key={`${s.region}-${s.ticker}`}
+                    role="option"
+                    aria-selected={i === selectedIdx}
+                    // mouseDown.preventDefault — input의 onBlur보다 먼저 발생해 선택을 가로채는 걸 막음
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      selectSuggestion(s);
+                    }}
+                    onMouseEnter={() => setSelectedIdx(i)}
+                    className={`px-3.5 py-2 text-sm cursor-pointer flex justify-between items-center gap-3 ${
+                      i === selectedIdx ? "bg-navy-light" : "hover:bg-navy"
+                    }`}
+                  >
+                    <div className="text-fg truncate">{s.name}</div>
+                    <div className="text-fg-subtle text-[11px] whitespace-nowrap shrink-0">
+                      {s.ticker} · {s.market}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
           <button
             onClick={() => handleLookup()}
             disabled={loading}
@@ -325,6 +482,48 @@ export function StockLookup() {
       </div>
     </section>
   );
+}
+
+/**
+ * 자동완성 매칭. 4그룹 정렬:
+ *  1. 시총 100 + 앞부분 매칭 (rank 순)
+ *  2. 시총 100 + 부분 매칭 (rank 순)
+ *  3. 시총 100 밖 + 앞부분 매칭 (가나다·알파벳 순)
+ *  4. 시총 100 밖 + 부분 매칭 (가나다·알파벳 순)
+ * 종목명·티커 모두 매칭 대상, 대소문자 무시. 최대 8개 반환.
+ */
+function searchSuggestions(
+  q: string,
+  index: StockSuggestion[]
+): StockSuggestion[] {
+  const lower = q.toLowerCase();
+  const g0: StockSuggestion[] = []; // top100 + startsWith
+  const g1: StockSuggestion[] = []; // top100 + includes
+  const g2: StockSuggestion[] = []; // rest + startsWith
+  const g3: StockSuggestion[] = []; // rest + includes
+
+  for (const e of index) {
+    const nameLower = e.name.toLowerCase();
+    const tickerLower = e.ticker.toLowerCase();
+    const starts =
+      nameLower.startsWith(lower) || tickerLower.startsWith(lower);
+    const incl =
+      !starts && (nameLower.includes(lower) || tickerLower.includes(lower));
+    if (!starts && !incl) continue;
+
+    if (e.rank !== null) {
+      (starts ? g0 : g1).push(e);
+    } else {
+      (starts ? g2 : g3).push(e);
+    }
+  }
+
+  g0.sort((a, b) => (a.rank as number) - (b.rank as number));
+  g1.sort((a, b) => (a.rank as number) - (b.rank as number));
+  g2.sort((a, b) => a.name.localeCompare(b.name, "ko"));
+  g3.sort((a, b) => a.name.localeCompare(b.name, "ko"));
+
+  return [...g0, ...g1, ...g2, ...g3].slice(0, MAX_SUGGESTIONS);
 }
 
 // 숫자 포맷 헬퍼
