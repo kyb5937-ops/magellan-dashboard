@@ -2,16 +2,21 @@ name: 데이터 자동 갱신
 
 # 실행 조건
 on:
-  # 매일 한국시간 16:30 (UTC 07:30) — 한국 장 마감 + 1시간
+  # 매일 한국시간 16:15, 16:45, 17:15 (UTC 07:15, 07:45, 08:15)
+  # KRX 정규장 종가 데이터(15:45 발표) 이후 3번 시도
+  # GitHub Actions cron은 보통 5~30분 지연되므로 다중 슬롯으로 안정성 확보
+  # 동일 데이터면 commit 단계에서 자동 skip (중복 push 없음)
   schedule:
-    - cron: '30 7 * * 1-5'  # 월~금만, KRX 휴일은 무시되고 빈 데이터 됨
+    - cron: '15 7 * * 1-5'   # KST 16:15
+    - cron: '45 7 * * 1-5'   # KST 16:45
+    - cron: '15 8 * * 1-5'   # KST 17:15
+
   # GitHub Actions 탭에서 수동으로도 실행 가능
   workflow_dispatch:
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
-
     steps:
       # 1. 저장소 코드 체크아웃
       - name: 저장소 체크아웃
@@ -31,8 +36,8 @@ jobs:
         run: |
           pip install pykrx pandas requests
 
-      # 4. 어제 날짜 계산 (한국시간 기준)
-      # 오늘 16:30 실행 시 오늘 데이터 수집
+      # 4. 오늘 날짜 계산 (한국시간 기준)
+      # 오늘 16:15+ 실행 시 오늘 데이터 수집
       - name: 오늘 날짜 계산
         id: date
         run: |
@@ -56,10 +61,9 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add public/data/market-flow.json
-
           # 변경사항이 있는지 확인
           if git diff --staged --quiet; then
-            echo "변경사항 없음 — skip"
+            echo "변경사항 없음 - skip"
           else
             git commit -m "데이터 자동 갱신 ${{ steps.date.outputs.date }}"
             git push
