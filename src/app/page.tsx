@@ -1,5 +1,6 @@
 import { DashboardHeader } from "@/components/ui/DashboardHeader";
 import { LiveCardSection } from "@/components/cards/LiveCardSection";
+import { SectorETFSection } from "@/components/sectors/SectorETFSection";
 import { StockLookup } from "@/components/lookup/StockLookup";
 import { DeepDiveSection } from "@/components/deepdive/DeepDiveSection";
 import { MarketFlowSection } from "@/components/marketflow/MarketFlowSection";
@@ -16,6 +17,7 @@ export default function HomePage() {
           label="🇺🇸 MARKETS"
           indicators={US_INDICATORS}
         />
+        <SectorETFSection />
         <LiveCardSection
           label="🇰🇷 KOREA"
           indicators={KR_INDICATORS}
