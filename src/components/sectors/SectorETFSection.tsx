@@ -53,8 +53,10 @@ export function SectorETFSection() {
           ? // 로딩 중: 11개 자리 placeholder
             Array.from({ length: 11 }).map((_, i) => (
               <div key={i} className="bg-navy rounded-lg p-3">
-                <div className="text-base font-medium text-fg">—</div>
-                <div className="text-[11px] text-fg-muted mb-1.5">로딩 중</div>
+                <div className="text-base font-medium text-fg mb-1.5 truncate">
+                  —<span className="text-fg-muted"> · </span>
+                  <span className="text-[11px] text-fg-muted">로딩 중</span>
+                </div>
                 <div className="text-base font-medium text-fg-muted">—</div>
                 <div className="text-[11px] text-fg-subtle mt-0.5">—</div>
               </div>
@@ -71,8 +73,11 @@ function SectorCard({ item }: { item: SectorETFItem }) {
   if (item.error) {
     return (
       <div className="bg-navy rounded-lg p-3 transition-colors hover:bg-navy-light">
-        <div className="text-base font-medium text-fg">{item.symbol}</div>
-        <div className="text-[11px] text-fg-muted mb-1.5">{item.name}</div>
+        <div className="text-base font-medium text-fg mb-1.5 truncate">
+          {item.symbol}
+          <span className="text-fg-muted"> · </span>
+          <span className="text-[11px] text-fg-muted">{item.name}</span>
+        </div>
         <div className="text-base font-medium text-fg-muted">—</div>
         <div className="text-[11px] text-fg-subtle mt-0.5">조회 실패</div>
       </div>
@@ -81,8 +86,11 @@ function SectorCard({ item }: { item: SectorETFItem }) {
 
   return (
     <div className="bg-navy rounded-lg p-3 transition-colors hover:bg-navy-light">
-      <div className="text-base font-medium text-fg">{item.symbol}</div>
-      <div className="text-[11px] text-fg-muted mb-1.5">{item.name}</div>
+      <div className="text-base font-medium text-fg mb-1.5 truncate">
+        {item.symbol}
+        <span className="text-fg-muted"> · </span>
+        <span className="text-[11px] text-fg-muted">{item.name}</span>
+      </div>
       <div className={`text-base font-medium ${changeColor}`}>
         {formatChange(item.change, item.changeType)}
       </div>
