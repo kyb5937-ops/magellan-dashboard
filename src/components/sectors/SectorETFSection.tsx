@@ -48,14 +48,14 @@ export function SectorETFSection() {
       <div className="text-xs font-medium text-fg-muted mb-2 tracking-wider">
         🏢 SPDR 섹터 ETF
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
         {loading && items.length === 0
           ? // 로딩 중: 11개 자리 placeholder
             Array.from({ length: 11 }).map((_, i) => (
               <div key={i} className="bg-navy rounded-lg p-3">
                 <div className="text-base font-medium text-fg">—</div>
                 <div className="text-[11px] text-fg-muted mb-1.5">로딩 중</div>
-                <div className="text-xl font-bold text-fg-muted">—</div>
+                <div className="text-base font-medium text-fg-muted">—</div>
                 <div className="text-[11px] text-fg-subtle mt-0.5">—</div>
               </div>
             ))
@@ -73,7 +73,7 @@ function SectorCard({ item }: { item: SectorETFItem }) {
       <div className="bg-navy rounded-lg p-3 transition-colors hover:bg-navy-light">
         <div className="text-base font-medium text-fg">{item.symbol}</div>
         <div className="text-[11px] text-fg-muted mb-1.5">{item.name}</div>
-        <div className="text-xl font-bold text-fg-muted">—</div>
+        <div className="text-base font-medium text-fg-muted">—</div>
         <div className="text-[11px] text-fg-subtle mt-0.5">조회 실패</div>
       </div>
     );
@@ -83,7 +83,7 @@ function SectorCard({ item }: { item: SectorETFItem }) {
     <div className="bg-navy rounded-lg p-3 transition-colors hover:bg-navy-light">
       <div className="text-base font-medium text-fg">{item.symbol}</div>
       <div className="text-[11px] text-fg-muted mb-1.5">{item.name}</div>
-      <div className={`text-xl font-bold ${changeColor}`}>
+      <div className={`text-base font-medium ${changeColor}`}>
         {formatChange(item.change, item.changeType)}
       </div>
       <div className="text-[11px] text-fg-subtle mt-0.5 tabular-nums">
