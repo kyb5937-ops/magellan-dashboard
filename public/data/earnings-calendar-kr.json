@@ -13,8 +13,11 @@
       "marketCapRank": 13,
       "quarter": "26Q1",
       "epsForecast": "-2,058원",
-      "epsPrevious": null,
-      "revenueForecast": "3.5조원"
+      "epsActual": null,
+      "epsPreviousYoY": "-3,050원",
+      "revenueForecast": "3.5조원",
+      "revenueActual": null,
+      "surprise": null
     },
     {
       "date": "2026-04-28",
@@ -26,8 +29,11 @@
       "marketCapRank": 18,
       "quarter": "26Q1",
       "epsForecast": "5,647원",
-      "epsPrevious": null,
-      "revenueForecast": "1.1조원"
+      "epsActual": null,
+      "epsPreviousYoY": null,
+      "revenueForecast": "1.1조원",
+      "revenueActual": null,
+      "surprise": null
     },
     {
       "date": "2026-04-28",
@@ -39,8 +45,11 @@
       "marketCapRank": 52,
       "quarter": "26Q1",
       "epsForecast": "870원",
-      "epsPrevious": null,
-      "revenueForecast": "6.8조원"
+      "epsActual": null,
+      "epsPreviousYoY": null,
+      "revenueForecast": "6.8조원",
+      "revenueActual": null,
+      "surprise": null
     },
     {
       "date": "2026-04-28",
@@ -52,8 +61,11 @@
       "marketCapRank": 58,
       "quarter": "26Q1",
       "epsForecast": "178원",
-      "epsPrevious": null,
-      "revenueForecast": "2.0조원"
+      "epsActual": null,
+      "epsPreviousYoY": null,
+      "revenueForecast": "2.0조원",
+      "revenueActual": null,
+      "surprise": null
     },
     {
       "date": "2026-04-28",
@@ -65,8 +77,11 @@
       "marketCapRank": 87,
       "quarter": "26Q1",
       "epsForecast": "-416원",
-      "epsPrevious": null,
-      "revenueForecast": "3.7조원"
+      "epsActual": null,
+      "epsPreviousYoY": null,
+      "revenueForecast": "3.7조원",
+      "revenueActual": null,
+      "surprise": null
     },
     {
       "date": "2026-04-28",
@@ -78,8 +93,11 @@
       "marketCapRank": 99,
       "quarter": "26Q1",
       "epsForecast": "1,155원",
-      "epsPrevious": null,
-      "revenueForecast": "2.2조원"
+      "epsActual": null,
+      "epsPreviousYoY": null,
+      "revenueForecast": "2.2조원",
+      "revenueActual": null,
+      "surprise": null
     }
   ]
 }

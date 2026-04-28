@@ -203,17 +203,81 @@ def is_earnings_disclosure(report_nm: str) -> bool:
 
 # ── 4. 네이버금융 컨센서스 스크래핑 ────────────────────────────────────
 
-def fetch_naver_consensus(stock_code: str):
-    """네이버 종목 페이지 '기업실적분석' 테이블에서 다음 분기 EPS·매출 추정 추출.
+def _format_kr_eps(value_str):
+    """네이버 셀 값(쉼표 제거된 문자열) → 'XXX원' 포맷. 실패 시 None."""
+    if not value_str:
+        return None
+    try:
+        return f"{int(float(value_str)):,}원"
+    except (TypeError, ValueError):
+        return None
 
-    테이블 구조:
-    - 컨테이너: div.section.cop_analysis
-    - thead 1행: 카테고리 (연간 / 분기)
-    - thead 2행: 실제 분기 라벨 (마지막에 'YYYY.MM (E)' = 다가올 분기 추정치)
-    - tbody: 행마다 '매출액(억원)', '영업이익(억원)', 'EPS(원)' 등 행 + 10개 td
 
-    실패 시 (None, None) 반환.
+def _format_kr_revenue(value_str):
+    """네이버 셀 값(억원 단위) → '조' 또는 '억원' 포맷. 실패 시 None."""
+    if not value_str:
+        return None
+    try:
+        rev_num = float(value_str)
+    except (TypeError, ValueError):
+        return None
+    if rev_num >= 10000:
+        return f"{rev_num / 10000:.1f}조원"
+    return f"{int(rev_num):,}억원"
+
+
+def _quarter_label_from_naver_header(text: str):
+    """네이버 헤더 텍스트(예: '2025.12', '2026.03 (E)') → 'YYQX'.
+    파싱 실패 시 None."""
+    if not text:
+        return None
+    m = re.search(r"(\d{4})\.(\d{2})", text)
+    if not m:
+        return None
+    y = int(m.group(1)) % 100
+    mo = int(m.group(2))
+    if 1 <= mo <= 3:
+        return f"{y:02d}Q1"
+    if 4 <= mo <= 6:
+        return f"{y:02d}Q2"
+    if 7 <= mo <= 9:
+        return f"{y:02d}Q3"
+    return f"{y:02d}Q4"
+
+
+def _prev_year_quarter(qlabel: str):
+    """'26Q1' → '25Q1'."""
+    if not qlabel or len(qlabel) != 4:
+        return None
+    try:
+        y = int(qlabel[:2])
+    except ValueError:
+        return None
+    return f"{(y - 1) % 100:02d}{qlabel[2:]}"
+
+
+def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
+    """네이버 종목 페이지 '기업실적분석' 분기 테이블에서 추출.
+
+    target_quarter (예: "26Q1") 가 주어지면 분기 라벨 매칭으로:
+      epsActual / revenueActual = target_quarter 컬럼 값 (단, (E) 표시면 미발표 → null)
+      epsPreviousYoY            = target_quarter - 1년 컬럼 값
+      epsForecast / revenueForecast = (E) 표시된 컬럼 값 (있을 때만)
+
+    target_quarter가 None이면 단순 위치 기반 fallback ((E) 직전·4분기 전).
+
+    반환 dict 키: epsForecast / epsActual / epsPreviousYoY /
+                  revenueForecast / revenueActual / surprise
+    실패 항목은 None.
     """
+    empty = {
+        "epsForecast": None,
+        "epsActual": None,
+        "epsPreviousYoY": None,
+        "revenueForecast": None,
+        "revenueActual": None,
+        "surprise": None,
+    }
     try:
         url = f"https://finance.naver.com/item/main.naver?code={stock_code}"
         r = requests.get(url, timeout=10, headers={
@@ -221,72 +285,108 @@ def fetch_naver_consensus(stock_code: str):
             "Accept-Language": "ko-KR,ko;q=0.9",
         })
         if r.status_code != 200:
-            return (None, None)
+            return empty
         soup = BeautifulSoup(r.text, "html.parser")
         section = soup.select_one("div.section.cop_analysis")
         if section is None:
-            return (None, None)
+            return empty
         table = section.find("table")
         if table is None:
-            return (None, None)
+            return empty
 
         thead = table.find("thead")
         if thead is None:
-            return (None, None)
+            return empty
         thead_rows = thead.find_all("tr")
         if len(thead_rows) < 2:
-            return (None, None)
-        # 2번째 row의 th들이 실제 분기 라벨
+            return empty
         col_headers = thead_rows[1].find_all("th")
-        # 가장 마지막의 (E) 표기된 컬럼 = 다가올 분기 추정치
+
+        def is_estimate(idx):
+            if idx < 0 or idx >= len(col_headers):
+                return True
+            em = col_headers[idx].find("em")
+            return bool(em and "E" in em.get_text())
+
+        # 마지막 (E) 컬럼 = forecast 컬럼
         future_idx = None
         for i, th in enumerate(col_headers):
             em = th.find("em")
             if em and "E" in em.get_text():
                 future_idx = i
         if future_idx is None:
-            return (None, None)
+            return empty
 
-        eps_val = None
-        rev_val = None
+        # 컬럼별 분기 라벨 매핑 (분기 영역만, "YYYY.MM" 텍스트가 있는 컬럼만)
+        col_labels = {}
+        for i, th in enumerate(col_headers):
+            text = th.get_text(strip=True)
+            ql = _quarter_label_from_naver_header(text)
+            if ql:
+                col_labels[i] = ql
+
+        # actual_idx / yoy_idx 결정
+        actual_idx = None
+        yoy_idx = None
+        if target_quarter:
+            yoy_q = _prev_year_quarter(target_quarter)
+            for i, ql in col_labels.items():
+                if ql == target_quarter and not is_estimate(i):
+                    actual_idx = i
+                if ql == yoy_q and not is_estimate(i):
+                    yoy_idx = i
+        else:
+            # fallback: (E) 직전 / 4분기 전
+            if future_idx - 1 >= 0 and not is_estimate(future_idx - 1):
+                actual_idx = future_idx - 1
+            if future_idx - 4 >= 0 and not is_estimate(future_idx - 4):
+                yoy_idx = future_idx - 4
+
         tbody = table.find("tbody")
         if tbody is None:
-            return (None, None)
+            return empty
+
+        # 행별 셀 값 수집
+        eps_cells = {}
+        rev_cells = {}
         for tr in tbody.find_all("tr"):
             label_th = tr.find("th")
             if not label_th:
                 continue
             label = label_th.get_text(strip=True)
             tds = tr.find_all("td")
-            if future_idx >= len(tds):
+            if "EPS" in label:
+                target = eps_cells
+            elif "매출액" in label:
+                target = rev_cells
+            else:
                 continue
-            cell = tds[future_idx].get_text(strip=True).replace(",", "")
-            if not cell or cell in ("-", "—", "N/A"):
-                continue
-            if "EPS" in label and eps_val is None:
-                eps_val = cell
-            elif "매출액" in label and rev_val is None:
-                rev_val = cell
+            for i, td in enumerate(tds):
+                cell = td.get_text(strip=True).replace(",", "")
+                if cell and cell not in ("-", "—", "N/A"):
+                    target[i] = cell
 
-        eps_str = None
-        if eps_val:
-            try:
-                eps_str = f"{int(float(eps_val)):,}원"
-            except ValueError:
-                pass
-        rev_str = None
-        if rev_val:
-            try:
-                rev_num = float(rev_val)
-                if rev_num >= 10000:
-                    rev_str = f"{rev_num / 10000:.1f}조원"
-                else:
-                    rev_str = f"{int(rev_num):,}억원"
-            except ValueError:
-                pass
-        return (eps_str, rev_str)
+        eps_forecast = _format_kr_eps(eps_cells.get(future_idx))
+        eps_actual = _format_kr_eps(eps_cells.get(actual_idx)) if actual_idx is not None else None
+        eps_yoy = _format_kr_eps(eps_cells.get(yoy_idx)) if yoy_idx is not None else None
+
+        rev_forecast = _format_kr_revenue(rev_cells.get(future_idx))
+        rev_actual = _format_kr_revenue(rev_cells.get(actual_idx)) if actual_idx is not None else None
+
+        # 네이버는 forecast → actual 로 컬럼 자체가 갱신되어 같은 분기의 보존된 forecast가 없음.
+        # → 정확한 EPS 서프라이즈 산출 불가. null.
+        surprise = None
+
+        return {
+            "epsForecast": eps_forecast,
+            "epsActual": eps_actual,
+            "epsPreviousYoY": eps_yoy,
+            "revenueForecast": rev_forecast,
+            "revenueActual": rev_actual,
+            "surprise": surprise,
+        }
     except Exception:
-        return (None, None)
+        return empty
 
 
 # ── 5. 공시 → 캘린더 이벤트 ────────────────────────────────────────────
@@ -374,8 +474,9 @@ def main():
                 # 14일 안 미래 + 오늘 이후만 (지난 공시는 캘린더에 안 보임)
                 if today <= ev_date <= today + timedelta(days=14):
                     consensus_attempted += 1
-                    eps_fcast, rev_fcast = fetch_naver_consensus(stock_code)
-                    if eps_fcast or rev_fcast:
+                    target_q = infer_quarter_kr(ev_date)
+                    cdata = fetch_naver_consensus(stock_code, target_quarter=target_q)
+                    if cdata.get("epsForecast") or cdata.get("revenueForecast"):
                         consensus_succeeded += 1
                     events.append({
                         "date": ev_date.isoformat(),
@@ -386,9 +487,12 @@ def main():
                         "name": name,
                         "marketCapRank": rank,
                         "quarter": infer_quarter_kr(ev_date),
-                        "epsForecast": eps_fcast,
-                        "epsPrevious": None,
-                        "revenueForecast": rev_fcast,
+                        "epsForecast": cdata.get("epsForecast"),
+                        "epsActual": cdata.get("epsActual"),
+                        "epsPreviousYoY": cdata.get("epsPreviousYoY"),
+                        "revenueForecast": cdata.get("revenueForecast"),
+                        "revenueActual": cdata.get("revenueActual"),
+                        "surprise": cdata.get("surprise"),
                     })
 
         if i % 10 == 0:

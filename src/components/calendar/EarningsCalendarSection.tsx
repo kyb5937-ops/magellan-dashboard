@@ -3,22 +3,21 @@
 import { useEffect, useState } from "react";
 
 /**
- * EarningsCalendarSection v1.0
+ * EarningsCalendarSection v1.1
  *
  * 한국·미국 시총 100 종목의 이번 주 실적 발표 캘린더.
+ * 발표 전(예상) / 발표 후(실제+서프라이즈) 동시 추적 모드.
  *
- * 데이터 소스 (Phase 1, 모두 AI 큐레이션):
- * - public/data/earnings-calendar-kr.json (한국, 매주 일요일 사용자 갱신)
- * - public/data/earnings-calendar-us.json (미국, 매주 일요일 사용자 갱신)
- *
- * Phase 2 (예정): 미국 부분만 GitHub Actions + Yahoo Finance 자동 fetch로 전환
- * → 그때도 컴포넌트 변경 불필요 (JSON 형식 동일).
+ * 데이터 소스:
+ * - public/data/earnings-calendar-kr.json (네이버 + DART)
+ * - public/data/earnings-calendar-us.json (yfinance)
  *
  * 디자인:
- * - 경제 캘린더와 동일한 카드 스타일 (bg-navy)
- * - 6컬럼: 시점 / 국가 / 종목 / 분기 / EPS 예상 / 매출 예상
+ * - 6컬럼: 시점 / 국가 / 종목 / 분기 / EPS / 매출
+ * - EPS·매출 셀은 발표 전/후로 내용이 다름 (옵션 B)
+ *   · 발표 전: 예상 (큰 글씨) + 전년 동기 (서브)
+ *   · 발표 후: 실제 (큰) + 서프라이즈 색 + 예상/YoY (서브)
  * - 시총 Top 10 종목 amber 배경 강조
- * - 빈 데이터일 때 "이번 주 발표 예정 종목 없음" placeholder
  */
 
 type CountryCode = "KR" | "US";
@@ -31,10 +30,13 @@ interface EarningsEvent {
   symbol: string;        // "AAPL" | "005930"
   name: string;          // 한국어 종목명
   marketCapRank: number; // 1~100
-  quarter: string;       // "25Q1" | "24Q4"
+  quarter: string;       // "26Q1" | "25Q4"
   epsForecast: string | null;
-  epsPrevious: string | null;
+  epsActual: string | null;        // 발표 후에만 채워짐
+  epsPreviousYoY: string | null;   // 전년 동기 비교용
   revenueForecast: string | null;
+  revenueActual: string | null;    // 발표 후에만 채워짐
+  surprise: string | null;         // "+4.5%" / "-2.1%" 형식
 }
 
 interface EarningsCalendarData {
@@ -64,7 +66,7 @@ function formatTime(time: string): string {
   return TIME_LABEL[time] || time;
 }
 
-const GRID_COLS = "grid-cols-[80px_60px_1fr_70px_110px_130px]";
+const GRID_COLS = "grid-cols-[80px_60px_1fr_70px_140px_140px]";
 
 function CountryBadge({ country }: { country: CountryCode }) {
   return (
@@ -73,6 +75,62 @@ function CountryBadge({ country }: { country: CountryCode }) {
     >
       {COUNTRY_LABEL[country]}
     </span>
+  );
+}
+
+function surpriseColor(surprise: string | null): string {
+  if (!surprise) return "text-fg-subtle";
+  // "+4.5%" / "-2.1%" — 부호 앞글자로 판별
+  if (surprise.startsWith("-")) return "text-down";
+  return "text-up";
+}
+
+function EpsCell({ event }: { event: EarningsEvent }) {
+  const reported = event.epsActual !== null;
+  if (reported) {
+    return (
+      <div className="text-right whitespace-nowrap">
+        <div className="text-fg text-[13px] flex items-baseline justify-end gap-1.5">
+          <span>{event.epsActual}</span>
+          {event.surprise && (
+            <span className={`text-[11px] font-medium ${surpriseColor(event.surprise)}`}>
+              {event.surprise}
+            </span>
+          )}
+        </div>
+        <div className="text-[10px] text-fg-subtle">
+          예상 {event.epsForecast ?? "—"}
+          {event.epsPreviousYoY && <> · YoY {event.epsPreviousYoY}</>}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="text-right whitespace-nowrap">
+      <div className="text-fg text-[13px]">{event.epsForecast ?? "—"}</div>
+      {event.epsPreviousYoY && (
+        <div className="text-[10px] text-fg-subtle">YoY {event.epsPreviousYoY}</div>
+      )}
+    </div>
+  );
+}
+
+function RevenueCell({ event }: { event: EarningsEvent }) {
+  const reported = event.revenueActual !== null;
+  if (reported) {
+    return (
+      <div className="text-right whitespace-nowrap">
+        <div className="text-fg text-[13px]">{event.revenueActual}</div>
+        <div className="text-[10px] text-fg-subtle">
+          예상 {event.revenueForecast ?? "—"}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="text-right whitespace-nowrap">
+      <div className="text-fg text-[13px]">{event.revenueForecast ?? "—"}</div>
+    </div>
   );
 }
 
@@ -146,8 +204,8 @@ export function EarningsCalendarSection() {
               <div>국가</div>
               <div>종목</div>
               <div>분기</div>
-              <div className="text-right">EPS 예상</div>
-              <div className="text-right">매출 예상</div>
+              <div className="text-right">EPS</div>
+              <div className="text-right">매출</div>
             </div>
 
             {/* 본문 */}
@@ -207,12 +265,8 @@ export function EarningsCalendarSection() {
                           <div className="text-fg-muted text-[13px] font-mono">
                             {event.quarter}
                           </div>
-                          <div className="text-right text-fg text-[13px] whitespace-nowrap">
-                            {event.epsForecast ?? "—"}
-                          </div>
-                          <div className="text-right text-fg text-[13px] whitespace-nowrap">
-                            {event.revenueForecast ?? "—"}
-                          </div>
+                          <EpsCell event={event} />
+                          <RevenueCell event={event} />
                         </div>
                       );
                     })}
@@ -225,9 +279,9 @@ export function EarningsCalendarSection() {
         {/* 푸터 */}
         <div className="px-5 py-3 text-[11px] text-fg-subtle flex items-center justify-between flex-wrap gap-2 border-t border-navy-light">
           <div>
-            시총 <span className="text-amber-400">Top 10</span> 강조 · 시점:{" "}
-            <span className="text-fg-muted">장 전</span> /{" "}
-            <span className="text-fg-muted">장 후</span> (KST 기준)
+            시총 <span className="text-amber-400">Top 10</span> 강조 · 발표 후{" "}
+            <span className="text-up">+</span>/<span className="text-down">−</span> 서프라이즈 ·
+            YoY = 전년 동기
           </div>
           <div className="text-fg-subtle/70">
             출처: Yahoo Finance · 네이버금융 · DART

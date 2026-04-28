@@ -112,6 +112,102 @@ def format_revenue(value) -> str:
     return f"${v:,.0f}"
 
 
+def format_surprise(value) -> str:
+    """yfinance Surprise(%) → '+6.2%' / '-3.1%' 문자열"""
+    if value is None or pd.isna(value):
+        return None
+    try:
+        v = float(value)
+    except (TypeError, ValueError):
+        return None
+    sign = "+" if v >= 0 else ""
+    return f"{sign}{v:.1f}%"
+
+
+def calc_surprise(actual, forecast) -> str:
+    """yfinance Surprise(%) 누락 시 EPS 실제·예상으로 직접 계산.
+    forecast=0 이면 NaN이 나오므로 None 반환."""
+    if actual is None or forecast is None or pd.isna(actual) or pd.isna(forecast):
+        return None
+    try:
+        a = float(actual)
+        f = float(forecast)
+    except (TypeError, ValueError):
+        return None
+    if f == 0:
+        return None
+    pct = (a - f) / abs(f) * 100
+    sign = "+" if pct >= 0 else ""
+    return f"{sign}{pct:.1f}%"
+
+
+def find_prev_year_eps(edf, current_ts) -> float:
+    """earnings_dates에서 current_ts 기준 ~365일 전 (330~400일 범위) 의
+    'Reported EPS' 값을 찾아 반환. 없으면 None."""
+    best = None
+    best_delta = None
+    try:
+        for past_ts in edf.index:
+            if past_ts >= current_ts:
+                continue
+            delta_days = (current_ts - past_ts).days
+            if 330 <= delta_days <= 400:
+                actual = edf.loc[past_ts, "Reported EPS"]
+                if actual is not None and not pd.isna(actual):
+                    # 가장 365일에 가까운 것 선택
+                    diff = abs(delta_days - 365)
+                    if best_delta is None or diff < best_delta:
+                        best = float(actual)
+                        best_delta = diff
+    except Exception:
+        return None
+    return best
+
+
+def build_quarterly_revenue_map(ticker):
+    """ticker.quarterly_income_stmt에서 분기 결산일 → Total Revenue 매핑."""
+    rev_map = {}
+    try:
+        qis = ticker.quarterly_income_stmt
+        if qis is None or (hasattr(qis, "empty") and qis.empty):
+            return rev_map
+        if "Total Revenue" not in qis.index:
+            return rev_map
+        for col in qis.columns:
+            try:
+                v = qis.loc["Total Revenue", col]
+                if v is None or pd.isna(v):
+                    continue
+                # col은 Timestamp (분기 결산일)
+                period_d = col.date() if hasattr(col, "date") else col
+                rev_map[period_d] = float(v)
+            except Exception:
+                continue
+    except Exception:
+        pass
+    return rev_map
+
+
+def find_revenue_for_announce(rev_map, announce_date):
+    """발표일 기준 0~90일 이전 분기 결산일의 매출. 없으면 None."""
+    if not rev_map:
+        return None
+    best_period = None
+    best_delta = None
+    for period_d in rev_map:
+        try:
+            delta = (announce_date - period_d).days
+        except Exception:
+            continue
+        if 0 <= delta <= 90:
+            if best_delta is None or delta < best_delta:
+                best_period = period_d
+                best_delta = delta
+    if best_period is None:
+        return None
+    return rev_map[best_period]
+
+
 def fetch_for_symbol(symbol: str, start: date, end: date):
     """단일 종목의 [start, end] 범위 내 실적 발표 정보 리스트 반환.
 
@@ -124,18 +220,19 @@ def fetch_for_symbol(symbol: str, start: date, end: date):
         return []
 
     try:
-        edf = ticker.earnings_dates
+        edf_full = ticker.earnings_dates
     except Exception as e:
         print(f"  ⚠️ {symbol} earnings_dates 조회 실패: {e}", file=sys.stderr)
         return []
 
-    if edf is None or edf.empty:
+    if edf_full is None or edf_full.empty:
         return []
 
     # 범위 필터 (인덱스가 timezone-aware Timestamp)
+    # 단, 전년 동기 EPS 탐색은 edf_full(과거 전체)을 사용
     try:
-        mask = (edf.index.date >= start) & (edf.index.date <= end)
-        edf = edf[mask]
+        mask = (edf_full.index.date >= start) & (edf_full.index.date <= end)
+        edf = edf_full[mask]
     except Exception:
         return []
 
@@ -160,19 +257,41 @@ def fetch_for_symbol(symbol: str, start: date, end: date):
     except Exception:
         revenue_est = None
 
+    # 분기별 실제 매출 매핑 (발표 후 매출 actual 채우기용)
+    rev_map = build_quarterly_revenue_map(ticker)
+
     results = []
     for ts, row in edf.iterrows():
         ev_date = ts.date() if hasattr(ts, "date") else ts
         eps_est = row.get("EPS Estimate")
         eps_actual = row.get("Reported EPS")
+        surprise_pct = row.get("Surprise(%)")
+
+        # 발표 완료 여부 (이번 분기 실제 EPS가 있으면 발표 완료)
+        is_reported = eps_actual is not None and not pd.isna(eps_actual)
+
+        # 전년 동기 EPS (~365일 전)
+        prev_yoy = find_prev_year_eps(edf_full, ts)
+
+        # 매출 actual: 발표 완료된 경우만 채우기 시도
+        rev_actual = find_revenue_for_announce(rev_map, ev_date) if is_reported else None
+
+        # 서프라이즈
+        surprise_str = format_surprise(surprise_pct) if is_reported else None
+        if is_reported and surprise_str is None:
+            surprise_str = calc_surprise(eps_actual, eps_est)
+
         results.append({
             "date": ev_date.isoformat(),
             "dayOfWeek": DAY_OF_WEEK_KR[ev_date.weekday()],
             "time": classify_time(ts),
             "quarter": infer_quarter(ev_date),
             "epsForecast": format_eps(eps_est),
-            "epsPrevious": format_eps(eps_actual) if eps_actual is not None and not pd.isna(eps_actual) else None,
+            "epsActual": format_eps(eps_actual) if is_reported else None,
+            "epsPreviousYoY": format_eps(prev_yoy),
             "revenueForecast": format_revenue(revenue_est),
+            "revenueActual": format_revenue(rev_actual),
+            "surprise": surprise_str,
         })
     return results
 
@@ -216,8 +335,11 @@ def main():
                 "marketCapRank": rank,
                 "quarter": p["quarter"],
                 "epsForecast": p["epsForecast"],
-                "epsPrevious": p["epsPrevious"],
+                "epsActual": p["epsActual"],
+                "epsPreviousYoY": p["epsPreviousYoY"],
                 "revenueForecast": p["revenueForecast"],
+                "revenueActual": p["revenueActual"],
+                "surprise": p["surprise"],
             })
 
         if i % 10 == 0:
@@ -238,10 +360,10 @@ def main():
             return 5000
 
     # (symbol, date) 중복 제거 — yfinance가 같은 발표를 두 번 반환하는 경우가 있음.
-    # epsPrevious(실적 발표치)가 채워진 행을 우선 보존, 그다음 epsForecast 채워진 행.
+    # epsActual(실적 발표치)이 채워진 행을 우선 보존, 그다음 epsForecast 채워진 행.
     def dedupe_score(ev: dict) -> int:
         s = 0
-        if ev.get("epsPrevious") is not None:
+        if ev.get("epsActual") is not None:
             s += 2
         if ev.get("epsForecast") is not None:
             s += 1
