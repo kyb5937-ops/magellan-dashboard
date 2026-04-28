@@ -101,6 +101,10 @@ def format_revenue(value) -> str:
         v = float(value)
     except (TypeError, ValueError):
         return None
+    # yfinance가 일부 외국 ADR(예: TM 토요타)에 대해 현지 통화(JPY 등) 단위로
+    # revenue를 반환해 비현실적 값이 나오는 경우가 있어 $5T 초과는 신뢰하지 않음.
+    if v > 5_000_000_000_000:
+        return None
     if v >= 1_000_000_000:
         return f"${v / 1_000_000_000:.2f}B"
     if v >= 1_000_000:
@@ -232,6 +236,26 @@ def main():
             return int(t.replace(":", ""))
         except ValueError:
             return 5000
+
+    # (symbol, date) 중복 제거 — yfinance가 같은 발표를 두 번 반환하는 경우가 있음.
+    # epsPrevious(실적 발표치)가 채워진 행을 우선 보존, 그다음 epsForecast 채워진 행.
+    def dedupe_score(ev: dict) -> int:
+        s = 0
+        if ev.get("epsPrevious") is not None:
+            s += 2
+        if ev.get("epsForecast") is not None:
+            s += 1
+        return s
+
+    deduped: dict[tuple[str, str], dict] = {}
+    for ev in events:
+        k = (ev["symbol"], ev["date"])
+        if k not in deduped or dedupe_score(ev) > dedupe_score(deduped[k]):
+            deduped[k] = ev
+    dedup_removed = len(events) - len(deduped)
+    events = list(deduped.values())
+    if dedup_removed:
+        print(f"  🧹 dedupe: {dedup_removed}건 중복 제거")
 
     events.sort(key=lambda e: (e["date"], time_key(e["time"]), e["marketCapRank"]))
 

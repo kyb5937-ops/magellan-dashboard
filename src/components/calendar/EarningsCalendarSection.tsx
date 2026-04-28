@@ -201,7 +201,7 @@ export function EarningsCalendarSection() {
                               {event.name}
                             </div>
                             <div className="text-[11px] text-fg-subtle truncate font-mono">
-                              {event.symbol} · 시총 #{event.marketCapRank}
+                              {event.symbol} · 시총 {event.country} #{event.marketCapRank}
                             </div>
                           </div>
                           <div className="text-fg-muted text-[13px] font-mono">
