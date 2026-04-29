@@ -1,19 +1,8 @@
 {
   "weekStart": "2026-04-29",
   "weekEnd": "2026-05-08",
-  "lastUpdated": "2026-04-28",
+  "lastUpdated": "2026-04-29",
   "events": [
-{
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "03:00",
-      "country": "US",
-      "importance": 5,
-      "name": "FOMC 금리 결정 + 파월 회견",
-      "actual": null,
-      "forecast": "동결(3.50%~3.75%)",
-      "previous": "3.50%~3.75%"
-    },
     {
       "date": "2026-04-29",
       "dayOfWeek": "수",
@@ -35,6 +24,17 @@
       "actual": null,
       "forecast": "-$86.30B",
       "previous": "-$98.53B"
+    },
+    {
+      "date": "2026-04-30",
+      "dayOfWeek": "목",
+      "time": "03:00",
+      "country": "US",
+      "importance": 5,
+      "name": "FOMC 금리 결정 + 파월 회견",
+      "actual": null,
+      "forecast": "동결(3.50%~3.75%)",
+      "previous": "3.50%~3.75%"
     },
     {
       "date": "2026-04-30",
