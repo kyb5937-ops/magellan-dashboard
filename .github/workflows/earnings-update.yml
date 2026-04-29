@@ -13,6 +13,10 @@ on:
   # GitHub Actions 탭에서 수동 실행 가능
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   update-earnings:
     runs-on: ubuntu-latest
