@@ -389,20 +389,20 @@
     },
     {
       "rank": 65,
+      "symbol": "018260",
+      "name": "삼성에스디에스",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 66,
       "symbol": "259960",
       "name": "크래프톤",
       "market": "KOSPI"
     },
     {
-      "rank": 66,
+      "rank": 67,
       "symbol": "006260",
       "name": "LS",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 67,
-      "symbol": "018260",
-      "name": "삼성에스디에스",
       "market": "KOSPI"
     },
     {
