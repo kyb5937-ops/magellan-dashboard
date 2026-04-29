@@ -63,7 +63,7 @@ EARNINGS_KEYWORDS = [
 # ── 1. KOSPI + KOSDAQ 시총 상위 100 ─────────────────────────────────────
 
 # 우선주 패턴: 종목명 끝이 "우" 한 글자, 또는 "우[숫자][A-Z]?" 패턴
-PREFERRED_PATTERN = re.compile(r"우[0-9]?[A-Z]?$|\(우\)$")
+PREFERRED_PATTERN = re.compile(r"우[0-9]?[A-Z]?$|\(우\)$|우\(.+\)$")
 
 
 def is_preferred_share(name: str) -> bool:
@@ -76,16 +76,26 @@ def is_preferred_share(name: str) -> bool:
 def _fetch_market_cap_with_fallback():
     """오늘부터 거꾸로 영업일 시총 데이터 시도. (기준일, kospi_df, kosdaq_df) 반환.
     pykrx의 get_market_cap_by_ticker는 KRX 로그인 필요 (KRX_ID/KRX_PW 환경변수)."""
+    last_error = None
     for offset in range(0, 10):
         d = (date.today() - timedelta(days=offset)).strftime("%Y%m%d")
         try:
             df_k = stock.get_market_cap_by_ticker(d, market="KOSPI")
             if df_k is None or df_k.empty:
+                print(f"  {d} KOSPI: 빈 결과 (df_k.empty)", file=sys.stderr)
                 continue
             df_q = stock.get_market_cap_by_ticker(d, market="KOSDAQ")
+            if df_q is None or df_q.empty:
+                print(f"  {d} KOSDAQ: 빈 결과 (df_q.empty)", file=sys.stderr)
+                continue
+            print(f"  ✅ KRX 시총 조회 성공: 기준일={d} (KOSPI {len(df_k)}종목, KOSDAQ {len(df_q)}종목)")
+            print(f"  KOSPI 컬럼명: {df_k.columns.tolist()}")
             return d, df_k, df_q
-        except Exception:
+        except Exception as e:
+            last_error = e
+            print(f"  {d} 실패: {type(e).__name__}: {e}", file=sys.stderr)
             continue
+    print(f"  ❌ 10일 모두 실패. 마지막 에러: {last_error}", file=sys.stderr)
     return None, None, None
 
 
@@ -115,9 +125,20 @@ def build_universe():
                 "mcap": int(row.get("시가총액", 0)),
             })
 
+    # mcap 검증
+    mcap_zero_count = sum(1 for r in rows if r["mcap"] == 0)
+    print(f"  rows 수집: {len(rows)}종목 (mcap=0인 종목: {mcap_zero_count})")
+    if mcap_zero_count > len(rows) * 0.5:
+        print(f"  ⚠️ mcap이 절반 이상 0임. 컬럼명 또는 row 구조 확인 필요!", file=sys.stderr)
+        if df_kospi is not None and not df_kospi.empty:
+            first_ticker = df_kospi.index[0]
+            first_row = df_kospi.iloc[0]
+            print(f"  KOSPI 첫 행 ({first_ticker}): {first_row.to_dict()}", file=sys.stderr)
+
     # 시총 내림차순 정렬, 상위 100
     rows.sort(key=lambda r: r["mcap"], reverse=True)
     top100 = rows[:100]
+    print(f"  정렬 후 상위 5: {[(r['name'], r['mcap']) for r in top100[:5]]}")
 
     output = {
         "lastUpdated": date.today().isoformat(),
@@ -438,6 +459,14 @@ def main():
 
     # Step 1: Universe
     universe = build_universe()
+    if universe:
+        top5_summary = [f"{s['name']}({s['symbol']})" for s in universe[:5]]
+        print(f"  Universe 상위 5: {top5_summary}")
+        top3_names = [s['name'] for s in universe[:3]]
+        if not any('삼성전자' in n or 'SK하이닉스' in n for n in top3_names):
+            print(f"  ⚠️ 삼성전자/SK하이닉스가 상위 3에 없음. Universe 정렬 의심!", file=sys.stderr)
+    else:
+        print(f"  ⚠️ Universe가 비어있음. KRX 로그인 또는 시총 조회 실패 의심", file=sys.stderr)
     code_to_meta = {s["symbol"]: s for s in universe}
 
     # Step 2: corp_code 매핑
