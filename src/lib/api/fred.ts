@@ -16,6 +16,9 @@ export interface YieldQuote {
   previousValue: number;
   changeBps: number;    // bp 단위 변동폭 (양수/음수)
   date: string;         // YYYY-MM-DD
+  // 시점 검증 메타데이터 (4/30 사고 처방)
+  staleness?: number;
+  stalenessWarning?: string;
 }
 
 interface FredObservation {

@@ -19,6 +19,10 @@ interface IndicatorResult {
   symbol: string;
   decimals: number;
   error?: string;
+  // 4/30 사고 처방 — 시점 검증 메타데이터
+  dataDate?: string;
+  staleness?: number;
+  warning?: string;
 }
 
 // 각 소스별 어댑터를 호출해서 공통 형식으로 변환
@@ -53,6 +57,9 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
           value: yieldData.value,
           change: yieldData.changeBps,
           changeType: "bp",
+          dataDate: yieldData.date,
+          ...(yieldData.staleness !== undefined && { staleness: yieldData.staleness }),
+          ...(yieldData.stalenessWarning && { warning: yieldData.stalenessWarning }),
         };
       }
 
@@ -63,6 +70,9 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
           value: yieldData.value,
           change: yieldData.changeBps,
           changeType: "bp",
+          dataDate: yieldData.date,
+          ...(yieldData.staleness !== undefined && { staleness: yieldData.staleness }),
+          ...(yieldData.stalenessWarning && { warning: yieldData.stalenessWarning }),
         };
       }
     }

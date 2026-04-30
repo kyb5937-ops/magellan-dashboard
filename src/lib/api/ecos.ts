@@ -99,12 +99,53 @@ export async function fetchEcosYield(itemCode: string): Promise<YieldQuote> {
   // 날짜 포맷 변환: YYYYMMDD → YYYY-MM-DD
   const dateFormatted = `${latest.date.slice(0, 4)}-${latest.date.slice(4, 6)}-${latest.date.slice(6, 8)}`;
 
+  // ─────────────────────────────────────────────
+  // 시점 검증 (4/30 사고 처방 — 2차 안전장치)
+  //
+  // ECOS 원본 갱신이 한국 채권시장 마감(15:30) 후 언제 반영되는지 불확정.
+  // KST 17시 이후 호출인데 latest.date가 오늘이 아니면 갱신 지연 의심.
+  // 휴일·주말은 false positive 회피 (KST 17시 분기 + 당일 비교).
+  // ─────────────────────────────────────────────
+
+  const nowUtc = new Date();
+  const kst = new Date(nowUtc.getTime() + 9 * 60 * 60 * 1000);
+  const kstY = kst.getUTCFullYear();
+  const kstM = String(kst.getUTCMonth() + 1).padStart(2, "0");
+  const kstD = String(kst.getUTCDate()).padStart(2, "0");
+  const todayKstYmd = `${kstY}${kstM}${kstD}`;
+  const kstHour = kst.getUTCHours();
+
+  const latestDateMs = Date.UTC(
+    parseInt(latest.date.slice(0, 4)),
+    parseInt(latest.date.slice(4, 6)) - 1,
+    parseInt(latest.date.slice(6, 8))
+  );
+  const todayKstMs = Date.UTC(kstY, parseInt(kstM) - 1, parseInt(kstD));
+  const dayDiff = Math.floor((todayKstMs - latestDateMs) / (1000 * 60 * 60 * 24));
+
+  let stalenessWarning: string | undefined;
+  const isAfterMarketClose = kstHour >= 17;
+  const isLatestNotToday = latest.date !== todayKstYmd;
+
+  if (dayDiff >= 1 && isAfterMarketClose && isLatestNotToday) {
+    stalenessWarning =
+      `ECOS 데이터 시점이 ${dayDiff}일 전입니다 (${dateFormatted}). ` +
+      `KST 17시 이후인데 당일 데이터 미반영. 한국 채권시장 마감(15:30) 후 ` +
+      `ECOS 갱신 지연 가능성. 외부 출처 검증 권장.`;
+  } else if (dayDiff >= 5) {
+    stalenessWarning =
+      `ECOS 데이터 시점이 ${dayDiff}일 전입니다 (${dateFormatted}). ` +
+      `갱신 지연 또는 시스템 오류 가능성.`;
+  }
+
   return {
     symbol: itemCode,
     value: latest.value,
     previousValue: previous.value,
     changeBps,
     date: dateFormatted,
+    staleness: dayDiff,
+    ...(stalenessWarning && { stalenessWarning }),
   };
 }
 
