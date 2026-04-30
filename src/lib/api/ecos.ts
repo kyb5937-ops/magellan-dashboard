@@ -60,8 +60,10 @@ export async function fetchEcosYield(itemCode: string): Promise<YieldQuote> {
     `https://ecos.bok.or.kr/api/StatisticSearch/${apiKey}/json/kr/1/50/817Y002/D/${startDate}/${endDate}/${itemCode}`;
 
   const res = await fetch(url, {
-    // 일봉 데이터 + 당일 장 마감 후 갱신되므로 1시간 캐시
-    next: { revalidate: 3600 },
+    // ECOS 갱신 지연으로 인한 stale 응답 차단 (4/30 사고)
+    // 한국 채권시장 마감 후 ECOS 데이터 반영 시점이 불확정이라
+    // 1시간 캐시는 이전 영업일 값을 잠그는 위험. no-store로 항상 최신.
+    cache: "no-store",
   });
 
   if (!res.ok) {
@@ -147,7 +149,10 @@ export async function fetchEcosSeries(
     `https://ecos.bok.or.kr/api/StatisticSearch/${apiKey}/json/kr/1/10000/817Y002/D/${startDate}/${endDate}/${itemCode}`;
 
   const res = await fetch(url, {
-    next: { revalidate: 3600 },
+    // ECOS 갱신 지연으로 인한 stale 응답 차단 (4/30 사고)
+    // 한국 채권시장 마감 후 ECOS 데이터 반영 시점이 불확정이라
+    // 1시간 캐시는 이전 영업일 값을 잠그는 위험. no-store로 항상 최신.
+    cache: "no-store",
   });
 
   if (!res.ok) {
