@@ -12,12 +12,12 @@
       "name": "일라이릴리",
       "marketCapRank": 12,
       "quarter": "26Q1",
-      "epsForecast": "$7.07",
-      "epsActual": "$8.26",
-      "epsPreviousYoY": "$3.34",
+      "epsForecast": "$6.79",
+      "epsActual": "$8.55",
+      "epsPreviousYoY": "$3.06",
       "revenueForecast": "$17.81B",
       "revenueActual": null,
-      "surprise": "+16.9%"
+      "surprise": "+25.9%"
     },
     {
       "date": "2026-04-30",
@@ -30,7 +30,7 @@
       "quarter": "26Q1",
       "epsForecast": "$4.64",
       "epsActual": "$5.54",
-      "epsPreviousYoY": "$4.25",
+      "epsPreviousYoY": "$4.20",
       "revenueForecast": "$16.44B",
       "revenueActual": null,
       "surprise": "+19.3%"
@@ -174,7 +174,7 @@
       "quarter": "26Q1",
       "epsForecast": "$0.33",
       "epsActual": null,
-      "epsPreviousYoY": "$-0.53",
+      "epsPreviousYoY": "$0.25",
       "revenueForecast": "$3.09B",
       "revenueActual": null,
       "surprise": null
