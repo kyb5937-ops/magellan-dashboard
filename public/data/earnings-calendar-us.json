@@ -214,22 +214,6 @@
     {
       "date": "2026-05-07",
       "dayOfWeek": "목",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "ZTS",
-      "name": "조에티스",
-      "marketCapRank": 98,
-      "quarter": "26Q1",
-      "epsForecast": "$1.62",
-      "epsActual": null,
-      "epsPreviousYoY": "$1.48",
-      "revenueForecast": "$2.30B",
-      "revenueActual": null,
-      "surprise": null
-    },
-    {
-      "date": "2026-05-07",
-      "dayOfWeek": "목",
       "time": "AMC",
       "country": "US",
       "symbol": "GILD",
