@@ -64,6 +64,10 @@ jobs:
             echo "변경사항 없음 - skip"
           else
             git commit -m "실적 캘린더 자동 갱신 $(date -u +%Y%m%d)"
-            git push
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin main && git push && break
+              echo "Push 실패, 재시도 $i/5"
+              sleep 5
+            done
             echo "갱신 완료"
           fi
