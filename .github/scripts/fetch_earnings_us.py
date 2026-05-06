@@ -46,8 +46,9 @@ def classify_time(ts: pd.Timestamp) -> str:
     """발표 시각 → 'BMO' (장 전) / 'AMC' (장 후) / 'HH:MM'
 
     yfinance earnings_dates의 인덱스 타임스탬프는 미국 동부시간(EDT/EST) 기준.
-    - 9시 이전 → BMO
-    - 16시 이후 → AMC
+    분류는 ET 기준 미국 시장 시각 그대로:
+    - ET 9시 이전 → BMO
+    - ET 16시 이후 → AMC
     - 그 사이 → HH:MM 표기 (드물지만 장중 발표하는 경우)
     """
     try:
@@ -63,6 +64,22 @@ def classify_time(ts: pd.Timestamp) -> str:
         return f"{ts_et.hour:02d}:{ts_et.minute:02d}"
     except Exception:
         return "AMC"
+
+
+def to_kst_date(ts: pd.Timestamp) -> date:
+    """타임스탬프 → KST(Asia/Seoul) 기준 날짜.
+
+    한국 사용자 입장에서 ET AMC 발표는 KST 새벽 이벤트이므로
+    캘린더의 date / dayOfWeek은 KST 기준으로 표시.
+    """
+    try:
+        if ts.tzinfo is not None:
+            ts_kst = ts.tz_convert("Asia/Seoul")
+        else:
+            ts_kst = ts.tz_localize("America/New_York").tz_convert("Asia/Seoul")
+        return ts_kst.date()
+    except Exception:
+        return ts.date() if hasattr(ts, "date") else ts
 
 
 def infer_quarter(announcement_date: date) -> str:
@@ -228,10 +245,15 @@ def fetch_for_symbol(symbol: str, start: date, end: date):
     if edf_full is None or edf_full.empty:
         return []
 
-    # 범위 필터 (인덱스가 timezone-aware Timestamp)
+    # 범위 필터 — KST 기준 날짜로 필터 (한국 사용자가 보는 날짜와 일치하도록)
     # 단, 전년 동기 EPS 탐색은 edf_full(과거 전체)을 사용
     try:
-        mask = (edf_full.index.date >= start) & (edf_full.index.date <= end)
+        idx = edf_full.index
+        if idx.tz is not None:
+            kst_dates = idx.tz_convert("Asia/Seoul").date
+        else:
+            kst_dates = idx.tz_localize("America/New_York").tz_convert("Asia/Seoul").date
+        mask = (kst_dates >= start) & (kst_dates <= end)
         edf = edf_full[mask]
     except Exception:
         return []
@@ -262,7 +284,8 @@ def fetch_for_symbol(symbol: str, start: date, end: date):
 
     results = []
     for ts, row in edf.iterrows():
-        ev_date = ts.date() if hasattr(ts, "date") else ts
+        # 캘린더에 노출되는 date/dayOfWeek은 KST 기준 (한국 사용자 관점)
+        ev_date = to_kst_date(ts)
         eps_est = row.get("EPS Estimate")
         eps_actual = row.get("Reported EPS")
         surprise_pct = row.get("Surprise(%)")
