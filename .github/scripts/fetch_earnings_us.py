@@ -298,7 +298,7 @@ def fetch_for_symbol(symbol: str, start: date, end: date):
 
 def main():
     today = datetime.now(timezone.utc).astimezone().date()
-    start = today
+    start = today - timedelta(days=2)  # 2일 전부터 (최근 발표 결과 포함)
     end = today + timedelta(days=14)
 
     print(f"▶ 미국 실적 캘린더 수집: {start} ~ {end}")
