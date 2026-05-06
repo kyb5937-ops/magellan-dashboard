@@ -67,6 +67,16 @@ PPT 마스터 v4에서 추출:
 | 하락 | `#EF4444` |
 | IB 관점 포인트 | `#F59E0B` |
 
+## 한국 실적 서프라이즈 (스냅샷 시스템)
+
+네이버금융은 발표 후 forecast 컬럼이 actual로 덮어써져 같은 분기의 보존된 forecast가 없습니다.
+이를 우회하기 위해 매일 KST 09:00 컨센서스를 `public/data/consensus-snapshots-kr.json`에
+누적하고, 발표 시 직전 30일 내 가장 최근 스냅샷을 forecast로 사용해 surprise를 계산합니다.
+
+- 워크플로우: `.github/workflows/consensus-snapshot.yml`
+- 첫 한 달 정도는 누적이 부족해 한국 종목의 surprise(+/-)가 빈 값으로 남을 수 있습니다 (정상 동작)
+- 한 달 이상 누적되면 발표 직전 forecast 기반으로 정확한 surprise를 채웁니다
+
 ## 배포
 
 ```bash

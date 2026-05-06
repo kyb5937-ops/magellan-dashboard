@@ -1,0 +1,51 @@
+name: 한국 컨센서스 일일 스냅샷
+
+# 매일 KST 09:00 (UTC 00:00) 실행 — 네이버 컨센서스 forecast 누적
+on:
+  schedule:
+    - cron: '0 0 * * *'  # KST 09:00
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  snapshot-consensus:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 패키지 설치
+        run: |
+          pip install requests beautifulsoup4 lxml
+
+      - name: 컨센서스 스냅샷 수집
+        run: |
+          python .github/scripts/snapshot_consensus_kr.py
+
+      - name: 변경사항 커밋
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/consensus-snapshots-kr.json
+          if git diff --staged --quiet; then
+            echo "변경사항 없음 - skip"
+          else
+            git commit -m "컨센서스 스냅샷 갱신 $(date -u +%Y%m%d)"
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin main && git push && break
+              echo "Push 실패, 재시도 $i/5"
+              sleep 5
+            done
+            echo "갱신 완료"
+          fi

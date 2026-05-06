@@ -307,6 +307,10 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
         "operatingIncomeActual": None,
         "operatingIncomePreviousYoY": None,
         "surprise": None,
+        # 내부 surprise 계산용 raw 값 (formatter 거치기 전)
+        "epsActualRaw": None,
+        "revenueActualRaw": None,
+        "operatingIncomeActualRaw": None,
     }
     try:
         url = f"https://finance.naver.com/item/main.naver?code={stock_code}"
@@ -399,6 +403,14 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
                 if cell and cell not in ("-", "—", "N/A"):
                     target[i] = cell
 
+        def _to_float(s):
+            if not s:
+                return None
+            try:
+                return float(s)
+            except (TypeError, ValueError):
+                return None
+
         eps_forecast = _format_kr_eps(eps_cells.get(future_idx))
         eps_actual = _format_kr_eps(eps_cells.get(actual_idx)) if actual_idx is not None else None
         eps_yoy = _format_kr_eps(eps_cells.get(yoy_idx)) if yoy_idx is not None else None
@@ -411,9 +423,13 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
         op_actual = _format_kr_revenue(op_cells.get(actual_idx)) if actual_idx is not None else None
         op_yoy = _format_kr_revenue(op_cells.get(yoy_idx)) if yoy_idx is not None else None
 
+        # raw actual 값 (Step 4 surprise 계산용)
+        eps_actual_raw = _to_float(eps_cells.get(actual_idx)) if actual_idx is not None else None
+        rev_actual_raw = _to_float(rev_cells.get(actual_idx)) if actual_idx is not None else None
+        op_actual_raw = _to_float(op_cells.get(actual_idx)) if actual_idx is not None else None
+
         # 네이버는 forecast → actual 로 컬럼 자체가 갱신되어 같은 분기의 보존된 forecast가 없음.
-        # → 정확한 EPS 서프라이즈 산출 불가. null.
-        # (Step 4의 스냅샷 시스템에서 채워질 예정)
+        # → main()에서 스냅샷 파일로부터 forecast 찾아 surprise 계산
         surprise = None
 
         return {
@@ -427,9 +443,79 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
             "operatingIncomeActual": op_actual,
             "operatingIncomePreviousYoY": op_yoy,
             "surprise": surprise,
+            "epsActualRaw": eps_actual_raw,
+            "revenueActualRaw": rev_actual_raw,
+            "operatingIncomeActualRaw": op_actual_raw,
         }
     except Exception:
         return empty
+
+
+# ── 4-1. 컨센서스 스냅샷 lookup ────────────────────────────────────────
+
+CONSENSUS_SNAPSHOT_PATH = os.path.join(ROOT, "public", "data", "consensus-snapshots-kr.json")
+SNAPSHOT_LOOKBACK_DAYS = 30  # 발표 직전 N일 내의 forecast 스냅샷 사용
+
+
+def load_consensus_snapshots():
+    """consensus-snapshots-kr.json 로드. 없으면 빈 dict."""
+    if not os.path.exists(CONSENSUS_SNAPSHOT_PATH):
+        return {}
+    try:
+        with open(CONSENSUS_SNAPSHOT_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("snapshots", {})
+    except Exception as e:
+        print(f"  ⚠️ 스냅샷 파일 읽기 실패: {e}", file=sys.stderr)
+        return {}
+
+
+def find_recent_forecast(snapshots, symbol, quarter, ev_date, lookback_days=SNAPSHOT_LOOKBACK_DAYS):
+    """(symbol, quarter)의 history에서 ev_date 직전 lookback_days 내 가장 최근
+    forecast 스냅샷을 찾아 raw 값 dict 반환. 없으면 None.
+
+    반환: {"epsForecast": float, "revenueForecast": float, "operatingIncomeForecast": float}
+    """
+    sym_node = snapshots.get(symbol, {})
+    q_node = sym_node.get(quarter, {})
+    history = q_node.get("history", [])
+    if not history:
+        return None
+
+    cutoff = ev_date - timedelta(days=lookback_days)
+    best = None
+    best_date = None
+    for entry in history:
+        ds = entry.get("date")
+        if not ds:
+            continue
+        try:
+            ed = date.fromisoformat(ds)
+        except ValueError:
+            continue
+        # 발표 당일 또는 그 이전, lookback 안쪽
+        if ed <= ev_date and ed >= cutoff:
+            if best_date is None or ed > best_date:
+                best_date = ed
+                best = entry
+    return best
+
+
+def calc_pct(actual_raw, forecast_raw):
+    """(actual - forecast) / |forecast| * 100 → '+X.X%' / '-X.X%'.
+    forecast가 0 또는 None이면 None."""
+    if actual_raw is None or forecast_raw is None:
+        return None
+    try:
+        a = float(actual_raw)
+        f = float(forecast_raw)
+    except (TypeError, ValueError):
+        return None
+    if f == 0:
+        return None
+    pct = (a - f) / abs(f) * 100
+    sign = "+" if pct >= 0 else ""
+    return f"{sign}{pct:.1f}%"
 
 
 # ── 5. 공시 → 캘린더 이벤트 ────────────────────────────────────────────
@@ -494,6 +580,10 @@ def main():
     # Step 2: corp_code 매핑
     corp_map = fetch_dart_corp_code_map(list(code_to_meta.keys()))
 
+    # Step 2-1: 컨센서스 스냅샷 로드 (Step 4 surprise 계산용)
+    consensus_snapshots = load_consensus_snapshots()
+    surprise_filled = 0
+
     # Step 3: 종목별 공시 검색
     bgn = search_start.strftime("%Y%m%d")
     end = search_end.strftime("%Y%m%d")
@@ -529,6 +619,28 @@ def main():
                     cdata = fetch_naver_consensus(stock_code, target_quarter=target_q)
                     if cdata.get("epsForecast") or cdata.get("revenueForecast"):
                         consensus_succeeded += 1
+
+                    # 스냅샷 기반 surprise 계산 (실제 발표값 있을 때만)
+                    eps_surprise = None
+                    rev_surprise = None
+                    op_surprise = None
+                    snap_forecast = find_recent_forecast(
+                        consensus_snapshots, stock_code, target_q, ev_date
+                    )
+                    if snap_forecast:
+                        eps_surprise = calc_pct(
+                            cdata.get("epsActualRaw"), snap_forecast.get("epsForecast")
+                        )
+                        rev_surprise = calc_pct(
+                            cdata.get("revenueActualRaw"), snap_forecast.get("revenueForecast")
+                        )
+                        op_surprise = calc_pct(
+                            cdata.get("operatingIncomeActualRaw"),
+                            snap_forecast.get("operatingIncomeForecast"),
+                        )
+                        if any((eps_surprise, rev_surprise, op_surprise)):
+                            surprise_filled += 1
+
                     events.append({
                         "date": ev_date.isoformat(),
                         "dayOfWeek": DAY_OF_WEEK_KR[ev_date.weekday()],
@@ -544,10 +656,12 @@ def main():
                         "revenueForecast": cdata.get("revenueForecast"),
                         "revenueActual": cdata.get("revenueActual"),
                         "revenuePreviousYoY": cdata.get("revenuePreviousYoY"),
+                        "revenueSurprise": rev_surprise,
                         "operatingIncomeForecast": cdata.get("operatingIncomeForecast"),
                         "operatingIncomeActual": cdata.get("operatingIncomeActual"),
                         "operatingIncomePreviousYoY": cdata.get("operatingIncomePreviousYoY"),
-                        "surprise": cdata.get("surprise"),
+                        "operatingIncomeSurprise": op_surprise,
+                        "surprise": eps_surprise,
                     })
 
         if i % 10 == 0:
@@ -581,6 +695,9 @@ def main():
     print(f"\n저장: {OUTPUT_PATH}")
     print(f"  총 이벤트: {len(events)}건")
     print(f"  컨센서스 매핑: {consensus_succeeded}/{consensus_attempted} 종목")
+    print(f"  스냅샷 기반 surprise 채움: {surprise_filled}건")
+    if not consensus_snapshots:
+        print(f"  ℹ️ 스냅샷 비어있음 — consensus-snapshot 워크플로우 누적 필요 (~1개월)")
 
 
 if __name__ == "__main__":
