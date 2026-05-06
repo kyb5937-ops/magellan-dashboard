@@ -17,6 +17,12 @@
       "epsPreviousYoY": "11,632원",
       "revenueForecast": "45.8조원",
       "revenueActual": null,
+      "revenuePreviousYoY": "44.4조원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "5억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "8억원",
+      "operatingIncomeSurprise": null,
       "surprise": null
     },
     {
@@ -33,6 +39,12 @@
       "epsPreviousYoY": "6,017원",
       "revenueForecast": "29.6조원",
       "revenueActual": null,
+      "revenuePreviousYoY": "28.0조원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "7억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "10억원",
+      "operatingIncomeSurprise": null,
       "surprise": null
     },
     {
@@ -49,6 +61,12 @@
       "epsPreviousYoY": "466원",
       "revenueForecast": "1.1조원",
       "revenueActual": null,
+      "revenuePreviousYoY": "8,419억원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "27억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "17억원",
+      "operatingIncomeSurprise": null,
       "surprise": null
     },
     {
@@ -65,6 +83,12 @@
       "epsPreviousYoY": "7,850원",
       "revenueForecast": "5.5조원",
       "revenueActual": null,
+      "revenuePreviousYoY": "3.8조원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "11억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "7억원",
+      "operatingIncomeSurprise": null,
       "surprise": null
     },
     {
@@ -81,6 +105,12 @@
       "epsPreviousYoY": "288원",
       "revenueForecast": null,
       "revenueActual": null,
+      "revenuePreviousYoY": "7,846억원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "1,579억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "23억원",
+      "operatingIncomeSurprise": null,
       "surprise": null
     },
     {
@@ -97,6 +127,12 @@
       "epsPreviousYoY": "908원",
       "revenueForecast": "18.2조원",
       "revenueActual": null,
+      "revenuePreviousYoY": "16.6조원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "6억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "6억원",
+      "operatingIncomeSurprise": null,
       "surprise": null
     },
     {
@@ -113,6 +149,12 @@
       "epsPreviousYoY": "385원",
       "revenueForecast": "978억원",
       "revenueActual": null,
+      "revenuePreviousYoY": "784억원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "47억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "44억원",
+      "operatingIncomeSurprise": null,
       "surprise": null
     },
     {
@@ -129,6 +171,12 @@
       "epsPreviousYoY": "99원",
       "revenueForecast": "2,874억원",
       "revenueActual": null,
+      "revenuePreviousYoY": "2,119억원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "9억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "2억원",
+      "operatingIncomeSurprise": null,
       "surprise": null
     },
     {
@@ -145,6 +193,12 @@
       "epsPreviousYoY": "1,036원",
       "revenueForecast": "3,860억원",
       "revenueActual": null,
+      "revenuePreviousYoY": "2,974억원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "13억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "17억원",
+      "operatingIncomeSurprise": null,
       "surprise": null
     }
   ]
