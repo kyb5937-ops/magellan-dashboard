@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { DeepDiveChart } from "./DeepDiveChart";
 
 // 14개 지수 정의 — 탭 순서대로 (1행 주가지수 7개, 2행 자산·매크로 7개)
@@ -27,11 +27,33 @@ type TabId = typeof DEEPDIVE_TABS[number]["id"];
 
 export function DeepDiveSection() {
   const [activeTab, setActiveTab] = useState<TabId>("sp500");
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const activeTabData = DEEPDIVE_TABS.find(t => t.id === activeTab)!;
+  // 외부(예: US MARKETS, KR KOREA 카드) 클릭 이벤트로 탭 변경 + 자동 스크롤
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const customEvent = e as CustomEvent<{ tabId: string }>;
+      const tabId = customEvent.detail?.tabId;
+
+      // 유효한 탭 ID인지 확인
+      if (tabId && DEEPDIVE_TABS.some((t) => t.id === tabId)) {
+        setActiveTab(tabId as TabId);
+        // DEEP DIVE 섹션으로 부드럽게 스크롤
+        sectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    };
+
+    window.addEventListener("selectDeepDiveTab", handler);
+    return () => window.removeEventListener("selectDeepDiveTab", handler);
+  }, []);
+
+  const activeTabData = DEEPDIVE_TABS.find((t) => t.id === activeTab)!;
 
   return (
-    <section className="mb-6">
+    <section ref={sectionRef} className="mb-6">
       {/* 섹션 라벨 */}
       <div className="text-xs font-medium text-fg-muted mb-2 tracking-wider">
         📊 DEEP DIVE
@@ -39,7 +61,7 @@ export function DeepDiveSection() {
 
       {/* 탭 버튼 — 2행 grid 배치, 각 행 양측 정렬 (균등 폭) */}
       <div className="grid grid-cols-7 gap-1 mb-3">
-        {DEEPDIVE_TABS.map(tab => (
+        {DEEPDIVE_TABS.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
