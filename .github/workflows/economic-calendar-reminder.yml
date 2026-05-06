@@ -1,0 +1,97 @@
+name: 경제 캘린더 갱신 알림
+
+# 매주 일요일 저녁 6시(KST)에 자동 실행 + 수동 실행 가능
+on:
+  schedule:
+    # KST 일요일 18:00 = UTC 일요일 09:00
+    - cron: '0 9 * * 0'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  create-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 다음 주 날짜 계산 (KST 기준)
+        id: dates
+        run: |
+          NEXT_MONDAY=$(TZ='Asia/Seoul' date -d "next Monday" +%Y-%m-%d)
+          NEXT_FRIDAY=$(TZ='Asia/Seoul' date -d "next Monday + 4 days" +%Y-%m-%d)
+          echo "monday=$NEXT_MONDAY" >> $GITHUB_OUTPUT
+          echo "friday=$NEXT_FRIDAY" >> $GITHUB_OUTPUT
+          echo "다음 주: $NEXT_MONDAY ~ $NEXT_FRIDAY"
+
+      - name: 갱신 알림 이슈 생성
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const monday = '${{ steps.dates.outputs.monday }}';
+            const friday = '${{ steps.dates.outputs.friday }}';
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            const promptUrl = `https://github.com/${owner}/${repo}/blob/main/.github/prompts/economic-calendar.md`;
+            const promptRawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/.github/prompts/economic-calendar.md`;
+
+            const body = [
+              '## 📅 이번 주 경제 캘린더 갱신 시간!',
+              '',
+              `**대상 기간**: \`${monday}\` ~ \`${friday}\``,
+              '',
+              '---',
+              '',
+              '### ✅ 진행 체크리스트',
+              '',
+              `- [ ] 1. [프롬프트 파일 열기](${promptUrl}) → 우측 상단 **Raw** 버튼 클릭 → 전체 복사 (Ctrl+A, Ctrl+C)`,
+              '- [ ] 2. ChatGPT 심층 리서치(또는 Claude)에 붙여넣기',
+              `- [ ] 3. 마지막에 한 줄 추가: \`기간: ${monday} ~ ${friday}\``,
+              '- [ ] 4. 실행 후 출력된 JSON 검토 (★★★★★ 이벤트 누락, 한국 이벤트 누락 확인)',
+              '- [ ] 5. JSON 부분만 복사',
+              '- [ ] 6. 로컬에서 `public/data/economic-calendar.json` 통째 교체 → 저장',
+              '- [ ] 7. 아래 git 명령어 실행',
+              '- [ ] 8. Vercel 배포 완료 후 사이트 확인 (Ctrl+F5)',
+              '- [ ] 9. 이 이슈 닫기 ✅',
+              '',
+              '---',
+              '',
+              '### 💻 git 명령어 (7단계용 — 복사해서 cmd에 붙여넣기)',
+              '',
+              '```',
+              'cd "C:\\Users\\당근\\Desktop\\주식 컨텐츠 사업 프로젝트\\magellan-dashboard-step3\\magellan-dashboard"',
+              'git stash',
+              'git pull --rebase',
+              'git stash pop',
+              'git add public/data/economic-calendar.json',
+              `git commit -m "data: 경제 캘린더 갱신 (${monday} ~ ${friday})"`,
+              'git push',
+              '```',
+              '',
+              '---',
+              '',
+              '### 🔗 빠른 링크',
+              '',
+              `- [프롬프트 파일 (편집용)](${promptUrl})`,
+              `- [프롬프트 raw (복사용)](${promptRawUrl})`,
+              `- [경제 캘린더 JSON 파일](https://github.com/${owner}/${repo}/blob/main/public/data/economic-calendar.json)`,
+              '- [사이트 미리보기](https://magellan-dashboard.vercel.app/)',
+              '',
+              '---',
+              '',
+              '> 💡 프롬프트가 v1.3 등으로 업데이트되면 `.github/prompts/economic-calendar.md` 파일만 수정하면 됩니다.',
+            ].join('\n');
+
+            const issue = await github.rest.issues.create({
+              owner,
+              repo,
+              title: `📅 경제 캘린더 갱신 (${monday} ~ ${friday})`,
+              body: body,
+              labels: ['reminder', 'economic-calendar']
+            });
+
+            console.log(`이슈 생성 완료: #${issue.data.number}`);
