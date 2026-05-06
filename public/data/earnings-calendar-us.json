@@ -12,12 +12,12 @@
       "name": "화이자",
       "marketCapRank": 56,
       "quarter": "26Q1",
-      "epsForecast": "$0.52",
-      "epsActual": "$0.47",
+      "epsForecast": "$0.72",
+      "epsActual": "$0.75",
       "epsPreviousYoY": "$0.92",
       "revenueForecast": "$14.37B",
       "revenueActual": null,
-      "surprise": "-9.5%"
+      "surprise": "+3.9%"
     },
     {
       "date": "2026-05-05",
@@ -46,7 +46,7 @@
       "quarter": "26Q1",
       "epsForecast": "$0.24",
       "epsActual": "$-0.45",
-      "epsPreviousYoY": "$0.25",
+      "epsPreviousYoY": "$-0.53",
       "revenueForecast": "$3.40B",
       "revenueActual": null,
       "surprise": "-290.2%"
@@ -60,12 +60,12 @@
       "name": "듀크에너지",
       "marketCapRank": 97,
       "quarter": "26Q1",
-      "epsForecast": "$1.74",
-      "epsActual": "$1.97",
+      "epsForecast": "$1.80",
+      "epsActual": "$1.93",
       "epsPreviousYoY": "$1.76",
       "revenueForecast": "$7.53B",
       "revenueActual": null,
-      "surprise": "+13.0%"
+      "surprise": "+7.2%"
     },
     {
       "date": "2026-05-05",
@@ -110,7 +110,7 @@
       "quarter": "26Q1",
       "epsForecast": "$4.31",
       "epsActual": "$4.47",
-      "epsPreviousYoY": "$2.49",
+      "epsPreviousYoY": "$4.06",
       "revenueForecast": "$3.22B",
       "revenueActual": null,
       "surprise": "+3.8%"
@@ -124,12 +124,12 @@
       "name": "디즈니",
       "marketCapRank": 44,
       "quarter": "26Q1",
-      "epsForecast": "$1.37",
-      "epsActual": "$1.27",
+      "epsForecast": "$1.50",
+      "epsActual": "$1.57",
       "epsPreviousYoY": "$1.45",
       "revenueForecast": "$25.45B",
       "revenueActual": null,
-      "surprise": "-7.2%"
+      "surprise": "+5.0%"
     },
     {
       "date": "2026-05-06",
@@ -140,12 +140,12 @@
       "name": "우버",
       "marketCapRank": 66,
       "quarter": "26Q1",
-      "epsForecast": "$0.69",
-      "epsActual": "$0.72",
+      "epsForecast": "$0.71",
+      "epsActual": "$0.13",
       "epsPreviousYoY": "$0.83",
       "revenueForecast": "$13.89B",
       "revenueActual": null,
-      "surprise": "+3.8%"
+      "surprise": "-81.8%"
     },
     {
       "date": "2026-05-06",
@@ -302,7 +302,7 @@
       "quarter": "26Q1",
       "epsForecast": "$3.59",
       "epsActual": null,
-      "epsPreviousYoY": "$3.45",
+      "epsPreviousYoY": "$3.56",
       "revenueForecast": "$41.54B",
       "revenueActual": null,
       "surprise": null
@@ -334,7 +334,7 @@
       "quarter": "26Q1",
       "epsForecast": "$2.90",
       "epsActual": null,
-      "epsPreviousYoY": "$1.14",
+      "epsPreviousYoY": "$1.85",
       "revenueForecast": "$3.51B",
       "revenueActual": null,
       "surprise": null
