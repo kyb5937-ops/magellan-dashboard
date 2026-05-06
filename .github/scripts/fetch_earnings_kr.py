@@ -281,14 +281,19 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
     """네이버 종목 페이지 '기업실적분석' 분기 테이블에서 추출.
 
     target_quarter (예: "26Q1") 가 주어지면 분기 라벨 매칭으로:
-      epsActual / revenueActual = target_quarter 컬럼 값 (단, (E) 표시면 미발표 → null)
-      epsPreviousYoY            = target_quarter - 1년 컬럼 값
-      epsForecast / revenueForecast = (E) 표시된 컬럼 값 (있을 때만)
+      epsActual / revenueActual / operatingIncomeActual = target_quarter 컬럼 값
+        (단, (E) 표시면 미발표 → null)
+      epsPreviousYoY / revenuePreviousYoY / operatingIncomePreviousYoY
+        = target_quarter - 1년 컬럼 값
+      epsForecast / revenueForecast / operatingIncomeForecast = (E) 표시 컬럼 값
 
     target_quarter가 None이면 단순 위치 기반 fallback ((E) 직전·4분기 전).
 
-    반환 dict 키: epsForecast / epsActual / epsPreviousYoY /
-                  revenueForecast / revenueActual / surprise
+    반환 dict 키:
+      epsForecast / epsActual / epsPreviousYoY /
+      revenueForecast / revenueActual / revenuePreviousYoY /
+      operatingIncomeForecast / operatingIncomeActual / operatingIncomePreviousYoY /
+      surprise
     실패 항목은 None.
     """
     empty = {
@@ -297,6 +302,10 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
         "epsPreviousYoY": None,
         "revenueForecast": None,
         "revenueActual": None,
+        "revenuePreviousYoY": None,
+        "operatingIncomeForecast": None,
+        "operatingIncomeActual": None,
+        "operatingIncomePreviousYoY": None,
         "surprise": None,
     }
     try:
@@ -370,6 +379,7 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
         # 행별 셀 값 수집
         eps_cells = {}
         rev_cells = {}
+        op_cells = {}
         for tr in tbody.find_all("tr"):
             label_th = tr.find("th")
             if not label_th:
@@ -380,6 +390,8 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
                 target = eps_cells
             elif "매출액" in label:
                 target = rev_cells
+            elif "영업이익" in label:
+                target = op_cells
             else:
                 continue
             for i, td in enumerate(tds):
@@ -393,9 +405,15 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
 
         rev_forecast = _format_kr_revenue(rev_cells.get(future_idx))
         rev_actual = _format_kr_revenue(rev_cells.get(actual_idx)) if actual_idx is not None else None
+        rev_yoy = _format_kr_revenue(rev_cells.get(yoy_idx)) if yoy_idx is not None else None
+
+        op_forecast = _format_kr_revenue(op_cells.get(future_idx))
+        op_actual = _format_kr_revenue(op_cells.get(actual_idx)) if actual_idx is not None else None
+        op_yoy = _format_kr_revenue(op_cells.get(yoy_idx)) if yoy_idx is not None else None
 
         # 네이버는 forecast → actual 로 컬럼 자체가 갱신되어 같은 분기의 보존된 forecast가 없음.
         # → 정확한 EPS 서프라이즈 산출 불가. null.
+        # (Step 4의 스냅샷 시스템에서 채워질 예정)
         surprise = None
 
         return {
@@ -404,6 +422,10 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
             "epsPreviousYoY": eps_yoy,
             "revenueForecast": rev_forecast,
             "revenueActual": rev_actual,
+            "revenuePreviousYoY": rev_yoy,
+            "operatingIncomeForecast": op_forecast,
+            "operatingIncomeActual": op_actual,
+            "operatingIncomePreviousYoY": op_yoy,
             "surprise": surprise,
         }
     except Exception:
@@ -521,6 +543,10 @@ def main():
                         "epsPreviousYoY": cdata.get("epsPreviousYoY"),
                         "revenueForecast": cdata.get("revenueForecast"),
                         "revenueActual": cdata.get("revenueActual"),
+                        "revenuePreviousYoY": cdata.get("revenuePreviousYoY"),
+                        "operatingIncomeForecast": cdata.get("operatingIncomeForecast"),
+                        "operatingIncomeActual": cdata.get("operatingIncomeActual"),
+                        "operatingIncomePreviousYoY": cdata.get("operatingIncomePreviousYoY"),
                         "surprise": cdata.get("surprise"),
                     })
 
