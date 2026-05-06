@@ -501,7 +501,7 @@ def main():
             if len(rcept_dt) >= 8:
                 ev_date = date(int(rcept_dt[:4]), int(rcept_dt[4:6]), int(rcept_dt[6:8]))
                 # 14일 안 미래 + 오늘 이후만 (지난 공시는 캘린더에 안 보임)
-                if today <= ev_date <= today + timedelta(days=14):
+                if (today - timedelta(days=2)) <= ev_date <= today + timedelta(days=14):
                     consensus_attempted += 1
                     target_q = infer_quarter_kr(ev_date)
                     cdata = fetch_naver_consensus(stock_code, target_quarter=target_q)
@@ -543,7 +543,7 @@ def main():
     events.sort(key=lambda e: (e["date"], time_key(e["time"]), e["marketCapRank"]))
 
     output = {
-        "weekStart": today.isoformat(),
+        "weekStart": (today - timedelta(days=2)).isoformat(),
         "weekEnd": (today + timedelta(days=14)).isoformat(),
         "lastUpdated": today.isoformat(),
         "events": events,
