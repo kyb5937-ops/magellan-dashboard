@@ -390,11 +390,12 @@ def fetch_naver_consensus(stock_code: str, target_quarter: str = None):
                 continue
             label = label_th.get_text(strip=True)
             tds = tr.find_all("td")
-            if "EPS" in label:
+            norm = label.replace(" ", "").replace("(", "").replace(")", "").replace(":", "")
+            if norm in ("EPS", "EPS원"):
                 target = eps_cells
-            elif "매출액" in label:
+            elif norm == "매출액":
                 target = rev_cells
-            elif "영업이익" in label:
+            elif norm == "영업이익":
                 target = op_cells
             else:
                 continue
