@@ -164,8 +164,10 @@ export function EconomicCalendarSection() {
                       return (
                         <div
                           key={`${key}-${idx}`}
-                          className={`grid ${GRID_COLS} gap-3 px-5 py-2.5 text-sm items-center border-b border-navy-light/30 ${
-                            isMega ? "bg-red-950/30" : ""
+                          className={`grid ${GRID_COLS} gap-3 px-5 py-2.5 text-sm items-center border-b border-navy-light/30 border-l-4 ${
+                            isMega
+                              ? "bg-red-500/10 border-l-red-400"
+                              : "border-l-transparent"
                           }`}
                         >
                           <div className="font-mono text-fg-muted text-[13px] whitespace-nowrap">
@@ -180,7 +182,7 @@ export function EconomicCalendarSection() {
                           <div>
                             <StarRating count={event.importance} />
                           </div>
-                          <div className={isMega ? "font-semibold text-fg" : "text-fg"}>
+                          <div className={isMega ? "font-semibold text-red-300" : "text-fg"}>
                             {event.name}
                           </div>
                           <div className="text-right text-fg-subtle text-[13px] whitespace-nowrap">
