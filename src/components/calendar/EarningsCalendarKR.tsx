@@ -198,15 +198,17 @@ export function EarningsCalendarKR() {
                       return (
                         <div
                           key={`${key}-${idx}`}
-                          className={`grid ${GRID_COLS} gap-3 px-5 py-2.5 text-sm items-center border-b border-navy-light/30 ${
-                            isMega ? "bg-amber-950/20" : ""
+                          className={`grid ${GRID_COLS} gap-3 px-5 py-2.5 text-sm items-center border-b border-navy-light/30 border-l-4 ${
+                            isMega
+                              ? "bg-amber-500/10 border-l-amber-400"
+                              : "border-l-transparent"
                           }`}
                         >
                           <div className="text-fg-muted text-[13px] whitespace-nowrap">
                             {formatTime(event.time)}
                           </div>
                           <div className="min-w-0">
-                            <div className={`truncate ${isMega ? "font-semibold text-fg" : "text-fg"}`}>
+                            <div className={`truncate ${isMega ? "font-semibold text-amber-300" : "text-fg"}`}>
                               {event.name}
                             </div>
                             <div className="text-[11px] text-fg-subtle truncate font-mono">
