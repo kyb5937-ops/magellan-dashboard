@@ -185,7 +185,9 @@ export function EconomicCalendarSection() {
                           <div className={isMega ? "font-semibold text-red-300" : "text-fg"}>
                             {event.name}
                           </div>
-                          <div className="text-right text-fg-subtle text-[13px] whitespace-nowrap">
+                          <div className={`text-right text-[13px] whitespace-nowrap ${
+                            event.actual ? "text-fg font-medium" : "text-fg-subtle"
+                          }`}>
                             {event.actual ?? "—"}
                           </div>
                           <div className="text-right text-fg text-[13px] whitespace-nowrap">
