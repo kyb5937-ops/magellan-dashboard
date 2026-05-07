@@ -118,6 +118,21 @@ def format_actual_with_unit(actual_raw: str, reference: str) -> str:
     return f"{sign}{prefix}{s}{suffix}"
 
 
+def needs_reformat(actual_str: str, reference: str) -> bool:
+    """기존 actual이 단위 없이 raw 숫자만 있고, reference엔 단위가 있으면 재처리 필요."""
+    if not actual_str:
+        return False
+    ref_prefix, ref_suffix = extract_unit_pattern(reference)
+    if not (ref_prefix or ref_suffix):
+        return False
+    s = actual_str.lstrip("+-")
+    has_prefix = bool(ref_prefix and s.startswith(ref_prefix))
+    has_suffix = bool(ref_suffix and s.endswith(ref_suffix))
+    if ref_prefix and ref_suffix:
+        return not (has_prefix and has_suffix)
+    return not (has_prefix or has_suffix)
+
+
 def fetch_finnhub_calendar(api_key: str, start: str, end: str) -> list:
     url = f"{FINNHUB_BASE}/calendar/economic"
     params = {"from": start, "to": end, "token": api_key}
@@ -181,18 +196,28 @@ def main():
     print(f"  Finnhub 응답: {len(finnhub_events)}건")
 
     filled = 0
+    reformatted = 0
     skipped = 0
     for ev in events:
-        if ev.get("actual") not in (None, "", "—"):
-            continue
         if ev.get("country") not in SUPPORTED_COUNTRIES:
             continue
+
+        existing = ev.get("actual")
+        reference = ev.get("forecast") or ev.get("previous") or ""
+
+        if existing not in (None, "", "—") and not needs_reformat(str(existing), reference):
+            continue
+
         actual = find_actual_for_event(ev, finnhub_events)
         if actual:
+            if existing in (None, "", "—"):
+                filled += 1
+            else:
+                reformatted += 1
             ev["actual"] = actual
-            filled += 1
         else:
-            skipped += 1
+            if existing in (None, "", "—"):
+                skipped += 1
 
     today_kst = datetime.now(timezone.utc).astimezone().date().isoformat()
     calendar["lastUpdated"] = today_kst
@@ -201,6 +226,7 @@ def main():
         json.dump(calendar, f, ensure_ascii=False, indent=2)
 
     print(f"  ✅ actual 채움: {filled}건")
+    print(f"  🔄 actual 단위 재적용: {reformatted}건")
     print(f"  - 매칭 실패/미발표: {skipped}건 (정상 — 비워둠)")
     print(f"  저장: {CALENDAR_PATH}")
 
