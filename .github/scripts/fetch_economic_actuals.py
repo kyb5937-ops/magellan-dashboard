@@ -84,6 +84,40 @@ def name_matches(local_name: str, finnhub_event: str) -> bool:
     return False
 
 
+def extract_unit_pattern(reference: str):
+    """forecast/previous 문자열에서 (prefix, suffix) 단위 패턴 추출."""
+    if not reference:
+        return ("", "")
+    if any(ch in reference for ch in ("(", ")", "~", " ")):
+        return ("", "")
+    s = reference.lstrip("+-")
+    prefix = ""
+    if s.startswith("$"):
+        prefix = "$"
+        s = s[1:]
+    suffix = ""
+    for suf in ("bp", "%", "B", "M", "K", "T"):
+        if s.endswith(suf):
+            suffix = suf
+            break
+    return (prefix, suffix)
+
+
+def format_actual_with_unit(actual_raw: str, reference: str) -> str:
+    """actual raw 숫자에 reference의 단위 패턴 적용."""
+    if not actual_raw:
+        return actual_raw
+    prefix, suffix = extract_unit_pattern(reference)
+    s = str(actual_raw)
+    sign = ""
+    if s.startswith("-"):
+        sign = "-"
+        s = s[1:]
+    elif s.startswith("+"):
+        s = s[1:]
+    return f"{sign}{prefix}{s}{suffix}"
+
+
 def fetch_finnhub_calendar(api_key: str, start: str, end: str) -> list:
     url = f"{FINNHUB_BASE}/calendar/economic"
     params = {"from": start, "to": end, "token": api_key}
@@ -114,7 +148,8 @@ def find_actual_for_event(local_event: dict, finnhub_events: list):
         if name_matches(local_name, fe.get("event", "")):
             actual = fe.get("actual")
             if actual not in (None, "", "—"):
-                return str(actual)
+                reference = local_event.get("forecast") or local_event.get("previous") or ""
+                return format_actual_with_unit(str(actual), reference)
     return None
 
 
