@@ -1,0 +1,58 @@
+name: 경제 캘린더 actual 자동 갱신
+
+on:
+  schedule:
+    # 미국 마감 후 (KST 새벽)
+    - cron: '30 21 * * *'  # KST 06:30
+    - cron: '0 22 * * *'   # KST 07:00
+    - cron: '30 22 * * *'  # KST 07:30
+    # 한국 마감 후 (KST 오후)
+    - cron: '45 6 * * *'   # KST 15:45
+    - cron: '15 7 * * *'   # KST 16:15
+    - cron: '45 7 * * *'   # KST 16:45
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  update-actuals:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 패키지 설치
+        run: pip install requests
+
+      - name: 경제 캘린더 actual 갱신
+        continue-on-error: true
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+        run: python .github/scripts/fetch_economic_actuals.py
+
+      - name: 변경사항 커밋
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/economic-calendar.json
+          if git diff --staged --quiet; then
+            echo "변경사항 없음 - skip"
+          else
+            git commit -m "data: 경제 캘린더 actual 자동 갱신 $(date -u +%Y%m%d)"
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin main && git push && break
+              echo "Push 실패, 재시도 $i/5"
+              sleep 5
+            done
+            echo "갱신 완료"
+          fi
