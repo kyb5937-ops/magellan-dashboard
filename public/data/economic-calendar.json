@@ -1,7 +1,7 @@
 {
   "weekStart": "2026-04-29",
   "weekEnd": "2026-05-08",
-  "lastUpdated": "2026-04-29",
+  "lastUpdated": "2026-05-07",
   "events": [
     {
       "date": "2026-04-29",
@@ -10,7 +10,7 @@
       "country": "US",
       "importance": 3,
       "name": "내구재 주문 (3월)",
-      "actual": null,
+      "actual": "-0.3",
       "forecast": "0.5%",
       "previous": "-1.3%"
     },
@@ -21,7 +21,7 @@
       "country": "US",
       "importance": 3,
       "name": "상품 무역수지 (3월)",
-      "actual": null,
+      "actual": "-87.87",
       "forecast": "-$86.30B",
       "previous": "-$98.53B"
     },
@@ -54,7 +54,7 @@
       "country": "US",
       "importance": 4,
       "name": "GDP (1Q 속보치, 전기비 연율)",
-      "actual": null,
+      "actual": "2",
       "forecast": "2.2%",
       "previous": "0.5%"
     },
@@ -65,7 +65,7 @@
       "country": "US",
       "importance": 4,
       "name": "Core PCE 물가지수 (3월, 전월비)",
-      "actual": null,
+      "actual": "0.3",
       "forecast": "0.3%",
       "previous": "0.4%"
     },
@@ -87,7 +87,7 @@
       "country": "US",
       "importance": 4,
       "name": "ISM 제조업 PMI (4월)",
-      "actual": null,
+      "actual": "46.4",
       "forecast": "53.2",
       "previous": "52.7"
     },
@@ -109,7 +109,7 @@
       "country": "US",
       "importance": 4,
       "name": "JOLTS 구인건수 (3월)",
-      "actual": null,
+      "actual": "6.866",
       "forecast": null,
       "previous": "6.882M"
     },
@@ -120,7 +120,7 @@
       "country": "US",
       "importance": 4,
       "name": "ISM 서비스업 PMI (4월)",
-      "actual": null,
+      "actual": "55.9",
       "forecast": null,
       "previous": "54.0"
     },
@@ -142,7 +142,7 @@
       "country": "US",
       "importance": 3,
       "name": "ADP 민간고용 변화 (4월)",
-      "actual": null,
+      "actual": "109",
       "forecast": "65K",
       "previous": "62K"
     },
@@ -153,7 +153,7 @@
       "country": "US",
       "importance": 3,
       "name": "비농업 생산성 잠정치 (1Q)",
-      "actual": null,
+      "actual": "0.8",
       "forecast": null,
       "previous": null
     },
