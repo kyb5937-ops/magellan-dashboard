@@ -12,12 +12,12 @@
       "name": "화이자",
       "marketCapRank": 56,
       "quarter": "26Q1",
-      "epsForecast": "$0.52",
-      "epsActual": "$0.47",
+      "epsForecast": "$0.72",
+      "epsActual": "$0.75",
       "epsPreviousYoY": "$0.92",
       "revenueForecast": "$14.37B",
       "revenueActual": null,
-      "surprise": "-9.5%"
+      "surprise": "+3.9%"
     },
     {
       "date": "2026-05-05",
@@ -32,7 +32,7 @@
       "epsActual": "$2.81",
       "epsPreviousYoY": "$2.72",
       "revenueForecast": "$8.01B",
-      "revenueActual": null,
+      "revenueActual": "$7.45B",
       "surprise": "+2.9%"
     },
     {
@@ -46,7 +46,7 @@
       "quarter": "26Q1",
       "epsForecast": "$0.24",
       "epsActual": "$-0.45",
-      "epsPreviousYoY": "$0.25",
+      "epsPreviousYoY": "$-0.53",
       "revenueForecast": "$3.40B",
       "revenueActual": null,
       "surprise": "-290.2%"
@@ -64,7 +64,7 @@
       "epsActual": "$1.97",
       "epsPreviousYoY": "$1.76",
       "revenueForecast": "$7.53B",
-      "revenueActual": null,
+      "revenueActual": "$9.18B",
       "surprise": "+13.0%"
     },
     {
@@ -76,12 +76,12 @@
       "name": "페이팔",
       "marketCapRank": 99,
       "quarter": "26Q1",
-      "epsForecast": "$1.27",
-      "epsActual": "$1.34",
+      "epsForecast": "$1.24",
+      "epsActual": "$1.21",
       "epsPreviousYoY": "$1.33",
       "revenueForecast": "$8.47B",
       "revenueActual": null,
-      "surprise": "+5.6%"
+      "surprise": "-2.3%"
     },
     {
       "date": "2026-05-05",
@@ -95,7 +95,7 @@
       "epsForecast": "$0.28",
       "epsActual": "$0.33",
       "epsPreviousYoY": "$0.13",
-      "revenueForecast": "$1.79B",
+      "revenueForecast": "$1.80B",
       "revenueActual": null,
       "surprise": "+18.1%"
     },
@@ -142,8 +142,8 @@
       "quarter": "26Q1",
       "epsForecast": "$0.69",
       "epsActual": "$0.72",
-      "epsPreviousYoY": "$0.83",
-      "revenueForecast": "$13.89B",
+      "epsPreviousYoY": "$0.81",
+      "revenueForecast": "$14.45B",
       "revenueActual": null,
       "surprise": "+3.8%"
     },
@@ -177,7 +177,7 @@
       "epsPreviousYoY": "$0.65",
       "revenueForecast": "$2.78B",
       "revenueActual": null,
-      "surprise": "+7.6%"
+      "surprise": "+7.7%"
     },
     {
       "date": "2026-05-07",
@@ -350,7 +350,7 @@
       "quarter": "26Q1",
       "epsForecast": "$0.66",
       "epsActual": null,
-      "epsPreviousYoY": "$0.61",
+      "epsPreviousYoY": "$0.56",
       "revenueForecast": "$174.52B",
       "revenueActual": null,
       "surprise": null
@@ -382,7 +382,7 @@
       "quarter": "26Q1",
       "epsForecast": "$1.77",
       "epsActual": null,
-      "epsPreviousYoY": "$0.81",
+      "epsPreviousYoY": "$0.76",
       "revenueForecast": "$78.79B",
       "revenueActual": null,
       "surprise": null
@@ -398,7 +398,7 @@
       "quarter": "26Q1",
       "epsForecast": "$12.52",
       "epsActual": null,
-      "epsPreviousYoY": "$11.65",
+      "epsPreviousYoY": "$10.02",
       "revenueForecast": "$8.53B",
       "revenueActual": null,
       "surprise": null
