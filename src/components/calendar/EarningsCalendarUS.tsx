@@ -73,7 +73,12 @@ function EpsCell({ event }: { event: EarningsEvent }) {
   }
   return (
     <div className="text-right whitespace-nowrap">
-      <div className="text-fg text-[13px]">{event.epsForecast ?? "—"}</div>
+      <div className="text-fg-muted text-[13px] flex items-baseline justify-end gap-1.5">
+        <span>{event.epsForecast ?? "—"}</span>
+        {event.epsForecast && (
+          <span className="text-[10px] text-fg-subtle font-normal">예상</span>
+        )}
+      </div>
       {event.epsPreviousYoY && (
         <div className="text-[10px] text-fg-subtle">YoY {event.epsPreviousYoY}</div>
       )}
@@ -95,7 +100,12 @@ function RevenueCell({ event }: { event: EarningsEvent }) {
   }
   return (
     <div className="text-right whitespace-nowrap">
-      <div className="text-fg text-[13px]">{event.revenueForecast ?? "—"}</div>
+      <div className="text-fg-muted text-[13px] flex items-baseline justify-end gap-1.5">
+        <span>{event.revenueForecast ?? "—"}</span>
+        {event.revenueForecast && (
+          <span className="text-[10px] text-fg-subtle font-normal">예상</span>
+        )}
+      </div>
     </div>
   );
 }

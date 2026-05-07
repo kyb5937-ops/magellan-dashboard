@@ -90,7 +90,12 @@ function MetricCell({
   }
   return (
     <div className="text-right whitespace-nowrap">
-      <div className="text-fg text-[13px]">{forecast ?? "—"}</div>
+      <div className="text-fg-muted text-[13px] flex items-baseline justify-end gap-1.5">
+        <span>{forecast ?? "—"}</span>
+        {forecast && (
+          <span className="text-[10px] text-fg-subtle font-normal">예상</span>
+        )}
+      </div>
       {previousYoY && (
         <div className="text-[10px] text-fg-subtle">YoY {previousYoY}</div>
       )}
