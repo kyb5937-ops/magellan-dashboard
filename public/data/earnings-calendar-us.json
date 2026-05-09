@@ -28,12 +28,12 @@
       "name": "조에티스",
       "marketCapRank": 98,
       "quarter": "26Q1",
-      "epsForecast": "$1.62",
-      "epsActual": "$1.53",
+      "epsForecast": "$1.54",
+      "epsActual": "$1.42",
       "epsPreviousYoY": "$1.48",
       "revenueForecast": "$2.30B",
       "revenueActual": null,
-      "surprise": "-5.3%"
+      "surprise": "-7.6%"
     },
     {
       "date": "2026-05-08",
@@ -158,7 +158,7 @@
       "quarter": "26Q1",
       "epsForecast": "$2.90",
       "epsActual": null,
-      "epsPreviousYoY": "$1.85",
+      "epsPreviousYoY": "$1.14",
       "revenueForecast": "$3.51B",
       "revenueActual": null,
       "surprise": null
@@ -174,7 +174,7 @@
       "quarter": "26Q1",
       "epsForecast": "$0.66",
       "epsActual": null,
-      "epsPreviousYoY": "$0.61",
+      "epsPreviousYoY": "$0.56",
       "revenueForecast": "$174.59B",
       "revenueActual": null,
       "surprise": null
@@ -222,7 +222,7 @@
       "quarter": "26Q1",
       "epsForecast": "$12.52",
       "epsActual": null,
-      "epsPreviousYoY": "$11.65",
+      "epsPreviousYoY": "$10.02",
       "revenueForecast": "$8.53B",
       "revenueActual": null,
       "surprise": null
