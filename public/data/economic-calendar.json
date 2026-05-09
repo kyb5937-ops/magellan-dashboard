@@ -1,7 +1,7 @@
 {
   "weekStart": "2026-04-29",
   "weekEnd": "2026-05-08",
-  "lastUpdated": "2026-05-08",
+  "lastUpdated": "2026-05-09",
   "events": [
     {
       "date": "2026-04-29",
@@ -175,7 +175,7 @@
       "country": "US",
       "importance": 5,
       "name": "비농업 신규고용 (NFP, 4월)",
-      "actual": null,
+      "actual": "115K",
       "forecast": "70K",
       "previous": "178K"
     },
@@ -186,7 +186,7 @@
       "country": "US",
       "importance": 5,
       "name": "실업률 (4월)",
-      "actual": null,
+      "actual": "8.2%",
       "forecast": "4.3%",
       "previous": "4.3%"
     },
@@ -208,7 +208,7 @@
       "country": "US",
       "importance": 4,
       "name": "미시간대 소비자심리지수 잠정치 (5월)",
-      "actual": null,
+      "actual": "3.4",
       "forecast": null,
       "previous": "49.8"
     }
