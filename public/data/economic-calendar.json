@@ -1,150 +1,150 @@
 {
-"weekStart": "2026-05-11",
-"weekEnd": "2026-05-15",
-"lastUpdated": "2026-05-11",
-"events": [
-{
-"date": "2026-05-11",
-"dayOfWeek": "월",
-"time": "23:00",
-"country": "US",
-"importance": 3,
-"name": "기존주택판매 (4월, 연율)",
-"actual": null,
-"forecast": "4.05M",
-"previous": "3.98M"
-},
-{
-"date": "2026-05-12",
-"dayOfWeek": "화",
-"time": "21:30",
-"country": "US",
-"importance": 4,
-"name": "소비자물가지수 (CPI, 4월, 전년비)",
-"actual": null,
-"forecast": "3.7%",
-"previous": "3.3%"
-},
-{
-"date": "2026-05-12",
-"dayOfWeek": "화",
-"time": "21:30",
-"country": "US",
-"importance": 4,
-"name": "근원 CPI (4월, 전년비)",
-"actual": null,
-"forecast": "2.7%",
-"previous": "2.6%"
-},
-{
-"date": "2026-05-13",
-"dayOfWeek": "수",
-"time": "08:00",
-"country": "KR",
-"importance": 4,
-"name": "고용동향 (4월, 실업률)",
-"actual": null,
-"forecast": null,
-"previous": "2.7%"
-},
-{
-"date": "2026-05-13",
-"dayOfWeek": "수",
-"time": "21:30",
-"country": "US",
-"importance": 4,
-"name": "생산자물가지수 (PPI, 4월, 전년비)",
-"actual": null,
-"forecast": null,
-"previous": "4.0%"
-},
-{
-"date": "2026-05-13",
-"dayOfWeek": "수",
-"time": "21:30",
-"country": "US",
-"importance": 4,
-"name": "근원 PPI (4월, 전년비)",
-"actual": null,
-"forecast": null,
-"previous": "3.8%"
-},
-{
-"date": "2026-05-14",
-"dayOfWeek": "목",
-"time": "21:30",
-"country": "US",
-"importance": 4,
-"name": "소매판매 (4월, 전월비)",
-"actual": null,
-"forecast": "0.6%",
-"previous": "1.7%"
-},
-{
-"date": "2026-05-14",
-"dayOfWeek": "목",
-"time": "21:30",
-"country": "US",
-"importance": 3,
-"name": "수입물가지수 (4월, 전월비)",
-"actual": null,
-"forecast": "1.0%",
-"previous": "0.8%"
-},
-{
-"date": "2026-05-14",
-"dayOfWeek": "목",
-"time": "21:30",
-"country": "US",
-"importance": 3,
-"name": "신규 실업수당 청구건수",
-"actual": null,
-"forecast": "206K",
-"previous": "200K"
-},
-{
-"date": "2026-05-15",
-"dayOfWeek": "금",
-"time": "06:00",
-"country": "KR",
-"importance": 3,
-"name": "수입물가지수 (4월, 전년비)",
-"actual": null,
-"forecast": null,
-"previous": "18.4%"
-},
-{
-"date": "2026-05-15",
-"dayOfWeek": "금",
-"time": "21:30",
-"country": "US",
-"importance": 3,
-"name": "뉴욕 연은 제조업지수 (5월)",
-"actual": null,
-"forecast": "7.3",
-"previous": "11.0"
-},
-{
-"date": "2026-05-15",
-"dayOfWeek": "금",
-"time": "22:15",
-"country": "US",
-"importance": 4,
-"name": "산업생산 (4월, 전월비)",
-"actual": null,
-"forecast": "0.2%",
-"previous": "-0.5%"
-},
-{
-"date": "2026-05-15",
-"dayOfWeek": "금",
-"time": "22:15",
-"country": "US",
-"importance": 3,
-"name": "설비가동률 (4월)",
-"actual": null,
-"forecast": "75.8%",
-"previous": "75.7%"
-}
-]
+  "weekStart": "2026-05-11",
+  "weekEnd": "2026-05-15",
+  "lastUpdated": "2026-05-11",
+  "events": [
+    {
+      "date": "2026-05-11",
+      "dayOfWeek": "월",
+      "time": "23:00",
+      "country": "US",
+      "importance": 3,
+      "name": "기존주택판매 (4월, 연율)",
+      "actual": null,
+      "forecast": "4.05M",
+      "previous": "3.98M"
+    },
+    {
+      "date": "2026-05-12",
+      "dayOfWeek": "화",
+      "time": "21:30",
+      "country": "US",
+      "importance": 4,
+      "name": "소비자물가지수 (CPI, 4월, 전년비)",
+      "actual": null,
+      "forecast": "3.7%",
+      "previous": "3.3%"
+    },
+    {
+      "date": "2026-05-12",
+      "dayOfWeek": "화",
+      "time": "21:30",
+      "country": "US",
+      "importance": 4,
+      "name": "근원 CPI (4월, 전년비)",
+      "actual": null,
+      "forecast": "2.7%",
+      "previous": "2.6%"
+    },
+    {
+      "date": "2026-05-13",
+      "dayOfWeek": "수",
+      "time": "08:00",
+      "country": "KR",
+      "importance": 4,
+      "name": "고용동향 (4월, 실업률)",
+      "actual": null,
+      "forecast": null,
+      "previous": "2.7%"
+    },
+    {
+      "date": "2026-05-13",
+      "dayOfWeek": "수",
+      "time": "21:30",
+      "country": "US",
+      "importance": 4,
+      "name": "생산자물가지수 (PPI, 4월, 전년비)",
+      "actual": null,
+      "forecast": null,
+      "previous": "4.0%"
+    },
+    {
+      "date": "2026-05-13",
+      "dayOfWeek": "수",
+      "time": "21:30",
+      "country": "US",
+      "importance": 4,
+      "name": "근원 PPI (4월, 전년비)",
+      "actual": null,
+      "forecast": null,
+      "previous": "3.8%"
+    },
+    {
+      "date": "2026-05-14",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 4,
+      "name": "소매판매 (4월, 전월비)",
+      "actual": null,
+      "forecast": "0.6%",
+      "previous": "1.7%"
+    },
+    {
+      "date": "2026-05-14",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "수입물가지수 (4월, 전월비)",
+      "actual": null,
+      "forecast": "1.0%",
+      "previous": "0.8%"
+    },
+    {
+      "date": "2026-05-14",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "신규 실업수당 청구건수",
+      "actual": null,
+      "forecast": "206K",
+      "previous": "200K"
+    },
+    {
+      "date": "2026-05-15",
+      "dayOfWeek": "금",
+      "time": "06:00",
+      "country": "KR",
+      "importance": 3,
+      "name": "수입물가지수 (4월, 전년비)",
+      "actual": null,
+      "forecast": null,
+      "previous": "18.4%"
+    },
+    {
+      "date": "2026-05-15",
+      "dayOfWeek": "금",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "뉴욕 연은 제조업지수 (5월)",
+      "actual": null,
+      "forecast": "7.3",
+      "previous": "11.0"
+    },
+    {
+      "date": "2026-05-15",
+      "dayOfWeek": "금",
+      "time": "22:15",
+      "country": "US",
+      "importance": 4,
+      "name": "산업생산 (4월, 전월비)",
+      "actual": null,
+      "forecast": "0.2%",
+      "previous": "-0.5%"
+    },
+    {
+      "date": "2026-05-15",
+      "dayOfWeek": "금",
+      "time": "22:15",
+      "country": "US",
+      "importance": 3,
+      "name": "설비가동률 (4월)",
+      "actual": null,
+      "forecast": "75.8%",
+      "previous": "75.7%"
+    }
+  ]
 }
