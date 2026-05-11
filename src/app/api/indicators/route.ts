@@ -23,6 +23,13 @@ interface IndicatorResult {
   dataDate?: string;
   staleness?: number;
   warning?: string;
+  /**
+   * 가격·금리 데이터의 시점 (ISO 8601 UTC).
+   * - yahoo 소스: fetchQuote가 반환한 dataTimestamp 그대로
+   * - fred/ecos 소스: dataDate(YYYY-MM-DD)에서 파생 (시각은 임의 고정)
+   * AI 보고서·사용자가 데이터 신선도를 검증할 수 있도록 노출.
+   */
+  dataTimestamp?: string | null;
 }
 
 // 각 소스별 어댑터를 호출해서 공통 형식으로 변환
@@ -47,6 +54,7 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
           value: quote.price,
           change: isWon ? quote.change : quote.changePercent,
           changeType: isWon ? "won" : "pct",
+          dataTimestamp: quote.dataTimestamp,
         };
       }
 
@@ -58,6 +66,9 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
           change: yieldData.changeBps,
           changeType: "bp",
           dataDate: yieldData.date,
+          // FRED는 일자만 알려주므로 ISO 시각은 임의 고정 (20:00 UTC ≈ 미 마감 부근).
+          // 정확한 시각은 dataDate 참조.
+          dataTimestamp: `${yieldData.date}T20:00:00Z`,
           ...(yieldData.staleness !== undefined && { staleness: yieldData.staleness }),
           ...(yieldData.stalenessWarning && { warning: yieldData.stalenessWarning }),
         };
@@ -71,6 +82,9 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
           change: yieldData.changeBps,
           changeType: "bp",
           dataDate: yieldData.date,
+          // ECOS는 일자만 알려주므로 ISO 시각은 임의 고정 (20:00 UTC).
+          // 정확한 시각은 dataDate 참조.
+          dataTimestamp: `${yieldData.date}T20:00:00Z`,
           ...(yieldData.staleness !== undefined && { staleness: yieldData.staleness }),
           ...(yieldData.stalenessWarning && { warning: yieldData.stalenessWarning }),
         };
