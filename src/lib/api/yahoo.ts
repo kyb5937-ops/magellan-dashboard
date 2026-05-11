@@ -21,6 +21,13 @@ export interface QuoteData {
   dayLow: number;           // 장중 저가
   dayOpen: number;          // 시가
   volume: number;           // 거래량
+  /**
+   * 가격 데이터의 시점 (ISO 8601 UTC).
+   * - 장중·프리·포스트 마켓: 야후가 알려준 regularMarketTime (실시간성 우선)
+   * - 마감 상태(시장 종료 6시간 경과 후): closes 배열의 마지막 timestamp (정확성 우선)
+   * 사용자/AI가 데이터 신선도를 검증할 수 있도록 노출.
+   */
+  dataTimestamp: string | null;
 }
 
 export interface ChartData {
@@ -73,7 +80,56 @@ export async function fetchQuote(input: string): Promise<QuoteData> {
   }
 
   const meta = result.meta;
-  const price = meta.regularMarketPrice;
+
+  /**
+   * 가격 결정 로직 — 장 상태에 따라 다른 소스 사용
+   *
+   * Why: 야후 chart endpoint의 meta.regularMarketPrice는 chart 부수정보라
+   * stale될 수 있음. 특히 주말·연휴 동안 며칠 묵은 데이터가 나오는 사고가
+   * 보고됨 (2026-05-11 AMD/TSLA 등 5/7 마감가 노출 사례). chart의 closes
+   * 배열은 실제 historical 데이터라 정확하지만 장중엔 마지막이 전날 종가라
+   * 실시간성 손실 위험. 따라서 시점에 따라 분기:
+   *
+   *   - 마감 상태 (regularMarketTime이 6시간 이상 전): closes 배열 마지막
+   *     유효 값 사용 (정확성 우선, stale 방지)
+   *   - 장중·프리·포스트 마켓 (6시간 이내): regularMarketPrice 사용
+   *     (15분 지연 실시간성 유지)
+   *
+   * 6시간 기준: 일반 거래 6.5시간 + 프리/포스트 마켓 시간을 고려한 안전 마진.
+   */
+  const timestamps: number[] = result.timestamp ?? [];
+  const closesRaw: (number | null | undefined)[] =
+    result.indicators?.quote?.[0]?.close ?? [];
+
+  const validCloses = timestamps
+    .map((t, i) => ({ t, c: closesRaw[i] }))
+    .filter((d): d is { t: number; c: number } =>
+      d.c !== null && d.c !== undefined
+    );
+
+  // 시점 기반 마감/장중 판단
+  const nowSec = Math.floor(Date.now() / 1000);
+  const marketTime: number | undefined = meta.regularMarketTime;
+  const SIX_HOURS_SEC = 6 * 3600;
+  const isMarketClosed =
+    typeof marketTime === "number" &&
+    nowSec - marketTime > SIX_HOURS_SEC;
+
+  let price: number;
+  let dataTimestamp: string | null = null;
+
+  if (isMarketClosed && validCloses.length > 0) {
+    // 마감 상태: closes 배열 마지막 유효 값 사용 (정확)
+    const last = validCloses[validCloses.length - 1];
+    price = last.c;
+    dataTimestamp = new Date(last.t * 1000).toISOString();
+  } else {
+    // 장중·프리·포스트 또는 closes 없음: regularMarketPrice 사용 (실시간성)
+    price = meta.regularMarketPrice;
+    dataTimestamp = marketTime
+      ? new Date(marketTime * 1000).toISOString()
+      : null;
+  }
 
   // 전일 종가 찾기 — 2단계 전략
   //
@@ -161,6 +217,7 @@ export async function fetchQuote(input: string): Promise<QuoteData> {
     dayLow: meta.regularMarketDayLow ?? price,
     dayOpen: meta.regularMarketOpen ?? price,
     volume: meta.regularMarketVolume ?? 0,
+    dataTimestamp,
   };
 }
 
