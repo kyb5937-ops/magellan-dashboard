@@ -75,7 +75,12 @@ def is_preferred_share(name: str) -> bool:
 
 def _fetch_market_cap_with_fallback():
     """오늘부터 거꾸로 영업일 시총 데이터 시도. (기준일, kospi_df, kosdaq_df) 반환.
-    pykrx의 get_market_cap_by_ticker는 KRX 로그인 필요 (KRX_ID/KRX_PW 환경변수)."""
+    pykrx의 get_market_cap_by_ticker는 KRX 로그인 필요 (KRX_ID/KRX_PW 환경변수).
+
+    빈 응답뿐 아니라 '모든 시총이 0' (KRX가 그날 시총 산정 전이라 발생) 케이스도
+    스킵하고 이전 영업일로 fallback. 이전엔 시총 0 데이터가 통과해서 universe가
+    종목 코드 순으로 정렬되는 버그가 있었음.
+    """
     last_error = None
     for offset in range(0, 10):
         d = (date.today() - timedelta(days=offset)).strftime("%Y%m%d")
@@ -88,6 +93,19 @@ def _fetch_market_cap_with_fallback():
             if df_q is None or df_q.empty:
                 print(f"  {d} KOSDAQ: 빈 결과 (df_q.empty)", file=sys.stderr)
                 continue
+
+            # 시총 합 검증 — 모두 0이면 KRX가 시총 산정 전이라 데이터 무의미
+            # 컬럼명은 '시가총액' (한국어). pykrx 안정 컬럼명.
+            kospi_mcap_sum = df_k["시가총액"].sum() if "시가총액" in df_k.columns else 0
+            kosdaq_mcap_sum = df_q["시가총액"].sum() if "시가총액" in df_q.columns else 0
+            if kospi_mcap_sum == 0 or kosdaq_mcap_sum == 0:
+                print(
+                    f"  {d} 시총 모두 0 (KOSPI sum={kospi_mcap_sum}, KOSDAQ sum={kosdaq_mcap_sum}) "
+                    f"— KRX 산정 전. 이전 영업일로 fallback",
+                    file=sys.stderr,
+                )
+                continue
+
             print(f"  ✅ KRX 시총 조회 성공: 기준일={d} (KOSPI {len(df_k)}종목, KOSDAQ {len(df_q)}종목)")
             print(f"  KOSPI 컬럼명: {df_k.columns.tolist()}")
             return d, df_k, df_q
