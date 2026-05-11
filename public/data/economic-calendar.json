@@ -1,216 +1,117 @@
 {
-  "weekStart": "2026-04-29",
-  "weekEnd": "2026-05-08",
-  "lastUpdated": "2026-05-11",
-  "events": [
-    {
-      "date": "2026-04-29",
-      "dayOfWeek": "수",
-      "time": "21:30",
-      "country": "US",
-      "importance": 3,
-      "name": "내구재 주문 (3월)",
-      "actual": "-0.3%",
-      "forecast": "0.5%",
-      "previous": "-1.3%"
-    },
-    {
-      "date": "2026-04-29",
-      "dayOfWeek": "수",
-      "time": "21:30",
-      "country": "US",
-      "importance": 3,
-      "name": "상품 무역수지 (3월)",
-      "actual": "-$87.87B",
-      "forecast": "-$86.30B",
-      "previous": "-$98.53B"
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "03:00",
-      "country": "US",
-      "importance": 5,
-      "name": "FOMC 금리 결정 + 파월 회견",
-      "actual": null,
-      "forecast": "동결(3.50%~3.75%)",
-      "previous": "3.50%~3.75%"
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "08:00",
-      "country": "KR",
-      "importance": 4,
-      "name": "산업활동동향 (3월)",
-      "actual": null,
-      "forecast": null,
-      "previous": null
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "21:30",
-      "country": "US",
-      "importance": 4,
-      "name": "GDP (1Q 속보치, 전기비 연율)",
-      "actual": "2%",
-      "forecast": "2.2%",
-      "previous": "0.5%"
-    },
-    {
-      "date": "2026-04-30",
-      "dayOfWeek": "목",
-      "time": "21:30",
-      "country": "US",
-      "importance": 4,
-      "name": "Core PCE 물가지수 (3월, 전월비)",
-      "actual": "0.3%",
-      "forecast": "0.3%",
-      "previous": "0.4%"
-    },
-    {
-      "date": "2026-05-01",
-      "dayOfWeek": "금",
-      "time": "08:00",
-      "country": "KR",
-      "importance": 4,
-      "name": "무역수지 (4월)",
-      "actual": null,
-      "forecast": null,
-      "previous": "$25.74B"
-    },
-    {
-      "date": "2026-05-01",
-      "dayOfWeek": "금",
-      "time": "23:00",
-      "country": "US",
-      "importance": 4,
-      "name": "ISM 제조업 PMI (4월)",
-      "actual": "46.4",
-      "forecast": "53.2",
-      "previous": "52.7"
-    },
-    {
-      "date": "2026-05-04",
-      "dayOfWeek": "월",
-      "time": "09:30",
-      "country": "KR",
-      "importance": 3,
-      "name": "S&P Global 제조업 PMI (4월)",
-      "actual": null,
-      "forecast": null,
-      "previous": null
-    },
-    {
-      "date": "2026-05-05",
-      "dayOfWeek": "화",
-      "time": "23:00",
-      "country": "US",
-      "importance": 4,
-      "name": "JOLTS 구인건수 (3월)",
-      "actual": "6.866M",
-      "forecast": null,
-      "previous": "6.882M"
-    },
-    {
-      "date": "2026-05-05",
-      "dayOfWeek": "화",
-      "time": "23:00",
-      "country": "US",
-      "importance": 4,
-      "name": "ISM 서비스업 PMI (4월)",
-      "actual": "55.9",
-      "forecast": null,
-      "previous": "54.0"
-    },
-    {
-      "date": "2026-05-06",
-      "dayOfWeek": "수",
-      "time": "08:00",
-      "country": "KR",
-      "importance": 4,
-      "name": "소비자물가지수 (CPI, 4월, 전년비)",
-      "actual": null,
-      "forecast": null,
-      "previous": "2.2%"
-    },
-    {
-      "date": "2026-05-06",
-      "dayOfWeek": "수",
-      "time": "21:15",
-      "country": "US",
-      "importance": 3,
-      "name": "ADP 민간고용 변화 (4월)",
-      "actual": "109K",
-      "forecast": "65K",
-      "previous": "62K"
-    },
-    {
-      "date": "2026-05-07",
-      "dayOfWeek": "목",
-      "time": "21:30",
-      "country": "US",
-      "importance": 3,
-      "name": "비농업 생산성 잠정치 (1Q)",
-      "actual": "0.8",
-      "forecast": null,
-      "previous": null
-    },
-    {
-      "date": "2026-05-08",
-      "dayOfWeek": "금",
-      "time": "08:00",
-      "country": "KR",
-      "importance": 3,
-      "name": "경상수지 (3월)",
-      "actual": null,
-      "forecast": null,
-      "previous": null
-    },
-    {
-      "date": "2026-05-08",
-      "dayOfWeek": "금",
-      "time": "21:30",
-      "country": "US",
-      "importance": 5,
-      "name": "비농업 신규고용 (NFP, 4월)",
-      "actual": "115K",
-      "forecast": "70K",
-      "previous": "178K"
-    },
-    {
-      "date": "2026-05-08",
-      "dayOfWeek": "금",
-      "time": "21:30",
-      "country": "US",
-      "importance": 5,
-      "name": "실업률 (4월)",
-      "actual": "8.2%",
-      "forecast": "4.3%",
-      "previous": "4.3%"
-    },
-    {
-      "date": "2026-05-08",
-      "dayOfWeek": "금",
-      "time": "21:30",
-      "country": "US",
-      "importance": 4,
-      "name": "평균 시간당 임금 (4월, 전월비)",
-      "actual": null,
-      "forecast": null,
-      "previous": "0.2%"
-    },
-    {
-      "date": "2026-05-08",
-      "dayOfWeek": "금",
-      "time": "23:00",
-      "country": "US",
-      "importance": 4,
-      "name": "미시간대 소비자심리지수 잠정치 (5월)",
-      "actual": "3.4",
-      "forecast": null,
-      "previous": "49.8"
-    }
-  ]
+"weekStart": "2026-05-11",
+"weekEnd": "2026-05-15",
+"lastUpdated": "2026-05-11",
+"events": [
+{
+"date": "2026-05-11",
+"dayOfWeek": "월",
+"time": "23:00",
+"country": "US",
+"importance": 3,
+"name": "기존주택판매 (4월)",
+"actual": null,
+"forecast": "4.05M",
+"previous": "3.98M"
+},
+{
+"date": "2026-05-12",
+"dayOfWeek": "화",
+"time": "21:30",
+"country": "US",
+"importance": 4,
+"name": "소비자물가지수 (CPI, 4월)",
+"actual": null,
+"forecast": "CPI +0.6% MoM / +3.7% YoY, Core +0.3% MoM / +2.7% YoY",
+"previous": "CPI +0.9% MoM / +3.3% YoY, Core +0.2% MoM / +2.6% YoY"
+},
+{
+"date": "2026-05-13",
+"dayOfWeek": "수",
+"time": "08:00",
+"country": "KR",
+"importance": 4,
+"name": "고용동향 (4월)",
+"actual": null,
+"forecast": null,
+"previous": "취업자 +206K, 실업률 3.0%"
+},
+{
+"date": "2026-05-13",
+"dayOfWeek": "수",
+"time": "21:30",
+"country": "US",
+"importance": 4,
+"name": "생산자물가지수 (PPI, 4월)",
+"actual": null,
+"forecast": "PPI +0.5% MoM, Core PPI +0.3% MoM",
+"previous": "PPI +0.5% MoM / +4.0% YoY, Core PPI +0.1% MoM / +3.8% YoY"
+},
+{
+"date": "2026-05-14",
+"dayOfWeek": "목",
+"time": "21:30",
+"country": "US",
+"importance": 4,
+"name": "소매판매 (4월)",
+"actual": null,
+"forecast": "소매판매 +0.6% MoM, 자동차 제외 +0.6% MoM",
+"previous": "소매판매 +1.7% MoM, 자동차 제외 +1.9% MoM"
+},
+{
+"date": "2026-05-14",
+"dayOfWeek": "목",
+"time": "21:30",
+"country": "US",
+"importance": 3,
+"name": "수입·수출물가지수 (4월)",
+"actual": null,
+"forecast": "수입물가 +1.0% MoM",
+"previous": "수입물가 +0.8% MoM, 수출물가 +1.6% MoM"
+},
+{
+"date": "2026-05-14",
+"dayOfWeek": "목",
+"time": "21:30",
+"country": "US",
+"importance": 3,
+"name": "신규 실업수당 청구건수",
+"actual": null,
+"forecast": "206K",
+"previous": "200K"
+},
+{
+"date": "2026-05-15",
+"dayOfWeek": "금",
+"time": "06:00",
+"country": "KR",
+"importance": 3,
+"name": "수출입물가지수 및 무역지수 (4월, 잠정)",
+"actual": null,
+"forecast": "수출물가 +31.0% YoY, 수입물가 +23.0% YoY",
+"previous": "수출물가 +28.7% YoY, 수입물가 +18.4% YoY"
+},
+{
+"date": "2026-05-15",
+"dayOfWeek": "금",
+"time": "21:30",
+"country": "US",
+"importance": 3,
+"name": "뉴욕 연은 제조업지수 (5월)",
+"actual": null,
+"forecast": "7.30",
+"previous": "11.00"
+},
+{
+"date": "2026-05-15",
+"dayOfWeek": "금",
+"time": "22:15",
+"country": "US",
+"importance": 4,
+"name": "산업생산·설비가동률 (4월)",
+"actual": null,
+"forecast": "산업생산 +0.2% MoM, 설비가동률 75.8%",
+"previous": "산업생산 -0.5% MoM, 설비가동률 75.7%"
+}
+]
 }
