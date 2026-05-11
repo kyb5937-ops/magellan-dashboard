@@ -9,7 +9,7 @@
 "time": "23:00",
 "country": "US",
 "importance": 3,
-"name": "기존주택판매 (4월)",
+"name": "기존주택판매 (4월, 연율)",
 "actual": null,
 "forecast": "4.05M",
 "previous": "3.98M"
@@ -20,10 +20,21 @@
 "time": "21:30",
 "country": "US",
 "importance": 4,
-"name": "소비자물가지수 (CPI, 4월)",
+"name": "소비자물가지수 (CPI, 4월, 전년비)",
 "actual": null,
-"forecast": "CPI +0.6% MoM / +3.7% YoY, Core +0.3% MoM / +2.7% YoY",
-"previous": "CPI +0.9% MoM / +3.3% YoY, Core +0.2% MoM / +2.6% YoY"
+"forecast": "3.7%",
+"previous": "3.3%"
+},
+{
+"date": "2026-05-12",
+"dayOfWeek": "화",
+"time": "21:30",
+"country": "US",
+"importance": 4,
+"name": "근원 CPI (4월, 전년비)",
+"actual": null,
+"forecast": "2.7%",
+"previous": "2.6%"
 },
 {
 "date": "2026-05-13",
@@ -31,10 +42,10 @@
 "time": "08:00",
 "country": "KR",
 "importance": 4,
-"name": "고용동향 (4월)",
+"name": "고용동향 (4월, 실업률)",
 "actual": null,
 "forecast": null,
-"previous": "취업자 +206K, 실업률 3.0%"
+"previous": "2.7%"
 },
 {
 "date": "2026-05-13",
@@ -42,10 +53,21 @@
 "time": "21:30",
 "country": "US",
 "importance": 4,
-"name": "생산자물가지수 (PPI, 4월)",
+"name": "생산자물가지수 (PPI, 4월, 전년비)",
 "actual": null,
-"forecast": "PPI +0.5% MoM, Core PPI +0.3% MoM",
-"previous": "PPI +0.5% MoM / +4.0% YoY, Core PPI +0.1% MoM / +3.8% YoY"
+"forecast": null,
+"previous": "4.0%"
+},
+{
+"date": "2026-05-13",
+"dayOfWeek": "수",
+"time": "21:30",
+"country": "US",
+"importance": 4,
+"name": "근원 PPI (4월, 전년비)",
+"actual": null,
+"forecast": null,
+"previous": "3.8%"
 },
 {
 "date": "2026-05-14",
@@ -53,10 +75,10 @@
 "time": "21:30",
 "country": "US",
 "importance": 4,
-"name": "소매판매 (4월)",
+"name": "소매판매 (4월, 전월비)",
 "actual": null,
-"forecast": "소매판매 +0.6% MoM, 자동차 제외 +0.6% MoM",
-"previous": "소매판매 +1.7% MoM, 자동차 제외 +1.9% MoM"
+"forecast": "0.6%",
+"previous": "1.7%"
 },
 {
 "date": "2026-05-14",
@@ -64,10 +86,10 @@
 "time": "21:30",
 "country": "US",
 "importance": 3,
-"name": "수입·수출물가지수 (4월)",
+"name": "수입물가지수 (4월, 전월비)",
 "actual": null,
-"forecast": "수입물가 +1.0% MoM",
-"previous": "수입물가 +0.8% MoM, 수출물가 +1.6% MoM"
+"forecast": "1.0%",
+"previous": "0.8%"
 },
 {
 "date": "2026-05-14",
@@ -86,10 +108,10 @@
 "time": "06:00",
 "country": "KR",
 "importance": 3,
-"name": "수출입물가지수 및 무역지수 (4월, 잠정)",
+"name": "수입물가지수 (4월, 전년비)",
 "actual": null,
-"forecast": "수출물가 +31.0% YoY, 수입물가 +23.0% YoY",
-"previous": "수출물가 +28.7% YoY, 수입물가 +18.4% YoY"
+"forecast": null,
+"previous": "18.4%"
 },
 {
 "date": "2026-05-15",
@@ -99,8 +121,8 @@
 "importance": 3,
 "name": "뉴욕 연은 제조업지수 (5월)",
 "actual": null,
-"forecast": "7.30",
-"previous": "11.00"
+"forecast": "7.3",
+"previous": "11.0"
 },
 {
 "date": "2026-05-15",
@@ -108,10 +130,21 @@
 "time": "22:15",
 "country": "US",
 "importance": 4,
-"name": "산업생산·설비가동률 (4월)",
+"name": "산업생산 (4월, 전월비)",
 "actual": null,
-"forecast": "산업생산 +0.2% MoM, 설비가동률 75.8%",
-"previous": "산업생산 -0.5% MoM, 설비가동률 75.7%"
+"forecast": "0.2%",
+"previous": "-0.5%"
+},
+{
+"date": "2026-05-15",
+"dayOfWeek": "금",
+"time": "22:15",
+"country": "US",
+"importance": 3,
+"name": "설비가동률 (4월)",
+"actual": null,
+"forecast": "75.8%",
+"previous": "75.7%"
 }
 ]
 }
