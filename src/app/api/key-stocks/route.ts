@@ -51,6 +51,12 @@ export interface KeyStockItem {
   change: number;        // 등락률(%)
   changeType: "pct";
   previousClose: number;
+  /**
+   * 가격 데이터의 야후 측 시각 (ISO 8601 UTC).
+   * AI 보고서·사용자가 데이터 신선도를 검증할 수 있도록 노출.
+   * null이면 데이터 시각을 야후가 제공하지 않은 케이스.
+   */
+  dataTimestamp: string | null;
   error?: string;
 }
 
@@ -87,6 +93,7 @@ export async function GET() {
           change: q.changePercent,
           changeType: "pct",
           previousClose: q.previousClose,
+          dataTimestamp: q.dataTimestamp,
         };
       } catch (err) {
         const message = err instanceof Error ? err.message : "조회 실패";
@@ -99,6 +106,7 @@ export async function GET() {
           change: 0,
           changeType: "pct",
           previousClose: 0,
+          dataTimestamp: null,
           error: message,
         };
       }
