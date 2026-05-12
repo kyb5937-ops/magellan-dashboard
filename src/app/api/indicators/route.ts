@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { fetchQuote } from "@/lib/api/yahoo";
 import { fetchFredYield } from "@/lib/api/fred";
-import { fetchEcosYield } from "@/lib/api/ecos";
+import { fetchEcosYield, fetchEcosFxRate } from "@/lib/api/ecos";
 import { INDICATORS, IndicatorMeta, Region, ValueType } from "@/lib/data/indicators";
 
 // 매번 새로 실행 — 캐시는 각 어댑터 내부에서 관리
@@ -23,6 +23,9 @@ interface IndicatorResult {
   dataDate?: string;
   staleness?: number;
   warning?: string;
+  // usdkrw 변동폭 재계산용 ECOS 매매기준율 (디버깅·검증용)
+  ecosPreviousClose?: number;
+  ecosDate?: string;
   /**
    * 가격·금리 데이터의 시점 (ISO 8601 UTC).
    * - yahoo 소스: fetchQuote가 반환한 dataTimestamp 그대로
@@ -49,6 +52,28 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
       case "yahoo": {
         const quote = await fetchQuote(meta.symbol);
         const isWon = meta.valueType === "fx";
+
+        // usdkrw는 Yahoo previousClose(OTC 24시간) 대신 ECOS 매매기준율로 변동폭 재계산.
+        // 실패 시 Yahoo previousClose fallback (기존 동작 유지).
+        if (meta.id === "usdkrw") {
+          try {
+            const ecosFx = await fetchEcosFxRate();
+            return {
+              ...base,
+              value: quote.price,
+              change: quote.price - ecosFx.previousClose,
+              changeType: "won",
+              dataTimestamp: quote.dataTimestamp,
+              ecosPreviousClose: ecosFx.previousClose,
+              ecosDate: ecosFx.date,
+              staleness: ecosFx.staleness,
+              ...(ecosFx.stalenessWarning && { warning: ecosFx.stalenessWarning }),
+            };
+          } catch (e) {
+            console.error("ECOS FX fallback to Yahoo previousClose:", e);
+          }
+        }
+
         return {
           ...base,
           value: quote.price,
