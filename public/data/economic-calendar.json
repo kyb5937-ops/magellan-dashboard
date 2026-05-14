@@ -76,7 +76,7 @@
       "country": "US",
       "importance": 4,
       "name": "소매판매 (4월, 전월비)",
-      "actual": null,
+      "actual": "0.5%",
       "forecast": "0.6%",
       "previous": "1.7%"
     },
