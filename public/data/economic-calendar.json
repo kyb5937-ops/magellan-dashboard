@@ -131,7 +131,7 @@
       "country": "US",
       "importance": 4,
       "name": "산업생산 (4월, 전월비)",
-      "actual": null,
+      "actual": "0.7%",
       "forecast": "0.2%",
       "previous": "-0.5%"
     },
