@@ -28,12 +28,12 @@
       "name": "어플라이드머티어리얼즈",
       "marketCapRank": 65,
       "quarter": "26Q1",
-      "epsForecast": "$2.68",
-      "epsActual": "$2.86",
+      "epsForecast": "$2.69",
+      "epsActual": "$3.51",
       "epsPreviousYoY": "$2.39",
       "revenueForecast": "$8.60B",
       "revenueActual": null,
-      "surprise": "+6.6%"
+      "surprise": "+30.3%"
     },
     {
       "date": "2026-05-19",
@@ -94,7 +94,7 @@
       "quarter": "26Q1",
       "epsForecast": "$0.66",
       "epsActual": null,
-      "epsPreviousYoY": "$0.61",
+      "epsPreviousYoY": "$0.56",
       "revenueForecast": "$174.72B",
       "revenueActual": null,
       "surprise": null
@@ -126,7 +126,7 @@
       "quarter": "26Q1",
       "epsForecast": "$1.78",
       "epsActual": null,
-      "epsPreviousYoY": "$0.81",
+      "epsPreviousYoY": "$0.76",
       "revenueForecast": "$79.17B",
       "revenueActual": null,
       "surprise": null
@@ -142,7 +142,7 @@
       "quarter": "26Q1",
       "epsForecast": "$12.57",
       "epsActual": null,
-      "epsPreviousYoY": "$11.65",
+      "epsPreviousYoY": "$10.02",
       "revenueForecast": "$8.54B",
       "revenueActual": null,
       "surprise": null
