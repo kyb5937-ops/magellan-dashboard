@@ -69,7 +69,7 @@ export function IndicatorCard({ meta, value }: IndicatorCardProps) {
   return (
     <div className={cardClassName} onClick={handleClick}>
       <div className="text-[11px] text-fg-muted mb-1.5">{meta.name}</div>
-      <div className="text-base font-medium text-fg">{displayText}</div>
+      <div className="text-base font-medium text-fg truncate">{displayText}</div>
       <div className={`text-[11px] mt-0.5 ${changeColor}`}>{changeText}</div>
     </div>
   );

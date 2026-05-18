@@ -14,7 +14,7 @@ export function CardSection({ label, indicators, values }: CardSectionProps) {
       <div className="text-xs font-medium text-fg-muted mb-2 tracking-wider">
         {label}
       </div>
-      <div className="grid grid-cols-5 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
         {indicators.map((meta) => {
           const value = values.find((v) => v.id === meta.id);
           return <IndicatorCard key={meta.id} meta={meta} value={value} />;

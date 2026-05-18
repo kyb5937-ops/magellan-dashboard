@@ -59,13 +59,13 @@ export function DeepDiveSection() {
         📊 DEEP DIVE
       </div>
 
-      {/* 탭 버튼 — 2행 grid 배치, 각 행 양측 정렬 (균등 폭) */}
-      <div className="grid grid-cols-7 gap-1 mb-3">
+      {/* 탭 버튼 — 모바일: 가로 스크롤, sm 이상: 7열 그리드 */}
+      <div className="flex gap-1 mb-3 overflow-x-auto pb-1 sm:grid sm:grid-cols-7 sm:overflow-visible sm:pb-0">
         {DEEPDIVE_TABS.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-2 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+            className={`px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors flex-shrink-0 sm:flex-shrink sm:px-2 ${
               activeTab === tab.id
                 ? "bg-navy-light text-fg"
                 : "bg-navy text-fg-muted hover:bg-navy-light hover:text-fg"

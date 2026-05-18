@@ -11,7 +11,7 @@ import { US_INDICATORS, KR_INDICATORS } from "@/lib/data/indicators";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen p-6">
+    <main className="min-h-screen px-3 py-4 sm:p-6">
       <div className="max-w-6xl mx-auto">
         <DashboardHeader />
         <LiveCardSection

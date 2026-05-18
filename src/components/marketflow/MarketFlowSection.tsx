@@ -142,7 +142,7 @@ export function MarketFlowSection() {
         💹 MARKET FLOW
       </div>
 
-      <div className="bg-navy rounded-xl p-5 overflow-x-auto">
+      <div className="bg-navy rounded-xl p-3 sm:p-5 overflow-x-auto">
         {/* 표 */}
         <table className="w-full text-sm">
           <thead>
