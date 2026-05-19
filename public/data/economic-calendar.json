@@ -1,150 +1,150 @@
 {
-"weekStart": "2026-05-18",
-"weekEnd": "2026-05-22",
-"lastUpdated": "2026-05-19",
-"events": [
-{
-"date": "2026-05-18",
-"dayOfWeek": "월",
-"time": "23:00",
-"country": "US",
-"importance": 3,
-"name": "NAHB 주택시장지수 (5월)",
-"actual": null,
-"forecast": "34",
-"previous": "34"
-},
-{
-"date": "2026-05-19",
-"dayOfWeek": "화",
-"time": "23:00",
-"country": "US",
-"importance": 3,
-"name": "잠정주택판매 (4월, 전월비)",
-"actual": null,
-"forecast": "1.35%",
-"previous": "1.5%"
-},
-{
-"date": "2026-05-21",
-"dayOfWeek": "목",
-"time": "03:00",
-"country": "US",
-"importance": 4,
-"name": "FOMC 회의록 (4월 회의)",
-"actual": null,
-"forecast": null,
-"previous": null
-},
-{
-"date": "2026-05-21",
-"dayOfWeek": "목",
-"time": "06:00",
-"country": "KR",
-"importance": 3,
-"name": "생산자물가지수 (PPI, 4월, 전년비)",
-"actual": null,
-"forecast": null,
-"previous": "4.1%"
-},
-{
-"date": "2026-05-21",
-"dayOfWeek": "목",
-"time": "21:30",
-"country": "US",
-"importance": 3,
-"name": "신규 실업수당 청구건수 (5/16주)",
-"actual": null,
-"forecast": "210K",
-"previous": "211K"
-},
-{
-"date": "2026-05-21",
-"dayOfWeek": "목",
-"time": "21:30",
-"country": "US",
-"importance": 3,
-"name": "주택착공건수 (4월)",
-"actual": null,
-"forecast": "1415K",
-"previous": "1502K"
-},
-{
-"date": "2026-05-21",
-"dayOfWeek": "목",
-"time": "21:30",
-"country": "US",
-"importance": 3,
-"name": "건축허가건수 (4월)",
-"actual": null,
-"forecast": "1380K",
-"previous": "1372K"
-},
-{
-"date": "2026-05-21",
-"dayOfWeek": "목",
-"time": "21:30",
-"country": "US",
-"importance": 3,
-"name": "필라델피아 연은 제조업지수 (5월)",
-"actual": null,
-"forecast": "15",
-"previous": "26.7"
-},
-{
-"date": "2026-05-21",
-"dayOfWeek": "목",
-"time": "22:45",
-"country": "US",
-"importance": 3,
-"name": "S&P Global 제조업 PMI (5월 예비치)",
-"actual": null,
-"forecast": "54.0",
-"previous": "54.5"
-},
-{
-"date": "2026-05-21",
-"dayOfWeek": "목",
-"time": "22:45",
-"country": "US",
-"importance": 3,
-"name": "S&P Global 서비스업 PMI (5월 예비치)",
-"actual": null,
-"forecast": null,
-"previous": "51.0"
-},
-{
-"date": "2026-05-22",
-"dayOfWeek": "금",
-"time": "06:00",
-"country": "KR",
-"importance": 3,
-"name": "소비자동향조사 CSI (5월)",
-"actual": null,
-"forecast": null,
-"previous": "99.2"
-},
-{
-"date": "2026-05-22",
-"dayOfWeek": "금",
-"time": "23:00",
-"country": "US",
-"importance": 4,
-"name": "미시간대 소비자심리지수 (5월 확정치)",
-"actual": null,
-"forecast": "48.2",
-"previous": "48.2"
-},
-{
-"date": "2026-05-22",
-"dayOfWeek": "금",
-"time": "23:00",
-"country": "US",
-"importance": 3,
-"name": "CB 경기선행지수 (4월, 전월비)",
-"actual": null,
-"forecast": null,
-"previous": "-0.6%"
-}
-]
+  "weekStart": "2026-05-18",
+  "weekEnd": "2026-05-22",
+  "lastUpdated": "2026-05-19",
+  "events": [
+    {
+      "date": "2026-05-18",
+      "dayOfWeek": "월",
+      "time": "23:00",
+      "country": "US",
+      "importance": 3,
+      "name": "NAHB 주택시장지수 (5월)",
+      "actual": null,
+      "forecast": "34",
+      "previous": "34"
+    },
+    {
+      "date": "2026-05-19",
+      "dayOfWeek": "화",
+      "time": "23:00",
+      "country": "US",
+      "importance": 3,
+      "name": "잠정주택판매 (4월, 전월비)",
+      "actual": null,
+      "forecast": "1.35%",
+      "previous": "1.5%"
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "03:00",
+      "country": "US",
+      "importance": 4,
+      "name": "FOMC 회의록 (4월 회의)",
+      "actual": null,
+      "forecast": null,
+      "previous": null
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "06:00",
+      "country": "KR",
+      "importance": 3,
+      "name": "생산자물가지수 (PPI, 4월, 전년비)",
+      "actual": null,
+      "forecast": null,
+      "previous": "4.1%"
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "신규 실업수당 청구건수 (5/16주)",
+      "actual": null,
+      "forecast": "210K",
+      "previous": "211K"
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "주택착공건수 (4월)",
+      "actual": null,
+      "forecast": "1415K",
+      "previous": "1502K"
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "건축허가건수 (4월)",
+      "actual": null,
+      "forecast": "1380K",
+      "previous": "1372K"
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "21:30",
+      "country": "US",
+      "importance": 3,
+      "name": "필라델피아 연은 제조업지수 (5월)",
+      "actual": null,
+      "forecast": "15",
+      "previous": "26.7"
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "22:45",
+      "country": "US",
+      "importance": 3,
+      "name": "S&P Global 제조업 PMI (5월 예비치)",
+      "actual": null,
+      "forecast": "54.0",
+      "previous": "54.5"
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "22:45",
+      "country": "US",
+      "importance": 3,
+      "name": "S&P Global 서비스업 PMI (5월 예비치)",
+      "actual": null,
+      "forecast": null,
+      "previous": "51.0"
+    },
+    {
+      "date": "2026-05-22",
+      "dayOfWeek": "금",
+      "time": "06:00",
+      "country": "KR",
+      "importance": 3,
+      "name": "소비자동향조사 CSI (5월)",
+      "actual": null,
+      "forecast": null,
+      "previous": "99.2"
+    },
+    {
+      "date": "2026-05-22",
+      "dayOfWeek": "금",
+      "time": "23:00",
+      "country": "US",
+      "importance": 4,
+      "name": "미시간대 소비자심리지수 (5월 확정치)",
+      "actual": null,
+      "forecast": "48.2",
+      "previous": "48.2"
+    },
+    {
+      "date": "2026-05-22",
+      "dayOfWeek": "금",
+      "time": "23:00",
+      "country": "US",
+      "importance": 3,
+      "name": "CB 경기선행지수 (4월, 전월비)",
+      "actual": null,
+      "forecast": null,
+      "previous": "-0.6%"
+    }
+  ]
 }
