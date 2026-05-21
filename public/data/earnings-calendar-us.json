@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-05-18",
-  "weekEnd": "2026-06-03",
-  "lastUpdated": "2026-05-20",
+  "weekStart": "2026-05-19",
+  "weekEnd": "2026-06-04",
+  "lastUpdated": "2026-05-21",
   "events": [
     {
       "date": "2026-05-19",
@@ -14,10 +14,26 @@
       "quarter": "26Q1",
       "epsForecast": "$3.41",
       "epsActual": "$3.43",
-      "epsPreviousYoY": "$3.56",
-      "revenueForecast": "$41.51B",
+      "epsPreviousYoY": "$3.45",
+      "revenueForecast": "$47.26B",
       "revenueActual": null,
       "surprise": "+0.7%"
+    },
+    {
+      "date": "2026-05-20",
+      "dayOfWeek": "수",
+      "time": "BMO",
+      "country": "US",
+      "symbol": "TJX",
+      "name": "TJX",
+      "marketCapRank": 76,
+      "quarter": "26Q1",
+      "epsForecast": "$1.02",
+      "epsActual": "$1.19",
+      "epsPreviousYoY": "$0.92",
+      "revenueForecast": "$15.19B",
+      "revenueActual": null,
+      "surprise": "+17.2%"
     },
     {
       "date": "2026-05-20",
@@ -30,8 +46,8 @@
       "quarter": "26Q1",
       "epsForecast": "$2.91",
       "epsActual": "$3.09",
-      "epsPreviousYoY": "$1.85",
-      "revenueForecast": "$3.52B",
+      "epsPreviousYoY": "$1.14",
+      "revenueForecast": "$3.79B",
       "revenueActual": null,
       "surprise": "+6.2%"
     },
@@ -47,7 +63,7 @@
       "epsForecast": "$0.66",
       "epsActual": null,
       "epsPreviousYoY": "$0.56",
-      "revenueForecast": "$174.80B",
+      "revenueForecast": "$174.84B",
       "revenueActual": null,
       "surprise": null
     },
@@ -66,6 +82,38 @@
       "revenueForecast": "$11.50B",
       "revenueActual": null,
       "surprise": null
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "NVDA",
+      "name": "엔비디아",
+      "marketCapRank": 3,
+      "quarter": "26Q1",
+      "epsForecast": "$1.77",
+      "epsActual": "$1.87",
+      "epsPreviousYoY": "$0.76",
+      "revenueForecast": "$89.33B",
+      "revenueActual": null,
+      "surprise": "+5.5%"
+    },
+    {
+      "date": "2026-05-21",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "INTU",
+      "name": "인튜이트",
+      "marketCapRank": 60,
+      "quarter": "26Q1",
+      "epsForecast": "$12.57",
+      "epsActual": "$12.80",
+      "epsPreviousYoY": "$11.65",
+      "revenueForecast": "$4.15B",
+      "revenueActual": null,
+      "surprise": "+1.8%"
     },
     {
       "date": "2026-05-28",
@@ -112,6 +160,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$0.80",
       "revenueForecast": "$2.94B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-06-04",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "AVGO",
+      "name": "브로드컴",
+      "marketCapRank": 8,
+      "quarter": "26Q1",
+      "epsForecast": "$2.39",
+      "epsActual": null,
+      "epsPreviousYoY": "$1.58",
+      "revenueForecast": "$22.08B",
       "revenueActual": null,
       "surprise": null
     }
