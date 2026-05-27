@@ -4,22 +4,6 @@
   "lastUpdated": "2026-05-27",
   "events": [
     {
-      "date": "2026-05-28",
-      "dayOfWeek": "목",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "CRM",
-      "name": "세일즈포스",
-      "marketCapRank": 24,
-      "quarter": "26Q1",
-      "epsForecast": "$3.13",
-      "epsActual": null,
-      "epsPreviousYoY": "$2.58",
-      "revenueForecast": "$11.06B",
-      "revenueActual": null,
-      "surprise": null
-    },
-    {
       "date": "2026-05-29",
       "dayOfWeek": "금",
       "time": "AMC",
