@@ -1,24 +1,8 @@
 {
-  "weekStart": "2026-06-03",
-  "weekEnd": "2026-06-19",
-  "lastUpdated": "2026-06-05",
+  "weekStart": "2026-06-04",
+  "weekEnd": "2026-06-20",
+  "lastUpdated": "2026-06-06",
   "events": [
-    {
-      "date": "2026-06-03",
-      "dayOfWeek": "수",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "PANW",
-      "name": "팔로알토",
-      "marketCapRank": 73,
-      "quarter": "26Q1",
-      "epsForecast": "$0.80",
-      "epsActual": "$0.85",
-      "epsPreviousYoY": "$0.80",
-      "revenueForecast": "$3.35B",
-      "revenueActual": null,
-      "surprise": "+6.6%"
-    },
     {
       "date": "2026-06-04",
       "dayOfWeek": "목",
@@ -31,7 +15,7 @@
       "epsForecast": "$2.40",
       "epsActual": "$2.44",
       "epsPreviousYoY": "$1.58",
-      "revenueForecast": "$28.47B",
+      "revenueForecast": "$29.44B",
       "revenueActual": null,
       "surprise": "+1.8%"
     },
@@ -47,7 +31,7 @@
       "epsForecast": "$1.96",
       "epsActual": null,
       "epsPreviousYoY": "$1.70",
-      "revenueForecast": "$19.10B",
+      "revenueForecast": "$19.09B",
       "revenueActual": null,
       "surprise": null
     },
@@ -79,7 +63,7 @@
       "epsForecast": "$3.72",
       "epsActual": null,
       "epsPreviousYoY": "$3.49",
-      "revenueForecast": "$18.77B",
+      "revenueForecast": "$18.76B",
       "revenueActual": null,
       "surprise": null
     }
