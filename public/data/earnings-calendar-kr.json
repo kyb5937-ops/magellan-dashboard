@@ -1,6 +1,29 @@
 {
-  "weekStart": "2026-06-07",
-  "weekEnd": "2026-06-23",
-  "lastUpdated": "2026-06-09",
-  "events": []
+  "weekStart": "2026-06-08",
+  "weekEnd": "2026-06-24",
+  "lastUpdated": "2026-06-10",
+  "events": [
+    {
+      "date": "2026-06-09",
+      "dayOfWeek": "화",
+      "time": "AMC",
+      "country": "KR",
+      "symbol": "004170",
+      "name": "신세계",
+      "marketCapRank": 98,
+      "quarter": "26Q1",
+      "epsForecast": "4,047원",
+      "epsActual": "12,466원",
+      "epsPreviousYoY": "5,889원",
+      "revenueForecast": "1.8조원",
+      "revenueActual": "1.8조원",
+      "revenuePreviousYoY": "1.7조원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "1,362억원",
+      "operatingIncomeActual": "1,978억원",
+      "operatingIncomePreviousYoY": "1,323억원",
+      "operatingIncomeSurprise": null,
+      "surprise": null
+    }
+  ]
 }
