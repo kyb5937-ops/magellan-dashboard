@@ -252,67 +252,9 @@ def get_sector_changes(date, sector_codes):
     return items
 
 
-def _diagnose_top_stocks_change(date):
-    """[TEMP DIAG] TOP10 등락률 사고 진단 — 다음 run 후 제거 예정.
-
-    1) get_nearest_business_day_in_a_week 가 date / date-1 에 대해 어떤 영업일을
-       돌려주는지 (= _change_pct_map 의 prev_bd 추측이 맞는지).
-    2) get_market_ohlcv_by_date(date-3주, date, code) 의 마지막 행 등락률
-       (= KRX 공식 일간 등락률) 이 005930/000660 에 대해 얼마인지.
-    3) 단일-날짜 OHLCV 페어 (today vs prev_bd 종가) 계산 결과.
-    """
-    print("=" * 60)
-    print("[DIAG] TOP10 등락률 진단 시작")
-    print("=" * 60)
-    try:
-        prev_from_target = stock.get_nearest_business_day_in_a_week(date)
-        print(f"[DIAG] get_nearest_business_day_in_a_week({date}) => {prev_from_target}")
-    except Exception as e:
-        print(f"[DIAG] nbd(date) 예외: {e}")
-    try:
-        d_minus1 = (datetime.strptime(date, "%Y%m%d") - timedelta(days=1)).strftime("%Y%m%d")
-        prev_from_minus1 = stock.get_nearest_business_day_in_a_week(d_minus1)
-        print(f"[DIAG] get_nearest_business_day_in_a_week({d_minus1}) => {prev_from_minus1}")
-    except Exception as e:
-        print(f"[DIAG] nbd(date-1) 예외: {e}")
-        prev_from_minus1 = None
-
-    window_start = (datetime.strptime(date, "%Y%m%d") - timedelta(days=21)).strftime("%Y%m%d")
-    for code in ["005930", "000660"]:
-        try:
-            df = stock.get_market_ohlcv_by_date(window_start, date, code)
-            cols = df.columns.tolist()
-            print(f"[DIAG] ohlcv_by_date({code}) cols={cols} rows={len(df)}")
-            tail = df.tail(5)[["시가", "종가", "등락률"]]
-            for idx, row in tail.iterrows():
-                print(f"[DIAG]   {code} {idx.strftime('%Y-%m-%d')} 시가={row['시가']} 종가={row['종가']} 등락률={row['등락률']}")
-        except Exception as e:
-            print(f"[DIAG] ohlcv_by_date({code}) 예외: {e}")
-
-    try:
-        dft = stock.get_market_ohlcv(date, market="KOSPI")
-        print(f"[DIAG] single-date ohlcv({date}, KOSPI) cols={dft.columns.tolist()} rows={len(dft)}")
-        if prev_from_minus1:
-            dfp = stock.get_market_ohlcv(prev_from_minus1, market="KOSPI")
-            print(f"[DIAG] single-date ohlcv({prev_from_minus1}, KOSPI) rows={len(dfp)}")
-            for code in ["005930", "000660"]:
-                cc = float(dft.loc[code, "종가"]) if code in dft.index else None
-                pc = float(dfp.loc[code, "종가"]) if code in dfp.index else None
-                pct = round((cc - pc) / pc * 100, 2) if (cc and pc) else None
-                print(f"[DIAG]   {code} today종가={cc} prev_bd종가={pc} calc%={pct}")
-    except Exception as e:
-        print(f"[DIAG] single-date 진단 예외: {e}")
-    print("=" * 60)
-    print("[DIAG] TOP10 등락률 진단 종료")
-    print("=" * 60)
-
-
 def main():
     date = TARGET_DATE
     print(f"▶ {date} 데이터 수집 시작")
-
-    # [TEMP] TOP10 등락률 사고 진단 — 결과 확인 후 다음 커밋에서 제거
-    _diagnose_top_stocks_change(date)
 
     # ── 시장 전체 매매동향 ──
     print(f"  [1/6] KOSPI 매매동향...")
