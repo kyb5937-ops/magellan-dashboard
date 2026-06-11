@@ -87,6 +87,81 @@ export async function fetchFredYield(seriesId: string): Promise<YieldQuote> {
 }
 
 // ───────────────────────────────────────────
+// FRED 가격 지수 (S&P 500, Dow, NASDAQ Composite)
+// ───────────────────────────────────────────
+//
+// Why: Yahoo가 특정 거래일 일봉을 누락해서 등락률이 0.00% 로 잠기는 사고가
+// 반복됨. FRED는 NY연준 공식 종가를 영업일 + 약 1일 시차로 일관되게 제공.
+// 마감 기준 정확도 우선 — 미국 장중(KST 야간)에는 직전 거래일 종가가 보일 수
+// 있고 이는 의도된 동작.
+
+export interface IndexQuote {
+  symbol: string;       // FRED 시리즈 ID
+  value: number;        // 최근 유효 종가
+  previousClose: number; // 그 직전 유효 종가
+  changePercent: number; // (value - prev) / prev * 100
+  date: string;          // YYYY-MM-DD (최근 유효 관측일)
+}
+
+export async function fetchFredIndex(seriesId: string): Promise<IndexQuote> {
+  const apiKey = process.env.FRED_API_KEY;
+
+  if (!apiKey) {
+    throw new Error(
+      "FRED_API_KEY 환경변수가 설정되지 않았습니다. .env.local 을 확인하세요."
+    );
+  }
+
+  const url =
+    `https://api.stlouisfed.org/fred/series/observations` +
+    `?series_id=${seriesId}` +
+    `&api_key=${apiKey}` +
+    `&file_type=json` +
+    `&sort_order=desc` +
+    `&limit=10`;
+
+  const res = await fetch(url, {
+    next: { revalidate: 3600 },
+  });
+
+  if (!res.ok) {
+    throw new Error(`FRED 요청 실패: HTTP ${res.status}`);
+  }
+
+  const json: FredResponse = await res.json();
+  const obs = json.observations;
+
+  if (!obs || obs.length < 2) {
+    throw new Error(`FRED ${seriesId}: 데이터 부족`);
+  }
+
+  // "." 결측 제외하고 유효 종가만 추출
+  const valid = obs
+    .map((o) => ({ date: o.date, value: parseFloat(o.value) }))
+    .filter((o) => !isNaN(o.value));
+
+  if (valid.length < 2) {
+    throw new Error(`FRED ${seriesId}: 유효 데이터 부족`);
+  }
+
+  const latest = valid[0];
+  const previous = valid[1];
+  if (previous.value === 0) {
+    throw new Error(`FRED ${seriesId}: 전일 종가 0`);
+  }
+
+  const changePercent = ((latest.value - previous.value) / previous.value) * 100;
+
+  return {
+    symbol: seriesId,
+    value: latest.value,
+    previousClose: previous.value,
+    changePercent,
+    date: latest.date,
+  };
+}
+
+// ───────────────────────────────────────────
 // FRED 시계열 (차트용)
 // ───────────────────────────────────────────
 

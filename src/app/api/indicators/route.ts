@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { fetchQuote } from "@/lib/api/yahoo";
-import { fetchFredYield } from "@/lib/api/fred";
+import { fetchFredYield, fetchFredIndex } from "@/lib/api/fred";
 import { fetchEcosYield, fetchEcosFxRate } from "@/lib/api/ecos";
 import { loadKrxIndexFile } from "@/lib/api/krxIndex";
 import { INDICATORS, IndicatorMeta, Region, ValueType } from "@/lib/data/indicators";
@@ -82,6 +82,37 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
           changeType: isWon ? "won" : "pct",
           dataTimestamp: quote.dataTimestamp,
         };
+      }
+
+      case "fredIndex": {
+        // FRED 가격 지수(S&P 500, Dow, NASDAQ Composite).
+        // 실패 시 동일 카드의 Yahoo 폴백 티커(meta.symbol)로 전환.
+        try {
+          if (!meta.fredSymbol) {
+            throw new Error(`fredIndex 카드 ${meta.id} 에 fredSymbol 미지정`);
+          }
+          const idx = await fetchFredIndex(meta.fredSymbol);
+          return {
+            ...base,
+            value: idx.value,
+            change: idx.changePercent,
+            changeType: "pct",
+            dataDate: idx.date,
+            // FRED는 일자만 알려주므로 시각은 미 마감 부근(20:00 UTC)으로 고정
+            dataTimestamp: `${idx.date}T20:00:00Z`,
+          };
+        } catch (e) {
+          console.error(`FRED 지수 ${meta.fredSymbol} 실패 — Yahoo 폴백:`, e);
+          const quote = await fetchQuote(meta.symbol);
+          return {
+            ...base,
+            value: quote.price,
+            change: quote.changePercent,
+            changeType: "pct",
+            dataTimestamp: quote.dataTimestamp,
+            warning: "FRED 지수 조회 실패 — Yahoo 폴백",
+          };
+        }
       }
 
       case "fred": {
