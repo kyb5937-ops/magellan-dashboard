@@ -2,16 +2,18 @@
 // 카드 15개 (US 10 + KR 5) + 딥다이브 6개 (S&P·나스닥·다우·SOX·KOSPI·KOSDAQ)
 //
 // dataSource
-//   - yahoo  : Yahoo Finance 비공식 API (15분 지연, 무료)
-//   - fred   : FRED API (일봉, 무료, 키 필요)
-//   - ecos   : 한국은행 ECOS API (일봉, 무료, 키 필요)
+//   - yahoo    : Yahoo Finance 비공식 API (15분 지연, 무료)
+//   - fred     : FRED API (일봉, 무료, 키 필요)
+//   - ecos     : 한국은행 ECOS API (일봉, 무료, 키 필요)
+//   - krxIndex : public/data/index-kr.json (GH Actions가 KRX 공식 종가를 매일 커밋).
+//                Yahoo가 거래일을 누락해 등락률이 튀는 문제 해결용. 실패 시 Yahoo 폴백.
 //
 // valueType
 //   - price   : 종가 (등락률 %로 표시)
 //   - yield   : 금리 % (변동폭 bp로 표시)
 //   - fx      : 환율 (변동폭 원)
 
-export type DataSource = "yahoo" | "fred" | "ecos";
+export type DataSource = "yahoo" | "fred" | "ecos" | "krxIndex";
 export type ValueType = "price" | "yield" | "fx";
 export type Region = "US" | "KR";
 
@@ -40,8 +42,8 @@ export const INDICATORS: IndicatorMeta[] = [
   { id: "dxy",     name: "달러인덱스",    region: "US", dataSource: "yahoo", symbol: "DX-Y.NYB", valueType: "price", decimals: 2, deepDive: false },
 
   // ===== 🇰🇷 KOREA (5개) =====
-  { id: "kospi",   name: "코스피",        region: "KR", dataSource: "yahoo", symbol: "^KS11",  valueType: "price", decimals: 2, deepDive: true  },
-  { id: "kosdaq",  name: "코스닥",        region: "KR", dataSource: "yahoo", symbol: "^KQ11",  valueType: "price", decimals: 2, deepDive: true  },
+  { id: "kospi",   name: "코스피",        region: "KR", dataSource: "krxIndex", symbol: "^KS11",  valueType: "price", decimals: 2, deepDive: true  },
+  { id: "kosdaq",  name: "코스닥",        region: "KR", dataSource: "krxIndex", symbol: "^KQ11",  valueType: "price", decimals: 2, deepDive: true  },
   { id: "usdkrw",  name: "원/달러",       region: "KR", dataSource: "yahoo", symbol: "KRW=X",  valueType: "fx",    decimals: 1, deepDive: false },
   { id: "kr3y",    name: "국고채 3Y",     region: "KR", dataSource: "ecos",  symbol: "010200000", valueType: "yield", decimals: 3, deepDive: false },
   { id: "kr10y",   name: "국고채 10Y",    region: "KR", dataSource: "ecos",  symbol: "010210000", valueType: "yield", decimals: 3, deepDive: false },

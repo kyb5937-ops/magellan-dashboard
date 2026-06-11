@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { fetchQuote } from "@/lib/api/yahoo";
 import { fetchFredYield } from "@/lib/api/fred";
 import { fetchEcosYield, fetchEcosFxRate } from "@/lib/api/ecos";
+import { loadKrxIndexFile } from "@/lib/api/krxIndex";
 import { INDICATORS, IndicatorMeta, Region, ValueType } from "@/lib/data/indicators";
 
 // 매번 새로 실행 — 캐시는 각 어댑터 내부에서 관리
@@ -96,6 +97,49 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
           dataTimestamp: `${yieldData.date}T20:00:00Z`,
           ...(yieldData.staleness !== undefined && { staleness: yieldData.staleness }),
           ...(yieldData.stalenessWarning && { warning: yieldData.stalenessWarning }),
+        };
+      }
+
+      case "krxIndex": {
+        // KRX 공식 종가(코스피·코스닥). 매 거래일 GH Actions 가 갱신.
+        // 파일/항목이 없거나 값이 비정상이면 Yahoo 경로로 폴백.
+        const file = await loadKrxIndexFile();
+        const entry =
+          meta.id === "kospi"
+            ? file?.kospi
+            : meta.id === "kosdaq"
+              ? file?.kosdaq
+              : undefined;
+
+        if (
+          entry &&
+          typeof entry.value === "number" &&
+          typeof entry.change_pct === "number"
+        ) {
+          // dataTimestamp: updatedAt 우선, 없으면 tradeDate 기반(KRX 마감 ≈ 15:30 KST = 06:30 UTC)
+          const dataTimestamp =
+            file?.updatedAt ??
+            (entry.tradeDate ? `${entry.tradeDate}T06:30:00Z` : null);
+
+          return {
+            ...base,
+            value: entry.value,
+            change: entry.change_pct,
+            changeType: "pct",
+            dataDate: entry.tradeDate,
+            dataTimestamp,
+          };
+        }
+
+        // Fallback: KRX 데이터가 없으면 Yahoo 로
+        const quote = await fetchQuote(meta.symbol);
+        return {
+          ...base,
+          value: quote.price,
+          change: quote.changePercent,
+          changeType: "pct",
+          dataTimestamp: quote.dataTimestamp,
+          warning: "KRX index-kr.json 사용 불가 — Yahoo 폴백",
         };
       }
 
