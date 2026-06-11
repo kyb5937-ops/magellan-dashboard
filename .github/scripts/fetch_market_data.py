@@ -98,53 +98,6 @@ def get_institution_total(df_sell, df_buy, df_net):
     }
 
 
-_change_pct_cache = {}
-
-
-def _previous_business_day(date_str):
-    """date_str(YYYYMMDD) 직전 영업일을 KRX 캘린더 기준으로 반환.
-
-    get_nearest_business_day_in_a_week 가 'on/before' 동작이라
-    (date - 1) 을 넘기면 자연스럽게 직전 영업일을 돌려준다.
-    """
-    d = datetime.strptime(date_str, "%Y%m%d") - timedelta(days=1)
-    return stock.get_nearest_business_day_in_a_week(d.strftime("%Y%m%d"))
-
-
-def _change_pct_map(date, market):
-    """{종목코드: 전일 종가比 등락률(%)} 캐시.
-
-    Why: get_market_ohlcv(date, market=) 은 등락률 컬럼을 제공하지 않아
-    이전 구현은 (종가-시가)/시가 의 "당일 시가比" 폴백으로 잘못 표시했다
-    (2026-06-11 삼성전자 -1.16% / +1.15% 사고). 전 영업일 OHLCV 와 비교해
-    (당일종가 - 전일종가)/전일종가 로 KRX 공식 일간 등락률을 산출한다.
-    시장당 OHLCV 2회 호출만 추가되며, 동일 (date, market) 은 외국인/기관/
-    개인 호출 사이에 캐시 재사용.
-    """
-    key = (date, market)
-    if key in _change_pct_cache:
-        return _change_pct_cache[key]
-
-    prev_bd = _previous_business_day(date)
-    df_today = stock.get_market_ohlcv(date, market=market)
-    df_prev = stock.get_market_ohlcv(prev_bd, market=market)
-
-    cmap = {}
-    for code in df_today.index:
-        try:
-            cc = float(df_today.loc[code, '종가'])
-            if code not in df_prev.index:
-                continue
-            pc = float(df_prev.loc[code, '종가'])
-            if pc > 0:
-                cmap[code] = round((cc - pc) / pc * 100, 2)
-        except (KeyError, ValueError):
-            continue
-
-    _change_pct_cache[key] = cmap
-    return cmap
-
-
 def get_top_stocks(date, market, investor, top_n=10):
     df = stock.get_market_net_purchases_of_equities(
         date, date, market, investor
@@ -152,8 +105,10 @@ def get_top_stocks(date, market, investor, top_n=10):
     if df is None or df.empty:
         return {"buy": [], "sell": []}
 
-    # 전일 종가比 KRX 공식 등락률 (시가比 폴백 제거)
-    change_map = _change_pct_map(date, market)
+    # KRX 공식 일간 등락률(전일 종가比)을 OHLCV 의 '등락률' 컬럼에서 직접 사용.
+    # (종가-시가)/시가 시가比 fallback 은 잘못된 값이므로 절대 부활시키지 않는다.
+    df_price = stock.get_market_ohlcv(date, market=market)
+    change_map = df_price['등락률'].to_dict() if '등락률' in df_price.columns else {}
 
     name_map = {}
     for code in df.index:
