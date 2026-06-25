@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-06-22",
-  "weekEnd": "2026-07-08",
-  "lastUpdated": "2026-06-24",
+  "weekStart": "2026-06-23",
+  "weekEnd": "2026-07-09",
+  "lastUpdated": "2026-06-25",
   "events": [
     {
       "date": "2026-06-25",
@@ -32,6 +32,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$0.14",
       "revenueForecast": "$10.85B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-07-09",
+      "dayOfWeek": "목",
+      "time": "BMO",
+      "country": "US",
+      "symbol": "PEP",
+      "name": "펩시코",
+      "marketCapRank": 33,
+      "quarter": "26Q2",
+      "epsForecast": "$2.23",
+      "epsActual": null,
+      "epsPreviousYoY": "$2.12",
+      "revenueForecast": "$24.00B",
       "revenueActual": null,
       "surprise": null
     }
