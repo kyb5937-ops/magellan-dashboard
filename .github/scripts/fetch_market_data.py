@@ -31,6 +31,7 @@ if not os.environ.get("KRX_ID") or not os.environ.get("KRX_PW"):
     sys.exit(1)
 
 from pykrx import stock
+from pykrx import bond
 
 # ── 대시보드 JSON 출력 위치 (저장소 루트 기준) ──
 DASHBOARD_PATH = os.getcwd()
@@ -207,8 +208,34 @@ def get_sector_changes(date, sector_codes):
     return items
 
 
+def _diagnose_bond_yields(date):
+    from pykrx import bond, stock
+    from datetime import datetime, timedelta
+    print("="*50); print("[DIAG-BOND] 국고채 수익률 진단 시작"); print("="*50)
+    try:
+        df = bond.get_otc_treasury_yields(date)
+        print(f"[DIAG-BOND] {date} 당일 호출: rows={len(df)}")
+        print(f"[DIAG-BOND] 인덱스: {list(df.index)}")
+        for k in ['국고채 3년','국고채 10년']:
+            if k in df.index:
+                print(f"[DIAG-BOND]   {k}: 수익률={df.loc[k,'수익률']} 대비={df.loc[k,'대비']}")
+            else:
+                print(f"[DIAG-BOND]   {k}: 인덱스에 없음")
+    except Exception as e:
+        print(f"[DIAG-BOND] {date} 당일 예외: {type(e).__name__}: {str(e)[:150]}")
+    try:
+        prev = stock.get_nearest_business_day_in_a_week((datetime.strptime(date,'%Y%m%d')-timedelta(days=1)).strftime('%Y%m%d'))
+        dfp = bond.get_otc_treasury_yields(prev)
+        v = dfp.loc['국고채 3년','수익률'] if '국고채 3년' in dfp.index else 'N/A'
+        print(f"[DIAG-BOND] 직전영업일 {prev}: rows={len(dfp)}, 국고채3년 수익률={v}")
+    except Exception as e:
+        print(f"[DIAG-BOND] 직전영업일 예외: {type(e).__name__}: {str(e)[:150]}")
+    print("="*50); print("[DIAG-BOND] 진단 종료"); print("="*50)
+
+
 def main():
     date = TARGET_DATE
+    _diagnose_bond_yields(date)  # [TEMP] 다음 커밋에서 제거
     print(f"▶ {date} 데이터 수집 시작")
 
     # ── 시장 전체 매매동향 ──
