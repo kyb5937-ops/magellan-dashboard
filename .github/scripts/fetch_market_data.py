@@ -174,6 +174,51 @@ def fetch_index_quote(date, code):
     }
 
 
+def fetch_treasury_yields(date):
+    """국고채 3년·10년 당일 수익률 + 전일대비 (KRX 장외 채권수익률).
+    bond.get_otc_treasury_yields(date) 는 '국고채 3년'/'국고채 10년' 인덱스에
+    '수익률','대비' 컬럼을 준다. ECOS는 16:30에 당일치가 없어 KRX를 1차로 쓴다."""
+    try:
+        df = bond.get_otc_treasury_yields(date)
+    except Exception as e:
+        print(f"  ⚠️ 국고채 조회 실패: {e}", file=sys.stderr)
+        return {}
+    out = {}
+    mapping = {"kr3y": "국고채 3년", "kr10y": "국고채 10년"}
+    for key, idx in mapping.items():
+        if idx in df.index:
+            try:
+                out[key] = {
+                    "value": round(float(df.loc[idx, "수익률"]), 3),
+                    "change_bp": round(float(df.loc[idx, "대비"]) * 100, 1),
+                    "tradeDate": date,
+                }
+            except (KeyError, ValueError):
+                pass
+    return out
+
+
+def fetch_usdkrw():
+    """원/달러 현재가 + 전일종가 (Yahoo USDKRW=X)."""
+    import urllib.request, json as _json
+    url = "https://query1.finance.yahoo.com/v8/finance/chart/USDKRW=X?interval=1d&range=5d"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = _json.loads(r.read())
+        meta = data["chart"]["result"][0]["meta"]
+        price = float(meta["regularMarketPrice"])
+        prev = float(meta["chartPreviousClose"])
+        return {
+            "value": round(price, 2),
+            "change": round(price - prev, 2),   # 전일대비 원
+            "prevClose": round(prev, 2),
+        }
+    except Exception as e:
+        print(f"  ⚠️ 원/달러 조회 실패: {e}", file=sys.stderr)
+        return None
+
+
 def get_sector_changes(date, sector_codes):
     """전일 종가 대비 등락률 (KRX 표준)"""
     target = datetime.strptime(date, "%Y%m%d")
@@ -208,34 +253,8 @@ def get_sector_changes(date, sector_codes):
     return items
 
 
-def _diagnose_bond_yields(date):
-    from pykrx import bond, stock
-    from datetime import datetime, timedelta
-    print("="*50); print("[DIAG-BOND] 국고채 수익률 진단 시작"); print("="*50)
-    try:
-        df = bond.get_otc_treasury_yields(date)
-        print(f"[DIAG-BOND] {date} 당일 호출: rows={len(df)}")
-        print(f"[DIAG-BOND] 인덱스: {list(df.index)}")
-        for k in ['국고채 3년','국고채 10년']:
-            if k in df.index:
-                print(f"[DIAG-BOND]   {k}: 수익률={df.loc[k,'수익률']} 대비={df.loc[k,'대비']}")
-            else:
-                print(f"[DIAG-BOND]   {k}: 인덱스에 없음")
-    except Exception as e:
-        print(f"[DIAG-BOND] {date} 당일 예외: {type(e).__name__}: {str(e)[:150]}")
-    try:
-        prev = stock.get_nearest_business_day_in_a_week((datetime.strptime(date,'%Y%m%d')-timedelta(days=1)).strftime('%Y%m%d'))
-        dfp = bond.get_otc_treasury_yields(prev)
-        v = dfp.loc['국고채 3년','수익률'] if '국고채 3년' in dfp.index else 'N/A'
-        print(f"[DIAG-BOND] 직전영업일 {prev}: rows={len(dfp)}, 국고채3년 수익률={v}")
-    except Exception as e:
-        print(f"[DIAG-BOND] 직전영업일 예외: {type(e).__name__}: {str(e)[:150]}")
-    print("="*50); print("[DIAG-BOND] 진단 종료"); print("="*50)
-
-
 def main():
     date = TARGET_DATE
-    _diagnose_bond_yields(date)  # [TEMP] 다음 커밋에서 제거
     print(f"▶ {date} 데이터 수집 시작")
 
     # ── 시장 전체 매매동향 ──
@@ -334,6 +353,20 @@ def main():
                 print(f"    ⚠️ {key} 지수 데이터 부족 — skip", file=sys.stderr)
         except Exception as e:
             print(f"    ⚠️ {key} 지수 조회 실패: {e}", file=sys.stderr)
+
+    # ── 국고채 3년·10년 당일 수익률 (KRX 장외) — 있으면 추가 ──
+    treasury = fetch_treasury_yields(date)
+    for key in ("kr3y", "kr10y"):
+        if key in treasury:
+            index_data[key] = treasury[key]
+    print(f"    국고채3년: {treasury.get('kr3y')}")
+    print(f"    국고채10년: {treasury.get('kr10y')}")
+
+    # ── 원/달러 환율 (Yahoo USDKRW=X) — 있으면 추가 ──
+    fx = fetch_usdkrw()
+    if fx:
+        index_data["usdkrw"] = fx
+    print(f"    원/달러: {fx}")
 
     # 둘 중 하나라도 받았을 때만 파일을 갱신 (둘 다 실패 시 기존 파일 보존)
     if "kospi" in index_data or "kosdaq" in index_data:
