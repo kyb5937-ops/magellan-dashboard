@@ -294,6 +294,12 @@
             "epsForecast": 44704.0,
             "revenueForecast": 7059216.0,
             "operatingIncomeForecast": 3656363.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 44700.0,
+            "revenueForecast": 7062391.0,
+            "operatingIncomeForecast": 3644280.0
           }
         ]
       },
@@ -594,6 +600,12 @@
             "epsForecast": 10897.0,
             "revenueForecast": 1707615.0,
             "operatingIncomeForecast": 874084.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 10897.0,
+            "revenueForecast": 1704708.0,
+            "operatingIncomeForecast": 860210.0
           }
         ]
       }
@@ -892,6 +904,12 @@
             "epsForecast": 308892.0,
             "revenueForecast": 3455214.0,
             "operatingIncomeForecast": 2657683.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 305329.0,
+            "revenueForecast": 3455465.0,
+            "operatingIncomeForecast": 2657684.0
           }
         ]
       },
@@ -1189,6 +1207,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 71570.0,
+            "revenueForecast": 828326.0,
+            "operatingIncomeForecast": 633955.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 71570.0,
             "revenueForecast": 828326.0,
             "operatingIncomeForecast": 633955.0
@@ -1490,6 +1514,12 @@
             "epsForecast": 281337.0,
             "revenueForecast": 73770.0,
             "operatingIncomeForecast": 409579.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 281337.0,
+            "revenueForecast": 73770.0,
+            "operatingIncomeForecast": 409579.0
           }
         ]
       },
@@ -1787,6 +1817,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": null,
+            "revenueForecast": 3840.0,
+            "operatingIncomeForecast": 93447.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": null,
             "revenueForecast": 3840.0,
             "operatingIncomeForecast": 93447.0
@@ -2100,6 +2136,12 @@
             "epsForecast": -1403.0,
             "revenueForecast": 305079.0,
             "operatingIncomeForecast": 12045.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": -1387.0,
+            "revenueForecast": 305292.0,
+            "operatingIncomeForecast": 11902.0
           }
         ]
       },
@@ -2412,6 +2454,12 @@
             "epsForecast": 46.0,
             "revenueForecast": 71743.0,
             "operatingIncomeForecast": 2061.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4.0,
+            "revenueForecast": 71765.0,
+            "operatingIncomeForecast": 2029.0
           }
         ]
       }
@@ -2707,6 +2755,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 39515.0,
+            "revenueForecast": 1941923.0,
+            "operatingIncomeForecast": 120178.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 39515.0,
             "revenueForecast": 1941923.0,
             "operatingIncomeForecast": 120178.0
@@ -3010,6 +3064,12 @@
             "epsForecast": 10607.0,
             "revenueForecast": 500189.0,
             "operatingIncomeForecast": 32922.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 10607.0,
+            "revenueForecast": 500189.0,
+            "operatingIncomeForecast": 32922.0
           }
         ]
       }
@@ -3305,6 +3365,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 459.0,
+            "revenueForecast": 181338.0,
+            "operatingIncomeForecast": 11264.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 459.0,
             "revenueForecast": 181338.0,
             "operatingIncomeForecast": 11264.0
@@ -3605,6 +3671,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 122.0,
+            "revenueForecast": 46734.0,
+            "operatingIncomeForecast": 2670.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 122.0,
             "revenueForecast": 46734.0,
             "operatingIncomeForecast": 2670.0
@@ -3906,6 +3978,12 @@
             "epsForecast": 41533.0,
             "revenueForecast": 300694.0,
             "operatingIncomeForecast": 42599.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 41533.0,
+            "revenueForecast": 300694.0,
+            "operatingIncomeForecast": 42599.0
           }
         ]
       },
@@ -4203,6 +4281,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 8927.0,
+            "revenueForecast": 71524.0,
+            "operatingIncomeForecast": 10224.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 8927.0,
             "revenueForecast": 71524.0,
             "operatingIncomeForecast": 10224.0
@@ -4504,6 +4588,12 @@
             "epsForecast": 42462.0,
             "revenueForecast": 54273.0,
             "operatingIncomeForecast": 25050.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 42462.0,
+            "revenueForecast": 54273.0,
+            "operatingIncomeForecast": 25050.0
           }
         ]
       },
@@ -4801,6 +4891,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 9775.0,
+            "revenueForecast": 13243.0,
+            "operatingIncomeForecast": 5926.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 9775.0,
             "revenueForecast": 13243.0,
             "operatingIncomeForecast": 5926.0
@@ -5102,6 +5198,12 @@
             "epsForecast": 16559.0,
             "revenueForecast": 134122.0,
             "operatingIncomeForecast": 15913.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 16559.0,
+            "revenueForecast": 134122.0,
+            "operatingIncomeForecast": 15913.0
           }
         ]
       },
@@ -5399,6 +5501,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 3821.0,
+            "revenueForecast": 32776.0,
+            "operatingIncomeForecast": 3819.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 3821.0,
             "revenueForecast": 32776.0,
             "operatingIncomeForecast": 3819.0
@@ -5709,6 +5817,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 28949.0,
+            "revenueForecast": 247615.0,
+            "operatingIncomeForecast": 38593.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 28949.0,
             "revenueForecast": 247615.0,
             "operatingIncomeForecast": 38593.0
@@ -6024,6 +6138,12 @@
             "epsForecast": 7284.0,
             "revenueForecast": 63118.0,
             "operatingIncomeForecast": 9973.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 7284.0,
+            "revenueForecast": 63118.0,
+            "operatingIncomeForecast": 9973.0
           }
         ]
       }
@@ -6319,6 +6439,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 16073.0,
+            "revenueForecast": 441611.0,
+            "operatingIncomeForecast": 36299.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 16073.0,
             "revenueForecast": 441611.0,
             "operatingIncomeForecast": 36299.0
@@ -6622,6 +6748,12 @@
             "epsForecast": 3038.0,
             "revenueForecast": 110049.0,
             "operatingIncomeForecast": 8629.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 3038.0,
+            "revenueForecast": 110049.0,
+            "operatingIncomeForecast": 8629.0
           }
         ]
       }
@@ -6917,6 +7049,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 21348.0,
+            "revenueForecast": 1229653.0,
+            "operatingIncomeForecast": 101294.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 21348.0,
             "revenueForecast": 1229653.0,
             "operatingIncomeForecast": 101294.0
@@ -7220,6 +7358,12 @@
             "epsForecast": 5973.0,
             "revenueForecast": 318931.0,
             "operatingIncomeForecast": 27841.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 5973.0,
+            "revenueForecast": 318931.0,
+            "operatingIncomeForecast": 27841.0
           }
         ]
       }
@@ -7515,6 +7659,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 14242.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 33019.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 14242.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 33019.0
@@ -7815,6 +7965,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 4114.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 10545.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 4114.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 10545.0
@@ -8128,6 +8284,12 @@
             "epsForecast": 17639.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 90961.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 17663.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 91052.0
           }
         ]
       },
@@ -8440,6 +8602,12 @@
             "epsForecast": 4823.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 24135.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4858.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 24306.0
           }
         ]
       }
@@ -8738,6 +8906,12 @@
             "epsForecast": 4062.0,
             "revenueForecast": 155640.0,
             "operatingIncomeForecast": -475.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4108.0,
+            "revenueForecast": 155829.0,
+            "operatingIncomeForecast": -453.0
           }
         ]
       },
@@ -9038,6 +9212,12 @@
             "epsForecast": 337.0,
             "revenueForecast": 36692.0,
             "operatingIncomeForecast": -715.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 431.0,
+            "revenueForecast": 36704.0,
+            "operatingIncomeForecast": -699.0
           }
         ]
       }
@@ -9348,6 +9528,12 @@
             "epsForecast": 27149.0,
             "revenueForecast": 46791.0,
             "operatingIncomeForecast": 12479.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 27149.0,
+            "revenueForecast": 46791.0,
+            "operatingIncomeForecast": 12479.0
           }
         ]
       },
@@ -9660,6 +9846,12 @@
             "epsForecast": 6160.0,
             "revenueForecast": 11080.0,
             "operatingIncomeForecast": 2841.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 6160.0,
+            "revenueForecast": 11080.0,
+            "operatingIncomeForecast": 2841.0
           }
         ]
       }
@@ -9955,6 +10147,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 3377.0,
+            "revenueForecast": 61610.0,
+            "operatingIncomeForecast": 6551.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 3377.0,
             "revenueForecast": 61610.0,
             "operatingIncomeForecast": 6551.0
@@ -10258,6 +10456,12 @@
             "epsForecast": 745.0,
             "revenueForecast": 14745.0,
             "operatingIncomeForecast": 1551.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 745.0,
+            "revenueForecast": 14745.0,
+            "operatingIncomeForecast": 1551.0
           }
         ]
       }
@@ -10553,6 +10757,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 4163.0,
+            "revenueForecast": 355306.0,
+            "operatingIncomeForecast": 39029.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 4163.0,
             "revenueForecast": 355306.0,
             "operatingIncomeForecast": 39029.0
@@ -10856,6 +11066,12 @@
             "epsForecast": 1475.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 14002.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1475.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 14002.0
           }
         ]
       }
@@ -11151,6 +11367,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 11668.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 76160.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 11668.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 76160.0
@@ -11451,6 +11673,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 3357.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 21997.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 3357.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 21997.0
@@ -11752,6 +11980,12 @@
             "epsForecast": 6191.0,
             "revenueForecast": 53015.0,
             "operatingIncomeForecast": 17561.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 6191.0,
+            "revenueForecast": 53015.0,
+            "operatingIncomeForecast": 17561.0
           }
         ]
       },
@@ -12049,6 +12283,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 1400.0,
+            "revenueForecast": 12479.0,
+            "operatingIncomeForecast": 4016.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1400.0,
             "revenueForecast": 12479.0,
             "operatingIncomeForecast": 4016.0
@@ -12350,6 +12590,12 @@
             "epsForecast": 84581.0,
             "revenueForecast": 71214.0,
             "operatingIncomeForecast": 10958.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 84581.0,
+            "revenueForecast": 71214.0,
+            "operatingIncomeForecast": 10958.0
           }
         ]
       },
@@ -12647,6 +12893,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 22300.0,
+            "revenueForecast": 18144.0,
+            "operatingIncomeForecast": 2857.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 22300.0,
             "revenueForecast": 18144.0,
             "operatingIncomeForecast": 2857.0
@@ -12948,6 +13200,12 @@
             "epsForecast": 23340.0,
             "revenueForecast": 728838.0,
             "operatingIncomeForecast": 32492.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 23428.0,
+            "revenueForecast": 729129.0,
+            "operatingIncomeForecast": 32592.0
           }
         ]
       },
@@ -13248,6 +13506,12 @@
             "epsForecast": 4404.0,
             "revenueForecast": 180989.0,
             "operatingIncomeForecast": 7556.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4468.0,
+            "revenueForecast": 181060.0,
+            "operatingIncomeForecast": 7595.0
           }
         ]
       }
@@ -13546,6 +13810,12 @@
             "epsForecast": 5048.0,
             "revenueForecast": 136227.0,
             "operatingIncomeForecast": 18210.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 5048.0,
+            "revenueForecast": 136227.0,
+            "operatingIncomeForecast": 18210.0
           }
         ]
       },
@@ -13846,6 +14116,12 @@
             "epsForecast": 1092.0,
             "revenueForecast": 34794.0,
             "operatingIncomeForecast": 4971.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1092.0,
+            "revenueForecast": 34794.0,
+            "operatingIncomeForecast": 4971.0
           }
         ]
       }
@@ -14141,6 +14417,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 45515.0,
+            "revenueForecast": 651824.0,
+            "operatingIncomeForecast": 37166.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 45515.0,
             "revenueForecast": 651824.0,
             "operatingIncomeForecast": 37166.0
@@ -14444,6 +14726,12 @@
             "epsForecast": 11748.0,
             "revenueForecast": 167533.0,
             "operatingIncomeForecast": 9151.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 11748.0,
+            "revenueForecast": 167533.0,
+            "operatingIncomeForecast": 9151.0
           }
         ]
       }
@@ -14739,6 +15027,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 122825.0,
+            "revenueForecast": 1402221.0,
+            "operatingIncomeForecast": 95730.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 122825.0,
             "revenueForecast": 1402221.0,
             "operatingIncomeForecast": 95730.0
@@ -15042,6 +15336,12 @@
             "epsForecast": 18167.0,
             "revenueForecast": 348685.0,
             "operatingIncomeForecast": 21971.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 18167.0,
+            "revenueForecast": 348685.0,
+            "operatingIncomeForecast": 21971.0
           }
         ]
       }
@@ -15249,6 +15549,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 3539.0,
+            "revenueForecast": 7850.0,
+            "operatingIncomeForecast": 3694.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 3539.0,
             "revenueForecast": 7850.0,
             "operatingIncomeForecast": 3694.0
@@ -15460,6 +15766,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 981.0,
+            "revenueForecast": 2276.0,
+            "operatingIncomeForecast": 1103.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 981.0,
             "revenueForecast": 2276.0,
             "operatingIncomeForecast": 1103.0
@@ -15761,6 +16073,12 @@
             "epsForecast": 61068.0,
             "revenueForecast": 229621.0,
             "operatingIncomeForecast": 22569.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 61068.0,
+            "revenueForecast": 229621.0,
+            "operatingIncomeForecast": 22569.0
           }
         ]
       },
@@ -16058,6 +16376,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 15847.0,
+            "revenueForecast": 57105.0,
+            "operatingIncomeForecast": 5482.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 15847.0,
             "revenueForecast": 57105.0,
             "operatingIncomeForecast": 5482.0
@@ -16359,6 +16683,12 @@
             "epsForecast": 16018.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 60214.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 16018.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 60214.0
           }
         ]
       },
@@ -16656,6 +16986,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 4408.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 16421.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 4408.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 16421.0
@@ -16957,6 +17293,12 @@
             "epsForecast": 12381.0,
             "revenueForecast": 136892.0,
             "operatingIncomeForecast": 24163.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 12381.0,
+            "revenueForecast": 136892.0,
+            "operatingIncomeForecast": 24163.0
           }
         ]
       },
@@ -17254,6 +17596,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 3341.0,
+            "revenueForecast": 33452.0,
+            "operatingIncomeForecast": 5784.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 3341.0,
             "revenueForecast": 33452.0,
             "operatingIncomeForecast": 5784.0
@@ -17567,6 +17915,12 @@
             "epsForecast": 49538.0,
             "revenueForecast": 338455.0,
             "operatingIncomeForecast": 56264.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 49538.0,
+            "revenueForecast": 338455.0,
+            "operatingIncomeForecast": 56264.0
           }
         ]
       },
@@ -17876,6 +18230,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 12778.0,
+            "revenueForecast": 86329.0,
+            "operatingIncomeForecast": 14211.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 12778.0,
             "revenueForecast": 86329.0,
             "operatingIncomeForecast": 14211.0
@@ -18189,6 +18549,12 @@
             "epsForecast": 3347.0,
             "revenueForecast": 537147.0,
             "operatingIncomeForecast": 14885.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 3347.0,
+            "revenueForecast": 537147.0,
+            "operatingIncomeForecast": 14885.0
           }
         ]
       },
@@ -18501,6 +18867,12 @@
             "epsForecast": 1505.0,
             "revenueForecast": 133800.0,
             "operatingIncomeForecast": 3542.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1505.0,
+            "revenueForecast": 133800.0,
+            "operatingIncomeForecast": 3542.0
           }
         ]
       }
@@ -18796,6 +19168,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 22032.0,
+            "revenueForecast": 217211.0,
+            "operatingIncomeForecast": 17201.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 22032.0,
             "revenueForecast": 217211.0,
             "operatingIncomeForecast": 17201.0
@@ -19099,6 +19477,12 @@
             "epsForecast": 7281.0,
             "revenueForecast": 55041.0,
             "operatingIncomeForecast": 4649.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 7281.0,
+            "revenueForecast": 55041.0,
+            "operatingIncomeForecast": 4649.0
           }
         ]
       }
@@ -19394,6 +19778,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 8570.0,
+            "revenueForecast": 985183.0,
+            "operatingIncomeForecast": 95894.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 8570.0,
             "revenueForecast": 985183.0,
             "operatingIncomeForecast": 95894.0
@@ -19697,6 +20087,12 @@
             "epsForecast": 1366.0,
             "revenueForecast": 223156.0,
             "operatingIncomeForecast": 19498.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1366.0,
+            "revenueForecast": 223156.0,
+            "operatingIncomeForecast": 19498.0
           }
         ]
       }
@@ -19992,6 +20388,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 8546.0,
+            "revenueForecast": 69128.0,
+            "operatingIncomeForecast": 11585.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 8546.0,
             "revenueForecast": 69128.0,
             "operatingIncomeForecast": 11585.0
@@ -20292,6 +20694,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 1981.0,
+            "revenueForecast": 16895.0,
+            "operatingIncomeForecast": 2702.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1981.0,
             "revenueForecast": 16895.0,
             "operatingIncomeForecast": 2702.0
@@ -20593,6 +21001,12 @@
             "epsForecast": 1209.0,
             "revenueForecast": 127670.0,
             "operatingIncomeForecast": 15112.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1205.0,
+            "revenueForecast": 127440.0,
+            "operatingIncomeForecast": 15077.0
           }
         ]
       },
@@ -20893,6 +21307,12 @@
             "epsForecast": 318.0,
             "revenueForecast": 32484.0,
             "operatingIncomeForecast": 4009.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 318.0,
+            "revenueForecast": 32318.0,
+            "operatingIncomeForecast": 3985.0
           }
         ]
       }
@@ -21191,6 +21611,12 @@
             "epsForecast": 210.0,
             "revenueForecast": 34039.0,
             "operatingIncomeForecast": 894.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 227.0,
+            "revenueForecast": 34061.0,
+            "operatingIncomeForecast": 909.0
           }
         ]
       },
@@ -21491,6 +21917,12 @@
             "epsForecast": 55.0,
             "revenueForecast": 7976.0,
             "operatingIncomeForecast": 217.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 99.0,
+            "revenueForecast": 7987.0,
+            "operatingIncomeForecast": 233.0
           }
         ]
       }
@@ -21801,6 +22233,12 @@
             "epsForecast": 10855.0,
             "revenueForecast": 940567.0,
             "operatingIncomeForecast": 38879.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 10855.0,
+            "revenueForecast": 940567.0,
+            "operatingIncomeForecast": 38879.0
           }
         ]
       },
@@ -22113,6 +22551,12 @@
             "epsForecast": 2818.0,
             "revenueForecast": 225354.0,
             "operatingIncomeForecast": 10184.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 2818.0,
+            "revenueForecast": 225354.0,
+            "operatingIncomeForecast": 10184.0
           }
         ]
       }
@@ -22408,6 +22852,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 9938.0,
+            "revenueForecast": 1024748.0,
+            "operatingIncomeForecast": 49329.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 9938.0,
             "revenueForecast": 1024748.0,
             "operatingIncomeForecast": 49329.0
@@ -22711,6 +23161,12 @@
             "epsForecast": 4614.0,
             "revenueForecast": 273673.0,
             "operatingIncomeForecast": 13120.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4614.0,
+            "revenueForecast": 273673.0,
+            "operatingIncomeForecast": 13120.0
           }
         ]
       }
@@ -23006,6 +23462,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 4273.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 43280.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 4273.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 43280.0
@@ -23309,6 +23771,12 @@
             "epsForecast": 1290.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 13075.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1290.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 13075.0
           }
         ]
       }
@@ -23604,6 +24072,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 1212.0,
+            "revenueForecast": 43507.0,
+            "operatingIncomeForecast": 2790.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1212.0,
             "revenueForecast": 43507.0,
             "operatingIncomeForecast": 2790.0
@@ -23904,6 +24378,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 283.0,
+            "revenueForecast": 9589.0,
+            "operatingIncomeForecast": 619.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 283.0,
             "revenueForecast": 9589.0,
             "operatingIncomeForecast": 619.0
@@ -24217,6 +24697,12 @@
             "epsForecast": 30580.0,
             "revenueForecast": 807008.0,
             "operatingIncomeForecast": 90457.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 30580.0,
+            "revenueForecast": 807008.0,
+            "operatingIncomeForecast": 90457.0
           }
         ]
       },
@@ -24529,6 +25015,12 @@
             "epsForecast": 5868.0,
             "revenueForecast": 196610.0,
             "operatingIncomeForecast": 20383.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 5868.0,
+            "revenueForecast": 196610.0,
+            "operatingIncomeForecast": 20383.0
           }
         ]
       }
@@ -24827,6 +25319,12 @@
             "epsForecast": 392.0,
             "revenueForecast": 30349.0,
             "operatingIncomeForecast": 1137.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 387.0,
+            "revenueForecast": 30335.0,
+            "operatingIncomeForecast": 1136.0
           }
         ]
       },
@@ -25126,6 +25624,12 @@
             "date": "2026-06-25",
             "epsForecast": 79.0,
             "revenueForecast": 6652.0,
+            "operatingIncomeForecast": 239.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 78.0,
+            "revenueForecast": 6653.0,
             "operatingIncomeForecast": 239.0
           }
         ]
@@ -25448,6 +25952,12 @@
             "epsForecast": 16659.0,
             "revenueForecast": 51378.0,
             "operatingIncomeForecast": 4513.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 16659.0,
+            "revenueForecast": 51378.0,
+            "operatingIncomeForecast": 4513.0
           }
         ]
       },
@@ -25760,6 +26270,12 @@
             "epsForecast": 4052.0,
             "revenueForecast": 11662.0,
             "operatingIncomeForecast": 1055.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4052.0,
+            "revenueForecast": 11662.0,
+            "operatingIncomeForecast": 1055.0
           }
         ]
       }
@@ -26055,6 +26571,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 44259.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 29994.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 44259.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 29994.0
@@ -26355,6 +26877,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 12299.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 7996.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 12299.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 7996.0
@@ -26656,6 +27184,12 @@
             "epsForecast": 5658.0,
             "revenueForecast": 177575.0,
             "operatingIncomeForecast": 19092.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 5658.0,
+            "revenueForecast": 177575.0,
+            "operatingIncomeForecast": 19092.0
           }
         ]
       },
@@ -26953,6 +27487,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 1702.0,
+            "revenueForecast": 44066.0,
+            "operatingIncomeForecast": 5274.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1702.0,
             "revenueForecast": 44066.0,
             "operatingIncomeForecast": 5274.0
@@ -27254,6 +27794,12 @@
             "epsForecast": 1563.0,
             "revenueForecast": 83587.0,
             "operatingIncomeForecast": 9479.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1548.0,
+            "revenueForecast": 83246.0,
+            "operatingIncomeForecast": 9398.0
           }
         ]
       },
@@ -27554,6 +28100,12 @@
             "epsForecast": 388.0,
             "revenueForecast": 20728.0,
             "operatingIncomeForecast": 2279.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 381.0,
+            "revenueForecast": 20666.0,
+            "operatingIncomeForecast": 2261.0
           }
         ]
       }
@@ -27861,6 +28413,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 11860.0,
+            "revenueForecast": 69488.0,
+            "operatingIncomeForecast": 15048.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 11860.0,
             "revenueForecast": 69488.0,
             "operatingIncomeForecast": 15048.0
@@ -28176,6 +28734,12 @@
             "epsForecast": 2788.0,
             "revenueForecast": 16651.0,
             "operatingIncomeForecast": 3826.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 2788.0,
+            "revenueForecast": 16651.0,
+            "operatingIncomeForecast": 3826.0
           }
         ]
       }
@@ -28471,6 +29035,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 5144.0,
+            "revenueForecast": 4674.0,
+            "operatingIncomeForecast": 2859.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 5144.0,
             "revenueForecast": 4674.0,
             "operatingIncomeForecast": 2859.0
@@ -28771,6 +29341,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": null,
+            "revenueForecast": 758.0,
+            "operatingIncomeForecast": 302.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": null,
             "revenueForecast": 758.0,
             "operatingIncomeForecast": 302.0
@@ -29081,6 +29657,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 1399.0,
+            "revenueForecast": 113937.0,
+            "operatingIncomeForecast": 10377.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1399.0,
             "revenueForecast": 113937.0,
             "operatingIncomeForecast": 10377.0
@@ -29396,6 +29978,12 @@
             "epsForecast": 368.0,
             "revenueForecast": 29928.0,
             "operatingIncomeForecast": 2809.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 368.0,
+            "revenueForecast": 29928.0,
+            "operatingIncomeForecast": 2809.0
           }
         ]
       }
@@ -29691,6 +30279,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 14331.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 32058.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 14331.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 32058.0
@@ -29991,6 +30585,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 4048.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 9092.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 4048.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 9092.0
@@ -30292,6 +30892,12 @@
             "epsForecast": 4824.0,
             "revenueForecast": 271134.0,
             "operatingIncomeForecast": 8286.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4824.0,
+            "revenueForecast": 271134.0,
+            "operatingIncomeForecast": 8286.0
           }
         ]
       },
@@ -30589,6 +31195,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 1065.0,
+            "revenueForecast": 68274.0,
+            "operatingIncomeForecast": 2003.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1065.0,
             "revenueForecast": 68274.0,
             "operatingIncomeForecast": 2003.0
@@ -30890,6 +31502,12 @@
             "epsForecast": 3509.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 37027.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 3509.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 37027.0
           }
         ]
       },
@@ -31187,6 +31805,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 879.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 9481.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 879.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 9481.0
@@ -31488,6 +32112,12 @@
             "epsForecast": 3517.0,
             "revenueForecast": 57109.0,
             "operatingIncomeForecast": 4736.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 3517.0,
+            "revenueForecast": 57109.0,
+            "operatingIncomeForecast": 4736.0
           }
         ]
       },
@@ -31785,6 +32415,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 748.0,
+            "revenueForecast": 12899.0,
+            "operatingIncomeForecast": 1045.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 748.0,
             "revenueForecast": 12899.0,
             "operatingIncomeForecast": 1045.0
@@ -32095,6 +32731,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 18365.0,
+            "revenueForecast": 388432.0,
+            "operatingIncomeForecast": 16348.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 18365.0,
             "revenueForecast": 388432.0,
             "operatingIncomeForecast": 16348.0
@@ -32410,6 +33052,12 @@
             "epsForecast": 4465.0,
             "revenueForecast": 98973.0,
             "operatingIncomeForecast": 4205.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4465.0,
+            "revenueForecast": 98973.0,
+            "operatingIncomeForecast": 4205.0
           }
         ]
       }
@@ -32705,6 +33353,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 22988.0,
+            "revenueForecast": 320785.0,
+            "operatingIncomeForecast": 21821.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 22988.0,
             "revenueForecast": 320785.0,
             "operatingIncomeForecast": 21821.0
@@ -33005,6 +33659,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 6003.0,
+            "revenueForecast": 81310.0,
+            "operatingIncomeForecast": 5359.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 6003.0,
             "revenueForecast": 81310.0,
             "operatingIncomeForecast": 5359.0
@@ -33306,6 +33966,12 @@
             "epsForecast": 43853.0,
             "revenueForecast": 196730.0,
             "operatingIncomeForecast": 33474.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 43853.0,
+            "revenueForecast": 196730.0,
+            "operatingIncomeForecast": 33474.0
           }
         ]
       },
@@ -33603,6 +34269,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 10853.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 8723.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 10853.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 8723.0
@@ -33913,6 +34585,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 7493.0,
+            "revenueForecast": 82346.0,
+            "operatingIncomeForecast": 16422.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 7493.0,
             "revenueForecast": 82346.0,
             "operatingIncomeForecast": 16422.0
@@ -34228,6 +34906,12 @@
             "epsForecast": 1603.0,
             "revenueForecast": 20456.0,
             "operatingIncomeForecast": 4134.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1603.0,
+            "revenueForecast": 20456.0,
+            "operatingIncomeForecast": 4134.0
           }
         ]
       }
@@ -34523,6 +35207,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 14347.0,
+            "revenueForecast": 27203.0,
+            "operatingIncomeForecast": 6871.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 14347.0,
             "revenueForecast": 27203.0,
             "operatingIncomeForecast": 6871.0
@@ -34823,6 +35513,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 3498.0,
+            "revenueForecast": 6547.0,
+            "operatingIncomeForecast": 1681.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 3498.0,
             "revenueForecast": 6547.0,
             "operatingIncomeForecast": 1681.0
@@ -35133,6 +35829,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 34700.0,
+            "revenueForecast": 243303.0,
+            "operatingIncomeForecast": 11275.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 34700.0,
             "revenueForecast": 243303.0,
             "operatingIncomeForecast": 11275.0
@@ -35448,6 +36150,12 @@
             "epsForecast": 4187.0,
             "revenueForecast": 48722.0,
             "operatingIncomeForecast": 1526.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4187.0,
+            "revenueForecast": 48722.0,
+            "operatingIncomeForecast": 1526.0
           }
         ]
       }
@@ -35755,6 +36463,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 5702.0,
+            "revenueForecast": 277129.0,
+            "operatingIncomeForecast": 20807.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 5702.0,
             "revenueForecast": 277129.0,
             "operatingIncomeForecast": 20807.0
@@ -36070,6 +36784,12 @@
             "epsForecast": 1576.0,
             "revenueForecast": 68864.0,
             "operatingIncomeForecast": 6090.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1576.0,
+            "revenueForecast": 68864.0,
+            "operatingIncomeForecast": 6090.0
           }
         ]
       }
@@ -36365,6 +37085,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 4994.0,
+            "revenueForecast": 337127.0,
+            "operatingIncomeForecast": 13928.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 4994.0,
             "revenueForecast": 337127.0,
             "operatingIncomeForecast": 13928.0
@@ -36668,6 +37394,12 @@
             "epsForecast": 1168.0,
             "revenueForecast": 84281.0,
             "operatingIncomeForecast": 3517.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1168.0,
+            "revenueForecast": 84281.0,
+            "operatingIncomeForecast": 3517.0
           }
         ]
       }
@@ -36963,6 +37695,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 19246.0,
+            "revenueForecast": 425862.0,
+            "operatingIncomeForecast": 32689.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 19246.0,
             "revenueForecast": 425862.0,
             "operatingIncomeForecast": 32689.0
@@ -37266,6 +38004,12 @@
             "epsForecast": 5873.0,
             "revenueForecast": 118454.0,
             "operatingIncomeForecast": 9059.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 5873.0,
+            "revenueForecast": 118454.0,
+            "operatingIncomeForecast": 9059.0
           }
         ]
       }
@@ -37561,6 +38305,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 4061.0,
+            "revenueForecast": 168846.0,
+            "operatingIncomeForecast": 20836.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 4061.0,
             "revenueForecast": 168846.0,
             "operatingIncomeForecast": 20836.0
@@ -37864,6 +38614,12 @@
             "epsForecast": 1062.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 5326.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1062.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 5326.0
           }
         ]
       }
@@ -38089,6 +38845,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 773.0,
+            "revenueForecast": 600.0,
+            "operatingIncomeForecast": 40.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 773.0,
             "revenueForecast": 600.0,
             "operatingIncomeForecast": 40.0
@@ -38396,6 +39158,12 @@
             "epsForecast": 24380.0,
             "revenueForecast": 47648.0,
             "operatingIncomeForecast": 14366.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 24380.0,
+            "revenueForecast": 47648.0,
+            "operatingIncomeForecast": 14366.0
           }
         ]
       },
@@ -38693,6 +39461,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 4788.0,
+            "revenueForecast": 11231.0,
+            "operatingIncomeForecast": 3208.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 4788.0,
             "revenueForecast": 11231.0,
             "operatingIncomeForecast": 3208.0
@@ -38994,6 +39768,12 @@
             "epsForecast": 18002.0,
             "revenueForecast": 141670.0,
             "operatingIncomeForecast": 21854.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 18002.0,
+            "revenueForecast": 141670.0,
+            "operatingIncomeForecast": 21854.0
           }
         ]
       },
@@ -39291,6 +40071,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 4842.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 5763.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 4842.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 5763.0
@@ -39592,6 +40378,12 @@
             "epsForecast": 988.0,
             "revenueForecast": 81706.0,
             "operatingIncomeForecast": 6662.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 988.0,
+            "revenueForecast": 81706.0,
+            "operatingIncomeForecast": 6662.0
           }
         ]
       },
@@ -39889,6 +40681,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 229.0,
+            "revenueForecast": 20452.0,
+            "operatingIncomeForecast": 1441.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 229.0,
             "revenueForecast": 20452.0,
             "operatingIncomeForecast": 1441.0
@@ -40190,6 +40988,12 @@
             "epsForecast": 9163.0,
             "revenueForecast": 142096.0,
             "operatingIncomeForecast": 8293.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 9127.0,
+            "revenueForecast": 142096.0,
+            "operatingIncomeForecast": 8309.0
           }
         ]
       },
@@ -40490,6 +41294,12 @@
             "epsForecast": 2468.0,
             "revenueForecast": 35029.0,
             "operatingIncomeForecast": 2236.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 2468.0,
+            "revenueForecast": 35029.0,
+            "operatingIncomeForecast": 2269.0
           }
         ]
       }
@@ -40788,6 +41598,12 @@
             "epsForecast": 525.0,
             "revenueForecast": 41196.0,
             "operatingIncomeForecast": 1872.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 525.0,
+            "revenueForecast": 41196.0,
+            "operatingIncomeForecast": 1872.0
           }
         ]
       },
@@ -41085,6 +41901,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 116.0,
+            "revenueForecast": 10211.0,
+            "operatingIncomeForecast": 424.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 116.0,
             "revenueForecast": 10211.0,
             "operatingIncomeForecast": 424.0
@@ -41386,6 +42208,12 @@
             "epsForecast": 10437.0,
             "revenueForecast": 18578.0,
             "operatingIncomeForecast": 3161.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 10437.0,
+            "revenueForecast": 18578.0,
+            "operatingIncomeForecast": 3161.0
           }
         ]
       },
@@ -41683,6 +42511,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": null,
+            "revenueForecast": 4408.0,
+            "operatingIncomeForecast": 424.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": null,
             "revenueForecast": 4408.0,
             "operatingIncomeForecast": 424.0
@@ -41984,6 +42818,12 @@
             "epsForecast": 60059.0,
             "revenueForecast": 183731.0,
             "operatingIncomeForecast": 20631.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 60059.0,
+            "revenueForecast": 183731.0,
+            "operatingIncomeForecast": 20631.0
           }
         ]
       },
@@ -42284,6 +43124,12 @@
             "epsForecast": 15567.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 5307.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 15567.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 5307.0
           }
         ]
       }
@@ -42579,6 +43425,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 7603.0,
+            "revenueForecast": 47618.0,
+            "operatingIncomeForecast": 2782.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 7603.0,
             "revenueForecast": 47618.0,
             "operatingIncomeForecast": 2782.0
@@ -42882,6 +43734,12 @@
             "epsForecast": 2198.0,
             "revenueForecast": 11676.0,
             "operatingIncomeForecast": 798.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 2198.0,
+            "revenueForecast": 11676.0,
+            "operatingIncomeForecast": 798.0
           }
         ]
       }
@@ -43177,6 +44035,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 1262.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 7102.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1262.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 7102.0
@@ -43477,6 +44341,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 284.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 1845.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 284.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 1845.0
@@ -43787,6 +44657,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 8104.0,
+            "revenueForecast": 24354.0,
+            "operatingIncomeForecast": 4395.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 8104.0,
             "revenueForecast": 24354.0,
             "operatingIncomeForecast": 4395.0
@@ -44102,6 +44978,12 @@
             "epsForecast": 1937.0,
             "revenueForecast": 6067.0,
             "operatingIncomeForecast": 1075.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1937.0,
+            "revenueForecast": 6067.0,
+            "operatingIncomeForecast": 1075.0
           }
         ]
       }
@@ -44397,6 +45279,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 3564.0,
+            "revenueForecast": 15398.0,
+            "operatingIncomeForecast": 3221.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 3564.0,
             "revenueForecast": 15398.0,
             "operatingIncomeForecast": 3221.0
@@ -44697,6 +45585,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 808.0,
+            "revenueForecast": 3574.0,
+            "operatingIncomeForecast": 739.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 808.0,
             "revenueForecast": 3574.0,
             "operatingIncomeForecast": 739.0
@@ -44998,6 +45892,12 @@
             "epsForecast": 4660.0,
             "revenueForecast": 43566.0,
             "operatingIncomeForecast": 2773.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4660.0,
+            "revenueForecast": 43566.0,
+            "operatingIncomeForecast": 2773.0
           }
         ]
       },
@@ -45295,6 +46195,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 2887.0,
+            "revenueForecast": 11737.0,
+            "operatingIncomeForecast": 1473.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 2887.0,
             "revenueForecast": 11737.0,
             "operatingIncomeForecast": 1473.0
@@ -45608,6 +46514,12 @@
             "epsForecast": 23285.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 20748.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 23285.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 20748.0
           }
         ]
       },
@@ -45920,6 +46832,12 @@
             "epsForecast": 6543.0,
             "revenueForecast": null,
             "operatingIncomeForecast": 5604.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 6543.0,
+            "revenueForecast": null,
+            "operatingIncomeForecast": 5604.0
           }
         ]
       }
@@ -46215,6 +47133,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 3611.0,
+            "revenueForecast": 101996.0,
+            "operatingIncomeForecast": 8837.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 3611.0,
             "revenueForecast": 101996.0,
             "operatingIncomeForecast": 8837.0
@@ -46518,6 +47442,12 @@
             "epsForecast": 918.0,
             "revenueForecast": 25122.0,
             "operatingIncomeForecast": 2185.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 918.0,
+            "revenueForecast": 25122.0,
+            "operatingIncomeForecast": 2185.0
           }
         ]
       }
@@ -46813,6 +47743,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 9749.0,
+            "revenueForecast": 831690.0,
+            "operatingIncomeForecast": 55277.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 9749.0,
             "revenueForecast": 831690.0,
             "operatingIncomeForecast": 55277.0
@@ -47116,6 +48052,12 @@
             "epsForecast": 638.0,
             "revenueForecast": 211754.0,
             "operatingIncomeForecast": 14292.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 638.0,
+            "revenueForecast": 212817.0,
+            "operatingIncomeForecast": 14350.0
           }
         ]
       }
@@ -47411,6 +48353,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 6834.0,
+            "revenueForecast": 6733.0,
+            "operatingIncomeForecast": 2504.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 6834.0,
             "revenueForecast": 6733.0,
             "operatingIncomeForecast": 2504.0
@@ -47711,6 +48659,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 1608.0,
+            "revenueForecast": 1620.0,
+            "operatingIncomeForecast": 605.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1608.0,
             "revenueForecast": 1620.0,
             "operatingIncomeForecast": 605.0
@@ -48012,6 +48966,12 @@
             "epsForecast": 73673.0,
             "revenueForecast": 30556.0,
             "operatingIncomeForecast": 7266.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 73673.0,
+            "revenueForecast": 30556.0,
+            "operatingIncomeForecast": 7266.0
           }
         ]
       },
@@ -48309,6 +49269,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 17771.0,
+            "revenueForecast": 7460.0,
+            "operatingIncomeForecast": 1758.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 17771.0,
             "revenueForecast": 7460.0,
             "operatingIncomeForecast": 1758.0
@@ -48621,6 +49587,12 @@
             "epsForecast": 730.0,
             "revenueForecast": 271870.0,
             "operatingIncomeForecast": 8775.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 730.0,
+            "revenueForecast": 271870.0,
+            "operatingIncomeForecast": 8775.0
           }
         ]
       },
@@ -48918,6 +49890,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": -462.0,
+            "revenueForecast": 67124.0,
+            "operatingIncomeForecast": -1843.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": -462.0,
             "revenueForecast": 67124.0,
             "operatingIncomeForecast": -1843.0
@@ -49817,6 +50795,12 @@
             "epsForecast": 2450.0,
             "revenueForecast": 4504.0,
             "operatingIncomeForecast": 2178.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 2450.0,
+            "revenueForecast": 4504.0,
+            "operatingIncomeForecast": 2178.0
           }
         ]
       },
@@ -50117,6 +51101,12 @@
             "epsForecast": 680.0,
             "revenueForecast": 1307.0,
             "operatingIncomeForecast": 643.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 680.0,
+            "revenueForecast": 1307.0,
+            "operatingIncomeForecast": 643.0
           }
         ]
       }
@@ -50412,6 +51402,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": -462.0,
+            "revenueForecast": 60.0,
+            "operatingIncomeForecast": -290.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": -462.0,
             "revenueForecast": 60.0,
             "operatingIncomeForecast": -290.0
@@ -51392,6 +52388,12 @@
             "epsForecast": 4370.0,
             "revenueForecast": 9587.0,
             "operatingIncomeForecast": 3377.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 4370.0,
+            "revenueForecast": 9587.0,
+            "operatingIncomeForecast": 3377.0
           }
         ]
       },
@@ -51689,6 +52691,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 906.0,
+            "revenueForecast": 2343.0,
+            "operatingIncomeForecast": 850.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 906.0,
             "revenueForecast": 2343.0,
             "operatingIncomeForecast": 850.0
@@ -52288,6 +53296,12 @@
             "epsForecast": 10657.0,
             "revenueForecast": 225067.0,
             "operatingIncomeForecast": 21324.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 10657.0,
+            "revenueForecast": 225067.0,
+            "operatingIncomeForecast": 21324.0
           }
         ]
       },
@@ -52588,6 +53602,12 @@
             "epsForecast": 2542.0,
             "revenueForecast": 56602.0,
             "operatingIncomeForecast": 5242.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 2542.0,
+            "revenueForecast": 56602.0,
+            "operatingIncomeForecast": 5242.0
           }
         ]
       }
@@ -52855,6 +53875,12 @@
             "epsForecast": 16116.0,
             "revenueForecast": 273854.0,
             "operatingIncomeForecast": 39792.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 16116.0,
+            "revenueForecast": 273854.0,
+            "operatingIncomeForecast": 39792.0
           }
         ]
       },
@@ -53110,6 +54136,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 3516.0,
+            "revenueForecast": 68874.0,
+            "operatingIncomeForecast": 9962.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 3516.0,
             "revenueForecast": 68874.0,
             "operatingIncomeForecast": 9962.0
@@ -53479,6 +54511,12 @@
             "epsForecast": 8377.0,
             "revenueForecast": 16046.0,
             "operatingIncomeForecast": 3626.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 8377.0,
+            "revenueForecast": 16046.0,
+            "operatingIncomeForecast": 3626.0
           }
         ]
       },
@@ -53777,6 +54815,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 1965.0,
+            "revenueForecast": 3892.0,
+            "operatingIncomeForecast": 894.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1965.0,
             "revenueForecast": 3892.0,
             "operatingIncomeForecast": 894.0
@@ -55631,6 +56675,12 @@
             "epsForecast": 794.0,
             "revenueForecast": 252666.0,
             "operatingIncomeForecast": 11384.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 654.0,
+            "revenueForecast": 251529.0,
+            "operatingIncomeForecast": 11179.0
           }
         ]
       },
@@ -55891,6 +56941,12 @@
             "epsForecast": -413.0,
             "revenueForecast": 56924.0,
             "operatingIncomeForecast": -546.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": -413.0,
+            "revenueForecast": 56082.0,
+            "operatingIncomeForecast": -827.0
           }
         ]
       }
@@ -56207,6 +57263,12 @@
             "epsForecast": 5065.0,
             "revenueForecast": 66306.0,
             "operatingIncomeForecast": 6193.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 5065.0,
+            "revenueForecast": 66306.0,
+            "operatingIncomeForecast": 6193.0
           }
         ]
       },
@@ -56491,6 +57553,12 @@
             "epsForecast": 1098.0,
             "revenueForecast": 15663.0,
             "operatingIncomeForecast": 1445.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1098.0,
+            "revenueForecast": 15663.0,
+            "operatingIncomeForecast": 1445.0
           }
         ]
       }
@@ -56644,6 +57712,12 @@
           },
           {
             "date": "2026-06-24",
+            "epsForecast": 1700.0,
+            "revenueForecast": 156707.0,
+            "operatingIncomeForecast": 11213.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 1700.0,
             "revenueForecast": 156707.0,
             "operatingIncomeForecast": 11213.0
@@ -56802,6 +57876,12 @@
           },
           {
             "date": "2026-06-24",
+            "epsForecast": 486.0,
+            "revenueForecast": 39122.0,
+            "operatingIncomeForecast": 3122.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 486.0,
             "revenueForecast": 39122.0,
             "operatingIncomeForecast": 3122.0
@@ -57097,6 +58177,12 @@
             "epsForecast": 1391.0,
             "revenueForecast": 3508.0,
             "operatingIncomeForecast": 678.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 1391.0,
+            "revenueForecast": 3508.0,
+            "operatingIncomeForecast": 678.0
           }
         ]
       },
@@ -57354,6 +58440,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 132.0,
+            "revenueForecast": 634.0,
+            "operatingIncomeForecast": 83.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 132.0,
             "revenueForecast": 634.0,
             "operatingIncomeForecast": 83.0
@@ -57654,6 +58746,12 @@
             "epsForecast": 3875.0,
             "revenueForecast": 15037.0,
             "operatingIncomeForecast": 2398.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 3875.0,
+            "revenueForecast": 15037.0,
+            "operatingIncomeForecast": 2398.0
           }
         ]
       },
@@ -57902,6 +59000,12 @@
             "epsForecast": 900.0,
             "revenueForecast": 3671.0,
             "operatingIncomeForecast": 593.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 900.0,
+            "revenueForecast": 3671.0,
+            "operatingIncomeForecast": 593.0
           }
         ]
       }
@@ -58073,6 +59177,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 108.0,
+            "revenueForecast": 590.0,
+            "operatingIncomeForecast": 130.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 108.0,
             "revenueForecast": 590.0,
             "operatingIncomeForecast": 130.0
@@ -58352,6 +59462,12 @@
             "epsForecast": 9921.0,
             "revenueForecast": 55710.0,
             "operatingIncomeForecast": 9987.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 9921.0,
+            "revenueForecast": 55710.0,
+            "operatingIncomeForecast": 9987.0
           }
         ]
       },
@@ -58401,6 +59517,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 2724.0,
+            "revenueForecast": 13972.0,
+            "operatingIncomeForecast": 2652.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 2724.0,
             "revenueForecast": 13972.0,
             "operatingIncomeForecast": 2652.0
@@ -58594,6 +59716,12 @@
             "epsForecast": 39462.0,
             "revenueForecast": 72797.0,
             "operatingIncomeForecast": 7521.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 39462.0,
+            "revenueForecast": 72797.0,
+            "operatingIncomeForecast": 7521.0
           }
         ]
       },
@@ -58661,6 +59789,12 @@
           },
           {
             "date": "2026-06-25",
+            "epsForecast": 5155.0,
+            "revenueForecast": 17952.0,
+            "operatingIncomeForecast": 1467.0
+          },
+          {
+            "date": "2026-06-26",
             "epsForecast": 5155.0,
             "revenueForecast": 17952.0,
             "operatingIncomeForecast": 1467.0
@@ -58754,6 +59888,12 @@
             "epsForecast": 3501.0,
             "revenueForecast": 13065.0,
             "operatingIncomeForecast": 1861.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 3501.0,
+            "revenueForecast": 13065.0,
+            "operatingIncomeForecast": 1861.0
           }
         ]
       },
@@ -58842,6 +59982,12 @@
             "epsForecast": 538.0,
             "revenueForecast": 2412.0,
             "operatingIncomeForecast": 290.0
+          },
+          {
+            "date": "2026-06-26",
+            "epsForecast": 538.0,
+            "revenueForecast": 2412.0,
+            "operatingIncomeForecast": 290.0
           }
         ]
       }
@@ -58869,5 +60015,5 @@
       }
     }
   },
-  "lastUpdated": "2026-06-25"
+  "lastUpdated": "2026-06-26"
 }
