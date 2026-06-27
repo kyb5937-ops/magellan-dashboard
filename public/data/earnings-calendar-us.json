@@ -15,7 +15,7 @@
       "epsForecast": "$20.71",
       "epsActual": "$25.11",
       "epsPreviousYoY": "$1.91",
-      "revenueForecast": "$50.71B",
+      "revenueForecast": "$50.68B",
       "revenueActual": "$41.46B",
       "surprise": "+21.2%"
     },
@@ -28,7 +28,7 @@
       "name": "나이키",
       "marketCapRank": 80,
       "quarter": "26Q2",
-      "epsForecast": "$0.12",
+      "epsForecast": "$0.13",
       "epsActual": null,
       "epsPreviousYoY": "$0.14",
       "revenueForecast": "$10.85B",
@@ -44,10 +44,10 @@
       "name": "펩시코",
       "marketCapRank": 33,
       "quarter": "26Q2",
-      "epsForecast": "$2.23",
+      "epsForecast": "$2.21",
       "epsActual": null,
       "epsPreviousYoY": "$2.12",
-      "revenueForecast": "$23.99B",
+      "revenueForecast": "$23.97B",
       "revenueActual": null,
       "surprise": null
     }
