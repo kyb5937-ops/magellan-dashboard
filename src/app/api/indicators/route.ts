@@ -36,6 +36,69 @@ interface IndicatorResult {
   dataTimestamp?: string | null;
 }
 
+// fetchIndicator 가 만든 공통 메타 필드 묶음 (각 어댑터가 spread 로 합침)
+type BaseResult = Pick<
+  IndicatorResult,
+  "id" | "name" | "region" | "valueType" | "symbol" | "decimals"
+>;
+
+// ── 국고채 폴백: ECOS 일별 금리 (kr3y/kr10y 공통) ──
+// 기존 case "ecos" 가 하던 로직 그대로. krxFile 분기와 ecos 케이스가 함께 호출.
+async function ecosYieldResult(
+  meta: IndicatorMeta,
+  base: BaseResult
+): Promise<IndicatorResult> {
+  const yieldData = await fetchEcosYield(meta.symbol);
+  return {
+    ...base,
+    value: yieldData.value,
+    change: yieldData.changeBps,
+    changeType: "bp",
+    dataDate: yieldData.date,
+    // ECOS는 일자만 알려주므로 ISO 시각은 임의 고정 (20:00 UTC).
+    // 정확한 시각은 dataDate 참조.
+    dataTimestamp: `${yieldData.date}T20:00:00Z`,
+    ...(yieldData.staleness !== undefined && { staleness: yieldData.staleness }),
+    ...(yieldData.stalenessWarning && { warning: yieldData.stalenessWarning }),
+  };
+}
+
+// ── 원/달러 폴백: Yahoo 현재가 + ECOS 매매기준율로 변동폭 재계산 ──
+// 기존 case "yahoo" 의 usdkrw 분기 로직 그대로. krxFile 분기와 yahoo 케이스가 함께 호출.
+async function yahooUsdkrwResult(
+  meta: IndicatorMeta,
+  base: BaseResult
+): Promise<IndicatorResult> {
+  const quote = await fetchQuote(meta.symbol);
+
+  // usdkrw는 Yahoo previousClose(OTC 24시간) 대신 ECOS 매매기준율로 변동폭 재계산.
+  // 실패 시 Yahoo previousClose fallback (기존 동작 유지).
+  try {
+    const ecosFx = await fetchEcosFxRate();
+    return {
+      ...base,
+      value: quote.price,
+      change: quote.price - ecosFx.previousClose,
+      changeType: "won",
+      dataTimestamp: quote.dataTimestamp,
+      ecosPreviousClose: ecosFx.previousClose,
+      ecosDate: ecosFx.date,
+      staleness: ecosFx.staleness,
+      ...(ecosFx.stalenessWarning && { warning: ecosFx.stalenessWarning }),
+    };
+  } catch (e) {
+    console.error("ECOS FX fallback to Yahoo previousClose:", e);
+  }
+
+  return {
+    ...base,
+    value: quote.price,
+    change: quote.change,
+    changeType: "won",
+    dataTimestamp: quote.dataTimestamp,
+  };
+}
+
 // 각 소스별 어댑터를 호출해서 공통 형식으로 변환
 async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
   // 모든 응답에 메타데이터 포함 (AI/외부 클라이언트가 활용하기 좋게)
@@ -51,30 +114,13 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
   try {
     switch (meta.dataSource) {
       case "yahoo": {
-        const quote = await fetchQuote(meta.symbol);
-        const isWon = meta.valueType === "fx";
-
-        // usdkrw는 Yahoo previousClose(OTC 24시간) 대신 ECOS 매매기준율로 변동폭 재계산.
-        // 실패 시 Yahoo previousClose fallback (기존 동작 유지).
+        // usdkrw는 Yahoo 현재가 + ECOS 매매기준율 재계산 경로 (헬퍼 공용).
         if (meta.id === "usdkrw") {
-          try {
-            const ecosFx = await fetchEcosFxRate();
-            return {
-              ...base,
-              value: quote.price,
-              change: quote.price - ecosFx.previousClose,
-              changeType: "won",
-              dataTimestamp: quote.dataTimestamp,
-              ecosPreviousClose: ecosFx.previousClose,
-              ecosDate: ecosFx.date,
-              staleness: ecosFx.staleness,
-              ...(ecosFx.stalenessWarning && { warning: ecosFx.stalenessWarning }),
-            };
-          } catch (e) {
-            console.error("ECOS FX fallback to Yahoo previousClose:", e);
-          }
+          return await yahooUsdkrwResult(meta, base);
         }
 
+        const quote = await fetchQuote(meta.symbol);
+        const isWon = meta.valueType === "fx";
         return {
           ...base,
           value: quote.price,
@@ -175,19 +221,54 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
       }
 
       case "ecos": {
-        const yieldData = await fetchEcosYield(meta.symbol);
-        return {
-          ...base,
-          value: yieldData.value,
-          change: yieldData.changeBps,
-          changeType: "bp",
-          dataDate: yieldData.date,
-          // ECOS는 일자만 알려주므로 ISO 시각은 임의 고정 (20:00 UTC).
-          // 정확한 시각은 dataDate 참조.
-          dataTimestamp: `${yieldData.date}T20:00:00Z`,
-          ...(yieldData.staleness !== undefined && { staleness: yieldData.staleness }),
-          ...(yieldData.stalenessWarning && { warning: yieldData.stalenessWarning }),
-        };
+        return await ecosYieldResult(meta, base);
+      }
+
+      case "krxFile": {
+        // 국고채 3·10년·원/달러를 index-kr.json(이브닝 배치 당일치)에서 읽는다.
+        // 파일/항목이 없으면 기존 ECOS(국고채)·Yahoo(원달러) 경로로 폴백.
+        const file = await loadKrxIndexFile();
+
+        if (meta.id === "kr3y" || meta.id === "kr10y") {
+          const entry = meta.id === "kr3y" ? file?.kr3y : file?.kr10y;
+          if (
+            entry &&
+            typeof entry.value === "number" &&
+            typeof entry.change_bp === "number"
+          ) {
+            return {
+              ...base,
+              value: entry.value,
+              change: entry.change_bp,
+              changeType: "bp",
+              dataDate: entry.tradeDate,
+              dataTimestamp: file?.updatedAt ?? null,
+            };
+          }
+          // 폴백: ECOS 일별 금리
+          const r = await ecosYieldResult(meta, base);
+          return { ...r, warning: r.warning ?? "KRX 파일 없음 — ECOS 폴백" };
+        }
+
+        // usdkrw
+        const entry = file?.usdkrw;
+        if (
+          entry &&
+          typeof entry.value === "number" &&
+          typeof entry.change === "number"
+        ) {
+          return {
+            ...base,
+            value: entry.value,
+            change: entry.change,
+            changeType: "won",
+            dataDate: file?.date,
+            dataTimestamp: file?.updatedAt ?? null,
+          };
+        }
+        // 폴백: Yahoo + ECOS 매매기준율
+        const r = await yahooUsdkrwResult(meta, base);
+        return { ...r, warning: r.warning ?? "KRX 파일 없음 — Yahoo 폴백" };
       }
     }
   } catch (err) {

@@ -23,11 +23,28 @@ export interface KrxIndexEntry {
   tradeDate: string;
 }
 
+// 국고채 3년·10년 (KRX 장외 채권수익률, 이브닝 배치가 당일치 기록)
+export interface KrxTreasuryEntry {
+  value: number;       // 수익률 %
+  change_bp: number;   // 전일대비 bp
+  tradeDate: string;
+}
+
+// 원/달러 (Yahoo USDKRW=X, 이브닝 배치가 당일치 기록)
+export interface KrxUsdKrwEntry {
+  value: number;       // 환율
+  change: number;      // 전일대비 원
+  prevClose: number;
+}
+
 export interface KrxIndexFile {
   date: string;
   updatedAt?: string;
   kospi?: KrxIndexEntry;
   kosdaq?: KrxIndexEntry;
+  kr3y?: KrxTreasuryEntry;
+  kr10y?: KrxTreasuryEntry;
+  usdkrw?: KrxUsdKrwEntry;
 }
 
 let cache: { data: KrxIndexFile; expiresAt: number } | null = null;

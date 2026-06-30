@@ -10,13 +10,15 @@
 //   - ecos      : 한국은행 ECOS API (일봉, 무료, 키 필요)
 //   - krxIndex  : public/data/index-kr.json (GH Actions가 KRX 공식 종가를 매일 커밋).
 //                 Yahoo가 거래일을 누락해 등락률이 튀는 문제 해결용. 실패 시 Yahoo 폴백.
+//   - krxFile   : 동일한 index-kr.json 의 kr3y/kr10y/usdkrw 당일치(이브닝 배치 기록).
+//                 실패 시 국고채는 ECOS, 원/달러는 Yahoo+ECOSfx 로 폴백.
 //
 // valueType
 //   - price   : 종가 (등락률 %로 표시)
 //   - yield   : 금리 % (변동폭 bp로 표시)
 //   - fx      : 환율 (변동폭 원)
 
-export type DataSource = "yahoo" | "fred" | "fredIndex" | "ecos" | "krxIndex";
+export type DataSource = "yahoo" | "fred" | "fredIndex" | "ecos" | "krxIndex" | "krxFile";
 export type ValueType = "price" | "yield" | "fx";
 export type Region = "US" | "KR";
 
@@ -50,9 +52,9 @@ export const INDICATORS: IndicatorMeta[] = [
   // ===== 🇰🇷 KOREA (5개) =====
   { id: "kospi",   name: "코스피",        region: "KR", dataSource: "krxIndex", symbol: "^KS11",  valueType: "price", decimals: 2, deepDive: true  },
   { id: "kosdaq",  name: "코스닥",        region: "KR", dataSource: "krxIndex", symbol: "^KQ11",  valueType: "price", decimals: 2, deepDive: true  },
-  { id: "usdkrw",  name: "원/달러",       region: "KR", dataSource: "yahoo", symbol: "KRW=X",  valueType: "fx",    decimals: 1, deepDive: false },
-  { id: "kr3y",    name: "국고채 3Y",     region: "KR", dataSource: "ecos",  symbol: "010200000", valueType: "yield", decimals: 3, deepDive: false },
-  { id: "kr10y",   name: "국고채 10Y",    region: "KR", dataSource: "ecos",  symbol: "010210000", valueType: "yield", decimals: 3, deepDive: false },
+  { id: "usdkrw",  name: "원/달러",       region: "KR", dataSource: "krxFile", symbol: "KRW=X",  valueType: "fx",    decimals: 1, deepDive: false },
+  { id: "kr3y",    name: "국고채 3Y",     region: "KR", dataSource: "krxFile", symbol: "010200000", valueType: "yield", decimals: 3, deepDive: false },
+  { id: "kr10y",   name: "국고채 10Y",    region: "KR", dataSource: "krxFile", symbol: "010210000", valueType: "yield", decimals: 3, deepDive: false },
 ];
 
 // 편의 헬퍼
