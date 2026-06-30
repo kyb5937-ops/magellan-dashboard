@@ -1,0 +1,61 @@
+name: 미국 시장 데이터 자동 갱신
+
+# 실행 조건
+on:
+  # 미동부 장 마감(16:00 ET) 직후. UTC 20:30 = KST 05:30 = 미동부 약 16:30 (평일)
+  # GitHub Actions cron 지연 감안. 동일 데이터면 commit 단계에서 자동 skip.
+  schedule:
+    - cron: '30 20 * * 1-5'   # UTC 20:30 (미동부 16:30 / KST 05:30)
+
+  # GitHub Actions 탭에서 수동으로도 실행 가능
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  update-us-data:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 저장소 코드 체크아웃
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+        with:
+          # commit/push 권한 부여
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. Python 3.11 설치
+      - name: Python 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. 의존성 설치
+      - name: 패키지 설치
+        run: |
+          pip install requests
+
+      # 4. 데이터 수집 스크립트 실행
+      #    TARGET_DATE_US 미지정 → 스크립트가 미동부 직전 거래일 자동 계산
+      - name: 미국 시장 데이터 수집
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY }}
+        run: |
+          python .github/scripts/fetch_us_market.py
+
+      # 5. 변경사항 commit + push (변경이 있을 때만)
+      - name: 변경사항 커밋
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/index-us.json
+          # 변경사항이 있는지 확인
+          if git diff --staged --quiet; then
+            echo "변경사항 없음 - skip"
+          else
+            git commit -m "데이터 자동 갱신(미국) $(date -u +%Y%m%d)"
+            git push
+            echo "✅ 갱신 완료"
+          fi
