@@ -1,0 +1,46 @@
+{
+  "date": "2026-06-30",
+  "updatedAt": "2026-06-30T13:52:22Z",
+  "sp500": {
+    "value": 7462.05,
+    "change_pct": 0.29,
+    "change_pt": 21.62,
+    "prevClose": 7440.43,
+    "source": "fmp",
+    "tradeDate": "2026-06-30"
+  },
+  "nasdaq": {
+    "value": 25962.72,
+    "change_pct": 0.55,
+    "change_pt": 142.58,
+    "prevClose": 25820.14,
+    "source": "fmp",
+    "tradeDate": "2026-06-30"
+  },
+  "dow": {
+    "value": 52254.86,
+    "change_pct": 0.14,
+    "change_pt": 72.12,
+    "prevClose": 52182.74,
+    "source": "fmp",
+    "tradeDate": "2026-06-30"
+  },
+  "sox": {
+    "value": 13924.58,
+    "change_pct": 1.57,
+    "change_pt": 214.92,
+    "prevClose": 13709.66,
+    "source": "eodhd",
+    "tradeDate": "2026-06-30"
+  },
+  "us2y": {
+    "value": 4.1,
+    "change_bp": 3.0,
+    "tradeDate": "2026-06-29"
+  },
+  "us10y": {
+    "value": 4.38,
+    "change_bp": 0.0,
+    "tradeDate": "2026-06-29"
+  }
+}
