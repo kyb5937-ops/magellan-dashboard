@@ -7,7 +7,7 @@
   한국용 fetch_market_data.py 와는 완전히 별개의 스크립트/워크플로다.
 
 [데이터 소스]
-  - 지수: FMP(stable/quote) 1차 → EODHD(real-time) 폴백.
+  - 지수: FMP(stable/historical-price-eod/light) 확정 종가 1차 → EODHD(real-time) 폴백.
           단 SOX(^SOX)는 FMP 무료 플랜에서 막혀 EODHD 전용.
   - 금리: 미 재무부 Par Yield Curve XML (BC_2YEAR / BC_10YEAR).
 
@@ -87,9 +87,14 @@ def _num(v):
 
 
 def fetch_fmp_index(sym, trade_date):
-    """FMP stable/quote 로 지수 1건 조회. 실패/무효값이면 None."""
+    """FMP historical-price-eod/light 로 확정 종가(EOD) 1건 조회.
+
+    stable/quote 는 마감 직후 정정 전 값이라 확정 종가와 미세하게 어긋나므로
+    EOD 종가 시리즈를 쓴다. 응답 배열은 최신순: [0]=대상일 종가, [1]=전일 종가.
+    실패/무효값이거나 대상일 EOD 가 아직 확정 전이면 None → EODHD 폴백.
+    """
     url = (
-        "https://financialmodelingprep.com/stable/quote"
+        "https://financialmodelingprep.com/stable/historical-price-eod/light"
         f"?symbol={urllib.parse.quote(sym)}&apikey={FMP_API_KEY}"
     )
     try:
@@ -109,15 +114,16 @@ def fetch_fmp_index(sym, trade_date):
     if not price:  # 0/None/NA → 실패로 간주
         return None
 
-    prev = _num(row.get("previousClose"))
-    chg = _num(row.get("change"))
-    chg_pct = _num(row.get("changePercentage"))
+    # 대상일 EOD 가 아직 확정 전이면([0].date != 대상일) EODHD 폴백으로 넘긴다.
+    row_date = str(row.get("date") or "")[:10]
+    if row_date != trade_date:
+        print(f"  ⚠️ FMP {sym} EOD 미확정(최신 {row_date} ≠ 대상 {trade_date}) — EODHD 폴백",
+              file=sys.stderr)
+        return None
 
-    # 누락 보강: prev 가 있으면 change / change_pct 를 계산해 채운다.
-    if chg is None and prev is not None:
-        chg = price - prev
-    if chg_pct is None and prev not in (None, 0):
-        chg_pct = (price - prev) / prev * 100
+    prev = _num(data[1].get("price")) if len(data) >= 2 else None
+    chg = price - prev if prev is not None else None
+    chg_pct = (chg / prev * 100) if (prev not in (None, 0) and chg is not None) else None
 
     return {
         "value": round(price, 2),
@@ -195,9 +201,18 @@ def fetch_indices(trade_date):
     return out
 
 
-def fetch_treasury_yields(trade_date):
-    """미 재무부 Par Yield Curve XML 에서 2Y·10Y 수익률 + 전일대비 bp."""
-    yyyymm = trade_date[0:4] + trade_date[5:7]
+def _prev_month_yyyymm(yyyymm):
+    """"YYYYMM" 의 직전 달 "YYYYMM"."""
+    y = int(yyyymm[:4])
+    m = int(yyyymm[4:6]) - 1
+    if m == 0:
+        y -= 1
+        m = 12
+    return f"{y:04d}{m:02d}"
+
+
+def _fetch_treasury_month(yyyymm):
+    """재무부 Par Yield Curve XML 한 달치 → [(date, y2, y10), ...]. 실패 시 []."""
     url = (
         "https://home.treasury.gov/resource-center/data-chart-center/"
         "interest-rates/pages/xml"
@@ -208,8 +223,8 @@ def fetch_treasury_yields(trade_date):
         r.raise_for_status()
         root = ET.fromstring(r.content)
     except Exception as e:
-        print(f"  ⚠️ 재무부 금리 조회 실패: {e}", file=sys.stderr)
-        return {}
+        print(f"  ⚠️ 재무부 금리({yyyymm}) 조회 실패: {e}", file=sys.stderr)
+        return []
 
     NS_D = "{http://schemas.microsoft.com/ado/2007/08/dataservices}"
     NS_M = "{http://schemas.microsoft.com/ado/2007/08/dataservices/metadata}"
@@ -226,12 +241,29 @@ def fetch_treasury_yields(trade_date):
             _num(y2_el.text if y2_el is not None else None),
             _num(y10_el.text if y10_el is not None else None),
         ))
+    return rows
 
-    if not rows:
+
+def fetch_treasury_yields(trade_date):
+    """미 재무부 Par Yield Curve XML 에서 2Y·10Y 수익률 + 전일대비 bp.
+
+    월초(이번 달 관측 1개)엔 전일이 없어 bp 계산이 안 되므로,
+    이번 달 + 직전 달 XML 을 함께 받아 병합·정렬해서 직전 영업일을 확보한다.
+    """
+    yyyymm = trade_date[0:4] + trade_date[5:7]
+    prev_mm = _prev_month_yyyymm(yyyymm)
+
+    merged = _fetch_treasury_month(yyyymm) + _fetch_treasury_month(prev_mm)
+    if not merged:
         print("  ⚠️ 재무부 금리 entry 없음 — 생략", file=sys.stderr)
         return {}
 
-    rows.sort(key=lambda x: x[0])  # 날짜 오름차순 → 마지막이 최신
+    # 날짜 중복 제거(달 경계 안전) 후 오름차순 정렬 → 마지막이 최신
+    dedup = {}
+    for row in merged:
+        dedup[row[0]] = row
+    rows = sorted(dedup.values(), key=lambda x: x[0])
+
     latest = rows[-1]
     prev = rows[-2] if len(rows) >= 2 else (None, None, None)
     latest_date = latest[0]

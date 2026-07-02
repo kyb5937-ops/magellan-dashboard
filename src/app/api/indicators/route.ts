@@ -233,26 +233,35 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
                   ? file?.dow
                   : file?.sox;
 
-          if (
-            entry &&
-            typeof entry.value === "number" &&
-            typeof entry.change_pct === "number"
-          ) {
-            return {
-              ...base,
+          // 지수 폴백(sp500/nasdaq/dow → FRED→Yahoo, sox → Yahoo).
+          const indexFallback = () =>
+            meta.id === "sox"
+              ? yahooPriceResult(meta, base)
+              : fredIndexResult(meta, base);
+
+          // value 가 유효하면 파일 값을 쓴다. 등락(change_pct)이 null 이면
+          // 그 부분만 폴백에서 보충하고 value/dataDate 는 파일 값 유지.
+          if (entry && typeof entry.value === "number") {
+            const fileFields = {
               value: entry.value,
-              change: entry.change_pct,
-              changeType: "pct",
               dataDate: entry.tradeDate,
               dataTimestamp: file?.updatedAt ?? null,
             };
+            if (typeof entry.change_pct === "number") {
+              return { ...base, ...fileFields, change: entry.change_pct, changeType: "pct" };
+            }
+            const fb = await indexFallback();
+            return {
+              ...base,
+              ...fileFields,
+              change: fb.change,
+              changeType: "pct",
+              warning: "등락 index-us.json 누락 — 등락만 폴백 보충",
+            };
           }
 
-          // 폴백: sp500/nasdaq/dow → FRED 지수(→Yahoo), sox → Yahoo
-          const r =
-            meta.id === "sox"
-              ? await yahooPriceResult(meta, base)
-              : await fredIndexResult(meta, base);
+          // 파일/항목 없거나 value 무효 → 전체 폴백
+          const r = await indexFallback();
           return {
             ...r,
             warning:
@@ -265,21 +274,27 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
 
         // 금리: 미 2Y·10Y
         const entry = meta.id === "us2y" ? file?.us2y : file?.us10y;
-        if (
-          entry &&
-          typeof entry.value === "number" &&
-          typeof entry.change_bp === "number"
-        ) {
-          return {
-            ...base,
+        // value 가 유효하면 파일 값을 쓴다. 등락(change_bp)이 null 이면
+        // 그 부분만 FRED 에서 보충하고 value/dataDate 는 파일 값 유지.
+        if (entry && typeof entry.value === "number") {
+          const fileFields = {
             value: entry.value,
-            change: entry.change_bp,
-            changeType: "bp",
             dataDate: entry.tradeDate,
             dataTimestamp: file?.updatedAt ?? null,
           };
+          if (typeof entry.change_bp === "number") {
+            return { ...base, ...fileFields, change: entry.change_bp, changeType: "bp" };
+          }
+          const fb = await fredYieldResult(meta, base);
+          return {
+            ...base,
+            ...fileFields,
+            change: fb.change,
+            changeType: "bp",
+            warning: "등락 index-us.json 누락 — 등락만 폴백 보충",
+          };
         }
-        // 폴백: FRED 일별 금리
+        // 파일/항목 없거나 value 무효 → 전체 폴백: FRED 일별 금리
         const r = await fredYieldResult(meta, base);
         return { ...r, warning: r.warning ?? "index-us.json 없음 — FRED 폴백" };
       }
