@@ -90,6 +90,28 @@
       "operatingIncomePreviousYoY": "1,701억원",
       "operatingIncomeSurprise": null,
       "surprise": null
+    },
+    {
+      "date": "2026-07-03",
+      "dayOfWeek": "금",
+      "time": "AMC",
+      "country": "KR",
+      "symbol": "068270",
+      "name": "셀트리온",
+      "marketCapRank": 18,
+      "quarter": "26Q2",
+      "epsForecast": "1,400원",
+      "epsActual": null,
+      "epsPreviousYoY": "252원",
+      "revenueForecast": "1.2조원",
+      "revenueActual": null,
+      "revenuePreviousYoY": "9,615억원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "4,016억원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "2,425억원",
+      "operatingIncomeSurprise": null,
+      "surprise": null
     }
   ]
 }
