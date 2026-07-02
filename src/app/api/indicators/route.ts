@@ -3,6 +3,7 @@ import { fetchQuote } from "@/lib/api/yahoo";
 import { fetchFredYield, fetchFredIndex } from "@/lib/api/fred";
 import { fetchEcosYield, fetchEcosFxRate } from "@/lib/api/ecos";
 import { loadKrxIndexFile } from "@/lib/api/krxIndex";
+import { loadUsIndexFile } from "@/lib/api/usIndexFile";
 import { INDICATORS, IndicatorMeta, Region, ValueType } from "@/lib/data/indicators";
 
 // 매번 새로 실행 — 캐시는 각 어댑터 내부에서 관리
@@ -99,6 +100,79 @@ async function yahooUsdkrwResult(
   };
 }
 
+// ── 지수 폴백: FRED 가격 지수 → 실패 시 Yahoo (sp500/nasdaq/dow 공통) ──
+// 기존 case "fredIndex" 가 하던 로직 그대로. fredIndex 케이스와 usFile 분기가 함께 호출.
+async function fredIndexResult(
+  meta: IndicatorMeta,
+  base: BaseResult
+): Promise<IndicatorResult> {
+  // FRED 가격 지수(S&P 500, Dow, NASDAQ Composite).
+  // 실패 시 동일 카드의 Yahoo 폴백 티커(meta.symbol)로 전환.
+  try {
+    if (!meta.fredSymbol) {
+      throw new Error(`fredIndex 카드 ${meta.id} 에 fredSymbol 미지정`);
+    }
+    const idx = await fetchFredIndex(meta.fredSymbol);
+    return {
+      ...base,
+      value: idx.value,
+      change: idx.changePercent,
+      changeType: "pct",
+      dataDate: idx.date,
+      // FRED는 일자만 알려주므로 시각은 미 마감 부근(20:00 UTC)으로 고정
+      dataTimestamp: `${idx.date}T20:00:00Z`,
+    };
+  } catch (e) {
+    console.error(`FRED 지수 ${meta.fredSymbol} 실패 — Yahoo 폴백:`, e);
+    const quote = await fetchQuote(meta.symbol);
+    return {
+      ...base,
+      value: quote.price,
+      change: quote.changePercent,
+      changeType: "pct",
+      dataTimestamp: quote.dataTimestamp,
+      warning: "FRED 지수 조회 실패 — Yahoo 폴백",
+    };
+  }
+}
+
+// ── 금리 폴백: FRED 일별 금리 (us2y/us10y 공통) ──
+// 기존 case "fred" 가 하던 로직 그대로. fred 케이스와 usFile 분기가 함께 호출.
+async function fredYieldResult(
+  meta: IndicatorMeta,
+  base: BaseResult
+): Promise<IndicatorResult> {
+  const yieldData = await fetchFredYield(meta.symbol);
+  return {
+    ...base,
+    value: yieldData.value,
+    change: yieldData.changeBps,
+    changeType: "bp",
+    dataDate: yieldData.date,
+    // FRED는 일자만 알려주므로 ISO 시각은 임의 고정 (20:00 UTC ≈ 미 마감 부근).
+    // 정확한 시각은 dataDate 참조.
+    dataTimestamp: `${yieldData.date}T20:00:00Z`,
+    ...(yieldData.staleness !== undefined && { staleness: yieldData.staleness }),
+    ...(yieldData.stalenessWarning && { warning: yieldData.stalenessWarning }),
+  };
+}
+
+// ── 지수 폴백: Yahoo 현재가 (SOX 등 가격/% 카드) ──
+// 기존 case "yahoo" 의 비-fx 분기 로직 그대로. yahoo 케이스와 usFile 분기가 함께 호출.
+async function yahooPriceResult(
+  meta: IndicatorMeta,
+  base: BaseResult
+): Promise<IndicatorResult> {
+  const quote = await fetchQuote(meta.symbol);
+  return {
+    ...base,
+    value: quote.price,
+    change: quote.changePercent,
+    changeType: "pct",
+    dataTimestamp: quote.dataTimestamp,
+  };
+}
+
 // 각 소스별 어댑터를 호출해서 공통 형식으로 변환
 async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
   // 모든 응답에 메타데이터 포함 (AI/외부 클라이언트가 활용하기 좋게)
@@ -131,50 +205,83 @@ async function fetchIndicator(meta: IndicatorMeta): Promise<IndicatorResult> {
       }
 
       case "fredIndex": {
-        // FRED 가격 지수(S&P 500, Dow, NASDAQ Composite).
-        // 실패 시 동일 카드의 Yahoo 폴백 티커(meta.symbol)로 전환.
-        try {
-          if (!meta.fredSymbol) {
-            throw new Error(`fredIndex 카드 ${meta.id} 에 fredSymbol 미지정`);
-          }
-          const idx = await fetchFredIndex(meta.fredSymbol);
-          return {
-            ...base,
-            value: idx.value,
-            change: idx.changePercent,
-            changeType: "pct",
-            dataDate: idx.date,
-            // FRED는 일자만 알려주므로 시각은 미 마감 부근(20:00 UTC)으로 고정
-            dataTimestamp: `${idx.date}T20:00:00Z`,
-          };
-        } catch (e) {
-          console.error(`FRED 지수 ${meta.fredSymbol} 실패 — Yahoo 폴백:`, e);
-          const quote = await fetchQuote(meta.symbol);
-          return {
-            ...base,
-            value: quote.price,
-            change: quote.changePercent,
-            changeType: "pct",
-            dataTimestamp: quote.dataTimestamp,
-            warning: "FRED 지수 조회 실패 — Yahoo 폴백",
-          };
-        }
+        return await fredIndexResult(meta, base);
       }
 
       case "fred": {
-        const yieldData = await fetchFredYield(meta.symbol);
-        return {
-          ...base,
-          value: yieldData.value,
-          change: yieldData.changeBps,
-          changeType: "bp",
-          dataDate: yieldData.date,
-          // FRED는 일자만 알려주므로 ISO 시각은 임의 고정 (20:00 UTC ≈ 미 마감 부근).
-          // 정확한 시각은 dataDate 참조.
-          dataTimestamp: `${yieldData.date}T20:00:00Z`,
-          ...(yieldData.staleness !== undefined && { staleness: yieldData.staleness }),
-          ...(yieldData.stalenessWarning && { warning: yieldData.stalenessWarning }),
-        };
+        return await fredYieldResult(meta, base);
+      }
+
+      case "usFile": {
+        // 미국 지수·금리를 index-us.json(모닝 배치 미국 종가)에서 읽는다.
+        // 파일/항목이 없으면 기존 FRED/Yahoo 경로로 폴백.
+        const file = await loadUsIndexFile();
+
+        // 지수: S&P 500·NASDAQ·Dow·SOX
+        if (
+          meta.id === "sp500" ||
+          meta.id === "nasdaq" ||
+          meta.id === "dow" ||
+          meta.id === "sox"
+        ) {
+          const entry =
+            meta.id === "sp500"
+              ? file?.sp500
+              : meta.id === "nasdaq"
+                ? file?.nasdaq
+                : meta.id === "dow"
+                  ? file?.dow
+                  : file?.sox;
+
+          if (
+            entry &&
+            typeof entry.value === "number" &&
+            typeof entry.change_pct === "number"
+          ) {
+            return {
+              ...base,
+              value: entry.value,
+              change: entry.change_pct,
+              changeType: "pct",
+              dataDate: entry.tradeDate,
+              dataTimestamp: file?.updatedAt ?? null,
+            };
+          }
+
+          // 폴백: sp500/nasdaq/dow → FRED 지수(→Yahoo), sox → Yahoo
+          const r =
+            meta.id === "sox"
+              ? await yahooPriceResult(meta, base)
+              : await fredIndexResult(meta, base);
+          return {
+            ...r,
+            warning:
+              r.warning ??
+              (meta.id === "sox"
+                ? "index-us.json 없음 — Yahoo 폴백"
+                : "index-us.json 없음 — FRED 폴백"),
+          };
+        }
+
+        // 금리: 미 2Y·10Y
+        const entry = meta.id === "us2y" ? file?.us2y : file?.us10y;
+        if (
+          entry &&
+          typeof entry.value === "number" &&
+          typeof entry.change_bp === "number"
+        ) {
+          return {
+            ...base,
+            value: entry.value,
+            change: entry.change_bp,
+            changeType: "bp",
+            dataDate: entry.tradeDate,
+            dataTimestamp: file?.updatedAt ?? null,
+          };
+        }
+        // 폴백: FRED 일별 금리
+        const r = await fredYieldResult(meta, base);
+        return { ...r, warning: r.warning ?? "index-us.json 없음 — FRED 폴백" };
       }
 
       case "krxIndex": {
