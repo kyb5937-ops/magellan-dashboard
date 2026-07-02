@@ -3,9 +3,12 @@ name: 미국 시장 데이터 자동 갱신
 # 실행 조건
 on:
   # 미동부 장 마감(16:00 ET) 직후. UTC 20:30 = KST 05:30 = 미동부 약 16:30 (평일)
-  # GitHub Actions cron 지연 감안. 동일 데이터면 commit 단계에서 자동 skip.
+  # GitHub 무료 cron은 지연·스킵이 잦아 3슬롯으로 이중화. 하나만 성공해도 그날 갱신됨.
+  # 동일 데이터면 commit 단계에서 자동 skip 이라 중복 커밋은 안 생김.
   schedule:
     - cron: '30 20 * * 1-5'   # UTC 20:30 (미동부 16:30 / KST 05:30)
+    - cron: '0 21 * * 1-5'    # UTC 21:00 (미동부 17:00 / KST 06:00)
+    - cron: '15 21 * * 1-5'   # UTC 21:15 (미동부 17:15 / KST 06:15)
 
   # GitHub Actions 탭에서 수동으로도 실행 가능
   workflow_dispatch:
