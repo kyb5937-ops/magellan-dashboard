@@ -7,21 +7,23 @@
   한국용 fetch_market_data.py 와는 완전히 별개의 스크립트/워크플로다.
 
 [데이터 소스]
-  - 지수: FMP(stable/historical-price-eod/light) 확정 종가 1차 → EODHD(real-time) 폴백.
-          단 SOX(^SOX)는 FMP 무료 플랜에서 막혀 EODHD 전용.
+  - 지수: EODHD(eod 확정 종가) 1차 → FMP(stable/historical-price-eod/light) 폴백.
+          FMP 무료 지수 종가가 부정확해(예: 7/2 다우 FMP 52760.68 vs 실제 52900.01)
+          정확한 EODHD 확정 종가를 1차로 쓰고 FMP 은 폴백으로 강등.
+          SOX(^SOX)는 FMP 무료 플랜에서 막혀 EODHD 전용(폴백 없음).
   - 금리: 미 재무부 Par Yield Curve XML (BC_2YEAR / BC_10YEAR).
 
 [환경변수]
   - TARGET_DATE_US : "YYYY-MM-DD". 없으면 미동부 기준 직전 거래일 자동 계산.
-  - FMP_API_KEY    : Financial Modeling Prep (무료 250콜/일, 지수 3콜 사용)
-  - EODHD_API_KEY  : EODHD (무료 20콜/일 — SOX 1콜 ~ 최대 4콜만 사용)
+  - EODHD_API_KEY  : EODHD (무료 20콜/일 — 지수 4개 eod = 4콜만 사용)
+  - FMP_API_KEY    : Financial Modeling Prep (폴백 전용; EODHD 실패/미확정 시에만)
 
 [출력]
   - public/data/index-us.json (저장소 루트 기준)
 
 [호출 절약 원칙]
-  EODHD는 SOX에 항상 1콜, 나머지 지수는 FMP가 실패했을 때만 폴백으로 호출.
-  절대 루프에서 남발하지 않는다.
+  EODHD eod 를 지수 4개(지수3 + SOX1)에 각 1콜 = 4콜/일. 무료 20콜/일 내 충분.
+  FMP 은 EODHD 가 실패했을 때만 폴백으로 호출. 절대 루프에서 남발하지 않는다.
 """
 
 import os
@@ -136,10 +138,15 @@ def fetch_fmp_index(sym, trade_date):
 
 
 def fetch_eodhd_index(sym, trade_date):
-    """EODHD real-time 로 지수 1건 조회. 실패/무효값이면 None."""
+    """EODHD eod(확정 종가) 로 지수 1건 조회. 실패/무효값·미확정이면 None.
+
+    GET /api/eod/{SYM}?...&order=d&limit=2 → 최신순 배열: [0]=대상일, [1]=전일.
+    확정 종가라 real-time 시세보다 정확하다. value=[0].close, prevClose=[1].close.
+    [0].date != 대상일이면 아직 EOD 미확정 → None(FMP 폴백으로 넘김).
+    """
     url = (
-        f"https://eodhd.com/api/real-time/{sym}"
-        f"?api_token={EODHD_API_KEY}&fmt=json"
+        f"https://eodhd.com/api/eod/{sym}"
+        f"?api_token={EODHD_API_KEY}&fmt=json&order=d&limit=2"
     )
     try:
         r = requests.get(url, timeout=HTTP_TIMEOUT)
@@ -149,22 +156,25 @@ def fetch_eodhd_index(sym, trade_date):
         print(f"  ⚠️ EODHD {sym} 조회 실패: {e}", file=sys.stderr)
         return None
 
-    if not isinstance(data, dict):
+    if not isinstance(data, list) or not data:
         print(f"  ⚠️ EODHD {sym} 응답 비정상: {str(data)[:120]}", file=sys.stderr)
         return None
 
-    close = _num(data.get("close"))
+    row = data[0]
+    close = _num(row.get("close"))
     if not close:  # 0/None/NA → 실패로 간주
         return None
 
-    prev = _num(data.get("previousClose"))
-    chg = _num(data.get("change"))
-    chg_pct = _num(data.get("change_p"))
+    # 대상일 EOD 가 아직 확정 전이면([0].date != 대상일) FMP 폴백으로 넘긴다.
+    row_date = str(row.get("date") or "")[:10]
+    if row_date != trade_date:
+        print(f"  ⚠️ EODHD {sym} EOD 미확정(최신 {row_date} ≠ 대상 {trade_date}) — FMP 폴백",
+              file=sys.stderr)
+        return None
 
-    if chg is None and prev is not None:
-        chg = close - prev
-    if chg_pct is None and prev not in (None, 0):
-        chg_pct = (close - prev) / prev * 100
+    prev = _num(data[1].get("close")) if len(data) >= 2 else None
+    chg = close - prev if prev is not None else None
+    chg_pct = (chg / prev * 100) if (prev not in (None, 0) and chg is not None) else None
 
     return {
         "value": round(close, 2),
@@ -177,19 +187,19 @@ def fetch_eodhd_index(sym, trade_date):
 
 
 def fetch_indices(trade_date):
-    """지수 4개 수집. FMP 1차 → EODHD 폴백(SOX 는 EODHD 전용)."""
+    """지수 4개 수집. EODHD(확정 종가) 1차 → FMP 폴백(SOX 는 EODHD 전용)."""
     out = {}
     for d in INDEX_DEFS:
         key = d["key"]
         result = None
 
-        # 1차: FMP (fmp 심볼이 있고 키가 있을 때만)
-        if d["fmp"] and FMP_API_KEY:
-            result = fetch_fmp_index(d["fmp"], trade_date)
-
-        # 2차: EODHD (SOX 는 항상 여기로, 나머지는 FMP 실패 시에만 — 콜 절약)
-        if result is None and d["eodhd"] and EODHD_API_KEY:
+        # 1차: EODHD eod (확정 종가 — FMP 무료보다 정확; 키가 있을 때만)
+        if d["eodhd"] and EODHD_API_KEY:
             result = fetch_eodhd_index(d["eodhd"], trade_date)
+
+        # 2차: FMP 폴백 (EODHD 실패/미확정 시에만; SOX 는 fmp=None 이라 폴백 없음)
+        if result is None and d["fmp"] and FMP_API_KEY:
+            result = fetch_fmp_index(d["fmp"], trade_date)
 
         if result is not None:
             out[key] = result
