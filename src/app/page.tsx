@@ -4,7 +4,6 @@ import { SectorETFSection } from "@/components/sectors/SectorETFSection";
 import { StockLookup } from "@/components/lookup/StockLookup";
 import { DeepDiveSection } from "@/components/deepdive/DeepDiveSection";
 import { MarketFlowSection } from "@/components/marketflow/MarketFlowSection";
-import { EconomicCalendarSection } from "@/components/calendar/EconomicCalendarSection";
 import { EarningsCalendarUS } from "@/components/calendar/EarningsCalendarUS";
 import { EarningsCalendarKR } from "@/components/calendar/EarningsCalendarKR";
 import { US_INDICATORS, KR_INDICATORS } from "@/lib/data/indicators";
@@ -26,7 +25,6 @@ export default function HomePage() {
         <DeepDiveSection />
         <MarketFlowSection />
         <StockLookup />
-        <EconomicCalendarSection />
         <EarningsCalendarUS />
         <EarningsCalendarKR />
       </div>
