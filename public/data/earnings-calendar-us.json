@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-06-30",
-  "weekEnd": "2026-07-16",
-  "lastUpdated": "2026-07-02",
+  "weekStart": "2026-07-01",
+  "weekEnd": "2026-07-17",
+  "lastUpdated": "2026-07-03",
   "events": [
     {
       "date": "2026-07-01",
@@ -240,6 +240,38 @@
       "epsActual": null,
       "epsPreviousYoY": "$8.84",
       "revenueForecast": "$48.63B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-07-17",
+      "dayOfWeek": "금",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "NFLX",
+      "name": "넷플릭스",
+      "marketCapRank": 21,
+      "quarter": "26Q2",
+      "epsForecast": "$0.79",
+      "epsActual": null,
+      "epsPreviousYoY": "$0.72",
+      "revenueForecast": "$12.58B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-07-17",
+      "dayOfWeek": "금",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "ISRG",
+      "name": "인튜이티브서지컬",
+      "marketCapRank": 67,
+      "quarter": "26Q2",
+      "epsForecast": "$2.50",
+      "epsActual": null,
+      "epsPreviousYoY": "$2.19",
+      "revenueForecast": "$2.82B",
       "revenueActual": null,
       "surprise": null
     }
