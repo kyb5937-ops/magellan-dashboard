@@ -1,24 +1,8 @@
 {
-  "weekStart": "2026-07-01",
-  "weekEnd": "2026-07-17",
-  "lastUpdated": "2026-07-03",
+  "weekStart": "2026-07-02",
+  "weekEnd": "2026-07-18",
+  "lastUpdated": "2026-07-04",
   "events": [
-    {
-      "date": "2026-07-01",
-      "dayOfWeek": "수",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "NKE",
-      "name": "나이키",
-      "marketCapRank": 80,
-      "quarter": "26Q2",
-      "epsForecast": "$0.13",
-      "epsActual": "$0.72",
-      "epsPreviousYoY": "$0.14",
-      "revenueForecast": "$11.38B",
-      "revenueActual": null,
-      "surprise": "+466.1%"
-    },
     {
       "date": "2026-07-09",
       "dayOfWeek": "목",
@@ -191,7 +175,7 @@
       "epsForecast": "$3.83",
       "epsActual": null,
       "epsPreviousYoY": "$2.47",
-      "revenueForecast": "$1261.42B",
+      "revenueForecast": "$1262.81B",
       "revenueActual": null,
       "surprise": null
     },
@@ -223,7 +207,7 @@
       "epsForecast": "$1.85",
       "epsActual": null,
       "epsPreviousYoY": "$1.66",
-      "revenueForecast": "$11.77B",
+      "revenueForecast": "$11.78B",
       "revenueActual": null,
       "surprise": null
     },
