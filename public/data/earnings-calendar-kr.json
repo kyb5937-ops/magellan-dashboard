@@ -1,29 +1,6 @@
 {
-  "weekStart": "2026-07-02",
-  "weekEnd": "2026-07-18",
-  "lastUpdated": "2026-07-04",
-  "events": [
-    {
-      "date": "2026-07-02",
-      "dayOfWeek": "목",
-      "time": "AMC",
-      "country": "KR",
-      "symbol": "323410",
-      "name": "카카오뱅크",
-      "marketCapRank": 69,
-      "quarter": "26Q2",
-      "epsForecast": "282원",
-      "epsActual": null,
-      "epsPreviousYoY": "265원",
-      "revenueForecast": null,
-      "revenueActual": null,
-      "revenuePreviousYoY": "7,780억원",
-      "revenueSurprise": null,
-      "operatingIncomeForecast": "1,821억원",
-      "operatingIncomeActual": null,
-      "operatingIncomePreviousYoY": "1,701억원",
-      "operatingIncomeSurprise": null,
-      "surprise": null
-    }
-  ]
+  "weekStart": "2026-07-03",
+  "weekEnd": "2026-07-19",
+  "lastUpdated": "2026-07-05",
+  "events": []
 }
