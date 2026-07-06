@@ -2,28 +2,5 @@
   "weekStart": "2026-07-04",
   "weekEnd": "2026-07-20",
   "lastUpdated": "2026-07-06",
-  "events": [
-    {
-      "date": "2026-07-06",
-      "dayOfWeek": "월",
-      "time": "AMC",
-      "country": "KR",
-      "symbol": "018260",
-      "name": "삼성에스디에스",
-      "marketCapRank": 53,
-      "quarter": "26Q2",
-      "epsForecast": "2,468원",
-      "epsActual": null,
-      "epsPreviousYoY": "2,205원",
-      "revenueForecast": "3.5조원",
-      "revenueActual": null,
-      "revenuePreviousYoY": "3.5조원",
-      "revenueSurprise": null,
-      "operatingIncomeForecast": "2,269억원",
-      "operatingIncomeActual": null,
-      "operatingIncomePreviousYoY": "2,302억원",
-      "operatingIncomeSurprise": null,
-      "surprise": null
-    }
-  ]
+  "events": []
 }
