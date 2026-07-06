@@ -24,6 +24,28 @@
       "operatingIncomePreviousYoY": "2,302억원",
       "operatingIncomeSurprise": null,
       "surprise": null
+    },
+    {
+      "date": "2026-07-07",
+      "dayOfWeek": "화",
+      "time": "AMC",
+      "country": "KR",
+      "symbol": "005930",
+      "name": "삼성전자",
+      "marketCapRank": 1,
+      "quarter": "26Q2",
+      "epsForecast": "10,625원",
+      "epsActual": null,
+      "epsPreviousYoY": "733원",
+      "revenueForecast": "173.9조원",
+      "revenueActual": null,
+      "revenuePreviousYoY": "74.6조원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": "85.0조원",
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": "4.7조원",
+      "operatingIncomeSurprise": null,
+      "surprise": null
     }
   ]
 }
