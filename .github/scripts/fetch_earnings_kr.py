@@ -240,6 +240,120 @@ def is_earnings_disclosure(report_nm: str) -> bool:
     return any(kw in report_nm for kw in EARNINGS_KEYWORDS)
 
 
+# ── 3-1. DART 영업(잠정)실적 공정공시 원문 파싱 ─────────────────────────
+# 잠정실적은 정기공시 재무제표 API로 안 나오므로 document.xml(원문)을 받아
+# '연결실적내용' 표준 테이블을 파싱한다. (표준 공정공시 템플릿만 대상)
+
+def is_standard_provisional(report_nm: str) -> bool:
+    """표준 '영업(잠정)실적(공정공시)' 계열 여부. 이 경우만 원문 수치 파싱.
+    '결산실적공시예고'(수치 없음)·'매출액또는손익구조30%변경'(다른 템플릿)은 제외."""
+    if not report_nm:
+        return False
+    if "예고" in report_nm:
+        return False
+    return ("영업(잠정)실적" in report_nm) or ("영업잠정실적" in report_nm)
+
+
+def _parse_dart_num(s):
+    """DART 셀 텍스트('75,602' / '-2,078' / '-') → float(억원). 미제공('-')은 None."""
+    if s is None:
+        return None
+    s = str(s).strip().replace(",", "")
+    if s in ("", "-", "—", "N/A"):
+        return None
+    try:
+        return float(s)
+    except (TypeError, ValueError):
+        return None
+
+
+def _fmt_revenue_raw(raw):
+    """억원 단위 float → 기존 '_format_kr_revenue' 포맷 문자열. None이면 None."""
+    if raw is None:
+        return None
+    return _format_kr_revenue(str(raw))
+
+
+def fetch_dart_provisional(rcept_no: str):
+    """영업(잠정)실적 공정공시 원문(document.xml)에서 매출·영업이익·당기순이익의
+    당기 실제값 + 전년동기(YoY) 값을 파싱해 억원 단위 float로 반환. 실패 시 None.
+
+    표준 템플릿 행 구조(당해실적 기준):
+      [구분, 당해실적, 당기(2), 전기(3), 전기증감(4), 흑자적자(5), 전년동기(6), 전년동기증감(7), 흑자적자(8)]
+      → 당기 실제 = '당해실적' 다음 칸, 전년동기 = 그 뒤 5번째 칸.
+    """
+    if not DART_API_KEY or not rcept_no:
+        return None
+    try:
+        r = requests.get(
+            "https://opendart.fss.or.kr/api/document.xml",
+            params={"crtfc_key": DART_API_KEY, "rcept_no": rcept_no},
+            timeout=30,
+        )
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  ⚠️ {rcept_no} document.xml 조회 실패: {e}", file=sys.stderr)
+        return None
+
+    try:
+        z = zipfile.ZipFile(io.BytesIO(r.content))
+        raw = z.read(z.namelist()[0]).decode("utf-8", "ignore")
+    except zipfile.BadZipFile:
+        try:
+            raw = r.content.decode("utf-8", "ignore")
+        except Exception:
+            return None
+    except Exception:
+        return None
+
+    def _cells(tr_html):
+        return [
+            re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", td)).strip()
+            for td in re.findall(r"<TD[^>]*>(.*?)</TD>", tr_html, re.S | re.I)
+        ]
+
+    # 단위는 공시마다 다름(삼성=조원, LG엔솔=억원 등). '_format_kr_revenue'가 기대하는
+    # 억원 단위로 환산할 배수를 원문 '단위 : XXX' 표기에서 읽는다.
+    m_unit = re.search(r"단위[^가-힣]*(조원|억원|백만원|천원|원)", raw)
+    unit_txt = m_unit.group(1) if m_unit else "억원"
+    unit_mult = {
+        "조원": 10000.0, "억원": 1.0, "백만원": 0.01, "천원": 1e-5, "원": 1e-8,
+    }.get(unit_txt, 1.0)
+
+    label_map = {
+        "매출액": ("revenueActualRaw", "revenuePrevYoYRaw"),
+        "영업이익": ("operatingIncomeActualRaw", "operatingIncomePrevYoYRaw"),
+        "당기순이익": ("netIncomeActualRaw", "netIncomePrevYoYRaw"),
+    }
+    result = {
+        "revenueActualRaw": None, "revenuePrevYoYRaw": None,
+        "operatingIncomeActualRaw": None, "operatingIncomePrevYoYRaw": None,
+        "netIncomeActualRaw": None, "netIncomePrevYoYRaw": None,
+    }
+    found_any = False
+    for tr_html in re.findall(r"<TR[^>]*>(.*?)</TR>", raw, re.S | re.I):
+        cc = [x for x in _cells(tr_html) if x != ""]
+        if len(cc) < 3:
+            continue
+        label = cc[0].replace(" ", "")
+        if label not in label_map:
+            continue
+        # '당해실적'(당기) 행만 사용 (누계실적 행은 라벨이 '누계실적'이라 자동 제외)
+        try:
+            i = cc.index("당해실적")
+        except ValueError:
+            continue
+        actual = _parse_dart_num(cc[i + 1]) if i + 1 < len(cc) else None
+        prev = _parse_dart_num(cc[i + 5]) if i + 5 < len(cc) else None  # 표준 템플릿 전년동기 위치
+        akey, pkey = label_map[label]
+        if actual is not None:
+            result[akey] = actual * unit_mult  # 억원으로 환산
+            found_any = True
+        if prev is not None:
+            result[pkey] = prev * unit_mult
+    return result if found_any else None
+
+
 # ── 4. 네이버금융 컨센서스 스크래핑 ────────────────────────────────────
 
 def _format_kr_eps(value_str):
@@ -602,6 +716,7 @@ def main():
     # Step 2-1: 컨센서스 스냅샷 로드 (Step 4 surprise 계산용)
     consensus_snapshots = load_consensus_snapshots()
     surprise_filled = 0
+    provisional_filled = 0  # DART 잠정실적 실제값으로 채운 종목 수
 
     # Step 3: 종목별 공시 검색
     bgn = search_start.strftime("%Y%m%d")
@@ -639,7 +754,36 @@ def main():
                     if cdata.get("epsForecast") or cdata.get("revenueForecast"):
                         consensus_succeeded += 1
 
-                    # 스냅샷 기반 surprise 계산 (실제 발표값 있을 때만)
+                    # ── DART 영업(잠정)실적: 실제 발표값 + 전년동기(YoY) 파싱 ──
+                    # 표준 공정공시 템플릿만 파싱. 성공 시 매출·영업이익의 실제값/YoY를
+                    # 네이버보다 우선 사용 (네이버는 발표 직후 아직 (E)추정만 있을 수 있음).
+                    report_nm = it.get("report_nm", "")
+                    prov = None
+                    if is_standard_provisional(report_nm):
+                        prov = fetch_dart_provisional(it.get("rcept_no", ""))
+
+                    def _prov(key):
+                        return prov.get(key) if prov else None
+
+                    # 실제값(raw, surprise 계산용): DART 우선 → 없으면 네이버
+                    rev_actual_raw = _prov("revenueActualRaw")
+                    if rev_actual_raw is None:
+                        rev_actual_raw = cdata.get("revenueActualRaw")
+                    op_actual_raw = _prov("operatingIncomeActualRaw")
+                    if op_actual_raw is None:
+                        op_actual_raw = cdata.get("operatingIncomeActualRaw")
+
+                    # 표시값: DART 우선 → 없으면 네이버
+                    revenue_actual = _fmt_revenue_raw(_prov("revenueActualRaw")) or cdata.get("revenueActual")
+                    operating_actual = _fmt_revenue_raw(_prov("operatingIncomeActualRaw")) or cdata.get("operatingIncomeActual")
+                    revenue_prev = _fmt_revenue_raw(_prov("revenuePrevYoYRaw")) or cdata.get("revenuePreviousYoY")
+                    operating_prev = _fmt_revenue_raw(_prov("operatingIncomePrevYoYRaw")) or cdata.get("operatingIncomePreviousYoY")
+
+                    if prov and (prov.get("revenueActualRaw") is not None
+                                 or prov.get("operatingIncomeActualRaw") is not None):
+                        provisional_filled += 1
+
+                    # 스냅샷 기반 surprise 계산 (실제값 raw는 DART 우선)
                     eps_surprise = None
                     rev_surprise = None
                     op_surprise = None
@@ -651,11 +795,10 @@ def main():
                             cdata.get("epsActualRaw"), snap_forecast.get("epsForecast")
                         )
                         rev_surprise = calc_pct(
-                            cdata.get("revenueActualRaw"), snap_forecast.get("revenueForecast")
+                            rev_actual_raw, snap_forecast.get("revenueForecast")
                         )
                         op_surprise = calc_pct(
-                            cdata.get("operatingIncomeActualRaw"),
-                            snap_forecast.get("operatingIncomeForecast"),
+                            op_actual_raw, snap_forecast.get("operatingIncomeForecast")
                         )
                         if any((eps_surprise, rev_surprise, op_surprise)):
                             surprise_filled += 1
@@ -673,12 +816,12 @@ def main():
                         "epsActual": cdata.get("epsActual"),
                         "epsPreviousYoY": cdata.get("epsPreviousYoY"),
                         "revenueForecast": cdata.get("revenueForecast"),
-                        "revenueActual": cdata.get("revenueActual"),
-                        "revenuePreviousYoY": cdata.get("revenuePreviousYoY"),
+                        "revenueActual": revenue_actual,
+                        "revenuePreviousYoY": revenue_prev,
                         "revenueSurprise": rev_surprise,
                         "operatingIncomeForecast": cdata.get("operatingIncomeForecast"),
-                        "operatingIncomeActual": cdata.get("operatingIncomeActual"),
-                        "operatingIncomePreviousYoY": cdata.get("operatingIncomePreviousYoY"),
+                        "operatingIncomeActual": operating_actual,
+                        "operatingIncomePreviousYoY": operating_prev,
                         "operatingIncomeSurprise": op_surprise,
                         "surprise": eps_surprise,
                     })
@@ -714,6 +857,7 @@ def main():
     print(f"\n저장: {OUTPUT_PATH}")
     print(f"  총 이벤트: {len(events)}건")
     print(f"  컨센서스 매핑: {consensus_succeeded}/{consensus_attempted} 종목")
+    print(f"  DART 잠정실적 실제값 채움: {provisional_filled}건")
     print(f"  스냅샷 기반 surprise 채움: {surprise_filled}건")
     if not consensus_snapshots:
         print(f"  ℹ️ 스냅샷 비어있음 — consensus-snapshot 워크플로우 누적 필요 (~1개월)")
