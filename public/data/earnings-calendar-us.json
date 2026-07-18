@@ -159,7 +159,7 @@
       "epsForecast": "$2.91",
       "epsActual": null,
       "epsPreviousYoY": "$2.96",
-      "revenueForecast": "$1.69B",
+      "revenueForecast": "$1.68B",
       "revenueActual": null,
       "surprise": null
     },
@@ -367,7 +367,7 @@
       "epsForecast": "$1.10",
       "epsActual": null,
       "epsPreviousYoY": "$1.05",
-      "revenueForecast": null,
+      "revenueForecast": "$8.15B",
       "revenueActual": null,
       "surprise": null
     },
@@ -463,7 +463,7 @@
       "epsForecast": "$1.41",
       "epsActual": null,
       "epsPreviousYoY": "$1.48",
-      "revenueForecast": null,
+      "revenueForecast": "$21.41B",
       "revenueActual": null,
       "surprise": null
     },
@@ -559,7 +559,7 @@
       "epsForecast": "$4.77",
       "epsActual": null,
       "epsPreviousYoY": "$4.15",
-      "revenueForecast": "$9.07B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": null
     },
@@ -607,7 +607,7 @@
       "epsForecast": "$1.50",
       "epsActual": null,
       "epsPreviousYoY": "$1.44",
-      "revenueForecast": "$5.35B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": null
     },
@@ -623,7 +623,7 @@
       "epsForecast": "$1.84",
       "epsActual": null,
       "epsPreviousYoY": "$1.81",
-      "revenueForecast": "$2.64B",
+      "revenueForecast": "$2.62B",
       "revenueActual": null,
       "surprise": null
     },
