@@ -13,27 +13,11 @@
       "marketCapRank": 64,
       "quarter": "26Q2",
       "epsForecast": "$1.55",
-      "epsActual": null,
+      "epsActual": "$1.62",
       "epsPreviousYoY": "$1.14",
-      "revenueForecast": "$6.90B",
+      "revenueForecast": "$7.03B",
       "revenueActual": null,
-      "surprise": null
-    },
-    {
-      "date": "2026-07-21",
-      "dayOfWeek": "화",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "MMC",
-      "name": "마쉬앤맥레넌",
-      "marketCapRank": 79,
-      "quarter": "26Q2",
-      "epsForecast": "$2.89",
-      "epsActual": null,
-      "epsPreviousYoY": "$2.72",
-      "revenueForecast": null,
-      "revenueActual": null,
-      "surprise": null
+      "surprise": "+4.5%"
     },
     {
       "date": "2026-07-22",
@@ -80,6 +64,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$2.96",
       "revenueForecast": "$1.68B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-07-22",
+      "dayOfWeek": "수",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "CB",
+      "name": "처브",
+      "marketCapRank": 95,
+      "quarter": "26Q2",
+      "epsForecast": "$6.73",
+      "epsActual": null,
+      "epsPreviousYoY": "$6.14",
+      "revenueForecast": "$13.01B",
       "revenueActual": null,
       "surprise": null
     },
