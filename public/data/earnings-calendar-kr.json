@@ -178,6 +178,28 @@
       "operatingIncomePreviousYoY": "822억원",
       "operatingIncomeSurprise": null,
       "surprise": null
+    },
+    {
+      "date": "2026-07-23",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "KR",
+      "symbol": "207940",
+      "name": "삼성바이오로직스",
+      "marketCapRank": 8,
+      "quarter": "26Q2",
+      "epsForecast": "9,991원",
+      "epsActual": null,
+      "epsPreviousYoY": "4,558원",
+      "revenueForecast": "1.3조원",
+      "revenueActual": "1.3조원",
+      "revenuePreviousYoY": "1.0조원",
+      "revenueSurprise": "-0.1%",
+      "operatingIncomeForecast": "5,997억원",
+      "operatingIncomeActual": "5,864억원",
+      "operatingIncomePreviousYoY": "4,772억원",
+      "operatingIncomeSurprise": "-2.2%",
+      "surprise": null
     }
   ]
 }

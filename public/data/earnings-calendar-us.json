@@ -383,7 +383,7 @@
       "epsForecast": "$1.00",
       "epsActual": null,
       "epsPreviousYoY": "$0.94",
-      "revenueForecast": "$3.60B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": null
     },
@@ -830,7 +830,7 @@
       "quarter": "26Q2",
       "epsForecast": "$0.83",
       "epsActual": null,
-      "epsPreviousYoY": "$0.63",
+      "epsPreviousYoY": "$0.65",
       "revenueForecast": "$14.26B",
       "revenueActual": null,
       "surprise": null
