@@ -159,7 +159,7 @@
       "epsForecast": "$2.90",
       "epsActual": "$9.11",
       "epsPreviousYoY": "$2.31",
-      "revenueForecast": "$123.90B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": "+214.2%"
     },
@@ -351,7 +351,7 @@
       "epsForecast": "$3.23",
       "epsActual": null,
       "epsPreviousYoY": "$2.98",
-      "revenueForecast": "$11.40B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": null
     },
@@ -383,7 +383,7 @@
       "epsForecast": "$1.00",
       "epsActual": null,
       "epsPreviousYoY": "$0.94",
-      "revenueForecast": null,
+      "revenueForecast": "$3.60B",
       "revenueActual": null,
       "surprise": null
     },
@@ -591,7 +591,7 @@
       "epsForecast": "$5.45",
       "epsActual": null,
       "epsPreviousYoY": "$1.77",
-      "revenueForecast": "$61.46B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": null
     },
@@ -608,6 +608,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$4.09",
       "revenueForecast": "$9.01B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-07-31",
+      "dayOfWeek": "금",
+      "time": "BMO",
+      "country": "US",
+      "symbol": "ETN",
+      "name": "이튼",
+      "marketCapRank": 81,
+      "quarter": "26Q2",
+      "epsForecast": "$3.08",
+      "epsActual": null,
+      "epsPreviousYoY": "$2.95",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": null
     },
@@ -815,7 +831,7 @@
       "epsForecast": "$1.86",
       "epsActual": null,
       "epsPreviousYoY": "$1.61",
-      "revenueForecast": "$25.42B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": null
     },
@@ -847,7 +863,7 @@
       "epsForecast": "$0.40",
       "epsActual": null,
       "epsPreviousYoY": "$0.35",
-      "revenueForecast": "$3.44B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": null
     },
@@ -879,7 +895,7 @@
       "epsForecast": "$2.44",
       "epsActual": null,
       "epsPreviousYoY": "$2.22",
-      "revenueForecast": "$7.18B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": null
     },
