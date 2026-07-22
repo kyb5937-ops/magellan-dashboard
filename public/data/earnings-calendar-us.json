@@ -156,12 +156,12 @@
       "name": "구글",
       "marketCapRank": 4,
       "quarter": "26Q2",
-      "epsForecast": "$2.89",
-      "epsActual": null,
+      "epsForecast": "$2.90",
+      "epsActual": "$9.11",
       "epsPreviousYoY": "$2.31",
       "revenueForecast": "$123.90B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+214.2%"
     },
     {
       "date": "2026-07-24",
@@ -608,22 +608,6 @@
       "epsActual": null,
       "epsPreviousYoY": "$4.09",
       "revenueForecast": "$9.01B",
-      "revenueActual": null,
-      "surprise": null
-    },
-    {
-      "date": "2026-07-31",
-      "dayOfWeek": "금",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "ETN",
-      "name": "이튼",
-      "marketCapRank": 81,
-      "quarter": "26Q2",
-      "epsForecast": "$3.08",
-      "epsActual": null,
-      "epsPreviousYoY": "$2.95",
-      "revenueForecast": "$8.16B",
       "revenueActual": null,
       "surprise": null
     },
