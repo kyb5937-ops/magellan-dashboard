@@ -285,11 +285,11 @@
       "marketCapRank": 50,
       "quarter": "26Q2",
       "epsForecast": "$0.22",
-      "epsActual": null,
+      "epsActual": "$0.42",
       "epsPreviousYoY": "$-0.10",
-      "revenueForecast": "$14.45B",
+      "revenueForecast": "$15.16B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+92.5%"
     },
     {
       "date": "2026-07-28",
@@ -816,6 +816,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$0.78",
       "revenueForecast": "$14.41B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-08-04",
+      "dayOfWeek": "화",
+      "time": "BMO",
+      "country": "US",
+      "symbol": "DUK",
+      "name": "듀크에너지",
+      "marketCapRank": 97,
+      "quarter": "26Q2",
+      "epsForecast": "$1.31",
+      "epsActual": null,
+      "epsPreviousYoY": "$1.25",
+      "revenueForecast": "$7.69B",
       "revenueActual": null,
       "surprise": null
     },
