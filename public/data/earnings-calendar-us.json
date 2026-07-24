@@ -1,24 +1,8 @@
 {
-  "weekStart": "2026-07-21",
-  "weekEnd": "2026-08-06",
-  "lastUpdated": "2026-07-23",
+  "weekStart": "2026-07-22",
+  "weekEnd": "2026-08-07",
+  "lastUpdated": "2026-07-24",
   "events": [
-    {
-      "date": "2026-07-21",
-      "dayOfWeek": "화",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "SCHW",
-      "name": "찰스슈왑",
-      "marketCapRank": 64,
-      "quarter": "26Q2",
-      "epsForecast": "$1.55",
-      "epsActual": "$1.62",
-      "epsPreviousYoY": "$1.14",
-      "revenueForecast": "$7.21B",
-      "revenueActual": null,
-      "surprise": "+4.5%"
-    },
     {
       "date": "2026-07-22",
       "dayOfWeek": "수",
