@@ -15,8 +15,8 @@
       "epsForecast": "$2.05",
       "epsActual": "$2.20",
       "epsPreviousYoY": "$1.91",
-      "revenueForecast": "$11.48B",
-      "revenueActual": null,
+      "revenueForecast": "$11.20B",
+      "revenueActual": "$11.19B",
       "surprise": "+7.3%"
     },
     {
@@ -31,9 +31,9 @@
       "epsForecast": "$0.59",
       "epsActual": "$0.65",
       "epsPreviousYoY": "$0.54",
-      "revenueForecast": "$31.74B",
+      "revenueForecast": "$31.68B",
       "revenueActual": "$31.56B",
-      "surprise": "+10.7%"
+      "surprise": "+10.5%"
     },
     {
       "date": "2026-07-22",
@@ -47,7 +47,7 @@
       "epsForecast": "$2.91",
       "epsActual": "$2.99",
       "epsPreviousYoY": "$2.96",
-      "revenueForecast": "$1.68B",
+      "revenueForecast": "$1.70B",
       "revenueActual": null,
       "surprise": "+2.8%"
     },
@@ -63,7 +63,7 @@
       "epsForecast": "$6.75",
       "epsActual": "$7.26",
       "epsPreviousYoY": "$6.14",
-      "revenueForecast": "$13.47B",
+      "revenueForecast": "$13.46B",
       "revenueActual": null,
       "surprise": "+7.6%"
     },
@@ -79,8 +79,8 @@
       "epsForecast": "$2.60",
       "epsActual": "$2.99",
       "epsPreviousYoY": "$2.85",
-      "revenueForecast": "$23.26B",
-      "revenueActual": null,
+      "revenueForecast": "$23.17B",
+      "revenueActual": "$22.79B",
       "surprise": "+14.9%"
     },
     {
@@ -95,8 +95,8 @@
       "epsForecast": "$1.66",
       "epsActual": "$1.89",
       "epsPreviousYoY": "$1.56",
-      "revenueForecast": "$23.77B",
-      "revenueActual": null,
+      "revenueForecast": "$23.97B",
+      "revenueActual": "$24.71B",
       "surprise": "+13.7%"
     },
     {
@@ -111,7 +111,7 @@
       "epsForecast": "$1.34",
       "epsActual": "$1.52",
       "epsPreviousYoY": "$1.21",
-      "revenueForecast": "$3.60B",
+      "revenueForecast": "$3.45B",
       "revenueActual": null,
       "surprise": "+13.7%"
     },
@@ -127,8 +127,8 @@
       "epsForecast": "$7.20",
       "epsActual": "$7.94",
       "epsPreviousYoY": "$1.46",
-      "revenueForecast": "$19.33B",
-      "revenueActual": null,
+      "revenueForecast": "$20.16B",
+      "revenueActual": "$20.06B",
       "surprise": "+10.3%"
     },
     {
@@ -143,7 +143,7 @@
       "epsForecast": "$2.90",
       "epsActual": "$9.11",
       "epsPreviousYoY": "$2.31",
-      "revenueForecast": "$123.90B",
+      "revenueForecast": "$127.04B",
       "revenueActual": "$119.80B",
       "surprise": "+214.2%"
     },
@@ -159,8 +159,8 @@
       "epsForecast": "$0.54",
       "epsActual": "$0.33",
       "epsPreviousYoY": "$0.40",
-      "revenueForecast": "$27.31B",
-      "revenueActual": null,
+      "revenueForecast": "$27.42B",
+      "revenueActual": "$28.24B",
       "surprise": "-38.4%"
     },
     {
@@ -175,8 +175,8 @@
       "epsForecast": "$0.86",
       "epsActual": "$0.90",
       "epsPreviousYoY": "$0.82",
-      "revenueForecast": "$3.93B",
-      "revenueActual": null,
+      "revenueForecast": "$4.10B",
+      "revenueActual": "$3.99B",
       "surprise": "+5.0%"
     },
     {
@@ -191,7 +191,7 @@
       "epsForecast": "$2.93",
       "epsActual": "$2.93",
       "epsPreviousYoY": "$2.80",
-      "revenueForecast": "$16.73B",
+      "revenueForecast": "$16.84B",
       "revenueActual": "$17.16B",
       "surprise": "-0.1%"
     },
@@ -207,7 +207,7 @@
       "epsForecast": "$1.94",
       "epsActual": "$2.14",
       "epsPreviousYoY": "$1.41",
-      "revenueForecast": "$5.73B",
+      "revenueForecast": "$5.91B",
       "revenueActual": null,
       "surprise": "+10.4%"
     },
@@ -221,11 +221,11 @@
       "marketCapRank": 41,
       "quarter": "26Q2",
       "epsForecast": "$4.40",
-      "epsActual": null,
+      "epsActual": "$4.53",
       "epsPreviousYoY": "$4.08",
-      "revenueForecast": "$19.70B",
+      "revenueForecast": "$20.07B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+2.9%"
     },
     {
       "date": "2026-07-24",
@@ -237,11 +237,11 @@
       "marketCapRank": 54,
       "quarter": "26Q2",
       "epsForecast": "$1.27",
-      "epsActual": null,
+      "epsActual": "$1.30",
       "epsPreviousYoY": "$1.22",
-      "revenueForecast": "$35.11B",
+      "revenueForecast": "$34.91B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+2.7%"
     },
     {
       "date": "2026-07-24",
@@ -252,12 +252,12 @@
       "name": "넥스트에라",
       "marketCapRank": 77,
       "quarter": "26Q2",
-      "epsForecast": "$1.10",
-      "epsActual": null,
+      "epsForecast": "$1.11",
+      "epsActual": "$1.15",
       "epsPreviousYoY": "$1.05",
-      "revenueForecast": "$8.15B",
+      "revenueForecast": "$9.13B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+3.8%"
     },
     {
       "date": "2026-07-24",
@@ -271,8 +271,8 @@
       "epsForecast": "$0.22",
       "epsActual": "$0.42",
       "epsPreviousYoY": "$-0.10",
-      "revenueForecast": "$15.16B",
-      "revenueActual": null,
+      "revenueForecast": "$16.40B",
+      "revenueActual": "$16.13B",
       "surprise": "+92.5%"
     },
     {
@@ -287,7 +287,7 @@
       "epsForecast": "$0.93",
       "epsActual": null,
       "epsPreviousYoY": "$0.87",
-      "revenueForecast": "$13.14B",
+      "revenueForecast": "$13.17B",
       "revenueActual": null,
       "surprise": null
     },
@@ -335,7 +335,7 @@
       "epsForecast": "$1.28",
       "epsActual": null,
       "epsPreviousYoY": "$1.40",
-      "revenueForecast": "$8.48B",
+      "revenueForecast": "$8.47B",
       "revenueActual": null,
       "surprise": null
     },
@@ -415,7 +415,7 @@
       "epsForecast": "$0.68",
       "epsActual": null,
       "epsPreviousYoY": "$0.73",
-      "revenueForecast": "$9.19B",
+      "revenueForecast": "$9.20B",
       "revenueActual": null,
       "surprise": null
     },
@@ -460,7 +460,7 @@
       "name": "리제네론",
       "marketCapRank": 86,
       "quarter": "26Q2",
-      "epsForecast": "$10.29",
+      "epsForecast": "$10.26",
       "epsActual": null,
       "epsPreviousYoY": "$12.89",
       "revenueForecast": "$3.82B",
@@ -479,7 +479,7 @@
       "epsForecast": "$1.01",
       "epsActual": null,
       "epsPreviousYoY": "$0.92",
-      "revenueForecast": "$7.24B",
+      "revenueForecast": "$7.27B",
       "revenueActual": null,
       "surprise": null
     },
@@ -559,7 +559,7 @@
       "epsForecast": "$2.23",
       "epsActual": null,
       "epsPreviousYoY": "$2.77",
-      "revenueForecast": "$9.68B",
+      "revenueForecast": "$9.67B",
       "revenueActual": null,
       "surprise": null
     },
@@ -572,10 +572,10 @@
       "name": "스타벅스",
       "marketCapRank": 72,
       "quarter": "26Q2",
-      "epsForecast": "$0.67",
+      "epsForecast": "$0.65",
       "epsActual": null,
       "epsPreviousYoY": "$0.50",
-      "revenueForecast": "$9.11B",
+      "revenueForecast": "$9.12B",
       "revenueActual": null,
       "surprise": null
     },
@@ -591,7 +591,7 @@
       "epsForecast": "$1.68",
       "epsActual": null,
       "epsPreviousYoY": "$1.33",
-      "revenueForecast": "$6.66B",
+      "revenueForecast": "$6.67B",
       "revenueActual": null,
       "surprise": null
     },
@@ -604,7 +604,7 @@
       "name": "엑슨모빌",
       "marketCapRank": 16,
       "quarter": "26Q2",
-      "epsForecast": "$3.66",
+      "epsForecast": "$3.69",
       "epsActual": null,
       "epsPreviousYoY": "$1.64",
       "revenueForecast": "$97.78B",
@@ -623,7 +623,7 @@
       "epsForecast": "$3.65",
       "epsActual": null,
       "epsPreviousYoY": "$2.97",
-      "revenueForecast": "$16.76B",
+      "revenueForecast": "$16.77B",
       "revenueActual": null,
       "surprise": null
     },
@@ -636,7 +636,7 @@
       "name": "셰브론",
       "marketCapRank": 25,
       "quarter": "26Q2",
-      "epsForecast": "$5.45",
+      "epsForecast": "$5.54",
       "epsActual": null,
       "epsPreviousYoY": "$1.77",
       "revenueForecast": "$61.46B",
@@ -703,7 +703,7 @@
       "epsForecast": "$1.82",
       "epsActual": null,
       "epsPreviousYoY": "$1.68",
-      "revenueForecast": "$195.98B",
+      "revenueForecast": "$195.97B",
       "revenueActual": null,
       "surprise": null
     },
@@ -748,10 +748,10 @@
       "name": "머크",
       "marketCapRank": 38,
       "quarter": "26Q2",
-      "epsForecast": "$-0.25",
+      "epsForecast": "$-0.26",
       "epsActual": null,
       "epsPreviousYoY": "$2.13",
-      "revenueForecast": "$16.39B",
+      "revenueForecast": "$16.37B",
       "revenueActual": null,
       "surprise": null
     },
@@ -799,7 +799,7 @@
       "epsForecast": "$0.68",
       "epsActual": null,
       "epsPreviousYoY": "$0.78",
-      "revenueForecast": "$14.41B",
+      "revenueForecast": "$14.40B",
       "revenueActual": null,
       "surprise": null
     },
@@ -815,7 +815,7 @@
       "epsForecast": "$1.31",
       "epsActual": null,
       "epsPreviousYoY": "$1.25",
-      "revenueForecast": "$7.69B",
+      "revenueForecast": "$7.68B",
       "revenueActual": null,
       "surprise": null
     },
@@ -863,7 +863,7 @@
       "epsForecast": "$6.79",
       "epsActual": null,
       "epsPreviousYoY": "$6.31",
-      "revenueForecast": "$20.65B",
+      "revenueForecast": "$20.69B",
       "revenueActual": null,
       "surprise": null
     },
@@ -927,7 +927,7 @@
       "epsForecast": "$1.61",
       "epsActual": null,
       "epsPreviousYoY": "$0.48",
-      "revenueForecast": "$11.30B",
+      "revenueForecast": "$11.31B",
       "revenueActual": null,
       "surprise": null
     },
@@ -956,10 +956,10 @@
       "name": "길리어드",
       "marketCapRank": 70,
       "quarter": "26Q2",
-      "epsForecast": "$-7.29",
+      "epsForecast": "$-7.27",
       "epsActual": null,
       "epsPreviousYoY": "$2.01",
-      "revenueForecast": "$7.41B",
+      "revenueForecast": "$7.40B",
       "revenueActual": null,
       "surprise": null
     },
@@ -1020,7 +1020,7 @@
       "name": "맥케슨",
       "marketCapRank": 100,
       "quarter": "26Q2",
-      "epsForecast": "$9.56",
+      "epsForecast": "$9.54",
       "epsActual": null,
       "epsPreviousYoY": "$8.26",
       "revenueForecast": "$103.74B",
