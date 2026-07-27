@@ -1,33 +1,33 @@
 {
-  "date": "20260724",
-  "updatedAt": "2026-07-24T10:28:07Z",
+  "date": "20260727",
+  "updatedAt": "2026-07-27T07:07:13Z",
   "kospi": {
-    "value": 6690.62,
-    "change_pct": -5.72,
-    "change_pt": -406.27,
-    "prevClose": 7096.89,
-    "tradeDate": "2026-07-24"
+    "value": 6755.75,
+    "change_pct": 0.97,
+    "change_pt": 65.13,
+    "prevClose": 6690.62,
+    "tradeDate": "2026-07-27"
   },
   "kosdaq": {
-    "value": 748.22,
-    "change_pct": -5.32,
-    "change_pt": -42.06,
-    "prevClose": 790.28,
-    "tradeDate": "2026-07-24"
+    "value": 764.86,
+    "change_pct": 2.22,
+    "change_pt": 16.64,
+    "prevClose": 748.22,
+    "tradeDate": "2026-07-27"
   },
   "kr3y": {
-    "value": 3.959,
-    "change_bp": 4.2,
-    "tradeDate": "20260724"
+    "value": 3.883,
+    "change_bp": -7.6,
+    "tradeDate": "20260727"
   },
   "kr10y": {
-    "value": 4.447,
-    "change_bp": 5.5,
-    "tradeDate": "20260724"
+    "value": 4.356,
+    "change_bp": -9.1,
+    "tradeDate": "20260727"
   },
   "usdkrw": {
-    "value": 1460.56,
-    "change": -26.83,
-    "prevClose": 1487.39
+    "value": 1469.47,
+    "change": -5.54,
+    "prevClose": 1475.01
   }
 }
