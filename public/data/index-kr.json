@@ -1,6 +1,6 @@
 {
   "date": "20260728",
-  "updatedAt": "2026-07-28T07:06:45Z",
+  "updatedAt": "2026-07-28T09:42:48Z",
   "kospi": {
     "value": 6023.66,
     "change_pct": -10.84,
@@ -16,18 +16,18 @@
     "tradeDate": "2026-07-28"
   },
   "kr3y": {
-    "value": 3.854,
-    "change_bp": -1.1,
+    "value": 3.829,
+    "change_bp": -3.6,
     "tradeDate": "20260728"
   },
   "kr10y": {
-    "value": 4.321,
-    "change_bp": -1.2,
+    "value": 4.289,
+    "change_bp": -4.4,
     "tradeDate": "20260728"
   },
   "usdkrw": {
-    "value": 1460.88,
-    "change": -18.84,
+    "value": 1461.13,
+    "change": -18.59,
     "prevClose": 1479.72
   }
 }
