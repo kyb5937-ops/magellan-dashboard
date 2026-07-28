@@ -310,6 +310,28 @@
       "operatingIncomePreviousYoY": "2,558억원",
       "operatingIncomeSurprise": "-27.3%",
       "surprise": null
+    },
+    {
+      "date": "2026-07-29",
+      "dayOfWeek": "수",
+      "time": "AMC",
+      "country": "KR",
+      "symbol": "000660",
+      "name": "SK하이닉스",
+      "marketCapRank": 2,
+      "quarter": "26Q2",
+      "epsForecast": "78,788원",
+      "epsActual": null,
+      "epsPreviousYoY": "9,612원",
+      "revenueForecast": "83.9조원",
+      "revenueActual": "79.3조원",
+      "revenuePreviousYoY": "22.2조원",
+      "revenueSurprise": "-5.5%",
+      "operatingIncomeForecast": "64.0조원",
+      "operatingIncomeActual": "60.5조원",
+      "operatingIncomePreviousYoY": "9.2조원",
+      "operatingIncomeSurprise": "-5.4%",
+      "surprise": null
     }
   ]
 }
