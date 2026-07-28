@@ -157,11 +157,11 @@
       "marketCapRank": 90,
       "quarter": "26Q2",
       "epsForecast": "$1.00",
-      "epsActual": null,
+      "epsActual": "$1.05",
       "epsPreviousYoY": "$0.94",
       "revenueForecast": "$3.60B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+5.1%"
     },
     {
       "date": "2026-07-30",
