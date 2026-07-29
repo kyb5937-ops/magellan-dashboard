@@ -32,7 +32,7 @@
       "epsActual": "$4.87",
       "epsPreviousYoY": "$4.43",
       "revenueForecast": "$3.67B",
-      "revenueActual": null,
+      "revenueActual": "$4.15B",
       "surprise": "-2.9%"
     },
     {
@@ -64,7 +64,7 @@
       "epsActual": "$1.38",
       "epsPreviousYoY": "$1.40",
       "revenueForecast": "$8.71B",
-      "revenueActual": null,
+      "revenueActual": "$8.68B",
       "surprise": "+8.0%"
     },
     {
@@ -77,11 +77,11 @@
       "marketCapRank": 18,
       "quarter": "26Q2",
       "epsForecast": "$1.41",
-      "epsActual": null,
+      "epsActual": "$1.43",
       "epsPreviousYoY": "$1.48",
-      "revenueForecast": "$21.38B",
+      "revenueForecast": "$22.94B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+1.6%"
     },
     {
       "date": "2026-07-29",
@@ -93,27 +93,11 @@
       "marketCapRank": 71,
       "quarter": "26Q2",
       "epsForecast": "$0.83",
-      "epsActual": null,
+      "epsActual": "$0.86",
       "epsPreviousYoY": "$0.75",
       "revenueForecast": "$5.37B",
       "revenueActual": null,
-      "surprise": null
-    },
-    {
-      "date": "2026-07-29",
-      "dayOfWeek": "수",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "ADP",
-      "name": "ADP",
-      "marketCapRank": 78,
-      "quarter": "26Q2",
-      "epsForecast": "$2.60",
-      "epsActual": null,
-      "epsPreviousYoY": "$2.26",
-      "revenueForecast": "$5.44B",
-      "revenueActual": null,
-      "surprise": null
+      "surprise": "+3.9%"
     },
     {
       "date": "2026-07-29",
@@ -128,7 +112,7 @@
       "epsActual": "$3.32",
       "epsPreviousYoY": "$2.98",
       "revenueForecast": "$12.07B",
-      "revenueActual": null,
+      "revenueActual": "$11.63B",
       "surprise": "+2.8%"
     },
     {
@@ -146,6 +130,22 @@
       "revenueForecast": "$9.20B",
       "revenueActual": null,
       "surprise": "+7.4%"
+    },
+    {
+      "date": "2026-07-29",
+      "dayOfWeek": "수",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "ADP",
+      "name": "ADP",
+      "marketCapRank": 78,
+      "quarter": "26Q2",
+      "epsForecast": "$2.60",
+      "epsActual": "$2.64",
+      "epsPreviousYoY": "$2.26",
+      "revenueForecast": "$5.48B",
+      "revenueActual": null,
+      "surprise": "+1.6%"
     },
     {
       "date": "2026-07-29",
@@ -271,7 +271,7 @@
       "epsForecast": "$7.22",
       "epsActual": null,
       "epsPreviousYoY": "$7.14",
-      "revenueForecast": "$60.29B",
+      "revenueForecast": "$63.24B",
       "revenueActual": null,
       "surprise": null
     },
@@ -287,7 +287,7 @@
       "epsForecast": "$2.22",
       "epsActual": null,
       "epsPreviousYoY": "$2.77",
-      "revenueForecast": "$9.67B",
+      "revenueForecast": "$10.08B",
       "revenueActual": null,
       "surprise": null
     },
@@ -606,7 +606,7 @@
       "quarter": "26Q2",
       "epsForecast": "$0.84",
       "epsActual": null,
-      "epsPreviousYoY": "$0.65",
+      "epsPreviousYoY": "$0.63",
       "revenueForecast": "$14.27B",
       "revenueActual": null,
       "surprise": null
