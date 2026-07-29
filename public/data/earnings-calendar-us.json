@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-07-26",
-  "weekEnd": "2026-08-11",
-  "lastUpdated": "2026-07-28",
+  "weekStart": "2026-07-27",
+  "weekEnd": "2026-08-12",
+  "lastUpdated": "2026-07-29",
   "events": [
     {
       "date": "2026-07-28",
@@ -125,11 +125,11 @@
       "marketCapRank": 13,
       "quarter": "26Q2",
       "epsForecast": "$3.23",
-      "epsActual": null,
+      "epsActual": "$3.32",
       "epsPreviousYoY": "$2.98",
       "revenueForecast": "$12.07B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+2.8%"
     },
     {
       "date": "2026-07-29",
@@ -141,11 +141,11 @@
       "marketCapRank": 75,
       "quarter": "26Q2",
       "epsForecast": "$0.68",
-      "epsActual": null,
+      "epsActual": "$0.73",
       "epsPreviousYoY": "$0.73",
       "revenueForecast": "$9.20B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+7.4%"
     },
     {
       "date": "2026-07-29",
@@ -606,7 +606,7 @@
       "quarter": "26Q2",
       "epsForecast": "$0.84",
       "epsActual": null,
-      "epsPreviousYoY": "$0.65",
+      "epsPreviousYoY": "$0.63",
       "revenueForecast": "$14.27B",
       "revenueActual": null,
       "surprise": null
@@ -704,22 +704,6 @@
       "epsActual": null,
       "epsPreviousYoY": "$0.73",
       "revenueForecast": "$2.83B",
-      "revenueActual": null,
-      "surprise": null
-    },
-    {
-      "date": "2026-08-06",
-      "dayOfWeek": "목",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "ZTS",
-      "name": "조에티스",
-      "marketCapRank": 98,
-      "quarter": "26Q2",
-      "epsForecast": "$1.85",
-      "epsActual": null,
-      "epsPreviousYoY": "$1.76",
-      "revenueForecast": "$2.51B",
       "revenueActual": null,
       "surprise": null
     },
