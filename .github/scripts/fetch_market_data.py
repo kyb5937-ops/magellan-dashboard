@@ -253,6 +253,75 @@ def get_sector_changes(date, sector_codes):
     return items
 
 
+def _diagnose_new_indicators(date):
+    """[TEMP DIAG] 신규 지표 3종 가용성 확인 — 결과 확인 후 제거 예정."""
+    import traceback
+    print("="*60); print("[DIAG-KR2] 신규 지표 진단 시작"); print("="*60)
+
+    # 1) 거래대금 — 시장 전체 거래대금이 어디서 나오나
+    for market, idx_code in [("KOSPI","1001"), ("KOSDAQ","2001")]:
+        try:
+            df = stock.get_index_ohlcv(date, date, idx_code)
+            print(f"[DIAG-KR2] index_ohlcv({market}) 컬럼={list(df.columns)}")
+            if len(df): print(f"[DIAG-KR2]   값: {df.iloc[-1].to_dict()}")
+        except Exception as e:
+            print(f"[DIAG-KR2] index_ohlcv({market}) 예외: {type(e).__name__}: {str(e)[:120]}")
+    try:
+        df = stock.get_market_trading_value_by_date(date, date, "KOSPI")
+        print(f"[DIAG-KR2] trading_value_by_date(KOSPI) 컬럼={list(df.columns)}")
+        if len(df): print(f"[DIAG-KR2]   값: {df.iloc[-1].to_dict()}")
+    except Exception as e:
+        print(f"[DIAG-KR2] trading_value_by_date 예외: {type(e).__name__}: {str(e)[:120]}")
+
+    # 2) 상승/하락 종목 수
+    for market in ["KOSPI","KOSDAQ"]:
+        try:
+            df = stock.get_market_price_change(date, date, market=market)
+            print(f"[DIAG-KR2] price_change({market}) rows={len(df)} 컬럼={list(df.columns)}")
+            if "등락률" in df.columns:
+                up=int((df["등락률"]>0).sum()); down=int((df["등락률"]<0).sum()); flat=int((df["등락률"]==0).sum())
+                print(f"[DIAG-KR2]   {market} 상승={up} 하락={down} 보합={flat} 합계={up+down+flat}")
+            else:
+                print(f"[DIAG-KR2]   등락률 컬럼 없음 — 샘플: {df.head(2).to_dict('records')}")
+        except Exception as e:
+            print(f"[DIAG-KR2] price_change({market}) 예외: {type(e).__name__}: {str(e)[:120]}")
+
+    # 3) 코스피200 선물 — 티커·시세·투자자별 수급이 나오나
+    try:
+        try:
+            tks = stock.get_future_ticker_list(date)
+        except TypeError:
+            tks = stock.get_future_ticker_list()
+        print(f"[DIAG-KR2] future_ticker_list: n={len(tks) if tks else 0} 샘플={list(tks)[:8] if tks else '없음'}")
+        if tks:
+            for t in list(tks)[:3]:
+                try:
+                    nm = stock.get_future_ticker_name(t)
+                except Exception:
+                    nm = "?"
+                print(f"[DIAG-KR2]   티커 {t} = {nm}")
+            t0 = list(tks)[0]
+            try:
+                df = stock.get_future_ohlcv(t0, date, date)
+                print(f"[DIAG-KR2] future_ohlcv({t0}) 컬럼={list(df.columns)}")
+                if len(df): print(f"[DIAG-KR2]   값: {df.iloc[-1].to_dict()}")
+            except Exception as e:
+                print(f"[DIAG-KR2] future_ohlcv 예외: {type(e).__name__}: {str(e)[:120]}")
+            # 선물 투자자별 수급이 되는지 — 여러 경로 시도
+            for fn_name in ["get_market_trading_value_by_investor","get_market_trading_volume_by_investor"]:
+                try:
+                    fn = getattr(stock, fn_name)
+                    df = fn(date, date, t0)
+                    print(f"[DIAG-KR2] {fn_name}({t0}) 컬럼={list(df.columns)} rows={len(df)}")
+                    if len(df): print(f"[DIAG-KR2]   샘플: {df.head(12).to_dict()}")
+                except Exception as e:
+                    print(f"[DIAG-KR2] {fn_name}({t0}) 예외: {type(e).__name__}: {str(e)[:120]}")
+    except Exception as e:
+        print(f"[DIAG-KR2] 선물 진단 전체 예외: {type(e).__name__}: {str(e)[:150]}")
+
+    print("="*60); print("[DIAG-KR2] 진단 종료"); print("="*60)
+
+
 def main():
     date = TARGET_DATE
     print(f"▶ {date} 데이터 수집 시작")
@@ -354,6 +423,12 @@ def main():
     print(f"✅ JSON 저장: {json_filepath}")
     print(f"   KOSPI 업종: {len(kospi_sectors)}개")
     print(f"   KOSDAQ 업종: {len(kosdaq_sectors)}개")
+
+    # [TEMP] 신규 지표 3종 가용성 진단 — 결과 확인 후 제거. 본 로직/exit code 에 영향 금지.
+    try:
+        _diagnose_new_indicators(date)
+    except Exception as e:
+        print(f"[DIAG-KR2] 진단 실패(무시): {e}", file=sys.stderr)
 
     # ── 코스피·코스닥 본 지수 (KRX 공식 종가) ──
     # 별도 파일 public/data/index-kr.json 으로 저장. 대시보드가 이 파일을 읽어
