@@ -4,6 +4,7 @@ import { SectorETFSection } from "@/components/sectors/SectorETFSection";
 import { StockLookup } from "@/components/lookup/StockLookup";
 import { DeepDiveSection } from "@/components/deepdive/DeepDiveSection";
 import { MarketFlowSection } from "@/components/marketflow/MarketFlowSection";
+import { MarketBreadthSection } from "@/components/market/MarketBreadthSection";
 import { EarningsCalendarUS } from "@/components/calendar/EarningsCalendarUS";
 import { EarningsCalendarKR } from "@/components/calendar/EarningsCalendarKR";
 import { US_INDICATORS, KR_INDICATORS } from "@/lib/data/indicators";
@@ -22,6 +23,7 @@ export default function HomePage() {
           label="🇰🇷 KOREA"
           indicators={KR_INDICATORS}
         />
+        <MarketBreadthSection />
         <DeepDiveSection />
         <MarketFlowSection />
         <StockLookup />
