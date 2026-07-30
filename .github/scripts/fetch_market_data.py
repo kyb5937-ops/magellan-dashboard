@@ -264,9 +264,30 @@ def main():
     print(f"  [2/6] KOSDAQ 매매동향...")
     kosdaq_sell, kosdaq_buy, kosdaq_net = fetch_market_flow(date, "KOSDAQ")
 
-    # 데이터가 비어있는 경우 (휴장일 등) → 종료
+    # 데이터가 비어있는 경우: "휴장일이라 없음"(정상) 과 "고장나서 없음"(실패) 구분.
+    #   - nearest == date  → 대상일이 실제 영업일인데 데이터가 없음 = 고장 → 실패(exit 1)
+    #   - nearest != date  → 대상일이 휴장일 = 정상 → exit 0
+    #   - 판정 함수가 예외/비정상 값을 주면 → KRX 접근 문제로 간주 = 실패(exit 1)
     if kospi_sell.empty:
-        print(f"❌ {date} 데이터 없음 (휴장일?). 갱신 건너뜀")
+        try:
+            nearest = stock.get_nearest_business_day_in_a_week(date)
+        except Exception as e:
+            print(f"❌ {date} 데이터 없음 — 영업일 판정 함수 예외({e}). "
+                  f"KRX 접근/로그인 확인 필요", file=sys.stderr)
+            sys.exit(1)
+
+        # 판정 함수가 정상적인 날짜 문자열(YYYYMMDD)을 주지 못하면 = 판정 불가 → 실패
+        if not isinstance(nearest, str) or len(nearest) != 8 or not nearest.isdigit():
+            print(f"❌ {date} 데이터 없음 — 영업일 판정 결과 비정상(nearest={nearest!r}). "
+                  f"KRX 접근/로그인 확인 필요", file=sys.stderr)
+            sys.exit(1)
+
+        if nearest == date:
+            print(f"❌ {date}는 영업일인데 데이터가 비어있음 — "
+                  f"KRX 접근/로그인 확인 필요", file=sys.stderr)
+            sys.exit(1)
+
+        print(f"ℹ️ {date} 휴장일 — 정상 종료")
         sys.exit(0)
 
     # ── 종목 TOP10 ──
@@ -375,7 +396,14 @@ def main():
             json.dump(index_data, f, ensure_ascii=False, indent=2)
         print(f"✅ 지수 JSON 저장: {index_filepath}")
     else:
-        print("⚠️ 코스피·코스닥 둘 다 실패 — index-kr.json 갱신 안 함", file=sys.stderr)
+        # 여기까지 왔다는 것은 market-flow 데이터가 있었다(=영업일)는 뜻.
+        # 영업일인데 코스피·코스닥 지수를 둘 다 못 받은 것은 KRX 접근 이상 신호이므로
+        # 조용히 넘기지 않는다. 이미 저장된 market-flow.json 은 그대로 살리고,
+        # 워크플로우가 실패(빨간색)로 끝나도록 마지막에 종료 코드 1로 나간다.
+        print("❌ 코스피·코스닥 지수 둘 다 실패 — index-kr.json 갱신 안 함. "
+              "영업일인데 지수 미수집 = KRX 접근 확인 필요 "
+              "(market-flow.json 은 저장됨)", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
