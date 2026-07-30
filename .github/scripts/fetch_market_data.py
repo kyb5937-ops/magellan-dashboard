@@ -253,73 +253,64 @@ def get_sector_changes(date, sector_codes):
     return items
 
 
-def _diagnose_new_indicators(date):
-    """[TEMP DIAG] 신규 지표 3종 가용성 확인 — 결과 확인 후 제거 예정."""
-    import traceback
-    print("="*60); print("[DIAG-KR2] 신규 지표 진단 시작"); print("="*60)
+def fetch_trading_value(date):
+    """코스피·코스닥 당일 거래대금 + 전일 대비. index_ohlcv 의 '거래대금'(원 단위) 사용.
+    전일 대비를 위해 date 이전 10일 범위로 받아 마지막 2개 행을 쓴다."""
+    target = datetime.strptime(date, "%Y%m%d")
+    start_str = (target - timedelta(days=10)).strftime("%Y%m%d")
 
-    # 1) 거래대금 — 시장 전체 거래대금이 어디서 나오나
-    for market, idx_code in [("KOSPI","1001"), ("KOSDAQ","2001")]:
+    out = {"tradeDate": date}
+    for key, code in INDEX_TICKERS.items():
         try:
-            df = stock.get_index_ohlcv(date, date, idx_code)
-            print(f"[DIAG-KR2] index_ohlcv({market}) 컬럼={list(df.columns)}")
-            if len(df): print(f"[DIAG-KR2]   값: {df.iloc[-1].to_dict()}")
-        except Exception as e:
-            print(f"[DIAG-KR2] index_ohlcv({market}) 예외: {type(e).__name__}: {str(e)[:120]}")
-    try:
-        df = stock.get_market_trading_value_by_date(date, date, "KOSPI")
-        print(f"[DIAG-KR2] trading_value_by_date(KOSPI) 컬럼={list(df.columns)}")
-        if len(df): print(f"[DIAG-KR2]   값: {df.iloc[-1].to_dict()}")
-    except Exception as e:
-        print(f"[DIAG-KR2] trading_value_by_date 예외: {type(e).__name__}: {str(e)[:120]}")
+            df = stock.get_index_ohlcv(start_str, date, code)
+            if df is None or len(df) < 1 or "거래대금" not in df.columns:
+                continue
+            # 마지막 행이 대상일인지 확인. 아니면 그 시장은 생략.
+            last_date = df.index[-1].strftime("%Y%m%d")
+            if last_date != date:
+                print(f"    ⚠️ 거래대금 {key} 최신 {last_date} ≠ 대상 {date} — skip",
+                      file=sys.stderr)
+                continue
 
-    # 2) 상승/하락 종목 수
-    for market in ["KOSPI","KOSDAQ"]:
+            value_raw = int(df["거래대금"].iloc[-1])           # 원 단위
+            value_jo = round(value_raw / 1e12, 2)              # 조원, 소수 2자리
+            prev_raw = None
+            change_pct = None
+            if len(df) >= 2:
+                prev_raw = int(df["거래대금"].iloc[-2])
+                if prev_raw:
+                    change_pct = round((value_raw - prev_raw) / prev_raw * 100, 1)
+
+            out[key] = {
+                "value": value_jo,
+                "raw": value_raw,
+                "change_pct": change_pct,
+                "prevRaw": prev_raw,
+            }
+        except Exception as e:
+            # 개별 시장 실패는 그 시장만 생략 (전체 중단 금지)
+            print(f"    ⚠️ 거래대금 {key} 조회 실패: {e}", file=sys.stderr)
+    return out
+
+
+def fetch_market_breadth(date):
+    """코스피·코스닥 상승/하락/보합 종목 수. get_market_price_change 의 '등락률' 집계."""
+    out = {"tradeDate": date}
+    for key, market in (("kospi", "KOSPI"), ("kosdaq", "KOSDAQ")):
         try:
             df = stock.get_market_price_change(date, date, market=market)
-            print(f"[DIAG-KR2] price_change({market}) rows={len(df)} 컬럼={list(df.columns)}")
-            if "등락률" in df.columns:
-                up=int((df["등락률"]>0).sum()); down=int((df["등락률"]<0).sum()); flat=int((df["등락률"]==0).sum())
-                print(f"[DIAG-KR2]   {market} 상승={up} 하락={down} 보합={flat} 합계={up+down+flat}")
-            else:
-                print(f"[DIAG-KR2]   등락률 컬럼 없음 — 샘플: {df.head(2).to_dict('records')}")
+            if df is None or len(df) == 0 or "등락률" not in df.columns:
+                continue
+            # numpy int 는 JSON 직렬화 안 되므로 int() 캐스팅 필수.
+            up = int((df["등락률"] > 0).sum())
+            down = int((df["등락률"] < 0).sum())
+            flat = int((df["등락률"] == 0).sum())   # 보합(거래정지 포함) — KRX 관례상 정상, 별도 제외 안 함
+            total = int(len(df))
+            out[key] = {"up": up, "down": down, "flat": flat, "total": total}
         except Exception as e:
-            print(f"[DIAG-KR2] price_change({market}) 예외: {type(e).__name__}: {str(e)[:120]}")
-
-    # 3) 코스피200 선물 — 티커·시세·투자자별 수급이 나오나
-    try:
-        try:
-            tks = stock.get_future_ticker_list(date)
-        except TypeError:
-            tks = stock.get_future_ticker_list()
-        print(f"[DIAG-KR2] future_ticker_list: n={len(tks) if tks else 0} 샘플={list(tks)[:8] if tks else '없음'}")
-        if tks:
-            for t in list(tks)[:3]:
-                try:
-                    nm = stock.get_future_ticker_name(t)
-                except Exception:
-                    nm = "?"
-                print(f"[DIAG-KR2]   티커 {t} = {nm}")
-            t0 = list(tks)[0]
-            try:
-                df = stock.get_future_ohlcv(t0, date, date)
-                print(f"[DIAG-KR2] future_ohlcv({t0}) 컬럼={list(df.columns)}")
-                if len(df): print(f"[DIAG-KR2]   값: {df.iloc[-1].to_dict()}")
-            except Exception as e:
-                print(f"[DIAG-KR2] future_ohlcv 예외: {type(e).__name__}: {str(e)[:120]}")
-            # 선물 투자자별 수급이 되는지 — 여러 경로 시도
-            for fn_name in ["get_market_trading_value_by_investor","get_market_trading_volume_by_investor"]:
-                try:
-                    fn = getattr(stock, fn_name)
-                    df = fn(date, date, t0)
-                    print(f"[DIAG-KR2] {fn_name}({t0}) 컬럼={list(df.columns)} rows={len(df)}")
-                    if len(df): print(f"[DIAG-KR2]   샘플: {df.head(12).to_dict()}")
-                except Exception as e:
-                    print(f"[DIAG-KR2] {fn_name}({t0}) 예외: {type(e).__name__}: {str(e)[:120]}")
-    except Exception as e:
-        print(f"[DIAG-KR2] 선물 진단 전체 예외: {type(e).__name__}: {str(e)[:150]}")
-
-    print("="*60); print("[DIAG-KR2] 진단 종료"); print("="*60)
+            # 개별 시장 실패는 그 시장만 생략 (전체 중단 금지)
+            print(f"    ⚠️ 상승하락 {key} 조회 실패: {e}", file=sys.stderr)
+    return out
 
 
 def main():
@@ -424,12 +415,6 @@ def main():
     print(f"   KOSPI 업종: {len(kospi_sectors)}개")
     print(f"   KOSDAQ 업종: {len(kosdaq_sectors)}개")
 
-    # [TEMP] 신규 지표 3종 가용성 진단 — 결과 확인 후 제거. 본 로직/exit code 에 영향 금지.
-    try:
-        _diagnose_new_indicators(date)
-    except Exception as e:
-        print(f"[DIAG-KR2] 진단 실패(무시): {e}", file=sys.stderr)
-
     # ── 코스피·코스닥 본 지수 (KRX 공식 종가) ──
     # 별도 파일 public/data/index-kr.json 으로 저장. 대시보드가 이 파일을 읽어
     # 코스피·코스닥 카드의 값/등락률을 Yahoo 대신 KRX 공식치로 표시한다.
@@ -463,6 +448,29 @@ def main():
     if fx:
         index_data["usdkrw"] = fx
     print(f"    원/달러: {fx}")
+
+    # ── 거래대금 (index_ohlcv '거래대금') — 있으면 추가 ──
+    # 국고채·원달러와 동일 취급: 실패해도 본 저장 로직/exit code 에 영향 없음.
+    try:
+        tv = fetch_trading_value(date)
+        if tv.get("kospi") or tv.get("kosdaq"):
+            index_data["tradingValue"] = tv
+            print(f"    거래대금: 코스피 {tv.get('kospi', {}).get('value')}조 "
+                  f"/ 코스닥 {tv.get('kosdaq', {}).get('value')}조")
+    except Exception as e:
+        print(f"    ⚠️ 거래대금 수집 실패(무시): {e}", file=sys.stderr)
+
+    # ── 상승/하락 종목 수 (get_market_price_change '등락률') — 있으면 추가 ──
+    try:
+        br = fetch_market_breadth(date)
+        if br.get("kospi") or br.get("kosdaq"):
+            index_data["breadth"] = br
+            bk = br.get("kospi", {})
+            bq = br.get("kosdaq", {})
+            print(f"    상승하락: 코스피 {bk.get('up')}/{bk.get('down')}/{bk.get('flat')} "
+                  f"/ 코스닥 {bq.get('up')}/{bq.get('down')}/{bq.get('flat')}")
+    except Exception as e:
+        print(f"    ⚠️ 상승하락 수집 실패(무시): {e}", file=sys.stderr)
 
     # 둘 중 하나라도 받았을 때만 파일을 갱신 (둘 다 실패 시 기존 파일 보존)
     if "kospi" in index_data or "kosdaq" in index_data:
