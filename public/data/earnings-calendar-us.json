@@ -47,7 +47,7 @@
       "epsForecast": "$-0.31",
       "epsActual": "$-0.76",
       "epsPreviousYoY": "$-1.24",
-      "revenueForecast": "$25.77B",
+      "revenueForecast": "$24.80B",
       "revenueActual": null,
       "surprise": "-141.5%"
     },
@@ -95,7 +95,7 @@
       "epsForecast": "$0.83",
       "epsActual": "$0.86",
       "epsPreviousYoY": "$0.75",
-      "revenueForecast": "$5.37B",
+      "revenueForecast": "$5.25B",
       "revenueActual": null,
       "surprise": "+3.9%"
     },
@@ -143,7 +143,7 @@
       "epsForecast": "$2.60",
       "epsActual": "$2.64",
       "epsPreviousYoY": "$2.26",
-      "revenueForecast": "$5.44B",
+      "revenueForecast": "$5.49B",
       "revenueActual": null,
       "surprise": "+1.6%"
     },
@@ -159,7 +159,7 @@
       "epsForecast": "$1.00",
       "epsActual": "$1.05",
       "epsPreviousYoY": "$0.94",
-      "revenueForecast": "$3.60B",
+      "revenueForecast": "$4.04B",
       "revenueActual": null,
       "surprise": "+5.1%"
     },
@@ -173,11 +173,11 @@
       "marketCapRank": 15,
       "quarter": "26Q2",
       "epsForecast": "$4.78",
-      "epsActual": null,
+      "epsActual": "$5.04",
       "epsPreviousYoY": "$4.15",
-      "revenueForecast": "$9.08B",
+      "revenueForecast": "$9.65B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+5.5%"
     },
     {
       "date": "2026-07-30",
@@ -188,12 +188,12 @@
       "name": "리제네론",
       "marketCapRank": 86,
       "quarter": "26Q2",
-      "epsForecast": "$10.20",
-      "epsActual": null,
+      "epsForecast": "$10.21",
+      "epsActual": "$14.29",
       "epsPreviousYoY": "$12.89",
-      "revenueForecast": "$3.83B",
+      "revenueForecast": "$4.30B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+40.0%"
     },
     {
       "date": "2026-07-30",
@@ -205,11 +205,11 @@
       "marketCapRank": 91,
       "quarter": "26Q2",
       "epsForecast": "$1.01",
-      "epsActual": null,
+      "epsActual": "$1.13",
       "epsPreviousYoY": "$0.92",
-      "revenueForecast": "$7.27B",
+      "revenueForecast": "$8.66B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+11.8%"
     },
     {
       "date": "2026-07-30",
@@ -221,11 +221,11 @@
       "marketCapRank": 93,
       "quarter": "26Q2",
       "epsForecast": "$1.50",
-      "epsActual": null,
+      "epsActual": "$1.48",
       "epsPreviousYoY": "$1.44",
-      "revenueForecast": "$5.35B",
+      "revenueForecast": "$5.33B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "-1.2%"
     },
     {
       "date": "2026-07-30",
@@ -237,11 +237,11 @@
       "marketCapRank": 94,
       "quarter": "26Q2",
       "epsForecast": "$1.84",
-      "epsActual": null,
+      "epsActual": "$1.90",
       "epsPreviousYoY": "$1.81",
-      "revenueForecast": "$2.62B",
+      "revenueForecast": "$2.67B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+3.5%"
     },
     {
       "date": "2026-07-30",
@@ -319,7 +319,7 @@
       "epsForecast": "$1.68",
       "epsActual": "$1.82",
       "epsPreviousYoY": "$1.33",
-      "revenueForecast": "$7.09B",
+      "revenueForecast": "$8.13B",
       "revenueActual": null,
       "surprise": "+8.1%"
     },
@@ -332,7 +332,7 @@
       "name": "엑슨모빌",
       "marketCapRank": 16,
       "quarter": "26Q2",
-      "epsForecast": "$3.69",
+      "epsForecast": "$3.63",
       "epsActual": null,
       "epsPreviousYoY": "$1.64",
       "revenueForecast": "$97.66B",
@@ -428,7 +428,7 @@
       "name": "아마존",
       "marketCapRank": 5,
       "quarter": "26Q2",
-      "epsForecast": "$1.82",
+      "epsForecast": "$1.83",
       "epsActual": null,
       "epsPreviousYoY": "$1.68",
       "revenueForecast": "$196.43B",
@@ -556,7 +556,7 @@
       "name": "버텍스",
       "marketCapRank": 84,
       "quarter": "26Q2",
-      "epsForecast": "$4.75",
+      "epsForecast": "$4.74",
       "epsActual": null,
       "epsPreviousYoY": "$4.52",
       "revenueForecast": "$3.22B",
@@ -572,7 +572,7 @@
       "name": "일라이릴리",
       "marketCapRank": 12,
       "quarter": "26Q2",
-      "epsForecast": "$6.66",
+      "epsForecast": "$6.55",
       "epsActual": null,
       "epsPreviousYoY": "$6.31",
       "revenueForecast": "$20.69B",
@@ -604,9 +604,9 @@
       "name": "우버",
       "marketCapRank": 66,
       "quarter": "26Q2",
-      "epsForecast": "$0.84",
+      "epsForecast": "$0.83",
       "epsActual": null,
-      "epsPreviousYoY": "$0.63",
+      "epsPreviousYoY": "$0.65",
       "revenueForecast": "$14.27B",
       "revenueActual": null,
       "surprise": null
@@ -668,7 +668,7 @@
       "name": "길리어드",
       "marketCapRank": 70,
       "quarter": "26Q2",
-      "epsForecast": "$-7.25",
+      "epsForecast": "$-7.24",
       "epsActual": null,
       "epsPreviousYoY": "$2.01",
       "revenueForecast": "$7.40B",
@@ -684,7 +684,7 @@
       "name": "암젠",
       "marketCapRank": 85,
       "quarter": "26Q2",
-      "epsForecast": "$5.61",
+      "epsForecast": "$5.62",
       "epsActual": null,
       "epsPreviousYoY": "$6.02",
       "revenueForecast": "$9.42B",
@@ -748,7 +748,7 @@
       "name": "버크셔해서웨이",
       "marketCapRank": 9,
       "quarter": "26Q2",
-      "epsForecast": "$5.05",
+      "epsForecast": "$5.13",
       "epsActual": null,
       "epsPreviousYoY": "$5.17",
       "revenueForecast": "$98.78B",
