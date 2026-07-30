@@ -56,30 +56,39 @@ export function MarketBreadthSection() {
   const hasTv = !!(tv && (tv.kospi || tv.kosdaq));
   const hasBr = !!(br && (br.kospi || br.kosdaq));
 
-  // 둘 다 없으면 섹션 전체를 렌더하지 않음.
+  // 둘 다 없으면 아무것도 렌더하지 않음.
   if (!hasTv && !hasBr) return null;
 
+  // 두 개의 독립 섹션으로 분리 — 각각 데이터가 있을 때만 렌더(독립 방어).
   return (
-    <section className="mb-6">
-      <div className="text-xs font-medium text-fg-muted mb-2 tracking-wider">
-        📊 거래대금 · 상승/하락
-      </div>
-
-      {/* (1) 거래대금 카드 2개 — kr KOREA 카드와 동일 모양 */}
+    <>
+      {/* (1) 거래대금 섹션 — 코스피·코스닥 카드 2개 */}
       {hasTv && (
-        <div className="grid grid-cols-2 gap-2 mb-2">
-          {tv?.kospi && (
-            <TradingValueCard label="코스피 거래대금" m={tv.kospi} />
-          )}
-          {tv?.kosdaq && (
-            <TradingValueCard label="코스닥 거래대금" m={tv.kosdaq} />
-          )}
-        </div>
+        <section className="mb-6">
+          <div className="text-xs font-medium text-fg-muted mb-2 tracking-wider">
+            📊 거래대금
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {tv?.kospi && (
+              <TradingValueCard label="코스피 거래대금" m={tv.kospi} />
+            )}
+            {tv?.kosdaq && (
+              <TradingValueCard label="코스닥 거래대금" m={tv.kosdaq} />
+            )}
+          </div>
+        </section>
       )}
 
-      {/* (2) 상승/하락 비율 바 (코스피·코스닥 세로 배치) */}
-      {hasBr && br && <BreadthCard br={br} />}
-    </section>
+      {/* (2) 상승/하락 종목 섹션 — 코스피·코스닥 비율 바 */}
+      {hasBr && br && (
+        <section className="mb-6">
+          <div className="text-xs font-medium text-fg-muted mb-2 tracking-wider">
+            📈 상승/하락 종목
+          </div>
+          <BreadthCard br={br} />
+        </section>
+      )}
+    </>
   );
 }
 
