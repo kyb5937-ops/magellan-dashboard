@@ -41,12 +41,16 @@ jobs:
         run: |
           pip install yfinance pandas pykrx requests beautifulsoup4 lxml
 
+      # 두 수집 스텝은 continue-on-error 로 서로를 막지 않게 둔다(미국 실패해도 한국·커밋 진행).
+      # 대신 각 스텝에 id 를 달고, 잡 맨 끝의 "수집 실패 확인"에서 outcome 을 보고 최종 실패시킨다.
       - name: 미국 실적 수집
+        id: us_earnings
         continue-on-error: true
         run: |
           python .github/scripts/fetch_earnings_us.py
 
       - name: 한국 실적 수집
+        id: kr_earnings
         continue-on-error: true
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
@@ -71,3 +75,27 @@ jobs:
             done
             echo "갱신 완료"
           fi
+
+      # 수집 스텝이 continue-on-error 로 흡수되므로, 여기서 두 스텝의 outcome 을 보고
+      # 하나라도 실패면 잡을 빨간색으로 끝낸다(알림 발생). 커밋은 위에서 이미 수행됨.
+      - name: 수집 실패 확인
+        if: always()
+        run: |
+          US="${{ steps.us_earnings.outcome }}"
+          KR="${{ steps.kr_earnings.outcome }}"
+          echo "미국 실적 수집 outcome: $US"
+          echo "한국 실적 수집 outcome: $KR"
+          FAILED=0
+          if [ "$US" = "failure" ]; then
+            echo "::error::미국 실적 수집(fetch_earnings_us.py) 실패"
+            FAILED=1
+          fi
+          if [ "$KR" = "failure" ]; then
+            echo "::error::한국 실적 수집(fetch_earnings_kr.py) 실패"
+            FAILED=1
+          fi
+          if [ "$FAILED" = "1" ]; then
+            echo "수집 스텝 중 하나 이상 실패 — 잡을 실패 처리합니다."
+            exit 1
+          fi
+          echo "두 수집 스텝 모두 성공."

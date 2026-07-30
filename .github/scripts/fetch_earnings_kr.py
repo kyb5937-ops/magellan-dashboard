@@ -47,6 +47,11 @@ OUTPUT_PATH = os.path.join(ROOT, "public", "data", "earnings-calendar-kr.json")
 
 DART_API_KEY = os.environ.get("DART_API_KEY", "").strip()
 
+# DART list.json 공시조회 결과 집계 — "전 종목 하드 실패" 판정용(조용한 실패 방지).
+# 정상적으로 '공시 없음'(status 013)을 받은 것과 인증/시스템 오류·예외를 구분한다.
+_dart_calls = 0
+_dart_hard_fail = 0
+
 DAY_OF_WEEK_KR = ["월", "화", "수", "목", "금", "토", "일"]
 
 # DART 공시 제목에서 "실적 발표 관련" 으로 인식할 키워드
@@ -213,9 +218,16 @@ def fetch_dart_corp_code_map(stock_codes_needed):
 # ── 3. DART 공시 검색 ───────────────────────────────────────────────────
 
 def fetch_disclosures_for_corp(corp_code: str, start_yyyymmdd: str, end_yyyymmdd: str):
-    """단일 회사의 기간 내 공시 목록"""
+    """단일 회사의 기간 내 공시 목록.
+
+    반환값(list)은 기존과 동일. 부수적으로 _dart_calls/_dart_hard_fail 를 갱신해
+    '전 종목 하드 실패'(인증/시스템 오류·전부 예외)를 상위에서 판정할 수 있게 한다.
+    status 013(조회 데이터 없음)은 정상(해당 종목·기간 공시 없음)이라 하드 실패로 세지 않는다.
+    """
+    global _dart_calls, _dart_hard_fail
     if not DART_API_KEY:
         return []
+    _dart_calls += 1
     url = "https://opendart.fss.or.kr/api/list.json"
     params = {
         "crtfc_key": DART_API_KEY,
@@ -228,10 +240,15 @@ def fetch_disclosures_for_corp(corp_code: str, start_yyyymmdd: str, end_yyyymmdd
         r = requests.get(url, params=params, timeout=15)
         data = r.json()
     except Exception as e:
+        _dart_hard_fail += 1  # 네트워크/파싱 예외 = 하드 실패
         return []
-    if data.get("status") != "000":
-        return []
-    return data.get("list", [])
+    status = data.get("status")
+    if status == "000":
+        return data.get("list", [])
+    if status == "013":
+        return []  # 조회된 공시 없음 — 정상
+    _dart_hard_fail += 1  # 그 외 상태코드(인증/권한/한도/시스템 오류 등) = 하드 실패
+    return []
 
 
 def is_earnings_disclosure(report_nm: str) -> bool:
@@ -700,18 +717,46 @@ def main():
 
     # Step 1: Universe
     universe = build_universe()
-    if universe:
-        top5_summary = [f"{s['name']}({s['symbol']})" for s in universe[:5]]
-        print(f"  Universe 상위 5: {top5_summary}")
-        top3_names = [s['name'] for s in universe[:3]]
-        if not any('삼성전자' in n or 'SK하이닉스' in n for n in top3_names):
-            print(f"  ⚠️ 삼성전자/SK하이닉스가 상위 3에 없음. Universe 정렬 의심!", file=sys.stderr)
-    else:
-        print(f"  ⚠️ Universe가 비어있음. KRX 로그인 또는 시총 조회 실패 의심", file=sys.stderr)
+    if not universe:
+        # 유니버스가 비었다 = 영업일이면 있을 수 없는 상황(fallback이 최근 영업일까지 되짚음)
+        # = KRX 접근 이상. 다만 대상일이 휴장일이면 pykrx가 데이터를 못 줄 수 있으므로
+        # fetch_market_data.py 와 동일하게 영업일 여부로 판정한다:
+        #   휴장일이면 정상 종료(exit 0), 영업일/판정불가면 KRX 접근 이상 = 실패(exit 1).
+        today_str = today.strftime("%Y%m%d")
+        try:
+            nearest = stock.get_nearest_business_day_in_a_week(today_str)
+        except Exception as e:
+            print(f"❌ 시총 유니버스 비었음 + 영업일 판정 함수 예외({e}) — "
+                  f"KRX 접근/로그인(KRX_ID/KRX_PW) 확인 필요", file=sys.stderr)
+            sys.exit(1)
+        if not isinstance(nearest, str) or len(nearest) != 8 or not nearest.isdigit():
+            print(f"❌ 시총 유니버스 비었음 + 영업일 판정 결과 비정상(nearest={nearest!r}) — "
+                  f"KRX 접근/로그인 확인 필요", file=sys.stderr)
+            sys.exit(1)
+        if nearest == today_str:
+            print(f"❌ {today_str}는 영업일인데 시총 유니버스가 비어있음 — "
+                  f"KRX 접근/로그인(KRX_ID/KRX_PW) 확인 필요", file=sys.stderr)
+            sys.exit(1)
+        print(f"ℹ️ {today_str} 휴장일 — 유니버스 없음, 정상 종료")
+        sys.exit(0)
+
+    top5_summary = [f"{s['name']}({s['symbol']})" for s in universe[:5]]
+    print(f"  Universe 상위 5: {top5_summary}")
+    top3_names = [s['name'] for s in universe[:3]]
+    if not any('삼성전자' in n or 'SK하이닉스' in n for n in top3_names):
+        print(f"  ⚠️ 삼성전자/SK하이닉스가 상위 3에 없음. Universe 정렬 의심!", file=sys.stderr)
     code_to_meta = {s["symbol"]: s for s in universe}
 
     # Step 2: corp_code 매핑
     corp_map = fetch_dart_corp_code_map(list(code_to_meta.keys()))
+    if not corp_map:
+        # 유니버스는 있는데 corp_code 매핑이 하나도 안 됨 = DART 전면 실패
+        # (API 키 누락/무효, corpCode.xml 다운로드·파싱 실패 등). 정상이면 ~100/100 이어야 함.
+        # 빈 캘린더로 기존 파일을 덮지 않도록 여기서 즉시 실패 종료(기존 파일 보존).
+        print("❌ DART corp_code 매핑 전면 실패 — "
+              "DART_API_KEY/네트워크/DART 상태 확인 필요. "
+              "기존 earnings-calendar-kr.json 보존", file=sys.stderr)
+        sys.exit(1)
 
     # Step 2-1: 컨센서스 스냅샷 로드 (Step 4 surprise 계산용)
     consensus_snapshots = load_consensus_snapshots()
@@ -830,6 +875,17 @@ def main():
             print(f"  진행: {i}/{len(universe)} (이벤트 {len(events)}건)")
         # DART rate limit 보호
         time.sleep(0.4)
+
+    # ── DART 공시조회 전면 실패 감지 (조용한 실패 방지) ──
+    # 호출을 한 건이라도 했는데 전부 하드 실패(인증/시스템 오류·예외)면, 이벤트 0건이
+    # '발표 없는 주'가 아니라 DART 장애 때문이므로 실패로 끝낸다. (status 013 '공시 없음'은
+    # 하드 실패로 세지 않으므로, 정상적으로 발표가 0건인 주는 여기 걸리지 않는다.)
+    # 빈 캘린더로 기존 파일을 덮지 않도록 쓰기 전에 종료(기존 파일 보존).
+    if _dart_calls > 0 and _dart_hard_fail == _dart_calls:
+        print(f"❌ DART 공시 조회가 전 종목({_dart_calls}건)에서 실패 — "
+              f"DART 인증/시스템 오류 확인 필요. 기존 earnings-calendar-kr.json 보존",
+              file=sys.stderr)
+        sys.exit(1)
 
     # 정렬: 날짜 → 시점 → 시총 랭크
     def time_key(t: str) -> int:

@@ -76,6 +76,15 @@ def compute_target_date():
     return d.strftime("%Y-%m-%d")
 
 
+def _previous_business_day(yyyy_mm_dd):
+    """"YYYY-MM-DD" 의 직전 영업일(주말 스킵). 공휴일은 보정하지 않는다.
+    '전부 실패'가 미국 공휴일 오탐인지 가리기 위한 1회 재시도용."""
+    d = datetime.strptime(yyyy_mm_dd, "%Y-%m-%d").date() - timedelta(days=1)
+    while d.weekday() > 4:
+        d = d - timedelta(days=1)
+    return d.strftime("%Y-%m-%d")
+
+
 def _num(v):
     """문자열/숫자를 float 으로. 빈값·NA·변환불가·파싱실패는 None."""
     try:
@@ -326,12 +335,38 @@ def main():
     treasury = fetch_treasury_yields(target)
     index_data.update(treasury)
 
-    # 성공한 데이터가 하나라도 있을 때만 파일을 쓴다 (전부 실패 시 기존 보존)
-    success_keys = [k for k in ("sp500", "nasdaq", "dow", "sox", "us2y", "us10y")
-                    if k in index_data]
+    ALL_KEYS = ("sp500", "nasdaq", "dow", "sox", "us2y", "us10y")
+    # 성공한 데이터가 하나라도 있으면 그 부분만 저장(폴백 구조 유지).
+    success_keys = [k for k in ALL_KEYS if k in index_data]
+
+    # ── 전부 실패 처리 (조용한 실패 방지) ──
+    # 하나도 못 받았으면 EODHD/FMP/재무부 접근 이상 신호. 단, 미국 공휴일(독립기념일 등)엔
+    # 대상일에 확정 데이터가 없어 전부 실패할 수 있으므로, 직전 거래일로 한 번 더 시도해서
+    # 데이터가 있으면 그 날짜로 저장하고 정상 종료(휴장으로 간주). 그래도 없으면 exit 1.
+    #   ※ 금리(fetch_treasury_yields)는 대상일이 휴장이어도 그 달의 최신 거래일을 돌려주므로
+    #     순수 공휴일에는 보통 전부 실패로 가지 않는다. 즉 여기까지 오면 대체로 진짜 장애다.
+    #   ※ 연휴가 이틀 이상 연속이면 1회 재시도가 또 휴장일에 걸려 오탐(exit 1)이 남을 수 있음.
     if not success_keys:
-        print("⚠️ 지수·금리 모두 실패 — index-us.json 갱신 안 함", file=sys.stderr)
-        sys.exit(0)
+        retry_date = _previous_business_day(target)
+        print(f"⚠️ {target} 지수·금리 전부 실패 — 직전 거래일 {retry_date}로 1회 재시도",
+              file=sys.stderr)
+        retry_data = {
+            "date": retry_date,
+            "updatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        }
+        retry_data.update(fetch_indices(retry_date))
+        retry_data.update(fetch_treasury_yields(retry_date))
+        retry_keys = [k for k in ALL_KEYS if k in retry_data]
+        if retry_keys:
+            print(f"  ↩ 직전 거래일 {retry_date} 데이터 확보 — 휴장으로 간주하고 저장",
+                  file=sys.stderr)
+            index_data = retry_data
+            target = retry_date
+            success_keys = retry_keys
+        else:
+            print("❌ 지수·금리 전부 실패 (직전 거래일 재시도도 실패) — "
+                  "EODHD/FMP/재무부 접근 확인 필요. index-us.json 보존", file=sys.stderr)
+            sys.exit(1)
 
     json_dir = os.path.join(DASHBOARD_PATH, "public", "data")
     os.makedirs(json_dir, exist_ok=True)
