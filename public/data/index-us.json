@@ -1,6 +1,6 @@
 {
   "date": "2026-08-03",
-  "updatedAt": "2026-08-03T20:40:20Z",
+  "updatedAt": "2026-08-03T21:35:27Z",
   "sp500": {
     "value": 7600.5,
     "change_pct": 1.48,
@@ -26,9 +26,9 @@
     "tradeDate": "2026-08-03"
   },
   "sox": {
-    "value": 11475.35,
-    "change_pct": 1.45,
-    "change_pt": 164.27,
+    "value": 11430.35,
+    "change_pct": 1.05,
+    "change_pt": 119.27,
     "prevClose": 11311.08,
     "source": "eodhd",
     "tradeDate": "2026-08-03"
