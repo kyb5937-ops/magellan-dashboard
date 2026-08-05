@@ -332,6 +332,28 @@
       "operatingIncomePreviousYoY": "618억원",
       "operatingIncomeSurprise": "+13.7%",
       "surprise": null
+    },
+    {
+      "date": "2026-08-06",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "KR",
+      "symbol": "035720",
+      "name": "카카오",
+      "marketCapRank": 46,
+      "quarter": "26Q2",
+      "epsForecast": "391원",
+      "epsActual": null,
+      "epsPreviousYoY": "364원",
+      "revenueForecast": "2.0조원",
+      "revenueActual": "2.1조원",
+      "revenuePreviousYoY": "2.0조원",
+      "revenueSurprise": "+2.4%",
+      "operatingIncomeForecast": "2,263억원",
+      "operatingIncomeActual": "2,770억원",
+      "operatingIncomePreviousYoY": "1,859억원",
+      "operatingIncomeSurprise": "+22.4%",
+      "surprise": null
     }
   ]
 }
