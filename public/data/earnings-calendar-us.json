@@ -68,22 +68,6 @@
       "surprise": null
     },
     {
-      "date": "2026-08-06",
-      "dayOfWeek": "목",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "MCK",
-      "name": "맥케슨",
-      "marketCapRank": 100,
-      "quarter": "26Q2",
-      "epsForecast": "$9.54",
-      "epsActual": null,
-      "epsPreviousYoY": "$8.26",
-      "revenueForecast": "$109.95B",
-      "revenueActual": null,
-      "surprise": null
-    },
-    {
       "date": "2026-08-09",
       "dayOfWeek": "일",
       "time": "AMC",
