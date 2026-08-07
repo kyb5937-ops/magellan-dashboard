@@ -107,20 +107,20 @@
     },
     {
       "rank": 18,
+      "symbol": "086790",
+      "name": "하나금융지주",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 19,
       "symbol": "034730",
       "name": "SK",
       "market": "KOSPI"
     },
     {
-      "rank": 19,
+      "rank": 20,
       "symbol": "006400",
       "name": "삼성SDI",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 20,
-      "symbol": "086790",
-      "name": "하나금융지주",
       "market": "KOSPI"
     },
     {
@@ -209,14 +209,14 @@
     },
     {
       "rank": 35,
-      "symbol": "010140",
-      "name": "삼성중공업",
+      "symbol": "096770",
+      "name": "SK이노베이션",
       "market": "KOSPI"
     },
     {
       "rank": 36,
-      "symbol": "096770",
-      "name": "SK이노베이션",
+      "symbol": "010140",
+      "name": "삼성중공업",
       "market": "KOSPI"
     },
     {
@@ -401,21 +401,21 @@
     },
     {
       "rank": 67,
-      "symbol": "247540",
-      "name": "에코프로비엠",
-      "market": "KOSDAQ"
-    },
-    {
-      "rank": 68,
       "symbol": "047050",
       "name": "포스코인터내셔널",
       "market": "KOSPI"
     },
     {
-      "rank": 69,
+      "rank": 68,
       "symbol": "0126Z0",
       "name": "삼성에피스홀딩스",
       "market": "KOSPI"
+    },
+    {
+      "rank": 69,
+      "symbol": "247540",
+      "name": "에코프로비엠",
+      "market": "KOSDAQ"
     },
     {
       "rank": 70,
@@ -539,27 +539,27 @@
     },
     {
       "rank": 90,
-      "symbol": "007660",
-      "name": "이수페타시스",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 91,
       "symbol": "241560",
       "name": "두산밥캣",
       "market": "KOSPI"
     },
     {
-      "rank": 92,
-      "symbol": "036930",
-      "name": "주성엔지니어링",
-      "market": "KOSDAQ"
+      "rank": 91,
+      "symbol": "007660",
+      "name": "이수페타시스",
+      "market": "KOSPI"
     },
     {
-      "rank": 93,
+      "rank": 92,
       "symbol": "000880",
       "name": "한화",
       "market": "KOSPI"
+    },
+    {
+      "rank": 93,
+      "symbol": "036930",
+      "name": "주성엔지니어링",
+      "market": "KOSDAQ"
     },
     {
       "rank": 94,
@@ -593,14 +593,14 @@
     },
     {
       "rank": 99,
-      "symbol": "001440",
-      "name": "대한전선",
+      "symbol": "036570",
+      "name": "NC",
       "market": "KOSPI"
     },
     {
       "rank": 100,
-      "symbol": "036570",
-      "name": "NC",
+      "symbol": "001440",
+      "name": "대한전선",
       "market": "KOSPI"
     }
   ]
