@@ -31,7 +31,7 @@
       "epsForecast": "$1.85",
       "epsActual": "$2.06",
       "epsPreviousYoY": "$1.61",
-      "revenueForecast": "$25.22B",
+      "revenueForecast": "$25.09B",
       "revenueActual": null,
       "surprise": "+11.1%"
     },
@@ -63,7 +63,7 @@
       "epsForecast": "$0.40",
       "epsActual": "$0.42",
       "epsPreviousYoY": "$0.35",
-      "revenueForecast": "$3.44B",
+      "revenueForecast": "$3.73B",
       "revenueActual": null,
       "surprise": "+5.0%"
     },
@@ -95,7 +95,7 @@
       "epsForecast": "$2.43",
       "epsActual": "$2.54",
       "epsPreviousYoY": "$2.22",
-      "revenueForecast": "$9.71B",
+      "revenueForecast": "$9.55B",
       "revenueActual": "$7.35B",
       "surprise": "+4.5%"
     },
@@ -127,7 +127,7 @@
       "epsForecast": "$5.62",
       "epsActual": "$6.29",
       "epsPreviousYoY": "$6.02",
-      "revenueForecast": "$9.69B",
+      "revenueForecast": "$10.02B",
       "revenueActual": null,
       "surprise": "+12.0%"
     },
@@ -143,8 +143,8 @@
       "epsForecast": "$0.89",
       "epsActual": "$1.02",
       "epsPreviousYoY": "$0.73",
-      "revenueForecast": "$2.97B",
-      "revenueActual": null,
+      "revenueForecast": "$3.33B",
+      "revenueActual": "$3.04B",
       "surprise": "+15.2%"
     },
     {
@@ -159,8 +159,8 @@
       "epsForecast": "$1.85",
       "epsActual": "$1.87",
       "epsPreviousYoY": "$1.76",
-      "revenueForecast": "$2.50B",
-      "revenueActual": null,
+      "revenueForecast": "$2.39B",
+      "revenueActual": "$2.47B",
       "surprise": "+0.9%"
     },
     {
@@ -175,7 +175,7 @@
       "epsForecast": "$9.54",
       "epsActual": "$9.93",
       "epsPreviousYoY": "$8.26",
-      "revenueForecast": "$109.95B",
+      "revenueForecast": "$109.88B",
       "revenueActual": null,
       "surprise": "+4.1%"
     },
@@ -255,7 +255,7 @@
       "epsForecast": "$1.19",
       "epsActual": null,
       "epsPreviousYoY": "$1.10",
-      "revenueForecast": "$15.20B",
+      "revenueForecast": "$15.19B",
       "revenueActual": null,
       "surprise": null
     },
