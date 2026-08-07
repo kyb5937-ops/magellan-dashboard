@@ -1,62 +1,62 @@
 {
-  "date": "20260806",
-  "updatedAt": "2026-08-06T10:49:02Z",
+  "date": "20260807",
+  "updatedAt": "2026-08-07T07:06:31Z",
   "kospi": {
-    "value": 6296.38,
-    "change_pct": -4.58,
-    "change_pt": -301.88,
-    "prevClose": 6598.26,
-    "tradeDate": "2026-08-06"
+    "value": 6258.77,
+    "change_pct": -0.6,
+    "change_pt": -37.61,
+    "prevClose": 6296.38,
+    "tradeDate": "2026-08-07"
   },
   "kosdaq": {
-    "value": 801.67,
-    "change_pct": 0.26,
-    "change_pt": 2.08,
-    "prevClose": 799.59,
-    "tradeDate": "2026-08-06"
+    "value": 798.81,
+    "change_pct": -0.36,
+    "change_pt": -2.86,
+    "prevClose": 801.67,
+    "tradeDate": "2026-08-07"
   },
   "kr3y": {
-    "value": 3.742,
-    "change_bp": 7.3,
-    "tradeDate": "20260806"
+    "value": 3.732,
+    "change_bp": -1.0,
+    "tradeDate": "20260807"
   },
   "kr10y": {
-    "value": 4.195,
-    "change_bp": 4.5,
-    "tradeDate": "20260806"
+    "value": 4.198,
+    "change_bp": 0.3,
+    "tradeDate": "20260807"
   },
   "usdkrw": {
-    "value": 1423.19,
-    "change": 2.59,
-    "prevClose": 1420.6
+    "value": 1416.94,
+    "change": -18.76,
+    "prevClose": 1435.7
   },
   "tradingValue": {
-    "tradeDate": "20260806",
+    "tradeDate": "20260807",
     "kospi": {
-      "value": 26.45,
-      "raw": 26452136843346,
-      "change_pct": 3.1,
-      "prevRaw": 25657753879758
+      "value": 24.3,
+      "raw": 24304738694567,
+      "change_pct": -8.1,
+      "prevRaw": 26452136843346
     },
     "kosdaq": {
-      "value": 6.14,
-      "raw": 6141036575862,
-      "change_pct": -3.8,
-      "prevRaw": 6382739769093
+      "value": 5.23,
+      "raw": 5234599864467,
+      "change_pct": -14.8,
+      "prevRaw": 6141036575862
     }
   },
   "breadth": {
-    "tradeDate": "20260806",
+    "tradeDate": "20260807",
     "kospi": {
-      "up": 490,
-      "down": 381,
-      "flat": 72,
+      "up": 554,
+      "down": 322,
+      "flat": 67,
       "total": 943
     },
     "kosdaq": {
-      "up": 736,
-      "down": 893,
-      "flat": 191,
+      "up": 808,
+      "down": 829,
+      "flat": 183,
       "total": 1820
     }
   }
