@@ -15,7 +15,7 @@
       "epsForecast": "$5.13",
       "epsActual": "$6.03",
       "epsPreviousYoY": "$5.17",
-      "revenueForecast": "$98.78B",
+      "revenueForecast": null,
       "revenueActual": null,
       "surprise": "+17.4%"
     },
@@ -111,7 +111,7 @@
       "epsForecast": "$0.74",
       "epsActual": null,
       "epsPreviousYoY": "$0.68",
-      "revenueForecast": "$186.90B",
+      "revenueForecast": "$186.89B",
       "revenueActual": null,
       "surprise": null
     },
