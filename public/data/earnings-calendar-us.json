@@ -4,6 +4,22 @@
   "lastUpdated": "2026-08-11",
   "events": [
     {
+      "date": "2026-08-09",
+      "dayOfWeek": "일",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "BRK.B",
+      "name": "버크셔해서웨이",
+      "marketCapRank": 9,
+      "quarter": "26Q2",
+      "epsForecast": "$5.13",
+      "epsActual": null,
+      "epsPreviousYoY": "$5.17",
+      "revenueForecast": "$104.33B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
       "date": "2026-08-13",
       "dayOfWeek": "목",
       "time": "AMC",
@@ -31,7 +47,7 @@
       "epsForecast": "$3.39",
       "epsActual": null,
       "epsPreviousYoY": "$2.48",
-      "revenueForecast": "$9.01B",
+      "revenueForecast": "$9.00B",
       "revenueActual": null,
       "surprise": null
     },
@@ -63,7 +79,7 @@
       "epsForecast": "$1.19",
       "epsActual": null,
       "epsPreviousYoY": "$1.10",
-      "revenueForecast": "$15.19B",
+      "revenueForecast": "$15.18B",
       "revenueActual": null,
       "surprise": null
     },
@@ -95,7 +111,7 @@
       "epsForecast": "$0.74",
       "epsActual": null,
       "epsPreviousYoY": "$0.68",
-      "revenueForecast": "$186.89B",
+      "revenueForecast": "$186.94B",
       "revenueActual": null,
       "surprise": null
     },
