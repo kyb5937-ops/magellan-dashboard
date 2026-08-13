@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-08-10",
-  "weekEnd": "2026-08-26",
-  "lastUpdated": "2026-08-12",
+  "weekStart": "2026-08-11",
+  "weekEnd": "2026-08-27",
+  "lastUpdated": "2026-08-13",
   "events": [
     {
       "date": "2026-08-13",
@@ -13,11 +13,11 @@
       "marketCapRank": 37,
       "quarter": "26Q2",
       "epsForecast": "$1.17",
-      "epsActual": null,
+      "epsActual": "$1.22",
       "epsPreviousYoY": "$0.99",
       "revenueForecast": "$16.83B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+4.4%"
     },
     {
       "date": "2026-08-14",
@@ -128,6 +128,38 @@
       "epsActual": null,
       "epsPreviousYoY": "$2.75",
       "revenueForecast": "$4.27B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-08-27",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "NVDA",
+      "name": "엔비디아",
+      "marketCapRank": 3,
+      "quarter": "26Q2",
+      "epsForecast": "$2.08",
+      "epsActual": null,
+      "epsPreviousYoY": "$1.05",
+      "revenueForecast": "$91.85B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-08-27",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "CRM",
+      "name": "세일즈포스",
+      "marketCapRank": 24,
+      "quarter": "26Q2",
+      "epsForecast": "$3.27",
+      "epsActual": null,
+      "epsPreviousYoY": "$2.91",
+      "revenueForecast": "$11.31B",
       "revenueActual": null,
       "surprise": null
     }
