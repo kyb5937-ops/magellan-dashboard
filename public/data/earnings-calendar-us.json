@@ -1,24 +1,8 @@
 {
-  "weekStart": "2026-08-13",
-  "weekEnd": "2026-08-29",
-  "lastUpdated": "2026-08-15",
+  "weekStart": "2026-08-14",
+  "weekEnd": "2026-08-30",
+  "lastUpdated": "2026-08-16",
   "events": [
-    {
-      "date": "2026-08-13",
-      "dayOfWeek": "목",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "CSCO",
-      "name": "시스코",
-      "marketCapRank": 37,
-      "quarter": "26Q2",
-      "epsForecast": "$1.17",
-      "epsActual": "$1.22",
-      "epsPreviousYoY": "$0.99",
-      "revenueForecast": "$17.88B",
-      "revenueActual": null,
-      "surprise": "+4.4%"
-    },
     {
       "date": "2026-08-14",
       "dayOfWeek": "금",
