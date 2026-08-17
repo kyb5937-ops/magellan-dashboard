@@ -1,24 +1,8 @@
 {
-  "weekStart": "2026-08-14",
-  "weekEnd": "2026-08-30",
-  "lastUpdated": "2026-08-16",
+  "weekStart": "2026-08-15",
+  "weekEnd": "2026-08-31",
+  "lastUpdated": "2026-08-17",
   "events": [
-    {
-      "date": "2026-08-14",
-      "dayOfWeek": "금",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "AMAT",
-      "name": "어플라이드머티어리얼즈",
-      "marketCapRank": 65,
-      "quarter": "26Q2",
-      "epsForecast": "$3.39",
-      "epsActual": "$3.50",
-      "epsPreviousYoY": "$2.48",
-      "revenueForecast": "$10.29B",
-      "revenueActual": null,
-      "surprise": "+3.1%"
-    },
     {
       "date": "2026-08-18",
       "dayOfWeek": "화",
