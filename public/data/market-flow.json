@@ -1,118 +1,118 @@
 {
-  "date": "20260814",
+  "date": "20260818",
   "unit": "억원",
   "kospi": {
     "은행": {
-      "sell": 194.2,
-      "buy": 78.8,
-      "net": -115.5
+      "sell": 178.8,
+      "buy": 79.3,
+      "net": -99.5
     },
     "금융투자": {
-      "sell": 23749.3,
-      "buy": 12115.7,
-      "net": -11633.7
+      "sell": 18573.0,
+      "buy": 13100.4,
+      "net": -5472.6
     },
     "보험": {
-      "sell": 1494.1,
-      "buy": 1351.6,
-      "net": -142.5
+      "sell": 1179.9,
+      "buy": 795.4,
+      "net": -384.5
     },
     "투신": {
-      "sell": 5309.4,
-      "buy": 6356.0,
-      "net": 1046.6
+      "sell": 5086.3,
+      "buy": 3834.7,
+      "net": -1251.6
     },
     "사모": {
-      "sell": 4677.6,
-      "buy": 4641.9,
-      "net": -35.7
+      "sell": 4238.4,
+      "buy": 4272.9,
+      "net": 34.5
     },
     "기타금융": {
-      "sell": 46.6,
-      "buy": 238.1,
-      "net": 191.5
+      "sell": 233.1,
+      "buy": 262.0,
+      "net": 28.9
     },
     "연기금": {
-      "sell": 38214.0,
-      "buy": 38605.0,
-      "net": 391.0
+      "sell": 52515.8,
+      "buy": 51710.1,
+      "net": -805.7
     },
     "기관합계": {
-      "sell": 73685.3,
-      "buy": 63387.1,
-      "net": -10298.2
+      "sell": 82005.3,
+      "buy": 74054.8,
+      "net": -7950.5
     },
     "외국인": {
-      "sell": 98509.0,
-      "buy": 128995.4,
-      "net": 30486.4
+      "sell": 113802.1,
+      "buy": 114666.4,
+      "net": 864.3
     },
     "개인": {
-      "sell": 97442.5,
-      "buy": 77622.2,
-      "net": -19820.3
+      "sell": 97926.0,
+      "buy": 105335.9,
+      "net": 7410.0
     },
     "기타법인": {
-      "sell": 1995.2,
-      "buy": 1726.6,
-      "net": -268.6
+      "sell": 2562.0,
+      "buy": 2184.8,
+      "net": -377.2
     }
   },
   "kosdaq": {
     "은행": {
-      "sell": 0.2,
-      "buy": 0.1,
-      "net": -0.1
+      "sell": 1.1,
+      "buy": 0.2,
+      "net": -1.0
     },
     "금융투자": {
-      "sell": 4630.2,
-      "buy": 2507.4,
-      "net": -2122.9
+      "sell": 6155.2,
+      "buy": 2687.2,
+      "net": -3468.0
     },
     "보험": {
-      "sell": 258.5,
-      "buy": 155.6,
-      "net": -102.9
+      "sell": 177.0,
+      "buy": 75.3,
+      "net": -101.8
     },
     "투신": {
-      "sell": 1404.3,
-      "buy": 1206.3,
-      "net": -198.0
+      "sell": 1531.9,
+      "buy": 1305.8,
+      "net": -226.0
     },
     "사모": {
-      "sell": 1062.2,
-      "buy": 1044.6,
-      "net": -17.5
+      "sell": 1307.2,
+      "buy": 1204.8,
+      "net": -102.4
     },
     "기타금융": {
-      "sell": 8.8,
-      "buy": 8.2,
-      "net": -0.6
+      "sell": 72.0,
+      "buy": 3.8,
+      "net": -68.2
     },
     "연기금": {
-      "sell": 1086.4,
-      "buy": 1004.2,
-      "net": -82.2
+      "sell": 1501.7,
+      "buy": 1306.2,
+      "net": -195.5
     },
     "기관합계": {
-      "sell": 8450.8,
-      "buy": 5926.5,
-      "net": -2524.2
+      "sell": 10746.0,
+      "buy": 6583.3,
+      "net": -4162.7
     },
     "외국인": {
-      "sell": 19869.9,
-      "buy": 19196.3,
-      "net": -673.7
+      "sell": 21215.0,
+      "buy": 21601.2,
+      "net": 386.2
     },
     "개인": {
-      "sell": 46569.8,
-      "buy": 49714.6,
-      "net": 3144.9
+      "sell": 47627.7,
+      "buy": 51500.0,
+      "net": 3872.4
     },
     "기타법인": {
-      "sell": 518.5,
-      "buy": 556.5,
-      "net": 38.0
+      "sell": 675.4,
+      "buy": 581.8,
+      "net": -93.6
     }
   },
   "top": {
@@ -120,252 +120,252 @@
       "외국인": {
         "buy": [
           {
-            "code": "005930",
-            "name": "삼성전자",
-            "change_pct": 2.43,
-            "amount": 13386.1
-          },
-          {
             "code": "000660",
             "name": "SK하이닉스",
-            "change_pct": 3.26,
-            "amount": 12492.8
+            "change_pct": 1.03,
+            "amount": 7909.1
           },
           {
-            "code": "005935",
-            "name": "삼성전자우",
-            "change_pct": 4.15,
-            "amount": 2562.1
+            "code": "005930",
+            "name": "삼성전자",
+            "change_pct": -2.19,
+            "amount": 1766.9
           },
           {
-            "code": "005380",
-            "name": "현대차",
-            "change_pct": 8.24,
-            "amount": 421.3
+            "code": "402340",
+            "name": "SK스퀘어",
+            "change_pct": -1.65,
+            "amount": 497.1
           },
           {
-            "code": "066570",
-            "name": "LG전자",
-            "change_pct": 4.12,
-            "amount": 391.2
+            "code": "010120",
+            "name": "LS ELECTRIC",
+            "change_pct": 1.21,
+            "amount": 441.8
           },
           {
-            "code": "012450",
-            "name": "한화에어로스페이스",
-            "change_pct": -2.11,
-            "amount": 370.1
+            "code": "298040",
+            "name": "효성중공업",
+            "change_pct": 1.02,
+            "amount": 399.7
           },
           {
-            "code": "004370",
-            "name": "농심",
-            "change_pct": 12.32,
-            "amount": 269.8
+            "code": "042700",
+            "name": "한미반도체",
+            "change_pct": 0.0,
+            "amount": 327.0
           },
           {
-            "code": "009540",
-            "name": "HD한국조선해양",
-            "change_pct": 3.9,
-            "amount": 269.2
+            "code": "278470",
+            "name": "에이피알",
+            "change_pct": 1.54,
+            "amount": 274.5
           },
           {
-            "code": "088350",
-            "name": "한화생명",
-            "change_pct": 11.93,
-            "amount": 267.6
+            "code": "009830",
+            "name": "한화솔루션",
+            "change_pct": -3.95,
+            "amount": 200.1
           },
           {
-            "code": "003230",
-            "name": "삼양식품",
-            "change_pct": 4.18,
-            "amount": 265.0
+            "code": "068270",
+            "name": "셀트리온",
+            "change_pct": -2.74,
+            "amount": 192.4
+          },
+          {
+            "code": "007340",
+            "name": "DN오토모티브",
+            "change_pct": 6.62,
+            "amount": 159.4
           }
         ],
         "sell": [
           {
             "code": "009150",
             "name": "삼성전기",
-            "change_pct": 3.66,
-            "amount": -2787.2
+            "change_pct": -7.57,
+            "amount": -4187.0
           },
           {
-            "code": "078930",
-            "name": "GS",
-            "change_pct": 8.94,
-            "amount": -441.6
+            "code": "005935",
+            "name": "삼성전자우",
+            "change_pct": -3.73,
+            "amount": -1881.6
           },
           {
-            "code": "402340",
-            "name": "SK스퀘어",
-            "change_pct": 3.31,
-            "amount": -283.6
+            "code": "005380",
+            "name": "현대차",
+            "change_pct": -3.97,
+            "amount": -820.0
           },
           {
-            "code": "329180",
-            "name": "HD현대중공업",
-            "change_pct": 2.82,
-            "amount": -267.8
+            "code": "011070",
+            "name": "LG이노텍",
+            "change_pct": -3.21,
+            "amount": -522.7
           },
           {
-            "code": "307950",
-            "name": "현대오토에버",
-            "change_pct": 9.02,
-            "amount": -196.9
+            "code": "006400",
+            "name": "삼성SDI",
+            "change_pct": -5.43,
+            "amount": -350.8
           },
           {
-            "code": "042700",
-            "name": "한미반도체",
-            "change_pct": 1.33,
-            "amount": -138.3
+            "code": "064400",
+            "name": "LG씨엔에스",
+            "change_pct": -7.51,
+            "amount": -310.6
           },
           {
-            "code": "001820",
-            "name": "삼화콘덴서",
-            "change_pct": -0.29,
-            "amount": -137.9
-          },
-          {
-            "code": "017670",
-            "name": "SK텔레콤",
-            "change_pct": 10.32,
-            "amount": -126.9
-          },
-          {
-            "code": "032830",
-            "name": "삼성생명",
-            "change_pct": 3.26,
-            "amount": -126.6
+            "code": "066570",
+            "name": "LG전자",
+            "change_pct": -3.26,
+            "amount": -273.8
           },
           {
             "code": "034020",
             "name": "두산에너빌리티",
-            "change_pct": 2.1,
-            "amount": -115.2
+            "change_pct": -5.69,
+            "amount": -264.9
+          },
+          {
+            "code": "078930",
+            "name": "GS",
+            "change_pct": 1.97,
+            "amount": -233.6
+          },
+          {
+            "code": "0126Z0",
+            "name": "삼성에피스홀딩스",
+            "change_pct": -11.3,
+            "amount": -214.8
           }
         ]
       },
       "기관": {
         "buy": [
           {
-            "code": "402340",
-            "name": "SK스퀘어",
-            "change_pct": 3.31,
-            "amount": 463.9
-          },
-          {
-            "code": "329180",
-            "name": "HD현대중공업",
-            "change_pct": 2.82,
-            "amount": 398.3
+            "code": "011200",
+            "name": "HMM",
+            "change_pct": 6.59,
+            "amount": 418.4
           },
           {
             "code": "017670",
             "name": "SK텔레콤",
-            "change_pct": 10.32,
-            "amount": 391.0
+            "change_pct": -0.7,
+            "amount": 347.9
           },
           {
-            "code": "006400",
-            "name": "삼성SDI",
-            "change_pct": 5.95,
-            "amount": 378.4
+            "code": "007660",
+            "name": "이수페타시스",
+            "change_pct": 7.64,
+            "amount": 327.9
           },
           {
-            "code": "009150",
-            "name": "삼성전기",
-            "change_pct": 3.66,
-            "amount": 371.6
+            "code": "003230",
+            "name": "삼양식품",
+            "change_pct": 5.04,
+            "amount": 322.2
           },
           {
             "code": "078930",
             "name": "GS",
-            "change_pct": 8.94,
-            "amount": 324.3
+            "change_pct": 1.97,
+            "amount": 220.6
           },
           {
-            "code": "005380",
-            "name": "현대차",
-            "change_pct": 8.24,
-            "amount": 269.1
+            "code": "010950",
+            "name": "S-Oil",
+            "change_pct": 4.07,
+            "amount": 209.3
           },
           {
-            "code": "353200",
-            "name": "대덕전자",
-            "change_pct": 5.4,
-            "amount": 238.6
+            "code": "028260",
+            "name": "삼성물산",
+            "change_pct": 0.0,
+            "amount": 140.2
           },
           {
-            "code": "001450",
-            "name": "현대해상",
-            "change_pct": 5.59,
-            "amount": 200.6
+            "code": "034730",
+            "name": "SK",
+            "change_pct": 0.85,
+            "amount": 125.4
           },
           {
-            "code": "005830",
-            "name": "DB손해보험",
-            "change_pct": 6.12,
-            "amount": 142.4
+            "code": "000810",
+            "name": "삼성화재",
+            "change_pct": 1.79,
+            "amount": 124.7
+          },
+          {
+            "code": "042700",
+            "name": "한미반도체",
+            "change_pct": 0.0,
+            "amount": 118.4
           }
         ],
         "sell": [
           {
-            "code": "000660",
-            "name": "SK하이닉스",
-            "change_pct": 3.26,
-            "amount": -5515.8
-          },
-          {
             "code": "005930",
             "name": "삼성전자",
-            "change_pct": 2.43,
-            "amount": -4978.3
+            "change_pct": -2.19,
+            "amount": -2572.7
           },
           {
-            "code": "010120",
-            "name": "LS ELECTRIC",
-            "change_pct": -3.5,
-            "amount": -452.5
+            "code": "009150",
+            "name": "삼성전기",
+            "change_pct": -7.57,
+            "amount": -1686.6
           },
           {
-            "code": "298040",
-            "name": "효성중공업",
-            "change_pct": -2.09,
-            "amount": -386.7
+            "code": "000660",
+            "name": "SK하이닉스",
+            "change_pct": 1.03,
+            "amount": -1237.2
           },
           {
-            "code": "012450",
-            "name": "한화에어로스페이스",
-            "change_pct": -2.11,
-            "amount": -357.8
+            "code": "402340",
+            "name": "SK스퀘어",
+            "change_pct": -1.65,
+            "amount": -358.9
           },
           {
-            "code": "278470",
-            "name": "에이피알",
-            "change_pct": -2.25,
-            "amount": -252.9
+            "code": "373220",
+            "name": "LG에너지솔루션",
+            "change_pct": -5.01,
+            "amount": -304.8
           },
           {
-            "code": "015760",
-            "name": "한국전력",
-            "change_pct": 0.45,
-            "amount": -222.0
+            "code": "329180",
+            "name": "HD현대중공업",
+            "change_pct": -4.02,
+            "amount": -212.8
           },
           {
-            "code": "006260",
-            "name": "LS",
-            "change_pct": -0.77,
-            "amount": -188.9
+            "code": "068270",
+            "name": "셀트리온",
+            "change_pct": -2.74,
+            "amount": -191.1
           },
           {
-            "code": "105560",
-            "name": "KB금융",
-            "change_pct": 0.24,
-            "amount": -159.2
+            "code": "034020",
+            "name": "두산에너빌리티",
+            "change_pct": -5.69,
+            "amount": -167.6
           },
           {
-            "code": "000150",
-            "name": "두산",
-            "change_pct": 1.11,
+            "code": "042660",
+            "name": "한화오션",
+            "change_pct": -5.11,
             "amount": -155.9
+          },
+          {
+            "code": "007340",
+            "name": "DN오토모티브",
+            "change_pct": 6.62,
+            "amount": -155.5
           }
         ]
       },
@@ -374,124 +374,124 @@
           {
             "code": "009150",
             "name": "삼성전기",
-            "change_pct": 3.66,
-            "amount": 2362.6
-          },
-          {
-            "code": "010120",
-            "name": "LS ELECTRIC",
-            "change_pct": -3.5,
-            "amount": 544.8
-          },
-          {
-            "code": "298040",
-            "name": "효성중공업",
-            "change_pct": -2.09,
-            "amount": 243.4
-          },
-          {
-            "code": "034020",
-            "name": "두산에너빌리티",
-            "change_pct": 2.1,
-            "amount": 219.7
-          },
-          {
-            "code": "307950",
-            "name": "현대오토에버",
-            "change_pct": 9.02,
-            "amount": 182.4
-          },
-          {
-            "code": "042700",
-            "name": "한미반도체",
-            "change_pct": 1.33,
-            "amount": 145.5
-          },
-          {
-            "code": "007660",
-            "name": "이수페타시스",
-            "change_pct": -1.24,
-            "amount": 141.9
-          },
-          {
-            "code": "015760",
-            "name": "한국전력",
-            "change_pct": 0.45,
-            "amount": 129.7
-          },
-          {
-            "code": "047810",
-            "name": "한국항공우주",
-            "change_pct": -3.17,
-            "amount": 125.9
-          },
-          {
-            "code": "062040",
-            "name": "산일전기",
-            "change_pct": -2.93,
-            "amount": 121.3
-          }
-        ],
-        "sell": [
-          {
-            "code": "005930",
-            "name": "삼성전자",
-            "change_pct": 2.43,
-            "amount": -8293.3
-          },
-          {
-            "code": "000660",
-            "name": "SK하이닉스",
-            "change_pct": 3.26,
-            "amount": -6586.7
+            "change_pct": -7.57,
+            "amount": 5823.5
           },
           {
             "code": "005935",
             "name": "삼성전자우",
-            "change_pct": 4.15,
-            "amount": -2621.7
+            "change_pct": -3.73,
+            "amount": 1755.5
+          },
+          {
+            "code": "005930",
+            "name": "삼성전자",
+            "change_pct": -2.19,
+            "amount": 936.2
           },
           {
             "code": "005380",
             "name": "현대차",
-            "change_pct": 8.24,
-            "amount": -732.9
+            "change_pct": -3.97,
+            "amount": 803.0
+          },
+          {
+            "code": "011070",
+            "name": "LG이노텍",
+            "change_pct": -3.21,
+            "amount": 657.9
+          },
+          {
+            "code": "064400",
+            "name": "LG씨엔에스",
+            "change_pct": -7.51,
+            "amount": 442.8
           },
           {
             "code": "006400",
             "name": "삼성SDI",
-            "change_pct": 5.95,
-            "amount": -437.8
+            "change_pct": -5.43,
+            "amount": 442.4
+          },
+          {
+            "code": "034020",
+            "name": "두산에너빌리티",
+            "change_pct": -5.69,
+            "amount": 439.8
           },
           {
             "code": "066570",
             "name": "LG전자",
-            "change_pct": 4.12,
-            "amount": -389.8
+            "change_pct": -3.26,
+            "amount": 397.2
           },
           {
-            "code": "004370",
-            "name": "농심",
-            "change_pct": 12.32,
-            "amount": -310.5
+            "code": "010140",
+            "name": "삼성중공업",
+            "change_pct": -4.71,
+            "amount": 319.7
+          }
+        ],
+        "sell": [
+          {
+            "code": "000660",
+            "name": "SK하이닉스",
+            "change_pct": 1.03,
+            "amount": -6462.4
+          },
+          {
+            "code": "011200",
+            "name": "HMM",
+            "change_pct": 6.59,
+            "amount": -481.1
+          },
+          {
+            "code": "042700",
+            "name": "한미반도체",
+            "change_pct": 0.0,
+            "amount": -440.9
+          },
+          {
+            "code": "010120",
+            "name": "LS ELECTRIC",
+            "change_pct": 1.21,
+            "amount": -430.9
+          },
+          {
+            "code": "007660",
+            "name": "이수페타시스",
+            "change_pct": 7.64,
+            "amount": -374.7
           },
           {
             "code": "003230",
             "name": "삼양식품",
-            "change_pct": 4.18,
-            "amount": -293.0
+            "change_pct": 5.04,
+            "amount": -291.2
           },
           {
-            "code": "012330",
-            "name": "현대모비스",
-            "change_pct": 7.05,
-            "amount": -281.3
+            "code": "298040",
+            "name": "효성중공업",
+            "change_pct": 1.02,
+            "amount": -249.4
           },
           {
-            "code": "088350",
-            "name": "한화생명",
-            "change_pct": 11.93,
-            "amount": -279.6
+            "code": "001450",
+            "name": "현대해상",
+            "change_pct": 9.59,
+            "amount": -208.7
+          },
+          {
+            "code": "017670",
+            "name": "SK텔레콤",
+            "change_pct": -0.7,
+            "amount": -207.0
+          },
+          {
+            "code": "096770",
+            "name": "SK이노베이션",
+            "change_pct": 2.18,
+            "amount": -175.3
           }
         ]
       }
@@ -500,126 +500,126 @@
       "외국인": {
         "buy": [
           {
-            "code": "196170",
-            "name": "알테오젠",
-            "change_pct": -1.1,
-            "amount": 179.3
-          },
-          {
-            "code": "440110",
-            "name": "파두",
-            "change_pct": 3.97,
-            "amount": 169.7
-          },
-          {
-            "code": "241710",
-            "name": "코스메카코리아",
-            "change_pct": 2.17,
-            "amount": 142.3
-          },
-          {
-            "code": "257720",
-            "name": "실리콘투",
-            "change_pct": 5.02,
-            "amount": 132.9
-          },
-          {
-            "code": "466100",
-            "name": "클로봇",
-            "change_pct": 13.74,
-            "amount": 112.9
-          },
-          {
-            "code": "178320",
-            "name": "서진시스템",
-            "change_pct": 0.0,
-            "amount": 78.8
-          },
-          {
-            "code": "319660",
-            "name": "피에스케이",
-            "change_pct": -0.37,
-            "amount": 76.5
+            "code": "403870",
+            "name": "HPSP",
+            "change_pct": 5.57,
+            "amount": 388.1
           },
           {
             "code": "222800",
             "name": "심텍",
-            "change_pct": 2.74,
-            "amount": 70.2
-          },
-          {
-            "code": "089970",
-            "name": "브이엠",
-            "change_pct": -0.44,
-            "amount": 61.6
+            "change_pct": 2.02,
+            "amount": 310.5
           },
           {
             "code": "214450",
             "name": "파마리서치",
-            "change_pct": -6.46,
-            "amount": 57.8
-          }
-        ],
-        "sell": [
-          {
-            "code": "080220",
-            "name": "제주반도체",
-            "change_pct": -7.7,
-            "amount": -330.5
+            "change_pct": -1.26,
+            "amount": 221.6
           },
           {
-            "code": "950160",
-            "name": "코오롱티슈진",
-            "change_pct": 11.52,
-            "amount": -222.5
-          },
-          {
-            "code": "039030",
-            "name": "이오테크닉스",
-            "change_pct": 6.74,
-            "amount": -198.1
-          },
-          {
-            "code": "027360",
-            "name": "아주IB투자",
-            "change_pct": -10.58,
-            "amount": -175.8
+            "code": "196170",
+            "name": "알테오젠",
+            "change_pct": -5.1,
+            "amount": 208.8
           },
           {
             "code": "036930",
             "name": "주성엔지니어링",
-            "change_pct": -0.84,
-            "amount": -157.0
+            "change_pct": 0.84,
+            "amount": 171.2
           },
           {
-            "code": "083650",
-            "name": "비에이치아이",
-            "change_pct": 8.5,
-            "amount": -121.8
+            "code": "080220",
+            "name": "제주반도체",
+            "change_pct": -6.99,
+            "amount": 168.3
           },
           {
-            "code": "064760",
-            "name": "티씨케이",
-            "change_pct": 7.49,
-            "amount": -79.4
+            "code": "095610",
+            "name": "테스",
+            "change_pct": -3.05,
+            "amount": 127.4
           },
           {
-            "code": "214150",
-            "name": "클래시스",
-            "change_pct": -5.54,
-            "amount": -79.0
+            "code": "240810",
+            "name": "원익IPS",
+            "change_pct": -3.6,
+            "amount": 114.6
           },
           {
-            "code": "403870",
-            "name": "HPSP",
-            "change_pct": -1.94,
-            "amount": -73.2
+            "code": "141080",
+            "name": "리가켐바이오",
+            "change_pct": -7.73,
+            "amount": 114.3
           },
           {
-            "code": "000250",
-            "name": "삼천당제약",
-            "change_pct": -0.42,
-            "amount": -63.0
+            "code": "226950",
+            "name": "올릭스",
+            "change_pct": -4.91,
+            "amount": 87.1
+          }
+        ],
+        "sell": [
+          {
+            "code": "108490",
+            "name": "로보티즈",
+            "change_pct": -0.36,
+            "amount": -160.1
+          },
+          {
+            "code": "950160",
+            "name": "코오롱티슈진",
+            "change_pct": -3.33,
+            "amount": -156.8
+          },
+          {
+            "code": "039030",
+            "name": "이오테크닉스",
+            "change_pct": 2.48,
+            "amount": -155.1
+          },
+          {
+            "code": "025980",
+            "name": "아난티",
+            "change_pct": 13.92,
+            "amount": -133.2
+          },
+          {
+            "code": "019210",
+            "name": "와이지-원",
+            "change_pct": -13.4,
+            "amount": -118.9
+          },
+          {
+            "code": "257720",
+            "name": "실리콘투",
+            "change_pct": 3.85,
+            "amount": -115.0
+          },
+          {
+            "code": "277810",
+            "name": "레인보우로보틱스",
+            "change_pct": -6.19,
+            "amount": -78.6
+          },
+          {
+            "code": "319400",
+            "name": "현대무벡스",
+            "change_pct": -10.36,
+            "amount": -77.8
+          },
+          {
+            "code": "950260",
+            "name": "인제니아테라퓨틱스(Reg.S)",
+            "change_pct": 49.92,
+            "amount": -68.3
+          },
+          {
+            "code": "090360",
+            "name": "로보스타",
+            "change_pct": -4.42,
+            "amount": -66.3
           }
         ]
       },
@@ -628,250 +628,250 @@
           {
             "code": "039030",
             "name": "이오테크닉스",
-            "change_pct": 6.74,
-            "amount": 193.2
+            "change_pct": 2.48,
+            "amount": 204.7
           },
           {
-            "code": "058610",
-            "name": "에스피지",
-            "change_pct": 5.7,
-            "amount": 157.5
-          },
-          {
-            "code": "083650",
-            "name": "비에이치아이",
-            "change_pct": 8.5,
-            "amount": 152.7
-          },
-          {
-            "code": "108490",
-            "name": "로보티즈",
-            "change_pct": 7.28,
-            "amount": 146.0
-          },
-          {
-            "code": "064760",
-            "name": "티씨케이",
-            "change_pct": 7.49,
-            "amount": 97.5
+            "code": "377450",
+            "name": "리파인",
+            "change_pct": 17.89,
+            "amount": 78.5
           },
           {
             "code": "257720",
             "name": "실리콘투",
-            "change_pct": 5.02,
-            "amount": 78.7
+            "change_pct": 3.85,
+            "amount": 67.6
           },
           {
-            "code": "277810",
-            "name": "레인보우로보틱스",
-            "change_pct": 0.8,
-            "amount": 34.1
+            "code": "064290",
+            "name": "인텍플러스",
+            "change_pct": 17.31,
+            "amount": 60.0
           },
           {
-            "code": "131290",
-            "name": "티에스이",
-            "change_pct": 0.39,
-            "amount": 27.2
+            "code": "440110",
+            "name": "파두",
+            "change_pct": 4.27,
+            "amount": 58.5
           },
           {
-            "code": "468530",
-            "name": "프로티나",
-            "change_pct": 9.14,
-            "amount": 24.8
+            "code": "356860",
+            "name": "티엘비",
+            "change_pct": 9.39,
+            "amount": 57.9
           },
           {
-            "code": "456160",
-            "name": "지투지바이오",
-            "change_pct": 3.52,
-            "amount": 22.9
+            "code": "031980",
+            "name": "피에스케이홀딩스",
+            "change_pct": 0.45,
+            "amount": 51.0
+          },
+          {
+            "code": "119850",
+            "name": "지엔씨에너지",
+            "change_pct": -1.82,
+            "amount": 48.9
+          },
+          {
+            "code": "263750",
+            "name": "펄어비스",
+            "change_pct": -2.24,
+            "amount": 48.7
+          },
+          {
+            "code": "095340",
+            "name": "ISC",
+            "change_pct": 3.6,
+            "amount": 43.5
           }
         ],
         "sell": [
           {
             "code": "196170",
             "name": "알테오젠",
-            "change_pct": -1.1,
-            "amount": -312.6
+            "change_pct": -5.1,
+            "amount": -370.5
+          },
+          {
+            "code": "086520",
+            "name": "에코프로",
+            "change_pct": -6.94,
+            "amount": -217.6
+          },
+          {
+            "code": "108490",
+            "name": "로보티즈",
+            "change_pct": -0.36,
+            "amount": -175.3
+          },
+          {
+            "code": "141080",
+            "name": "리가켐바이오",
+            "change_pct": -7.73,
+            "amount": -168.2
+          },
+          {
+            "code": "950260",
+            "name": "인제니아테라퓨틱스(Reg.S)",
+            "change_pct": 49.92,
+            "amount": -164.5
           },
           {
             "code": "080220",
             "name": "제주반도체",
-            "change_pct": -7.7,
-            "amount": -293.8
+            "change_pct": -6.99,
+            "amount": -161.2
           },
           {
             "code": "214450",
             "name": "파마리서치",
-            "change_pct": -6.46,
-            "amount": -261.4
+            "change_pct": -1.26,
+            "amount": -157.0
           },
           {
-            "code": "240810",
-            "name": "원익IPS",
-            "change_pct": -2.83,
-            "amount": -182.4
+            "code": "247540",
+            "name": "에코프로비엠",
+            "change_pct": -6.51,
+            "amount": -153.8
           },
           {
-            "code": "241710",
-            "name": "코스메카코리아",
-            "change_pct": 2.17,
-            "amount": -111.4
-          },
-          {
-            "code": "319660",
-            "name": "피에스케이",
-            "change_pct": -0.37,
-            "amount": -103.7
-          },
-          {
-            "code": "226950",
-            "name": "올릭스",
-            "change_pct": -0.44,
-            "amount": -93.3
+            "code": "277810",
+            "name": "레인보우로보틱스",
+            "change_pct": -6.19,
+            "amount": -150.2
           },
           {
             "code": "036930",
             "name": "주성엔지니어링",
-            "change_pct": -0.84,
-            "amount": -90.5
-          },
-          {
-            "code": "298380",
-            "name": "에이비엘바이오",
-            "change_pct": -3.11,
-            "amount": -87.7
-          },
-          {
-            "code": "089970",
-            "name": "브이엠",
-            "change_pct": -0.44,
-            "amount": -84.7
+            "change_pct": 0.84,
+            "amount": -140.9
           }
         ]
       },
       "개인": {
         "buy": [
           {
-            "code": "080220",
-            "name": "제주반도체",
-            "change_pct": -7.7,
-            "amount": 642.7
-          },
-          {
-            "code": "036930",
-            "name": "주성엔지니어링",
-            "change_pct": -0.84,
-            "amount": 249.8
-          },
-          {
-            "code": "950160",
-            "name": "코오롱티슈진",
-            "change_pct": 11.52,
-            "amount": 214.1
-          },
-          {
-            "code": "214450",
-            "name": "파마리서치",
-            "change_pct": -6.46,
-            "amount": 202.5
-          },
-          {
-            "code": "240810",
-            "name": "원익IPS",
-            "change_pct": -2.83,
-            "amount": 191.7
-          },
-          {
-            "code": "027360",
-            "name": "아주IB투자",
-            "change_pct": -10.58,
-            "amount": 185.0
-          },
-          {
-            "code": "403870",
-            "name": "HPSP",
-            "change_pct": -1.94,
-            "amount": 142.0
-          },
-          {
-            "code": "196170",
-            "name": "알테오젠",
-            "change_pct": -1.1,
-            "amount": 129.2
-          },
-          {
-            "code": "214150",
-            "name": "클래시스",
-            "change_pct": -5.54,
-            "amount": 115.9
-          },
-          {
-            "code": "000250",
-            "name": "삼천당제약",
-            "change_pct": -0.42,
-            "amount": 96.1
-          }
-        ],
-        "sell": [
-          {
-            "code": "257720",
-            "name": "실리콘투",
-            "change_pct": 5.02,
-            "amount": -220.8
-          },
-          {
-            "code": "058610",
-            "name": "에스피지",
-            "change_pct": 5.7,
-            "amount": -177.1
-          },
-          {
-            "code": "440110",
-            "name": "파두",
-            "change_pct": 3.97,
-            "amount": -176.6
-          },
-          {
             "code": "108490",
             "name": "로보티즈",
-            "change_pct": 7.28,
-            "amount": -117.5
+            "change_pct": -0.36,
+            "amount": 339.7
           },
           {
-            "code": "466100",
-            "name": "클로봇",
-            "change_pct": 13.74,
-            "amount": -73.8
+            "code": "950260",
+            "name": "인제니아테라퓨틱스(Reg.S)",
+            "change_pct": 49.92,
+            "amount": 264.4
           },
           {
-            "code": "237880",
-            "name": "클리오",
-            "change_pct": 23.74,
-            "amount": -44.4
+            "code": "086520",
+            "name": "에코프로",
+            "change_pct": -6.94,
+            "amount": 235.5
           },
           {
             "code": "277810",
             "name": "레인보우로보틱스",
-            "change_pct": 0.8,
-            "amount": -36.0
+            "change_pct": -6.19,
+            "amount": 226.5
           },
           {
-            "code": "448900",
-            "name": "한국피아이엠",
-            "change_pct": 15.24,
-            "amount": -33.5
+            "code": "058610",
+            "name": "에스피지",
+            "change_pct": -8.94,
+            "amount": 196.2
           },
           {
-            "code": "241710",
-            "name": "코스메카코리아",
-            "change_pct": 2.17,
-            "amount": -31.6
+            "code": "196170",
+            "name": "알테오젠",
+            "change_pct": -5.1,
+            "amount": 188.1
           },
           {
-            "code": "131290",
-            "name": "티에스이",
-            "change_pct": 0.39,
-            "amount": -31.5
+            "code": "058470",
+            "name": "리노공업",
+            "change_pct": -4.24,
+            "amount": 164.9
+          },
+          {
+            "code": "035900",
+            "name": "JYP Ent.",
+            "change_pct": -4.14,
+            "amount": 159.3
+          },
+          {
+            "code": "247540",
+            "name": "에코프로비엠",
+            "change_pct": -6.51,
+            "amount": 158.2
+          },
+          {
+            "code": "950160",
+            "name": "코오롱티슈진",
+            "change_pct": -3.33,
+            "amount": 157.9
+          }
+        ],
+        "sell": [
+          {
+            "code": "403870",
+            "name": "HPSP",
+            "change_pct": 5.57,
+            "amount": -280.6
+          },
+          {
+            "code": "222800",
+            "name": "심텍",
+            "change_pct": 2.02,
+            "amount": -199.7
+          },
+          {
+            "code": "377450",
+            "name": "리파인",
+            "change_pct": 17.89,
+            "amount": -121.6
+          },
+          {
+            "code": "440110",
+            "name": "파두",
+            "change_pct": 4.27,
+            "amount": -87.6
+          },
+          {
+            "code": "214450",
+            "name": "파마리서치",
+            "change_pct": -1.26,
+            "amount": -63.2
+          },
+          {
+            "code": "064290",
+            "name": "인텍플러스",
+            "change_pct": 17.31,
+            "amount": -59.6
+          },
+          {
+            "code": "095340",
+            "name": "ISC",
+            "change_pct": 3.6,
+            "amount": -55.5
+          },
+          {
+            "code": "089030",
+            "name": "테크윙",
+            "change_pct": 0.1,
+            "amount": -54.4
+          },
+          {
+            "code": "039030",
+            "name": "이오테크닉스",
+            "change_pct": 2.48,
+            "amount": -47.4
+          },
+          {
+            "code": "095610",
+            "name": "테스",
+            "change_pct": -3.05,
+            "amount": -46.7
           }
         ]
       }
@@ -880,226 +880,226 @@
   "sectors": {
     "kospi": [
       {
-        "code": "1020",
-        "name": "통신",
-        "change_pct": 6.1
-      },
-      {
-        "code": "1015",
-        "name": "운송장비·부품",
-        "change_pct": 3.58
-      },
-      {
         "code": "1025",
         "name": "보험",
-        "change_pct": 3.47
-      },
-      {
-        "code": "1005",
-        "name": "음식료·담배",
-        "change_pct": 3.1
-      },
-      {
-        "code": "1013",
-        "name": "전기전자",
-        "change_pct": 2.68
-      },
-      {
-        "code": "1021",
-        "name": "금융",
-        "change_pct": 2.35
-      },
-      {
-        "code": "1045",
-        "name": "부동산",
-        "change_pct": 2.23
-      },
-      {
-        "code": "1046",
-        "name": "IT 서비스",
-        "change_pct": 2.18
+        "change_pct": 2.6
       },
       {
         "code": "1019",
         "name": "운송·창고",
-        "change_pct": 1.82
+        "change_pct": 1.16
       },
       {
-        "code": "1047",
-        "name": "오락·문화",
-        "change_pct": 1.75
-      },
-      {
-        "code": "1012",
-        "name": "기계·장비",
-        "change_pct": 1.52
-      },
-      {
-        "code": "1008",
-        "name": "화학",
-        "change_pct": 1.4
+        "code": "1020",
+        "name": "통신",
+        "change_pct": 0.05
       },
       {
         "code": "1007",
         "name": "종이·목재",
-        "change_pct": 1.19
+        "change_pct": -0.23
       },
       {
-        "code": "1016",
-        "name": "유통",
-        "change_pct": 1.15
+        "code": "1005",
+        "name": "음식료·담배",
+        "change_pct": -0.55
+      },
+      {
+        "code": "1045",
+        "name": "부동산",
+        "change_pct": -0.76
       },
       {
         "code": "1010",
         "name": "비금속",
-        "change_pct": 0.85
+        "change_pct": -0.87
       },
       {
-        "code": "1017",
-        "name": "전기·가스",
-        "change_pct": 0.84
+        "code": "1016",
+        "name": "유통",
+        "change_pct": -0.87
       },
       {
-        "code": "1026",
-        "name": "일반서비스",
-        "change_pct": 0.66
+        "code": "1021",
+        "name": "금융",
+        "change_pct": -0.95
       },
       {
-        "code": "1024",
-        "name": "증권",
-        "change_pct": 0.57
-      },
-      {
-        "code": "1018",
-        "name": "건설",
-        "change_pct": 0.31
+        "code": "1008",
+        "name": "화학",
+        "change_pct": -1.11
       },
       {
         "code": "1006",
         "name": "섬유·의류",
-        "change_pct": -0.14
+        "change_pct": -1.22
       },
       {
-        "code": "1014",
-        "name": "의료·정밀기기",
-        "change_pct": -0.32
+        "code": "1013",
+        "name": "전기전자",
+        "change_pct": -1.28
       },
       {
         "code": "1011",
         "name": "금속",
-        "change_pct": -0.34
+        "change_pct": -1.34
+      },
+      {
+        "code": "1026",
+        "name": "일반서비스",
+        "change_pct": -1.68
+      },
+      {
+        "code": "1017",
+        "name": "전기·가스",
+        "change_pct": -1.72
       },
       {
         "code": "1009",
         "name": "제약",
-        "change_pct": -0.52
+        "change_pct": -2.08
+      },
+      {
+        "code": "1047",
+        "name": "오락·문화",
+        "change_pct": -3.05
+      },
+      {
+        "code": "1014",
+        "name": "의료·정밀기기",
+        "change_pct": -3.08
+      },
+      {
+        "code": "1018",
+        "name": "건설",
+        "change_pct": -3.5
+      },
+      {
+        "code": "1015",
+        "name": "운송장비·부품",
+        "change_pct": -3.71
+      },
+      {
+        "code": "1012",
+        "name": "기계·장비",
+        "change_pct": -3.9
+      },
+      {
+        "code": "1024",
+        "name": "증권",
+        "change_pct": -4.09
+      },
+      {
+        "code": "1046",
+        "name": "IT 서비스",
+        "change_pct": -5.36
       }
     ],
     "kosdaq": [
       {
-        "code": "2029",
-        "name": "운송·창고",
-        "change_pct": 3.55
-      },
-      {
-        "code": "2067",
-        "name": "비금속",
-        "change_pct": 3.04
-      },
-      {
-        "code": "2075",
-        "name": "운송장비·부품",
-        "change_pct": 2.89
-      },
-      {
         "code": "2058",
         "name": "섬유·의류",
-        "change_pct": 1.63
-      },
-      {
-        "code": "2027",
-        "name": "유통",
-        "change_pct": 1.54
-      },
-      {
-        "code": "2070",
-        "name": "기계·장비",
-        "change_pct": 1.48
-      },
-      {
-        "code": "2077",
-        "name": "기타제조",
-        "change_pct": 0.99
-      },
-      {
-        "code": "2031",
-        "name": "금융",
-        "change_pct": 0.98
+        "change_pct": 4.84
       },
       {
         "code": "2114",
         "name": "통신",
-        "change_pct": 0.8
-      },
-      {
-        "code": "2037",
-        "name": "오락·문화",
-        "change_pct": 0.71
-      },
-      {
-        "code": "2118",
-        "name": "IT 서비스",
-        "change_pct": 0.64
-      },
-      {
-        "code": "2065",
-        "name": "화학",
-        "change_pct": 0.31
-      },
-      {
-        "code": "2072",
-        "name": "전기전자",
-        "change_pct": 0.14
-      },
-      {
-        "code": "2074",
-        "name": "의료·정밀기기",
-        "change_pct": 0.12
-      },
-      {
-        "code": "2068",
-        "name": "금속",
-        "change_pct": 0.08
-      },
-      {
-        "code": "2056",
-        "name": "음식료·담배",
-        "change_pct": 0.03
-      },
-      {
-        "code": "2062",
-        "name": "종이·목재",
-        "change_pct": -0.08
+        "change_pct": 0.23
       },
       {
         "code": "2063",
         "name": "출판·매체복제",
-        "change_pct": -0.11
+        "change_pct": -0.59
       },
       {
-        "code": "2012",
-        "name": "일반서비스",
-        "change_pct": -0.62
+        "code": "2077",
+        "name": "기타제조",
+        "change_pct": -0.82
       },
       {
-        "code": "2066",
-        "name": "제약",
-        "change_pct": -0.96
+        "code": "2027",
+        "name": "유통",
+        "change_pct": -0.88
+      },
+      {
+        "code": "2029",
+        "name": "운송·창고",
+        "change_pct": -1.9
+      },
+      {
+        "code": "2070",
+        "name": "기계·장비",
+        "change_pct": -2.26
+      },
+      {
+        "code": "2062",
+        "name": "종이·목재",
+        "change_pct": -2.46
+      },
+      {
+        "code": "2065",
+        "name": "화학",
+        "change_pct": -2.67
       },
       {
         "code": "2026",
         "name": "건설",
-        "change_pct": -1.05
+        "change_pct": -2.68
+      },
+      {
+        "code": "2056",
+        "name": "음식료·담배",
+        "change_pct": -2.75
+      },
+      {
+        "code": "2072",
+        "name": "전기전자",
+        "change_pct": -3.41
+      },
+      {
+        "code": "2118",
+        "name": "IT 서비스",
+        "change_pct": -3.8
+      },
+      {
+        "code": "2074",
+        "name": "의료·정밀기기",
+        "change_pct": -3.84
+      },
+      {
+        "code": "2075",
+        "name": "운송장비·부품",
+        "change_pct": -3.91
+      },
+      {
+        "code": "2037",
+        "name": "오락·문화",
+        "change_pct": -3.94
+      },
+      {
+        "code": "2066",
+        "name": "제약",
+        "change_pct": -3.98
+      },
+      {
+        "code": "2067",
+        "name": "비금속",
+        "change_pct": -4.95
+      },
+      {
+        "code": "2012",
+        "name": "일반서비스",
+        "change_pct": -5.01
+      },
+      {
+        "code": "2068",
+        "name": "금속",
+        "change_pct": -5.22
+      },
+      {
+        "code": "2031",
+        "name": "금융",
+        "change_pct": -5.77
       }
     ]
   }
