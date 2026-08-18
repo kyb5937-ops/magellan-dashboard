@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-08-15",
-  "weekEnd": "2026-08-31",
-  "lastUpdated": "2026-08-17",
+  "weekStart": "2026-08-16",
+  "weekEnd": "2026-09-01",
+  "lastUpdated": "2026-08-18",
   "events": [
     {
       "date": "2026-08-18",
@@ -15,7 +15,7 @@
       "epsForecast": "$4.69",
       "epsActual": null,
       "epsPreviousYoY": "$4.68",
-      "revenueForecast": "$47.24B",
+      "revenueForecast": "$47.23B",
       "revenueActual": null,
       "surprise": null
     },
@@ -31,7 +31,7 @@
       "epsForecast": "$1.19",
       "epsActual": null,
       "epsPreviousYoY": "$1.10",
-      "revenueForecast": "$15.18B",
+      "revenueForecast": "$15.17B",
       "revenueActual": null,
       "surprise": null
     },
@@ -63,7 +63,7 @@
       "epsForecast": "$0.74",
       "epsActual": null,
       "epsPreviousYoY": "$0.68",
-      "revenueForecast": "$186.89B",
+      "revenueForecast": "$186.82B",
       "revenueActual": null,
       "surprise": null
     },
@@ -111,7 +111,7 @@
       "epsForecast": "$2.08",
       "epsActual": null,
       "epsPreviousYoY": "$1.05",
-      "revenueForecast": "$91.96B",
+      "revenueForecast": "$91.94B",
       "revenueActual": null,
       "surprise": null
     },
