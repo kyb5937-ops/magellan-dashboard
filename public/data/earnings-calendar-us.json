@@ -29,11 +29,11 @@
       "marketCapRank": 76,
       "quarter": "26Q2",
       "epsForecast": "$1.19",
-      "epsActual": null,
+      "epsActual": "$1.36",
       "epsPreviousYoY": "$1.10",
-      "revenueForecast": "$15.17B",
+      "revenueForecast": "$15.16B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+14.5%"
     },
     {
       "date": "2026-08-19",
@@ -44,12 +44,12 @@
       "name": "아날로그디바이스",
       "marketCapRank": 92,
       "quarter": "26Q2",
-      "epsForecast": "$3.33",
-      "epsActual": null,
+      "epsForecast": "$3.34",
+      "epsActual": "$3.45",
       "epsPreviousYoY": "$2.05",
       "revenueForecast": "$3.93B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+3.3%"
     },
     {
       "date": "2026-08-20",
