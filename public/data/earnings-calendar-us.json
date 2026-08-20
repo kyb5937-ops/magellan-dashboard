@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-08-17",
-  "weekEnd": "2026-09-02",
-  "lastUpdated": "2026-08-19",
+  "weekStart": "2026-08-18",
+  "weekEnd": "2026-09-03",
+  "lastUpdated": "2026-08-20",
   "events": [
     {
       "date": "2026-08-18",
@@ -144,6 +144,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$0.95",
       "revenueForecast": "$3.35B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-09-03",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "AVGO",
+      "name": "브로드컴",
+      "marketCapRank": 8,
+      "quarter": "26Q2",
+      "epsForecast": "$3.24",
+      "epsActual": null,
+      "epsPreviousYoY": "$1.69",
+      "revenueForecast": "$29.44B",
       "revenueActual": null,
       "surprise": null
     }
