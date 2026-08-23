@@ -1,40 +1,8 @@
 {
-  "weekStart": "2026-08-20",
-  "weekEnd": "2026-09-05",
-  "lastUpdated": "2026-08-22",
+  "weekStart": "2026-08-21",
+  "weekEnd": "2026-09-06",
+  "lastUpdated": "2026-08-23",
   "events": [
-    {
-      "date": "2026-08-20",
-      "dayOfWeek": "목",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "WMT",
-      "name": "월마트",
-      "marketCapRank": 11,
-      "quarter": "26Q2",
-      "epsForecast": "$0.74",
-      "epsActual": "$0.81",
-      "epsPreviousYoY": "$0.68",
-      "revenueForecast": "$187.17B",
-      "revenueActual": null,
-      "surprise": "+9.3%"
-    },
-    {
-      "date": "2026-08-20",
-      "dayOfWeek": "목",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "DE",
-      "name": "디어",
-      "marketCapRank": 69,
-      "quarter": "26Q2",
-      "epsForecast": "$4.71",
-      "epsActual": "$5.10",
-      "epsPreviousYoY": "$4.75",
-      "revenueForecast": "$10.46B",
-      "revenueActual": null,
-      "surprise": "+8.3%"
-    },
     {
       "date": "2026-08-26",
       "dayOfWeek": "수",
