@@ -1,8 +1,24 @@
 {
-  "weekStart": "2026-08-23",
-  "weekEnd": "2026-09-08",
-  "lastUpdated": "2026-08-25",
+  "weekStart": "2026-08-24",
+  "weekEnd": "2026-09-09",
+  "lastUpdated": "2026-08-26",
   "events": [
+    {
+      "date": "2026-08-26",
+      "dayOfWeek": "수",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "INTU",
+      "name": "인튜이트",
+      "marketCapRank": 60,
+      "quarter": "26Q2",
+      "epsForecast": "$3.59",
+      "epsActual": "$4.03",
+      "epsPreviousYoY": "$2.75",
+      "revenueForecast": "$4.27B",
+      "revenueActual": null,
+      "surprise": "+12.3%"
+    },
     {
       "date": "2026-08-27",
       "dayOfWeek": "목",
