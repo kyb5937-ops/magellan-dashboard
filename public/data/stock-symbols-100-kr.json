@@ -53,14 +53,14 @@
     },
     {
       "rank": 9,
-      "symbol": "028260",
-      "name": "삼성물산",
+      "symbol": "105560",
+      "name": "KB금융",
       "market": "KOSPI"
     },
     {
       "rank": 10,
-      "symbol": "105560",
-      "name": "KB금융",
+      "symbol": "028260",
+      "name": "삼성물산",
       "market": "KOSPI"
     },
     {
@@ -197,14 +197,14 @@
     },
     {
       "rank": 33,
-      "symbol": "042700",
-      "name": "한미반도체",
+      "symbol": "017670",
+      "name": "SK텔레콤",
       "market": "KOSPI"
     },
     {
       "rank": 34,
-      "symbol": "017670",
-      "name": "SK텔레콤",
+      "symbol": "042700",
+      "name": "한미반도체",
       "market": "KOSPI"
     },
     {
@@ -293,14 +293,14 @@
     },
     {
       "rank": 49,
-      "symbol": "003670",
-      "name": "포스코퓨처엠",
+      "symbol": "024110",
+      "name": "기업은행",
       "market": "KOSPI"
     },
     {
       "rank": 50,
-      "symbol": "024110",
-      "name": "기업은행",
+      "symbol": "003670",
+      "name": "포스코퓨처엠",
       "market": "KOSPI"
     },
     {
@@ -329,14 +329,14 @@
     },
     {
       "rank": 55,
-      "symbol": "011070",
-      "name": "LG이노텍",
+      "symbol": "000720",
+      "name": "현대건설",
       "market": "KOSPI"
     },
     {
       "rank": 56,
-      "symbol": "000720",
-      "name": "현대건설",
+      "symbol": "011070",
+      "name": "LG이노텍",
       "market": "KOSPI"
     },
     {
@@ -425,14 +425,14 @@
     },
     {
       "rank": 71,
-      "symbol": "006260",
-      "name": "LS",
+      "symbol": "005940",
+      "name": "NH투자증권",
       "market": "KOSPI"
     },
     {
       "rank": 72,
-      "symbol": "005940",
-      "name": "NH투자증권",
+      "symbol": "006260",
+      "name": "LS",
       "market": "KOSPI"
     },
     {
