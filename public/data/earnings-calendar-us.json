@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-08-25",
-  "weekEnd": "2026-09-10",
-  "lastUpdated": "2026-08-27",
+  "weekStart": "2026-08-26",
+  "weekEnd": "2026-09-11",
+  "lastUpdated": "2026-08-28",
   "events": [
     {
       "date": "2026-08-26",
@@ -80,6 +80,38 @@
       "epsActual": null,
       "epsPreviousYoY": "$1.69",
       "revenueForecast": "$29.43B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-09-11",
+      "dayOfWeek": "금",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "ORCL",
+      "name": "오라클",
+      "marketCapRank": 14,
+      "quarter": "26Q2",
+      "epsForecast": "$1.74",
+      "epsActual": null,
+      "epsPreviousYoY": "$1.47",
+      "revenueForecast": "$19.13B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-09-11",
+      "dayOfWeek": "금",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "ADBE",
+      "name": "어도비",
+      "marketCapRank": 35,
+      "quarter": "26Q2",
+      "epsForecast": "$6.08",
+      "epsActual": null,
+      "epsPreviousYoY": "$5.31",
+      "revenueForecast": "$6.70B",
       "revenueActual": null,
       "surprise": null
     }
