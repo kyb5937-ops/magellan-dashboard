@@ -239,14 +239,14 @@
     },
     {
       "rank": 40,
-      "symbol": "051910",
-      "name": "LG화학",
+      "symbol": "006800",
+      "name": "미래에셋증권",
       "market": "KOSPI"
     },
     {
       "rank": 41,
-      "symbol": "006800",
-      "name": "미래에셋증권",
+      "symbol": "051910",
+      "name": "LG화학",
       "market": "KOSPI"
     },
     {
@@ -275,14 +275,14 @@
     },
     {
       "rank": 46,
-      "symbol": "267250",
-      "name": "HD현대",
+      "symbol": "278470",
+      "name": "에이피알",
       "market": "KOSPI"
     },
     {
       "rank": 47,
-      "symbol": "278470",
-      "name": "에이피알",
+      "symbol": "267250",
+      "name": "HD현대",
       "market": "KOSPI"
     },
     {
@@ -329,14 +329,14 @@
     },
     {
       "rank": 55,
-      "symbol": "000720",
-      "name": "현대건설",
+      "symbol": "011070",
+      "name": "LG이노텍",
       "market": "KOSPI"
     },
     {
       "rank": 56,
-      "symbol": "011070",
-      "name": "LG이노텍",
+      "symbol": "000720",
+      "name": "현대건설",
       "market": "KOSPI"
     },
     {
@@ -479,15 +479,15 @@
     },
     {
       "rank": 80,
-      "symbol": "161390",
-      "name": "한국타이어앤테크놀로지",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 81,
       "symbol": "036930",
       "name": "주성엔지니어링",
       "market": "KOSDAQ"
+    },
+    {
+      "rank": 81,
+      "symbol": "161390",
+      "name": "한국타이어앤테크놀로지",
+      "market": "KOSPI"
     },
     {
       "rank": 82,
@@ -545,14 +545,14 @@
     },
     {
       "rank": 91,
-      "symbol": "267270",
-      "name": "HD건설기계",
+      "symbol": "128940",
+      "name": "한미약품",
       "market": "KOSPI"
     },
     {
       "rank": 92,
-      "symbol": "128940",
-      "name": "한미약품",
+      "symbol": "267270",
+      "name": "HD건설기계",
       "market": "KOSPI"
     },
     {
