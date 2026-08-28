@@ -395,14 +395,14 @@
     },
     {
       "rank": 66,
-      "symbol": "003490",
-      "name": "대한항공",
+      "symbol": "071050",
+      "name": "한국금융지주",
       "market": "KOSPI"
     },
     {
       "rank": 67,
-      "symbol": "071050",
-      "name": "한국금융지주",
+      "symbol": "003490",
+      "name": "대한항공",
       "market": "KOSPI"
     },
     {
@@ -479,15 +479,15 @@
     },
     {
       "rank": 80,
-      "symbol": "036930",
-      "name": "주성엔지니어링",
-      "market": "KOSDAQ"
-    },
-    {
-      "rank": 81,
       "symbol": "161390",
       "name": "한국타이어앤테크놀로지",
       "market": "KOSPI"
+    },
+    {
+      "rank": 81,
+      "symbol": "036930",
+      "name": "주성엔지니어링",
+      "market": "KOSDAQ"
     },
     {
       "rank": 82,
@@ -545,14 +545,14 @@
     },
     {
       "rank": 91,
-      "symbol": "128940",
-      "name": "한미약품",
+      "symbol": "267270",
+      "name": "HD건설기계",
       "market": "KOSPI"
     },
     {
       "rank": 92,
-      "symbol": "267270",
-      "name": "HD건설기계",
+      "symbol": "128940",
+      "name": "한미약품",
       "market": "KOSPI"
     },
     {
