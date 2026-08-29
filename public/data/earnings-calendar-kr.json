@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-08-26",
-  "weekEnd": "2026-09-11",
-  "lastUpdated": "2026-08-28",
+  "weekStart": "2026-08-27",
+  "weekEnd": "2026-09-12",
+  "lastUpdated": "2026-08-29",
   "events": [
     {
       "date": "2026-08-27",
@@ -37,7 +37,7 @@
       "epsForecast": "14,345원",
       "epsActual": "18,192원",
       "epsPreviousYoY": "5,036원",
-      "revenueForecast": "8.5조원",
+      "revenueForecast": "8.6조원",
       "revenueActual": "8.9조원",
       "revenuePreviousYoY": "7.4조원",
       "revenueSurprise": "+2.9%",
