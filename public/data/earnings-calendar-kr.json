@@ -1,51 +1,6 @@
 {
-  "weekStart": "2026-08-27",
-  "weekEnd": "2026-09-12",
-  "lastUpdated": "2026-08-29",
-  "events": [
-    {
-      "date": "2026-08-27",
-      "dayOfWeek": "목",
-      "time": "AMC",
-      "country": "KR",
-      "symbol": "329180",
-      "name": "HD현대중공업",
-      "marketCapRank": 15,
-      "quarter": "26Q2",
-      "epsForecast": "7,255원",
-      "epsActual": "7,833원",
-      "epsPreviousYoY": "2,376원",
-      "revenueForecast": "6.1조원",
-      "revenueActual": "2.1조원",
-      "revenuePreviousYoY": "1.5조원",
-      "revenueSurprise": "-67.0%",
-      "operatingIncomeForecast": "1.0조원",
-      "operatingIncomeActual": "1.0조원",
-      "operatingIncomePreviousYoY": "4,715억원",
-      "operatingIncomeSurprise": "+4.9%",
-      "surprise": "+3.8%"
-    },
-    {
-      "date": "2026-08-27",
-      "dayOfWeek": "목",
-      "time": "AMC",
-      "country": "KR",
-      "symbol": "009540",
-      "name": "HD한국조선해양",
-      "marketCapRank": 30,
-      "quarter": "26Q2",
-      "epsForecast": "14,345원",
-      "epsActual": "18,192원",
-      "epsPreviousYoY": "5,036원",
-      "revenueForecast": "8.6조원",
-      "revenueActual": "8.9조원",
-      "revenuePreviousYoY": "7.4조원",
-      "revenueSurprise": "+2.9%",
-      "operatingIncomeForecast": "1.6조원",
-      "operatingIncomeActual": "1.6조원",
-      "operatingIncomePreviousYoY": "9,536억원",
-      "operatingIncomeSurprise": "+12.0%",
-      "surprise": "+41.0%"
-    }
-  ]
+  "weekStart": "2026-08-28",
+  "weekEnd": "2026-09-13",
+  "lastUpdated": "2026-08-30",
+  "events": []
 }
