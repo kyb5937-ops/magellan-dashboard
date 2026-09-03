@@ -29,11 +29,11 @@
       "marketCapRank": 8,
       "quarter": "26Q2",
       "epsForecast": "$3.24",
-      "epsActual": null,
+      "epsActual": "$3.32",
       "epsPreviousYoY": "$1.69",
-      "revenueForecast": "$29.43B",
+      "revenueForecast": "$35.00B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+2.5%"
     },
     {
       "date": "2026-09-11",
@@ -60,7 +60,7 @@
       "name": "어도비",
       "marketCapRank": 35,
       "quarter": "26Q2",
-      "epsForecast": "$6.08",
+      "epsForecast": "$6.09",
       "epsActual": null,
       "epsPreviousYoY": "$5.31",
       "revenueForecast": "$6.70B",
