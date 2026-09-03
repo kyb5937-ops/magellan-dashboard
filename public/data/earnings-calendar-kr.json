@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-08-31",
-  "weekEnd": "2026-09-16",
-  "lastUpdated": "2026-09-02",
+  "weekStart": "2026-09-01",
+  "weekEnd": "2026-09-17",
+  "lastUpdated": "2026-09-03",
   "events": [
     {
       "date": "2026-09-01",
@@ -12,7 +12,7 @@
       "name": "현대차",
       "marketCapRank": 6,
       "quarter": "26Q2",
-      "epsForecast": "9,955원",
+      "epsForecast": "9,953원",
       "epsActual": "9,499원",
       "epsPreviousYoY": "11,216원",
       "revenueForecast": "48.9조원",
@@ -34,7 +34,7 @@
       "name": "기아",
       "marketCapRank": 14,
       "quarter": "26Q2",
-      "epsForecast": "5,616원",
+      "epsForecast": "5,599원",
       "epsActual": "5,962원",
       "epsPreviousYoY": "5,705원",
       "revenueForecast": "31.6조원",
