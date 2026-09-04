@@ -1,51 +1,6 @@
 {
-  "weekStart": "2026-09-01",
-  "weekEnd": "2026-09-17",
-  "lastUpdated": "2026-09-03",
-  "events": [
-    {
-      "date": "2026-09-01",
-      "dayOfWeek": "화",
-      "time": "AMC",
-      "country": "KR",
-      "symbol": "005380",
-      "name": "현대차",
-      "marketCapRank": 6,
-      "quarter": "26Q2",
-      "epsForecast": "9,953원",
-      "epsActual": "9,499원",
-      "epsPreviousYoY": "11,216원",
-      "revenueForecast": "48.9조원",
-      "revenueActual": "49.2조원",
-      "revenuePreviousYoY": "48.3조원",
-      "revenueSurprise": "+1.1%",
-      "operatingIncomeForecast": "3.1조원",
-      "operatingIncomeActual": "2.9조원",
-      "operatingIncomePreviousYoY": "3.6조원",
-      "operatingIncomeSurprise": "-5.7%",
-      "surprise": "-4.4%"
-    },
-    {
-      "date": "2026-09-01",
-      "dayOfWeek": "화",
-      "time": "AMC",
-      "country": "KR",
-      "symbol": "000270",
-      "name": "기아",
-      "marketCapRank": 14,
-      "quarter": "26Q2",
-      "epsForecast": "5,599원",
-      "epsActual": "5,962원",
-      "epsPreviousYoY": "5,705원",
-      "revenueForecast": "31.6조원",
-      "revenueActual": "33.0조원",
-      "revenuePreviousYoY": "29.3조원",
-      "revenueSurprise": "+2.5%",
-      "operatingIncomeForecast": "2.6조원",
-      "operatingIncomeActual": "2.6조원",
-      "operatingIncomePreviousYoY": "2.8조원",
-      "operatingIncomeSurprise": "-5.9%",
-      "surprise": "-0.0%"
-    }
-  ]
+  "weekStart": "2026-09-02",
+  "weekEnd": "2026-09-18",
+  "lastUpdated": "2026-09-04",
+  "events": []
 }
