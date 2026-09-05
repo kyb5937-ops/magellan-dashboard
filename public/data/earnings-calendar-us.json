@@ -1,24 +1,8 @@
 {
-  "weekStart": "2026-09-02",
-  "weekEnd": "2026-09-18",
-  "lastUpdated": "2026-09-04",
+  "weekStart": "2026-09-03",
+  "weekEnd": "2026-09-19",
+  "lastUpdated": "2026-09-05",
   "events": [
-    {
-      "date": "2026-09-02",
-      "dayOfWeek": "수",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "PANW",
-      "name": "팔로알토",
-      "marketCapRank": 73,
-      "quarter": "26Q2",
-      "epsForecast": "$0.98",
-      "epsActual": "$1.02",
-      "epsPreviousYoY": "$0.95",
-      "revenueForecast": "$3.35B",
-      "revenueActual": null,
-      "surprise": "+4.3%"
-    },
     {
       "date": "2026-09-03",
       "dayOfWeek": "목",
