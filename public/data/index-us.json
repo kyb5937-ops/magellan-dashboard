@@ -1,10 +1,10 @@
 {
   "date": "2026-09-04",
-  "updatedAt": "2026-09-06T20:40:22Z",
+  "updatedAt": "2026-09-07T20:40:57Z",
   "sp500": {
     "value": 7718.6,
     "change_pct": -0.38,
-    "change_pt": -29.11,
+    "change_pt": -29.12,
     "prevClose": 7747.71,
     "source": "eodhd",
     "tradeDate": "2026-09-04"
