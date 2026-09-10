@@ -15,7 +15,7 @@
       "epsForecast": "$1.74",
       "epsActual": null,
       "epsPreviousYoY": "$1.47",
-      "revenueForecast": "$19.13B",
+      "revenueForecast": "$21.17B",
       "revenueActual": null,
       "surprise": null
     },
@@ -29,11 +29,11 @@
       "marketCapRank": 35,
       "quarter": "26Q2",
       "epsForecast": "$6.09",
-      "epsActual": null,
+      "epsActual": "$6.13",
       "epsPreviousYoY": "$5.31",
       "revenueForecast": "$6.70B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+0.7%"
     }
   ]
 }
