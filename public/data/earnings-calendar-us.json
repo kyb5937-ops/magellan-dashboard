@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-09-08",
-  "weekEnd": "2026-09-24",
-  "lastUpdated": "2026-09-10",
+  "weekStart": "2026-09-09",
+  "weekEnd": "2026-09-25",
+  "lastUpdated": "2026-09-11",
   "events": [
     {
       "date": "2026-09-11",
@@ -34,6 +34,22 @@
       "revenueForecast": "$6.70B",
       "revenueActual": null,
       "surprise": "+0.7%"
+    },
+    {
+      "date": "2026-09-25",
+      "dayOfWeek": "금",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "COST",
+      "name": "코스트코",
+      "marketCapRank": 17,
+      "quarter": "26Q2",
+      "epsForecast": "$6.55",
+      "epsActual": null,
+      "epsPreviousYoY": "$5.87",
+      "revenueForecast": "$94.88B",
+      "revenueActual": null,
+      "surprise": null
     }
   ]
 }
