@@ -1,36 +1,36 @@
 {
-  "date": "2026-09-11",
-  "updatedAt": "2026-09-13T20:40:26Z",
+  "date": "2026-09-14",
+  "updatedAt": "2026-09-14T20:40:25Z",
   "sp500": {
-    "value": 7656.98,
-    "change_pct": 0.86,
-    "change_pt": 65.28,
-    "prevClose": 7591.7,
+    "value": 7619.98,
+    "change_pct": -0.48,
+    "change_pt": -37.0,
+    "prevClose": 7656.98,
     "source": "eodhd",
-    "tradeDate": "2026-09-11"
+    "tradeDate": "2026-09-14"
   },
   "nasdaq": {
-    "value": 26333.04,
-    "change_pct": 0.96,
-    "change_pt": 251.32,
-    "prevClose": 26081.72,
+    "value": 26186.41,
+    "change_pct": -0.56,
+    "change_pt": -146.62,
+    "prevClose": 26333.04,
     "source": "eodhd",
-    "tradeDate": "2026-09-11"
+    "tradeDate": "2026-09-14"
   },
   "dow": {
-    "value": 52573.29,
-    "change_pct": 0.98,
-    "change_pt": 509.19,
-    "prevClose": 52064.1,
+    "value": 52421.2,
+    "change_pct": -0.29,
+    "change_pt": -152.09,
+    "prevClose": 52573.29,
     "source": "eodhd",
-    "tradeDate": "2026-09-11"
+    "tradeDate": "2026-09-14"
   },
   "sox": {
-    "value": 11824.0,
-    "change_pct": 1.81,
-    "change_pt": 209.83,
-    "prevClose": 11614.17,
+    "value": 11131.28,
+    "change_pct": -5.86,
+    "change_pt": -692.72,
+    "prevClose": 11824.0,
     "source": "eodhd",
-    "tradeDate": "2026-09-11"
+    "tradeDate": "2026-09-14"
   }
 }
