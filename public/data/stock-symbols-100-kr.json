@@ -1,7 +1,7 @@
 {
-  "lastUpdated": "2026-09-14",
+  "lastUpdated": "2026-09-15",
   "source": "pykrx (KOSPI + KOSDAQ market cap)",
-  "asOf": "20260914",
+  "asOf": "20260915",
   "stocks": [
     {
       "rank": 1,
@@ -59,14 +59,14 @@
     },
     {
       "rank": 10,
-      "symbol": "012450",
-      "name": "한화에어로스페이스",
+      "symbol": "028260",
+      "name": "삼성물산",
       "market": "KOSPI"
     },
     {
       "rank": 11,
-      "symbol": "028260",
-      "name": "삼성물산",
+      "symbol": "012450",
+      "name": "한화에어로스페이스",
       "market": "KOSPI"
     },
     {
@@ -155,26 +155,26 @@
     },
     {
       "rank": 26,
+      "symbol": "005490",
+      "name": "POSCO홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 27,
       "symbol": "267260",
       "name": "HD현대일렉트릭",
       "market": "KOSPI"
     },
     {
-      "rank": 27,
+      "rank": 28,
       "symbol": "042660",
       "name": "한화오션",
       "market": "KOSPI"
     },
     {
-      "rank": 28,
+      "rank": 29,
       "symbol": "298040",
       "name": "효성중공업",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 29,
-      "symbol": "005490",
-      "name": "POSCO홀딩스",
       "market": "KOSPI"
     },
     {
@@ -185,14 +185,14 @@
     },
     {
       "rank": 31,
-      "symbol": "010130",
-      "name": "고려아연",
+      "symbol": "096770",
+      "name": "SK이노베이션",
       "market": "KOSPI"
     },
     {
       "rank": 32,
-      "symbol": "096770",
-      "name": "SK이노베이션",
+      "symbol": "010130",
+      "name": "고려아연",
       "market": "KOSPI"
     },
     {
@@ -209,14 +209,14 @@
     },
     {
       "rank": 35,
-      "symbol": "015760",
-      "name": "한국전력",
+      "symbol": "000150",
+      "name": "두산",
       "market": "KOSPI"
     },
     {
       "rank": 36,
-      "symbol": "000150",
-      "name": "두산",
+      "symbol": "015760",
+      "name": "한국전력",
       "market": "KOSPI"
     },
     {
@@ -233,20 +233,20 @@
     },
     {
       "rank": 39,
-      "symbol": "010140",
-      "name": "삼성중공업",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 40,
       "symbol": "017670",
       "name": "SK텔레콤",
       "market": "KOSPI"
     },
     {
-      "rank": 41,
+      "rank": 40,
       "symbol": "051910",
       "name": "LG화학",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 41,
+      "symbol": "010140",
+      "name": "삼성중공업",
       "market": "KOSPI"
     },
     {
@@ -257,14 +257,14 @@
     },
     {
       "rank": 43,
-      "symbol": "006800",
-      "name": "미래에셋증권",
+      "symbol": "033780",
+      "name": "KT&G",
       "market": "KOSPI"
     },
     {
       "rank": 44,
-      "symbol": "033780",
-      "name": "KT&G",
+      "symbol": "006800",
+      "name": "미래에셋증권",
       "market": "KOSPI"
     },
     {
@@ -305,14 +305,14 @@
     },
     {
       "rank": 51,
-      "symbol": "079550",
-      "name": "LIG디펜스앤에어로스페이스",
+      "symbol": "035720",
+      "name": "카카오",
       "market": "KOSPI"
     },
     {
       "rank": 52,
-      "symbol": "035720",
-      "name": "카카오",
+      "symbol": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
       "market": "KOSPI"
     },
     {
@@ -323,26 +323,26 @@
     },
     {
       "rank": 54,
-      "symbol": "272210",
-      "name": "한화시스템",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 55,
       "symbol": "278470",
       "name": "에이피알",
       "market": "KOSPI"
     },
     {
+      "rank": 55,
+      "symbol": "272210",
+      "name": "한화시스템",
+      "market": "KOSPI"
+    },
+    {
       "rank": 56,
-      "symbol": "064350",
-      "name": "현대로템",
+      "symbol": "030200",
+      "name": "KT",
       "market": "KOSPI"
     },
     {
       "rank": 57,
-      "symbol": "030200",
-      "name": "KT",
+      "symbol": "064350",
+      "name": "현대로템",
       "market": "KOSPI"
     },
     {
@@ -365,15 +365,15 @@
     },
     {
       "rank": 61,
-      "symbol": "086520",
-      "name": "에코프로",
-      "market": "KOSDAQ"
-    },
-    {
-      "rank": 62,
       "symbol": "003490",
       "name": "대한항공",
       "market": "KOSPI"
+    },
+    {
+      "rank": 62,
+      "symbol": "086520",
+      "name": "에코프로",
+      "market": "KOSDAQ"
     },
     {
       "rank": 63,
@@ -413,38 +413,38 @@
     },
     {
       "rank": 69,
-      "symbol": "047050",
-      "name": "포스코인터내셔널",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 70,
-      "symbol": "028050",
-      "name": "삼성E&A",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 71,
       "symbol": "003230",
       "name": "삼양식품",
       "market": "KOSPI"
     },
     {
+      "rank": 70,
+      "symbol": "047050",
+      "name": "포스코인터내셔널",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 71,
+      "symbol": "028050",
+      "name": "삼성E&A",
+      "market": "KOSPI"
+    },
+    {
       "rank": 72,
+      "symbol": "259960",
+      "name": "크래프톤",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 73,
       "symbol": "005940",
       "name": "NH투자증권",
       "market": "KOSPI"
     },
     {
-      "rank": 73,
+      "rank": 74,
       "symbol": "006260",
       "name": "LS",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 74,
-      "symbol": "259960",
-      "name": "크래프톤",
       "market": "KOSPI"
     },
     {
@@ -479,32 +479,32 @@
     },
     {
       "rank": 80,
-      "symbol": "007660",
-      "name": "이수페타시스",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 81,
       "symbol": "016360",
       "name": "삼성증권",
       "market": "KOSPI"
     },
     {
+      "rank": 81,
+      "symbol": "352820",
+      "name": "하이브",
+      "market": "KOSPI"
+    },
+    {
       "rank": 82,
+      "symbol": "007660",
+      "name": "이수페타시스",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 83,
       "symbol": "047040",
       "name": "대우건설",
       "market": "KOSPI"
     },
     {
-      "rank": 83,
+      "rank": 84,
       "symbol": "000880",
       "name": "한화",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 84,
-      "symbol": "352820",
-      "name": "하이브",
       "market": "KOSPI"
     },
     {
@@ -515,8 +515,8 @@
     },
     {
       "rank": 86,
-      "symbol": "000500",
-      "name": "가온전선",
+      "symbol": "021240",
+      "name": "코웨이",
       "market": "KOSPI"
     },
     {
@@ -527,8 +527,8 @@
     },
     {
       "rank": 88,
-      "symbol": "021240",
-      "name": "코웨이",
+      "symbol": "000500",
+      "name": "가온전선",
       "market": "KOSPI"
     },
     {
@@ -545,8 +545,8 @@
     },
     {
       "rank": 91,
-      "symbol": "009830",
-      "name": "한화솔루션",
+      "symbol": "377300",
+      "name": "카카오페이",
       "market": "KOSPI"
     },
     {
@@ -557,32 +557,32 @@
     },
     {
       "rank": 93,
-      "symbol": "377300",
-      "name": "카카오페이",
+      "symbol": "009830",
+      "name": "한화솔루션",
       "market": "KOSPI"
     },
     {
       "rank": 94,
-      "symbol": "326030",
-      "name": "SK바이오팜",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 95,
       "symbol": "128940",
       "name": "한미약품",
       "market": "KOSPI"
     },
     {
+      "rank": 95,
+      "symbol": "326030",
+      "name": "SK바이오팜",
+      "market": "KOSPI"
+    },
+    {
       "rank": 96,
-      "symbol": "062040",
-      "name": "산일전기",
+      "symbol": "175330",
+      "name": "JB금융지주",
       "market": "KOSPI"
     },
     {
       "rank": 97,
-      "symbol": "175330",
-      "name": "JB금융지주",
+      "symbol": "000100",
+      "name": "유한양행",
       "market": "KOSPI"
     },
     {
@@ -593,8 +593,8 @@
     },
     {
       "rank": 99,
-      "symbol": "000100",
-      "name": "유한양행",
+      "symbol": "062040",
+      "name": "산일전기",
       "market": "KOSPI"
     },
     {
