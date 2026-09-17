@@ -1,51 +1,6 @@
 {
-  "weekStart": "2026-09-14",
-  "weekEnd": "2026-09-30",
-  "lastUpdated": "2026-09-16",
-  "events": [
-    {
-      "date": "2026-09-14",
-      "dayOfWeek": "월",
-      "time": "AMC",
-      "country": "KR",
-      "symbol": "329180",
-      "name": "HD현대중공업",
-      "marketCapRank": 15,
-      "quarter": "26Q2",
-      "epsForecast": null,
-      "epsActual": null,
-      "epsPreviousYoY": null,
-      "revenueForecast": null,
-      "revenueActual": "1.6조원",
-      "revenuePreviousYoY": "1.3조원",
-      "revenueSurprise": "-74.5%",
-      "operatingIncomeForecast": null,
-      "operatingIncomeActual": null,
-      "operatingIncomePreviousYoY": null,
-      "operatingIncomeSurprise": null,
-      "surprise": null
-    },
-    {
-      "date": "2026-09-14",
-      "dayOfWeek": "월",
-      "time": "AMC",
-      "country": "KR",
-      "symbol": "009540",
-      "name": "HD한국조선해양",
-      "marketCapRank": 31,
-      "quarter": "26Q2",
-      "epsForecast": null,
-      "epsActual": null,
-      "epsPreviousYoY": null,
-      "revenueForecast": null,
-      "revenueActual": null,
-      "revenuePreviousYoY": null,
-      "revenueSurprise": null,
-      "operatingIncomeForecast": null,
-      "operatingIncomeActual": null,
-      "operatingIncomePreviousYoY": null,
-      "operatingIncomeSurprise": null,
-      "surprise": null
-    }
-  ]
+  "weekStart": "2026-09-15",
+  "weekEnd": "2026-10-01",
+  "lastUpdated": "2026-09-17",
+  "events": []
 }
