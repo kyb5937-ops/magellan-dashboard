@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-09-15",
-  "weekEnd": "2026-10-01",
-  "lastUpdated": "2026-09-17",
+  "weekStart": "2026-09-16",
+  "weekEnd": "2026-10-02",
+  "lastUpdated": "2026-09-18",
   "events": [
     {
       "date": "2026-09-25",
@@ -48,6 +48,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$3.03",
       "revenueForecast": "$50.82B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-10-02",
+      "dayOfWeek": "금",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "NKE",
+      "name": "나이키",
+      "marketCapRank": 80,
+      "quarter": "26Q3",
+      "epsForecast": "$0.45",
+      "epsActual": null,
+      "epsPreviousYoY": "$0.49",
+      "revenueForecast": "$11.34B",
       "revenueActual": null,
       "surprise": null
     }
