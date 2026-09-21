@@ -1,6 +1,6 @@
 {
   "date": "20260921",
-  "updatedAt": "2026-09-21T13:56:45Z",
+  "updatedAt": "2026-09-21T14:03:55Z",
   "kospi": {
     "value": 7007.72,
     "change_pct": 1.65,
@@ -26,8 +26,8 @@
     "tradeDate": "20260921"
   },
   "usdkrw": {
-    "value": 1372.92,
-    "change": 27.31,
+    "value": 1373.23,
+    "change": 27.62,
     "prevClose": 1345.61
   },
   "tradingValue": {
