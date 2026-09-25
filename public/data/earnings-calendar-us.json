@@ -4,6 +4,22 @@
   "lastUpdated": "2026-09-25",
   "events": [
     {
+      "date": "2026-09-25",
+      "dayOfWeek": "금",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "COST",
+      "name": "코스트코",
+      "marketCapRank": 17,
+      "quarter": "26Q2",
+      "epsForecast": "$6.53",
+      "epsActual": "$6.75",
+      "epsPreviousYoY": "$5.87",
+      "revenueForecast": "$94.89B",
+      "revenueActual": null,
+      "surprise": "+3.4%"
+    },
+    {
       "date": "2026-10-01",
       "dayOfWeek": "목",
       "time": "BMO",
