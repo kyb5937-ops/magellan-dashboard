@@ -31,7 +31,7 @@
       "epsForecast": "$31.82",
       "epsActual": null,
       "epsPreviousYoY": "$3.03",
-      "revenueForecast": "$51.51B",
+      "revenueForecast": "$57.93B",
       "revenueActual": null,
       "surprise": null
     },
@@ -176,22 +176,6 @@
       "epsActual": null,
       "epsPreviousYoY": "$5.49",
       "revenueForecast": "$11.68B",
-      "revenueActual": null,
-      "surprise": null
-    },
-    {
-      "date": "2026-10-14",
-      "dayOfWeek": "수",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "ABT",
-      "name": "애보트",
-      "marketCapRank": 42,
-      "quarter": "26Q3",
-      "epsForecast": "$1.42",
-      "epsActual": null,
-      "epsPreviousYoY": "$1.30",
-      "revenueForecast": "$12.99B",
       "revenueActual": null,
       "surprise": null
     },
