@@ -20,6 +20,22 @@
       "surprise": null
     },
     {
+      "date": "2026-10-01",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "MU",
+      "name": "마이크론",
+      "marketCapRank": 83,
+      "quarter": "26Q3",
+      "epsForecast": "$31.82",
+      "epsActual": "$33.42",
+      "epsPreviousYoY": "$3.03",
+      "revenueForecast": "$57.93B",
+      "revenueActual": null,
+      "surprise": "+5.0%"
+    },
+    {
       "date": "2026-10-02",
       "dayOfWeek": "금",
       "time": "AMC",
