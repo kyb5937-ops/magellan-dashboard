@@ -13,11 +13,11 @@
       "marketCapRank": 40,
       "quarter": "26Q3",
       "epsForecast": "$3.18",
-      "epsActual": null,
+      "epsActual": "$3.29",
       "epsPreviousYoY": "$3.03",
       "revenueForecast": "$18.04B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+3.4%"
     },
     {
       "date": "2026-10-01",
@@ -31,7 +31,7 @@
       "epsForecast": "$31.82",
       "epsActual": "$33.42",
       "epsPreviousYoY": "$3.03",
-      "revenueForecast": "$57.93B",
+      "revenueForecast": "$61.32B",
       "revenueActual": null,
       "surprise": "+5.0%"
     },
@@ -159,7 +159,7 @@
       "epsForecast": "$1.16",
       "epsActual": null,
       "epsPreviousYoY": "$1.06",
-      "revenueForecast": "$31.02B",
+      "revenueForecast": "$30.93B",
       "revenueActual": null,
       "surprise": null
     },
@@ -172,7 +172,7 @@
       "name": "ASML",
       "marketCapRank": 31,
       "quarter": "26Q3",
-      "epsForecast": "$10.63",
+      "epsForecast": "$10.65",
       "epsActual": null,
       "epsPreviousYoY": "$5.49",
       "revenueForecast": "$11.68B",
