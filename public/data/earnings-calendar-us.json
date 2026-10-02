@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-09-29",
-  "weekEnd": "2026-10-15",
-  "lastUpdated": "2026-10-01",
+  "weekStart": "2026-09-30",
+  "weekEnd": "2026-10-16",
+  "lastUpdated": "2026-10-02",
   "events": [
     {
       "date": "2026-10-01",
@@ -15,7 +15,7 @@
       "epsForecast": "$3.18",
       "epsActual": "$3.29",
       "epsPreviousYoY": "$3.03",
-      "revenueForecast": "$18.04B",
+      "revenueForecast": "$19.43B",
       "revenueActual": null,
       "surprise": "+3.4%"
     },
@@ -31,7 +31,7 @@
       "epsForecast": "$31.82",
       "epsActual": "$33.42",
       "epsPreviousYoY": "$3.03",
-      "revenueForecast": "$61.32B",
+      "revenueForecast": "$61.67B",
       "revenueActual": null,
       "surprise": "+5.0%"
     },
@@ -47,7 +47,7 @@
       "epsForecast": "$0.44",
       "epsActual": "$0.48",
       "epsPreviousYoY": "$0.49",
-      "revenueForecast": "$11.32B",
+      "revenueForecast": "$11.80B",
       "revenueActual": null,
       "surprise": "+9.9%"
     },
@@ -63,7 +63,7 @@
       "epsForecast": "$2.30",
       "epsActual": null,
       "epsPreviousYoY": "$2.29",
-      "revenueForecast": "$24.98B",
+      "revenueForecast": "$24.97B",
       "revenueActual": null,
       "surprise": null
     },
@@ -79,7 +79,7 @@
       "epsForecast": "$5.88",
       "epsActual": null,
       "epsPreviousYoY": "$5.07",
-      "revenueForecast": "$50.92B",
+      "revenueForecast": "$50.91B",
       "revenueActual": null,
       "surprise": null
     },
@@ -127,7 +127,7 @@
       "epsForecast": "$14.78",
       "epsActual": null,
       "epsPreviousYoY": "$12.25",
-      "revenueForecast": "$17.31B",
+      "revenueForecast": "$17.20B",
       "revenueActual": null,
       "surprise": null
     },
@@ -143,7 +143,7 @@
       "epsForecast": "$2.62",
       "epsActual": null,
       "epsPreviousYoY": "$2.26",
-      "revenueForecast": "$23.75B",
+      "revenueForecast": "$23.73B",
       "revenueActual": null,
       "surprise": null
     },
@@ -191,7 +191,7 @@
       "epsForecast": "$3.09",
       "epsActual": null,
       "epsPreviousYoY": "$2.80",
-      "revenueForecast": "$20.52B",
+      "revenueForecast": "$20.47B",
       "revenueActual": null,
       "surprise": null
     },
@@ -207,7 +207,7 @@
       "epsForecast": "$14.25",
       "epsActual": null,
       "epsPreviousYoY": "$11.55",
-      "revenueForecast": "$7.56B",
+      "revenueForecast": "$7.55B",
       "revenueActual": null,
       "surprise": null
     },
