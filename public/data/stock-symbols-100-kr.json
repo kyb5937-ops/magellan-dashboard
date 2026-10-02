@@ -203,14 +203,14 @@
     },
     {
       "rank": 34,
-      "symbol": "000150",
-      "name": "두산",
+      "symbol": "138040",
+      "name": "메리츠금융지주",
       "market": "KOSPI"
     },
     {
       "rank": 35,
-      "symbol": "138040",
-      "name": "메리츠금융지주",
+      "symbol": "000150",
+      "name": "두산",
       "market": "KOSPI"
     },
     {
@@ -275,14 +275,14 @@
     },
     {
       "rank": 46,
-      "symbol": "003550",
-      "name": "LG",
+      "symbol": "003670",
+      "name": "포스코퓨처엠",
       "market": "KOSPI"
     },
     {
       "rank": 47,
-      "symbol": "003670",
-      "name": "포스코퓨처엠",
+      "symbol": "003550",
+      "name": "LG",
       "market": "KOSPI"
     },
     {
@@ -485,14 +485,14 @@
     },
     {
       "rank": 81,
-      "symbol": "009830",
-      "name": "한화솔루션",
+      "symbol": "016360",
+      "name": "삼성증권",
       "market": "KOSPI"
     },
     {
       "rank": 82,
-      "symbol": "016360",
-      "name": "삼성증권",
+      "symbol": "009830",
+      "name": "한화솔루션",
       "market": "KOSPI"
     },
     {
@@ -503,14 +503,14 @@
     },
     {
       "rank": 84,
-      "symbol": "353200",
-      "name": "대덕전자",
+      "symbol": "161390",
+      "name": "한국타이어앤테크놀로지",
       "market": "KOSPI"
     },
     {
       "rank": 85,
-      "symbol": "161390",
-      "name": "한국타이어앤테크놀로지",
+      "symbol": "353200",
+      "name": "대덕전자",
       "market": "KOSPI"
     },
     {
@@ -521,15 +521,15 @@
     },
     {
       "rank": 87,
-      "symbol": "240810",
-      "name": "원익IPS",
-      "market": "KOSDAQ"
-    },
-    {
-      "rank": 88,
       "symbol": "021240",
       "name": "코웨이",
       "market": "KOSPI"
+    },
+    {
+      "rank": 88,
+      "symbol": "240810",
+      "name": "원익IPS",
+      "market": "KOSDAQ"
     },
     {
       "rank": 89,
@@ -551,14 +551,14 @@
     },
     {
       "rank": 92,
-      "symbol": "352820",
-      "name": "하이브",
+      "symbol": "062040",
+      "name": "산일전기",
       "market": "KOSPI"
     },
     {
       "rank": 93,
-      "symbol": "062040",
-      "name": "산일전기",
+      "symbol": "352820",
+      "name": "하이브",
       "market": "KOSPI"
     },
     {
