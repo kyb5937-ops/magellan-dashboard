@@ -317,14 +317,14 @@
     },
     {
       "rank": 53,
-      "symbol": "035720",
-      "name": "카카오",
+      "symbol": "011070",
+      "name": "LG이노텍",
       "market": "KOSPI"
     },
     {
       "rank": 54,
-      "symbol": "011070",
-      "name": "LG이노텍",
+      "symbol": "035720",
+      "name": "카카오",
       "market": "KOSPI"
     },
     {
@@ -527,14 +527,14 @@
     },
     {
       "rank": 88,
-      "symbol": "062040",
-      "name": "산일전기",
+      "symbol": "021240",
+      "name": "코웨이",
       "market": "KOSPI"
     },
     {
       "rank": 89,
-      "symbol": "021240",
-      "name": "코웨이",
+      "symbol": "062040",
+      "name": "산일전기",
       "market": "KOSPI"
     },
     {
