@@ -101,14 +101,14 @@
     },
     {
       "rank": 17,
-      "symbol": "068270",
-      "name": "셀트리온",
+      "symbol": "034730",
+      "name": "SK",
       "market": "KOSPI"
     },
     {
       "rank": 18,
-      "symbol": "034730",
-      "name": "SK",
+      "symbol": "068270",
+      "name": "셀트리온",
       "market": "KOSPI"
     },
     {
@@ -227,14 +227,14 @@
     },
     {
       "rank": 38,
-      "symbol": "017670",
-      "name": "SK텔레콤",
+      "symbol": "051910",
+      "name": "LG화학",
       "market": "KOSPI"
     },
     {
       "rank": 39,
-      "symbol": "051910",
-      "name": "LG화학",
+      "symbol": "017670",
+      "name": "SK텔레콤",
       "market": "KOSPI"
     },
     {
@@ -263,14 +263,14 @@
     },
     {
       "rank": 44,
-      "symbol": "010140",
-      "name": "삼성중공업",
+      "symbol": "003670",
+      "name": "포스코퓨처엠",
       "market": "KOSPI"
     },
     {
       "rank": 45,
-      "symbol": "003670",
-      "name": "포스코퓨처엠",
+      "symbol": "010140",
+      "name": "삼성중공업",
       "market": "KOSPI"
     },
     {
@@ -341,21 +341,21 @@
     },
     {
       "rank": 57,
+      "symbol": "086520",
+      "name": "에코프로",
+      "market": "KOSDAQ"
+    },
+    {
+      "rank": 58,
       "symbol": "036930",
       "name": "주성엔지니어링",
       "market": "KOSDAQ"
     },
     {
-      "rank": 58,
+      "rank": 59,
       "symbol": "000720",
       "name": "현대건설",
       "market": "KOSPI"
-    },
-    {
-      "rank": 59,
-      "symbol": "086520",
-      "name": "에코프로",
-      "market": "KOSDAQ"
     },
     {
       "rank": 60,
@@ -365,15 +365,15 @@
     },
     {
       "rank": 61,
-      "symbol": "064350",
-      "name": "현대로템",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 62,
       "symbol": "247540",
       "name": "에코프로비엠",
       "market": "KOSDAQ"
+    },
+    {
+      "rank": 62,
+      "symbol": "064350",
+      "name": "현대로템",
+      "market": "KOSPI"
     },
     {
       "rank": 63,
@@ -395,8 +395,8 @@
     },
     {
       "rank": 66,
-      "symbol": "443060",
-      "name": "HD현대마린솔루션",
+      "symbol": "047050",
+      "name": "포스코인터내셔널",
       "market": "KOSPI"
     },
     {
@@ -407,8 +407,8 @@
     },
     {
       "rank": 68,
-      "symbol": "047050",
-      "name": "포스코인터내셔널",
+      "symbol": "443060",
+      "name": "HD현대마린솔루션",
       "market": "KOSPI"
     },
     {
@@ -467,15 +467,15 @@
     },
     {
       "rank": 78,
-      "symbol": "003230",
-      "name": "삼양식품",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 79,
       "symbol": "277810",
       "name": "레인보우로보틱스",
       "market": "KOSDAQ"
+    },
+    {
+      "rank": 79,
+      "symbol": "003230",
+      "name": "삼양식품",
+      "market": "KOSPI"
     },
     {
       "rank": 80,
