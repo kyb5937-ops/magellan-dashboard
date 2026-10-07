@@ -196,6 +196,22 @@
       "surprise": null
     },
     {
+      "date": "2026-10-15",
+      "dayOfWeek": "목",
+      "time": "BMO",
+      "country": "US",
+      "symbol": "MMC",
+      "name": "마쉬앤맥레넌",
+      "marketCapRank": 79,
+      "quarter": "26Q3",
+      "epsForecast": "$1.97",
+      "epsActual": null,
+      "epsPreviousYoY": "$1.85",
+      "revenueForecast": null,
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
       "date": "2026-10-20",
       "dayOfWeek": "화",
       "time": "BMO",
