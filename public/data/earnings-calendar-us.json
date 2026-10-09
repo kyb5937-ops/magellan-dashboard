@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-10-06",
-  "weekEnd": "2026-10-22",
-  "lastUpdated": "2026-10-08",
+  "weekStart": "2026-10-07",
+  "weekEnd": "2026-10-23",
+  "lastUpdated": "2026-10-09",
   "events": [
     {
       "date": "2026-10-08",
@@ -95,7 +95,7 @@
       "epsForecast": "$2.62",
       "epsActual": null,
       "epsPreviousYoY": "$2.26",
-      "revenueForecast": "$23.71B",
+      "revenueForecast": "$23.72B",
       "revenueActual": null,
       "surprise": null
     },
@@ -447,7 +447,7 @@
       "epsForecast": "$0.45",
       "epsActual": null,
       "epsPreviousYoY": "$0.50",
-      "revenueForecast": "$28.01B",
+      "revenueForecast": "$28.02B",
       "revenueActual": null,
       "surprise": null
     },
@@ -496,6 +496,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$1.26",
       "revenueForecast": "$8.13B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-10-23",
+      "dayOfWeek": "금",
+      "time": "BMO",
+      "country": "US",
+      "symbol": "AXP",
+      "name": "아메리칸익스프레스",
+      "marketCapRank": 41,
+      "quarter": "26Q3",
+      "epsForecast": "$4.60",
+      "epsActual": null,
+      "epsPreviousYoY": "$4.14",
+      "revenueForecast": "$20.10B",
       "revenueActual": null,
       "surprise": null
     }
