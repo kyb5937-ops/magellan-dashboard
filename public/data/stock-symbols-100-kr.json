@@ -257,20 +257,20 @@
     },
     {
       "rank": 43,
-      "symbol": "010140",
-      "name": "삼성중공업",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 44,
       "symbol": "196170",
       "name": "알테오젠",
       "market": "KOSDAQ"
     },
     {
-      "rank": 45,
+      "rank": 44,
       "symbol": "003550",
       "name": "LG",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 45,
+      "symbol": "010140",
+      "name": "삼성중공업",
       "market": "KOSPI"
     },
     {
@@ -395,14 +395,14 @@
     },
     {
       "rank": 66,
-      "symbol": "047050",
-      "name": "포스코인터내셔널",
+      "symbol": "323410",
+      "name": "카카오뱅크",
       "market": "KOSPI"
     },
     {
       "rank": 67,
-      "symbol": "323410",
-      "name": "카카오뱅크",
+      "symbol": "047050",
+      "name": "포스코인터내셔널",
       "market": "KOSPI"
     },
     {
@@ -497,20 +497,20 @@
     },
     {
       "rank": 83,
+      "symbol": "021240",
+      "name": "코웨이",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 84,
       "symbol": "016360",
       "name": "삼성증권",
       "market": "KOSPI"
     },
     {
-      "rank": 84,
+      "rank": 85,
       "symbol": "009830",
       "name": "한화솔루션",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 85,
-      "symbol": "021240",
-      "name": "코웨이",
       "market": "KOSPI"
     },
     {
