@@ -13,11 +13,11 @@
       "marketCapRank": 10,
       "quarter": "26Q3",
       "epsForecast": "$5.94",
-      "epsActual": null,
+      "epsActual": "$5.75",
       "epsPreviousYoY": "$5.07",
       "revenueForecast": "$51.22B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "-3.2%"
     },
     {
       "date": "2026-10-13",
@@ -29,11 +29,11 @@
       "marketCapRank": 19,
       "quarter": "26Q3",
       "epsForecast": "$2.53",
-      "epsActual": null,
+      "epsActual": "$2.59",
       "epsPreviousYoY": "$2.80",
-      "revenueForecast": "$25.38B",
+      "revenueForecast": "$26.46B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+2.5%"
     },
     {
       "date": "2026-10-13",
@@ -45,11 +45,11 @@
       "marketCapRank": 29,
       "quarter": "26Q3",
       "epsForecast": "$1.86",
-      "epsActual": null,
+      "epsActual": "$1.87",
       "epsPreviousYoY": "$1.73",
-      "revenueForecast": "$22.32B",
+      "revenueForecast": "$22.42B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+0.8%"
     },
     {
       "date": "2026-10-13",
@@ -61,27 +61,11 @@
       "marketCapRank": 45,
       "quarter": "26Q3",
       "epsForecast": "$13.09",
-      "epsActual": null,
+      "epsActual": "$17.01",
       "epsPreviousYoY": "$12.25",
-      "revenueForecast": "$16.89B",
+      "revenueForecast": "$17.03B",
       "revenueActual": null,
-      "surprise": null
-    },
-    {
-      "date": "2026-10-13",
-      "dayOfWeek": "화",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "C",
-      "name": "씨티그룹",
-      "marketCapRank": 58,
-      "quarter": "26Q3",
-      "epsForecast": "$2.62",
-      "epsActual": null,
-      "epsPreviousYoY": "$2.26",
-      "revenueForecast": "$23.72B",
-      "revenueActual": null,
-      "surprise": null
+      "surprise": "+30.0%"
     },
     {
       "date": "2026-10-14",
@@ -316,7 +300,7 @@
       "name": "CME그룹",
       "marketCapRank": 96,
       "quarter": "26Q3",
-      "epsForecast": "$2.96",
+      "epsForecast": "$2.98",
       "epsActual": null,
       "epsPreviousYoY": "$2.68",
       "revenueForecast": "$1.71B",
@@ -364,10 +348,10 @@
       "name": "처브",
       "marketCapRank": 95,
       "quarter": "26Q3",
-      "epsForecast": "$6.70",
+      "epsForecast": "$6.74",
       "epsActual": null,
       "epsPreviousYoY": "$7.49",
-      "revenueForecast": "$13.47B",
+      "revenueForecast": "$13.51B",
       "revenueActual": null,
       "surprise": null
     },
@@ -396,7 +380,7 @@
       "name": "블랙스톤",
       "marketCapRank": 57,
       "quarter": "26Q3",
-      "epsForecast": "$1.32",
+      "epsForecast": "$1.29",
       "epsActual": null,
       "epsPreviousYoY": "$1.52",
       "revenueForecast": "$3.37B",
@@ -430,7 +414,7 @@
       "quarter": "26Q3",
       "epsForecast": "$6.25",
       "epsActual": null,
-      "epsPreviousYoY": "$1.05",
+      "epsPreviousYoY": "$7.25",
       "revenueForecast": "$63.35B",
       "revenueActual": null,
       "surprise": null
@@ -476,7 +460,7 @@
       "name": "텍사스인스트루먼트",
       "marketCapRank": 52,
       "quarter": "26Q3",
-      "epsForecast": "$2.42",
+      "epsForecast": "$2.41",
       "epsActual": null,
       "epsPreviousYoY": "$1.48",
       "revenueForecast": "$5.91B",
@@ -508,7 +492,7 @@
       "name": "아메리칸익스프레스",
       "marketCapRank": 41,
       "quarter": "26Q3",
-      "epsForecast": "$4.60",
+      "epsForecast": "$4.59",
       "epsActual": null,
       "epsPreviousYoY": "$4.14",
       "revenueForecast": "$20.12B",
