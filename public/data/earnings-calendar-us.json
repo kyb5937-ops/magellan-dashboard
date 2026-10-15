@@ -15,7 +15,7 @@
       "epsForecast": "$5.94",
       "epsActual": "$5.75",
       "epsPreviousYoY": "$5.07",
-      "revenueForecast": "$51.24B",
+      "revenueForecast": "$51.14B",
       "revenueActual": null,
       "surprise": "-3.2%"
     },
@@ -95,7 +95,7 @@
       "epsForecast": "$1.11",
       "epsActual": "$0.91",
       "epsPreviousYoY": "$1.06",
-      "revenueForecast": "$30.68B",
+      "revenueForecast": "$30.52B",
       "revenueActual": null,
       "surprise": "-17.8%"
     },
@@ -111,7 +111,7 @@
       "epsForecast": "$10.76",
       "epsActual": "$11.82",
       "epsPreviousYoY": "$5.49",
-      "revenueForecast": "$14.44B",
+      "revenueForecast": "$14.82B",
       "revenueActual": null,
       "surprise": "+9.9%"
     },
@@ -127,7 +127,7 @@
       "epsForecast": "$2.92",
       "epsActual": "$3.03",
       "epsPreviousYoY": "$2.80",
-      "revenueForecast": "$21.14B",
+      "revenueForecast": "$20.30B",
       "revenueActual": null,
       "surprise": "+3.9%"
     },
@@ -143,7 +143,7 @@
       "epsForecast": "$14.30",
       "epsActual": "$15.93",
       "epsPreviousYoY": "$11.55",
-      "revenueForecast": "$7.84B",
+      "revenueForecast": "$7.78B",
       "revenueActual": null,
       "surprise": "+11.4%"
     },
@@ -173,27 +173,11 @@
       "marketCapRank": 64,
       "quarter": "26Q3",
       "epsForecast": "$1.66",
-      "epsActual": null,
+      "epsActual": "$1.69",
       "epsPreviousYoY": "$1.31",
-      "revenueForecast": "$7.18B",
+      "revenueForecast": "$7.47B",
       "revenueActual": null,
-      "surprise": null
-    },
-    {
-      "date": "2026-10-15",
-      "dayOfWeek": "목",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "MMC",
-      "name": "마쉬앤맥레넌",
-      "marketCapRank": 79,
-      "quarter": "26Q3",
-      "epsForecast": "$1.97",
-      "epsActual": null,
-      "epsPreviousYoY": "$1.85",
-      "revenueForecast": null,
-      "revenueActual": null,
-      "surprise": null
+      "surprise": "+2.1%"
     },
     {
       "date": "2026-10-20",
@@ -207,7 +191,7 @@
       "epsForecast": "$2.00",
       "epsActual": null,
       "epsPreviousYoY": "$1.66",
-      "revenueForecast": "$12.84B",
+      "revenueForecast": "$12.85B",
       "revenueActual": null,
       "surprise": null
     },
@@ -383,7 +367,7 @@
       "epsForecast": "$1.89",
       "epsActual": null,
       "epsPreviousYoY": "$1.99",
-      "revenueForecast": "$22.81B",
+      "revenueForecast": "$22.82B",
       "revenueActual": null,
       "surprise": null
     },
@@ -412,10 +396,10 @@
       "name": "록히드마틴",
       "marketCapRank": 74,
       "quarter": "26Q3",
-      "epsForecast": "$7.53",
+      "epsForecast": "$7.52",
       "epsActual": null,
       "epsPreviousYoY": "$6.95",
-      "revenueForecast": "$20.45B",
+      "revenueForecast": "$20.46B",
       "revenueActual": null,
       "surprise": null
     },
@@ -430,8 +414,8 @@
       "quarter": "26Q3",
       "epsForecast": "$5.94",
       "epsActual": null,
-      "epsPreviousYoY": "$7.25",
-      "revenueForecast": "$63.34B",
+      "epsPreviousYoY": "$1.05",
+      "revenueForecast": "$63.35B",
       "revenueActual": null,
       "surprise": null
     },
@@ -463,7 +447,7 @@
       "epsForecast": "$2.87",
       "epsActual": null,
       "epsPreviousYoY": "$2.65",
-      "revenueForecast": "$16.84B",
+      "revenueForecast": "$16.83B",
       "revenueActual": null,
       "surprise": null
     },
@@ -543,7 +527,7 @@
       "epsForecast": "$0.88",
       "epsActual": null,
       "epsPreviousYoY": "$0.82",
-      "revenueForecast": "$12.92B",
+      "revenueForecast": "$12.93B",
       "revenueActual": null,
       "surprise": null
     },
@@ -575,7 +559,7 @@
       "epsForecast": "$-0.20",
       "epsActual": null,
       "epsPreviousYoY": "$-7.47",
-      "revenueForecast": "$24.45B",
+      "revenueForecast": "$24.37B",
       "revenueActual": null,
       "surprise": null
     },
@@ -591,7 +575,7 @@
       "epsForecast": "$1.31",
       "epsActual": null,
       "epsPreviousYoY": "$1.34",
-      "revenueForecast": "$8.71B",
+      "revenueForecast": "$8.70B",
       "revenueActual": null,
       "surprise": null
     },
@@ -644,22 +628,6 @@
       "surprise": null
     },
     {
-      "date": "2026-10-28",
-      "dayOfWeek": "수",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "MDLZ",
-      "name": "몬델리즈",
-      "marketCapRank": 75,
-      "quarter": "26Q3",
-      "epsForecast": "$0.71",
-      "epsActual": null,
-      "epsPreviousYoY": "$0.73",
-      "revenueForecast": "$9.99B",
-      "revenueActual": null,
-      "surprise": null
-    },
-    {
       "date": "2026-10-29",
       "dayOfWeek": "목",
       "time": "BMO",
@@ -687,7 +655,7 @@
       "epsForecast": "$5.16",
       "epsActual": null,
       "epsPreviousYoY": "$4.38",
-      "revenueForecast": "$9.64B",
+      "revenueForecast": "$9.65B",
       "revenueActual": null,
       "surprise": null
     },
@@ -783,7 +751,7 @@
       "epsForecast": "$4.72",
       "epsActual": null,
       "epsPreviousYoY": "$4.13",
-      "revenueForecast": "$90.70B",
+      "revenueForecast": "$90.71B",
       "revenueActual": null,
       "surprise": null
     },
@@ -799,7 +767,7 @@
       "epsForecast": "$3.00",
       "epsActual": null,
       "epsPreviousYoY": "$2.87",
-      "revenueForecast": "$127.61B",
+      "revenueForecast": "$127.63B",
       "revenueActual": null,
       "surprise": null
     },
@@ -814,7 +782,7 @@
       "quarter": "26Q3",
       "epsForecast": "$2.91",
       "epsActual": null,
-      "epsPreviousYoY": "$2.77",
+      "epsPreviousYoY": "$2.41",
       "revenueForecast": "$23.14B",
       "revenueActual": null,
       "surprise": null
