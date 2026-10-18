@@ -1,40 +1,8 @@
 {
-  "weekStart": "2026-10-15",
-  "weekEnd": "2026-10-31",
-  "lastUpdated": "2026-10-17",
+  "weekStart": "2026-10-16",
+  "weekEnd": "2026-11-01",
+  "lastUpdated": "2026-10-18",
   "events": [
-    {
-      "date": "2026-10-15",
-      "dayOfWeek": "목",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "TSM",
-      "name": "TSMC",
-      "marketCapRank": 32,
-      "quarter": "26Q3",
-      "epsForecast": "$4.52",
-      "epsActual": "$4.60",
-      "epsPreviousYoY": "$2.92",
-      "revenueForecast": "$1705.19B",
-      "revenueActual": null,
-      "surprise": "+1.7%"
-    },
-    {
-      "date": "2026-10-15",
-      "dayOfWeek": "목",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "SCHW",
-      "name": "찰스슈왑",
-      "marketCapRank": 64,
-      "quarter": "26Q3",
-      "epsForecast": "$1.66",
-      "epsActual": "$1.69",
-      "epsPreviousYoY": "$1.31",
-      "revenueForecast": "$7.40B",
-      "revenueActual": null,
-      "surprise": "+2.1%"
-    },
     {
       "date": "2026-10-20",
       "dayOfWeek": "화",
