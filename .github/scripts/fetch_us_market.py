@@ -347,44 +347,37 @@ def main():
 
     print("  [지수] S&P·나스닥·다우·SOX 수집...")
     indices = fetch_indices(target)
-    index_data.update(indices)
 
     print("  [금리] 미 국채 2Y·10Y 수집...")
     treasury = fetch_treasury_yields(target)
+
+    # ── 지수 0개 → 직전 거래일로 지수만 1회 재시도 ──
+    # 지수 함수는 대상일 EOD 가 없으면(미국 휴장일·장 마감 전 수동 실행) None 을 돌려주지만,
+    # 금리는 대상일과 무관하게 재무부 최신 거래일 값을 돌려준다. 그래서 재시도 기준을
+    # "전부 실패"로 두면 휴장일엔 금리만 성공해 지수 없는 파일이 저장된다(7/3 독립기념일
+    # 대체휴장 때 실제 발생). 기준은 "지수 0개"이고, 금리는 이미 받은 값을 그대로 둔다.
+    # 재시도도 지수 0개면 EODHD/FMP 접근 이상 — 지수가 이 파일의 핵심이므로 금리만 든
+    # 파일로 덮어쓰지 않고 exit 1 (기존 index-us.json 보존).
+    #   ※ 연휴가 이틀 이상 연속이면 1회 재시도가 또 휴장일에 걸려 오탐(exit 1)이 남을 수 있음.
+    if not indices:
+        retry_date = _previous_business_day(target)
+        print(f"⚠️ {target} 지수 전부 실패 — 직전 거래일 {retry_date}로 지수만 1회 재시도",
+              file=sys.stderr)
+        indices = fetch_indices(retry_date)
+        if not indices:
+            print("❌ 지수 전부 실패 (직전 거래일 재시도도 실패) — "
+                  "EODHD/FMP 접근 확인 필요. index-us.json 보존", file=sys.stderr)
+            sys.exit(1)
+        print(f"  ↩ 직전 거래일 {retry_date} 지수 확보 — 휴장으로 간주하고 저장",
+              file=sys.stderr)
+        index_data["date"] = retry_date
+
+    # 지수는 있고 금리만 없으면 그대로 저장 — 금리 카드는 FRED 폴백, 누락 알림은 워크플로가 띄운다.
+    index_data.update(indices)
     index_data.update(treasury)
 
     ALL_KEYS = ("sp500", "nasdaq", "dow", "sox", "us2y", "us10y")
-    # 성공한 데이터가 하나라도 있으면 그 부분만 저장(폴백 구조 유지).
     success_keys = [k for k in ALL_KEYS if k in index_data]
-
-    # ── 전부 실패 처리 (조용한 실패 방지) ──
-    # 하나도 못 받았으면 EODHD/FMP/재무부 접근 이상 신호. 단, 미국 공휴일(독립기념일 등)엔
-    # 대상일에 확정 데이터가 없어 전부 실패할 수 있으므로, 직전 거래일로 한 번 더 시도해서
-    # 데이터가 있으면 그 날짜로 저장하고 정상 종료(휴장으로 간주). 그래도 없으면 exit 1.
-    #   ※ 금리(fetch_treasury_yields)는 대상일이 휴장이어도 그 달의 최신 거래일을 돌려주므로
-    #     순수 공휴일에는 보통 전부 실패로 가지 않는다. 즉 여기까지 오면 대체로 진짜 장애다.
-    #   ※ 연휴가 이틀 이상 연속이면 1회 재시도가 또 휴장일에 걸려 오탐(exit 1)이 남을 수 있음.
-    if not success_keys:
-        retry_date = _previous_business_day(target)
-        print(f"⚠️ {target} 지수·금리 전부 실패 — 직전 거래일 {retry_date}로 1회 재시도",
-              file=sys.stderr)
-        retry_data = {
-            "date": retry_date,
-            "updatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        }
-        retry_data.update(fetch_indices(retry_date))
-        retry_data.update(fetch_treasury_yields(retry_date))
-        retry_keys = [k for k in ALL_KEYS if k in retry_data]
-        if retry_keys:
-            print(f"  ↩ 직전 거래일 {retry_date} 데이터 확보 — 휴장으로 간주하고 저장",
-                  file=sys.stderr)
-            index_data = retry_data
-            target = retry_date
-            success_keys = retry_keys
-        else:
-            print("❌ 지수·금리 전부 실패 (직전 거래일 재시도도 실패) — "
-                  "EODHD/FMP/재무부 접근 확인 필요. index-us.json 보존", file=sys.stderr)
-            sys.exit(1)
 
     json_dir = os.path.join(DASHBOARD_PATH, "public", "data")
     os.makedirs(json_dir, exist_ok=True)

@@ -62,3 +62,19 @@ jobs:
             git push
             echo "✅ 갱신 완료"
           fi
+
+      # 6. 금리 누락 확인 (earnings-update.yml 의 "수집 실패 확인"과 같은 패턴)
+      #    스크립트는 지수만 있으면 성공 처리하므로(금리 카드는 FRED 폴백) 금리 누락은 여기서 잡는다.
+      #    커밋 뒤에 둬서 지수는 정상 커밋되고, 잡만 빨간색으로 끝나 알림 메일이 온다.
+      - name: 금리 누락 확인
+        if: always()
+        run: |
+          python - <<'EOF'
+          import json, sys
+          with open("public/data/index-us.json", encoding="utf-8") as f:
+              d = json.load(f)
+          if "us2y" not in d or "us10y" not in d:
+              print("::error::재무부 금리 누락 — 카드는 FRED(1일 지연) 폴백 중")
+              sys.exit(1)
+          print("재무부 금리(us2y·us10y) 정상.")
+          EOF
