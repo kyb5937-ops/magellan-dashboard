@@ -233,14 +233,14 @@
     },
     {
       "rank": 39,
-      "symbol": "010950",
-      "name": "S-Oil",
+      "symbol": "017670",
+      "name": "SK텔레콤",
       "market": "KOSPI"
     },
     {
       "rank": 40,
-      "symbol": "017670",
-      "name": "SK텔레콤",
+      "symbol": "010950",
+      "name": "S-Oil",
       "market": "KOSPI"
     },
     {
@@ -251,15 +251,15 @@
     },
     {
       "rank": 42,
-      "symbol": "196170",
-      "name": "알테오젠",
-      "market": "KOSDAQ"
-    },
-    {
-      "rank": 43,
       "symbol": "024110",
       "name": "기업은행",
       "market": "KOSPI"
+    },
+    {
+      "rank": 43,
+      "symbol": "196170",
+      "name": "알테오젠",
+      "market": "KOSDAQ"
     },
     {
       "rank": 44,
@@ -377,14 +377,14 @@
     },
     {
       "rank": 63,
-      "symbol": "064350",
-      "name": "현대로템",
+      "symbol": "323410",
+      "name": "카카오뱅크",
       "market": "KOSPI"
     },
     {
       "rank": 64,
-      "symbol": "323410",
-      "name": "카카오뱅크",
+      "symbol": "064350",
+      "name": "현대로템",
       "market": "KOSPI"
     },
     {
@@ -395,20 +395,20 @@
     },
     {
       "rank": 66,
+      "symbol": "003230",
+      "name": "삼양식품",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 67,
       "symbol": "036930",
       "name": "주성엔지니어링",
       "market": "KOSDAQ"
     },
     {
-      "rank": 67,
+      "rank": 68,
       "symbol": "307950",
       "name": "현대오토에버",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 68,
-      "symbol": "003230",
-      "name": "삼양식품",
       "market": "KOSPI"
     },
     {
@@ -473,14 +473,14 @@
     },
     {
       "rank": 79,
-      "symbol": "021240",
-      "name": "코웨이",
+      "symbol": "161390",
+      "name": "한국타이어앤테크놀로지",
       "market": "KOSPI"
     },
     {
       "rank": 80,
-      "symbol": "161390",
-      "name": "한국타이어앤테크놀로지",
+      "symbol": "021240",
+      "name": "코웨이",
       "market": "KOSPI"
     },
     {
@@ -521,14 +521,14 @@
     },
     {
       "rank": 87,
-      "symbol": "032640",
-      "name": "LG유플러스",
+      "symbol": "064400",
+      "name": "LG씨엔에스",
       "market": "KOSPI"
     },
     {
       "rank": 88,
-      "symbol": "064400",
-      "name": "LG씨엔에스",
+      "symbol": "032640",
+      "name": "LG유플러스",
       "market": "KOSPI"
     },
     {
@@ -593,15 +593,15 @@
     },
     {
       "rank": 99,
-      "symbol": "240810",
-      "name": "원익IPS",
-      "market": "KOSDAQ"
-    },
-    {
-      "rank": 100,
       "symbol": "175330",
       "name": "JB금융지주",
       "market": "KOSPI"
+    },
+    {
+      "rank": 100,
+      "symbol": "240810",
+      "name": "원익IPS",
+      "market": "KOSDAQ"
     }
   ]
 }
