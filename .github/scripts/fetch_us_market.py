@@ -29,6 +29,7 @@
 import os
 import sys
 import json
+import time
 import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -50,6 +51,9 @@ EODHD_API_KEY = os.environ.get("EODHD_API_KEY", "").strip()
 DASHBOARD_PATH = os.getcwd()
 
 HTTP_TIMEOUT = 15
+# 재무부 XML 은 응답 시작까지 ~19초(실측 18.5~19.8초) 걸려 15초로는 매번 Read timeout.
+# 재무부 호출에만 적용 — FMP/EODHD 는 HTTP_TIMEOUT 그대로.
+TREASURY_TIMEOUT = (10, 60)  # (connect, read)
 
 # 지수 정의: FMP 심볼(없으면 EODHD 전용), EODHD 심볼
 #   SOX 는 FMP 무료에서 막히므로 fmp=None → 바로 EODHD.
@@ -231,19 +235,31 @@ def _prev_month_yyyymm(yyyymm):
 
 
 def _fetch_treasury_month(yyyymm):
-    """재무부 Par Yield Curve XML 한 달치 → [(date, y2, y10), ...]. 실패 시 []."""
+    """재무부 Par Yield Curve XML 한 달치 → [(date, y2, y10), ...]. 실패 시 [].
+
+    timeout·연결 오류면 3초 쉬고 1회 재시도. 그 외 오류(HTTP 상태·XML 파싱)는 재시도 없이 [].
+    """
     url = (
         "https://home.treasury.gov/resource-center/data-chart-center/"
         "interest-rates/pages/xml"
         f"?data=daily_treasury_yield_curve&field_tdr_date_value_month={yyyymm}"
     )
-    try:
-        r = requests.get(url, timeout=HTTP_TIMEOUT)
-        r.raise_for_status()
-        root = ET.fromstring(r.content)
-    except Exception as e:
-        print(f"  ⚠️ 재무부 금리({yyyymm}) 조회 실패: {e}", file=sys.stderr)
-        return []
+    for attempt in (1, 2):
+        try:
+            r = requests.get(url, timeout=TREASURY_TIMEOUT)
+            r.raise_for_status()
+            root = ET.fromstring(r.content)
+            break
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+            if attempt == 2:
+                print(f"  ⚠️ 재무부 금리({yyyymm}) 조회 실패(재시도 후): {e}", file=sys.stderr)
+                return []
+            print(f"  ⚠️ 재무부 금리({yyyymm}) timeout/연결 오류 — 3초 후 재시도: {e}",
+                  file=sys.stderr)
+            time.sleep(3)
+        except Exception as e:
+            print(f"  ⚠️ 재무부 금리({yyyymm}) 조회 실패: {e}", file=sys.stderr)
+            return []
 
     NS_D = "{http://schemas.microsoft.com/ado/2007/08/dataservices}"
     NS_M = "{http://schemas.microsoft.com/ado/2007/08/dataservices/metadata}"
@@ -266,13 +282,15 @@ def _fetch_treasury_month(yyyymm):
 def fetch_treasury_yields(trade_date):
     """미 재무부 Par Yield Curve XML 에서 2Y·10Y 수익률 + 전일대비 bp.
 
-    월초(이번 달 관측 1개)엔 전일이 없어 bp 계산이 안 되므로,
-    이번 달 + 직전 달 XML 을 함께 받아 병합·정렬해서 직전 영업일을 확보한다.
+    이번 달 XML 을 먼저 받고, 행이 2개 미만(월초 — 직전 영업일이 이번 달에 없음)일 때만
+    직전 달 XML 을 추가로 받아 병합·정렬해서 직전 영업일을 확보한다.
+    (XML 1회 ~19초라 매번 두 달을 받으면 ~40초. 월초가 아니면 이번 달만으로 충분.)
     """
     yyyymm = trade_date[0:4] + trade_date[5:7]
-    prev_mm = _prev_month_yyyymm(yyyymm)
 
-    merged = _fetch_treasury_month(yyyymm) + _fetch_treasury_month(prev_mm)
+    merged = _fetch_treasury_month(yyyymm)
+    if len(merged) < 2:
+        merged += _fetch_treasury_month(_prev_month_yyyymm(yyyymm))
     if not merged:
         print("  ⚠️ 재무부 금리 entry 없음 — 생략", file=sys.stderr)
         return {}
