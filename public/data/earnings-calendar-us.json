@@ -136,6 +136,22 @@
       "dayOfWeek": "수",
       "time": "AMC",
       "country": "US",
+      "symbol": "NFLX",
+      "name": "넷플릭스",
+      "marketCapRank": 21,
+      "quarter": "26Q3",
+      "epsForecast": "$0.82",
+      "epsActual": "$0.87",
+      "epsPreviousYoY": "$0.59",
+      "revenueForecast": "$13.53B",
+      "revenueActual": null,
+      "surprise": "+5.8%"
+    },
+    {
+      "date": "2026-10-21",
+      "dayOfWeek": "수",
+      "time": "AMC",
+      "country": "US",
       "symbol": "ISRG",
       "name": "인튜이티브서지컬",
       "marketCapRank": 67,
@@ -146,6 +162,22 @@
       "revenueForecast": "$2.91B",
       "revenueActual": null,
       "surprise": "+13.6%"
+    },
+    {
+      "date": "2026-10-21",
+      "dayOfWeek": "수",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "CB",
+      "name": "처브",
+      "marketCapRank": 95,
+      "quarter": "26Q3",
+      "epsForecast": "$6.80",
+      "epsActual": "$7.66",
+      "epsPreviousYoY": "$7.49",
+      "revenueForecast": "$11.72B",
+      "revenueActual": null,
+      "surprise": "+12.7%"
     },
     {
       "date": "2026-10-22",
@@ -206,7 +238,7 @@
       "quarter": "26Q3",
       "epsForecast": "$5.54",
       "epsActual": null,
-      "epsPreviousYoY": "$1.05",
+      "epsPreviousYoY": "$7.25",
       "revenueForecast": "$63.41B",
       "revenueActual": null,
       "surprise": null
@@ -574,7 +606,7 @@
       "quarter": "26Q3",
       "epsForecast": "$2.91",
       "epsActual": null,
-      "epsPreviousYoY": "$2.41",
+      "epsPreviousYoY": "$2.77",
       "revenueForecast": "$23.14B",
       "revenueActual": null,
       "surprise": null
