@@ -1,40 +1,8 @@
 {
-  "weekStart": "2026-10-20",
-  "weekEnd": "2026-11-05",
-  "lastUpdated": "2026-10-22",
+  "weekStart": "2026-10-21",
+  "weekEnd": "2026-11-06",
+  "lastUpdated": "2026-10-23",
   "events": [
-    {
-      "date": "2026-10-20",
-      "dayOfWeek": "화",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "GE",
-      "name": "GE",
-      "marketCapRank": 47,
-      "quarter": "26Q3",
-      "epsForecast": "$2.02",
-      "epsActual": "$2.25",
-      "epsPreviousYoY": "$1.66",
-      "revenueForecast": "$13.29B",
-      "revenueActual": null,
-      "surprise": "+11.4%"
-    },
-    {
-      "date": "2026-10-20",
-      "dayOfWeek": "화",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "RTX",
-      "name": "RTX",
-      "marketCapRank": 55,
-      "quarter": "26Q3",
-      "epsForecast": "$1.78",
-      "epsActual": "$2.26",
-      "epsPreviousYoY": "$1.70",
-      "revenueForecast": "$25.81B",
-      "revenueActual": null,
-      "surprise": "+27.0%"
-    },
     {
       "date": "2026-10-21",
       "dayOfWeek": "수",
@@ -238,7 +206,7 @@
       "quarter": "26Q3",
       "epsForecast": "$5.46",
       "epsActual": "$3.83",
-      "epsPreviousYoY": "$7.25",
+      "epsPreviousYoY": "$1.05",
       "revenueForecast": "$74.76B",
       "revenueActual": null,
       "surprise": "-29.9%"
@@ -606,7 +574,7 @@
       "quarter": "26Q3",
       "epsForecast": "$2.91",
       "epsActual": null,
-      "epsPreviousYoY": "$2.77",
+      "epsPreviousYoY": "$2.41",
       "revenueForecast": "$23.14B",
       "revenueActual": null,
       "surprise": null
