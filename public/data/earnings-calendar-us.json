@@ -15,7 +15,7 @@
       "epsForecast": "$1.27",
       "epsActual": "$1.31",
       "epsPreviousYoY": "$1.21",
-      "revenueForecast": "$37.21B",
+      "revenueForecast": "$37.12B",
       "revenueActual": null,
       "surprise": "+2.8%"
     },
@@ -29,11 +29,11 @@
       "marketCapRank": 26,
       "quarter": "26Q3",
       "epsForecast": "$0.88",
-      "epsActual": null,
+      "epsActual": "$0.91",
       "epsPreviousYoY": "$0.82",
-      "revenueForecast": "$11.08B",
+      "revenueForecast": "$11.01B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+3.3%"
     },
     {
       "date": "2026-10-27",
@@ -45,11 +45,11 @@
       "marketCapRank": 61,
       "quarter": "26Q3",
       "epsForecast": "$4.42",
-      "epsActual": null,
+      "epsActual": "$4.58",
       "epsPreviousYoY": "$4.73",
       "revenueForecast": "$3.61B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+3.7%"
     },
     {
       "date": "2026-10-27",
@@ -61,11 +61,11 @@
       "marketCapRank": 62,
       "quarter": "26Q3",
       "epsForecast": "$-0.20",
-      "epsActual": null,
+      "epsActual": "$-0.34",
       "epsPreviousYoY": "$-7.47",
       "revenueForecast": "$26.33B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "-69.2%"
     },
     {
       "date": "2026-10-27",
@@ -77,11 +77,11 @@
       "marketCapRank": 99,
       "quarter": "26Q3",
       "epsForecast": "$1.31",
-      "epsActual": null,
+      "epsActual": "$1.45",
       "epsPreviousYoY": "$1.34",
-      "revenueForecast": "$9.05B",
+      "revenueForecast": "$9.02B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+10.7%"
     },
     {
       "date": "2026-10-28",
@@ -428,7 +428,7 @@
       "name": "길리어드",
       "marketCapRank": 70,
       "quarter": "26Q3",
-      "epsForecast": "$2.21",
+      "epsForecast": "$2.18",
       "epsActual": null,
       "epsPreviousYoY": "$2.47",
       "revenueForecast": "$7.80B",
@@ -527,7 +527,7 @@
       "epsForecast": "$1.98",
       "epsActual": null,
       "epsPreviousYoY": "$1.85",
-      "revenueForecast": "$113.38B",
+      "revenueForecast": "$113.32B",
       "revenueActual": null,
       "surprise": null
     },
@@ -556,7 +556,7 @@
       "name": "버텍스",
       "marketCapRank": 84,
       "quarter": "26Q3",
-      "epsForecast": "$0.08",
+      "epsForecast": "$0.38",
       "epsActual": null,
       "epsPreviousYoY": "$4.80",
       "revenueForecast": "$3.43B",
