@@ -371,15 +371,15 @@
     },
     {
       "rank": 62,
-      "symbol": "323410",
-      "name": "카카오뱅크",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 63,
       "symbol": "247540",
       "name": "에코프로비엠",
       "market": "KOSDAQ"
+    },
+    {
+      "rank": 63,
+      "symbol": "323410",
+      "name": "카카오뱅크",
+      "market": "KOSPI"
     },
     {
       "rank": 64,
@@ -533,14 +533,14 @@
     },
     {
       "rank": 89,
-      "symbol": "000100",
-      "name": "유한양행",
+      "symbol": "009830",
+      "name": "한화솔루션",
       "market": "KOSPI"
     },
     {
       "rank": 90,
-      "symbol": "009830",
-      "name": "한화솔루션",
+      "symbol": "000100",
+      "name": "유한양행",
       "market": "KOSPI"
     },
     {
