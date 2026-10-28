@@ -116,6 +116,22 @@
       "surprise": null
     },
     {
+      "date": "2026-10-28",
+      "dayOfWeek": "수",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "V",
+      "name": "비자",
+      "marketCapRank": 13,
+      "quarter": "26Q3",
+      "epsForecast": "$3.44",
+      "epsActual": "$3.48",
+      "epsPreviousYoY": "$2.98",
+      "revenueForecast": "$12.18B",
+      "revenueActual": null,
+      "surprise": "+1.1%"
+    },
+    {
       "date": "2026-10-29",
       "dayOfWeek": "목",
       "time": "BMO",
@@ -270,7 +286,7 @@
       "quarter": "26Q3",
       "epsForecast": "$2.91",
       "epsActual": null,
-      "epsPreviousYoY": "$2.77",
+      "epsPreviousYoY": "$2.41",
       "revenueForecast": "$23.14B",
       "revenueActual": null,
       "surprise": null
