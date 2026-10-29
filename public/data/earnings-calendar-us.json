@@ -32,7 +32,7 @@
       "epsActual": "$4.58",
       "epsPreviousYoY": "$4.73",
       "revenueForecast": "$3.62B",
-      "revenueActual": null,
+      "revenueActual": "$3.68B",
       "surprise": "+3.7%"
     },
     {
@@ -64,7 +64,7 @@
       "epsActual": "$1.45",
       "epsPreviousYoY": "$1.34",
       "revenueForecast": "$8.91B",
-      "revenueActual": null,
+      "revenueActual": "$8.58B",
       "surprise": "+10.7%"
     },
     {
@@ -124,12 +124,12 @@
       "name": "일라이릴리",
       "marketCapRank": 12,
       "quarter": "26Q3",
-      "epsForecast": "$6.61",
-      "epsActual": null,
+      "epsForecast": "$6.35",
+      "epsActual": "$7.48",
       "epsPreviousYoY": "$7.02",
-      "revenueForecast": "$22.62B",
+      "revenueForecast": "$23.57B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+17.9%"
     },
     {
       "date": "2026-10-29",
@@ -156,12 +156,12 @@
       "name": "린데",
       "marketCapRank": 34,
       "quarter": "26Q3",
-      "epsForecast": "$4.61",
-      "epsActual": null,
+      "epsForecast": "$4.17",
+      "epsActual": "$3.66",
       "epsPreviousYoY": "$4.21",
-      "revenueForecast": "$9.16B",
+      "revenueForecast": "$9.17B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "-12.3%"
     },
     {
       "date": "2026-10-29",
@@ -173,11 +173,11 @@
       "marketCapRank": 38,
       "quarter": "26Q3",
       "epsForecast": "$2.09",
-      "epsActual": null,
+      "epsActual": "$2.49",
       "epsPreviousYoY": "$2.58",
       "revenueForecast": "$17.33B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+19.3%"
     },
     {
       "date": "2026-10-29",
@@ -189,11 +189,11 @@
       "marketCapRank": 53,
       "quarter": "26Q3",
       "epsForecast": "$7.03",
-      "epsActual": null,
+      "epsActual": "$7.20",
       "epsPreviousYoY": "$4.95",
-      "revenueForecast": "$20.69B",
+      "revenueForecast": "$21.42B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+2.4%"
     },
     {
       "date": "2026-10-29",
@@ -205,11 +205,11 @@
       "marketCapRank": 93,
       "quarter": "26Q3",
       "epsForecast": "$1.51",
-      "epsActual": null,
+      "epsActual": "$1.52",
       "epsPreviousYoY": "$1.45",
-      "revenueForecast": "$5.31B",
+      "revenueForecast": "$5.10B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+0.9%"
     },
     {
       "date": "2026-10-29",
@@ -221,11 +221,11 @@
       "marketCapRank": 94,
       "quarter": "26Q3",
       "epsForecast": "$1.97",
-      "epsActual": null,
+      "epsActual": "$2.02",
       "epsPreviousYoY": "$1.71",
-      "revenueForecast": "$2.74B",
+      "revenueForecast": "$2.73B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+2.5%"
     },
     {
       "date": "2026-10-29",
@@ -270,7 +270,7 @@
       "quarter": "26Q3",
       "epsForecast": "$2.91",
       "epsActual": "$3.22",
-      "epsPreviousYoY": "$2.77",
+      "epsPreviousYoY": "$2.41",
       "revenueForecast": "$23.14B",
       "revenueActual": null,
       "surprise": "+10.6%"
