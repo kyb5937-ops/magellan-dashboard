@@ -1,63 +1,63 @@
 {
-  "date": "20261029",
-  "updatedAt": "2026-10-29T14:39:22Z",
+  "date": "20261030",
+  "updatedAt": "2026-10-30T07:06:53Z",
   "kospi": {
-    "value": 5937.66,
-    "change_pct": -1.24,
-    "change_pt": -74.78,
-    "prevClose": 6012.44,
-    "tradeDate": "2026-10-29"
+    "value": 5730.74,
+    "change_pct": -3.48,
+    "change_pt": -206.92,
+    "prevClose": 5937.66,
+    "tradeDate": "2026-10-30"
   },
   "kosdaq": {
-    "value": 753.23,
-    "change_pct": -2.34,
-    "change_pt": -18.05,
-    "prevClose": 771.28,
-    "tradeDate": "2026-10-29"
+    "value": 724.38,
+    "change_pct": -3.83,
+    "change_pt": -28.85,
+    "prevClose": 753.23,
+    "tradeDate": "2026-10-30"
   },
   "kr3y": {
-    "value": 3.766,
-    "change_bp": -3.3,
-    "tradeDate": "20261029"
+    "value": 3.731,
+    "change_bp": -3.5,
+    "tradeDate": "20261030"
   },
   "kr10y": {
-    "value": 4.081,
-    "change_bp": -2.7,
-    "tradeDate": "20261029"
+    "value": 4.022,
+    "change_bp": -5.9,
+    "tradeDate": "20261030"
   },
   "usdkrw": {
-    "value": 1338.45,
-    "change": 12.46,
-    "prevClose": 1325.99
+    "value": 1334.2,
+    "change": 12.44,
+    "prevClose": 1321.76
   },
   "tradingValue": {
-    "tradeDate": "20261029",
+    "tradeDate": "20261030",
     "kospi": {
-      "value": 27.05,
-      "raw": 27053910056228,
-      "change_pct": 26.9,
-      "prevRaw": 21322074926491
+      "value": 19.27,
+      "raw": 19268744551916,
+      "change_pct": -28.8,
+      "prevRaw": 27053910056228
     },
     "kosdaq": {
-      "value": 6.11,
-      "raw": 6112993851787,
-      "change_pct": -13.3,
-      "prevRaw": 7051239026210
+      "value": 5.74,
+      "raw": 5741557334124,
+      "change_pct": -6.1,
+      "prevRaw": 6112993851787
     }
   },
   "breadth": {
-    "tradeDate": "20261029",
+    "tradeDate": "20261030",
     "kospi": {
-      "up": 270,
-      "down": 596,
-      "flat": 74,
-      "total": 940
+      "up": 234,
+      "down": 656,
+      "flat": 49,
+      "total": 939
     },
     "kosdaq": {
-      "up": 335,
-      "down": 1325,
-      "flat": 165,
-      "total": 1825
+      "up": 266,
+      "down": 1406,
+      "flat": 156,
+      "total": 1828
     }
   }
 }
