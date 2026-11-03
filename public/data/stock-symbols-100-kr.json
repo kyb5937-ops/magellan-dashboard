@@ -185,14 +185,14 @@
     },
     {
       "rank": 31,
-      "symbol": "015760",
-      "name": "한국전력",
+      "symbol": "298040",
+      "name": "효성중공업",
       "market": "KOSPI"
     },
     {
       "rank": 32,
-      "symbol": "298040",
-      "name": "효성중공업",
+      "symbol": "015760",
+      "name": "한국전력",
       "market": "KOSPI"
     },
     {
@@ -233,14 +233,14 @@
     },
     {
       "rank": 39,
-      "symbol": "018260",
-      "name": "삼성에스디에스",
+      "symbol": "267260",
+      "name": "HD현대일렉트릭",
       "market": "KOSPI"
     },
     {
       "rank": 40,
-      "symbol": "267260",
-      "name": "HD현대일렉트릭",
+      "symbol": "018260",
+      "name": "삼성에스디에스",
       "market": "KOSPI"
     },
     {
@@ -251,15 +251,15 @@
     },
     {
       "rank": 42,
-      "symbol": "196170",
-      "name": "알테오젠",
-      "market": "KOSDAQ"
-    },
-    {
-      "rank": 43,
       "symbol": "024110",
       "name": "기업은행",
       "market": "KOSPI"
+    },
+    {
+      "rank": 43,
+      "symbol": "196170",
+      "name": "알테오젠",
+      "market": "KOSDAQ"
     },
     {
       "rank": 44,
@@ -473,14 +473,14 @@
     },
     {
       "rank": 79,
-      "symbol": "016360",
-      "name": "삼성증권",
+      "symbol": "064400",
+      "name": "LG씨엔에스",
       "market": "KOSPI"
     },
     {
       "rank": 80,
-      "symbol": "064400",
-      "name": "LG씨엔에스",
+      "symbol": "016360",
+      "name": "삼성증권",
       "market": "KOSPI"
     },
     {
@@ -539,15 +539,15 @@
     },
     {
       "rank": 90,
-      "symbol": "128940",
-      "name": "한미약품",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 91,
       "symbol": "028300",
       "name": "HLB",
       "market": "KOSDAQ"
+    },
+    {
+      "rank": 91,
+      "symbol": "128940",
+      "name": "한미약품",
+      "market": "KOSPI"
     },
     {
       "rank": 92,
