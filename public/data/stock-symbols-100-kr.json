@@ -89,14 +89,14 @@
     },
     {
       "rank": 15,
-      "symbol": "034730",
-      "name": "SK",
+      "symbol": "000270",
+      "name": "기아",
       "market": "KOSPI"
     },
     {
       "rank": 16,
-      "symbol": "000270",
-      "name": "기아",
+      "symbol": "034730",
+      "name": "SK",
       "market": "KOSPI"
     },
     {
@@ -461,26 +461,26 @@
     },
     {
       "rank": 77,
-      "symbol": "011070",
-      "name": "LG이노텍",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 78,
       "symbol": "078930",
       "name": "GS",
       "market": "KOSPI"
     },
     {
+      "rank": 78,
+      "symbol": "011070",
+      "name": "LG이노텍",
+      "market": "KOSPI"
+    },
+    {
       "rank": 79,
-      "symbol": "064400",
-      "name": "LG씨엔에스",
+      "symbol": "016360",
+      "name": "삼성증권",
       "market": "KOSPI"
     },
     {
       "rank": 80,
-      "symbol": "016360",
-      "name": "삼성증권",
+      "symbol": "064400",
+      "name": "LG씨엔에스",
       "market": "KOSPI"
     },
     {
