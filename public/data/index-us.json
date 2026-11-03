@@ -1,6 +1,6 @@
 {
   "date": "2026-11-02",
-  "updatedAt": "2026-11-02T21:40:25Z",
+  "updatedAt": "2026-11-03T02:29:00Z",
   "sp500": {
     "value": 7541.4,
     "change_pct": -0.51,
@@ -10,9 +10,9 @@
     "tradeDate": "2026-11-02"
   },
   "nasdaq": {
-    "value": 25164.32,
+    "value": 25164.36,
     "change_pct": -1.07,
-    "change_pt": -272.68,
+    "change_pt": -272.64,
     "prevClose": 25437.0,
     "source": "eodhd",
     "tradeDate": "2026-11-02"
