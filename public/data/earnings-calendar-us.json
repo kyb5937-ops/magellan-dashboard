@@ -136,16 +136,32 @@
       "dayOfWeek": "수",
       "time": "AMC",
       "country": "US",
+      "symbol": "AMD",
+      "name": "AMD",
+      "marketCapRank": 27,
+      "quarter": "26Q3",
+      "epsForecast": "$1.94",
+      "epsActual": "$2.09",
+      "epsPreviousYoY": "$1.20",
+      "revenueForecast": "$13.09B",
+      "revenueActual": null,
+      "surprise": "+7.5%"
+    },
+    {
+      "date": "2026-11-04",
+      "dayOfWeek": "수",
+      "time": "AMC",
+      "country": "US",
       "symbol": "BKNG",
       "name": "부킹홀딩스",
       "marketCapRank": 63,
       "quarter": "26Q3",
       "epsForecast": "$4.50",
-      "epsActual": null,
+      "epsActual": "$4.66",
       "epsPreviousYoY": "$3.98",
       "revenueForecast": "$9.54B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+3.6%"
     },
     {
       "date": "2026-11-04",
@@ -173,11 +189,11 @@
       "marketCapRank": 88,
       "quarter": "26Q3",
       "epsForecast": "$1.08",
-      "epsActual": null,
+      "epsActual": "$1.20",
       "epsPreviousYoY": "$0.75",
       "revenueForecast": "$3.60B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+11.2%"
     },
     {
       "date": "2026-11-05",
