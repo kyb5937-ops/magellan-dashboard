@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-11-02",
-  "weekEnd": "2026-11-18",
-  "lastUpdated": "2026-11-04",
+  "weekStart": "2026-11-03",
+  "weekEnd": "2026-11-19",
+  "lastUpdated": "2026-11-05",
   "events": [
     {
       "date": "2026-11-03",
@@ -269,11 +269,11 @@
       "marketCapRank": 51,
       "quarter": "26Q3",
       "epsForecast": "$2.16",
-      "epsActual": null,
+      "epsActual": "$2.17",
       "epsPreviousYoY": "$3.00",
       "revenueForecast": "$10.14B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+0.5%"
     },
     {
       "date": "2026-11-05",
@@ -285,11 +285,11 @@
       "marketCapRank": 100,
       "quarter": "26Q3",
       "epsForecast": "$10.75",
-      "epsActual": null,
+      "epsActual": "$11.68",
       "epsPreviousYoY": "$9.86",
       "revenueForecast": "$109.95B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+8.6%"
     },
     {
       "date": "2026-11-08",
@@ -400,6 +400,38 @@
       "epsActual": null,
       "epsPreviousYoY": "$1.30",
       "revenueForecast": "$108.98B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-11-19",
+      "dayOfWeek": "목",
+      "time": "BMO",
+      "country": "US",
+      "symbol": "WMT",
+      "name": "월마트",
+      "marketCapRank": 11,
+      "quarter": "26Q3",
+      "epsForecast": "$0.64",
+      "epsActual": null,
+      "epsPreviousYoY": "$0.62",
+      "revenueForecast": "$187.19B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-11-19",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "PANW",
+      "name": "팔로알토",
+      "marketCapRank": 73,
+      "quarter": "26Q3",
+      "epsForecast": "$0.97",
+      "epsActual": null,
+      "epsPreviousYoY": "$0.93",
+      "revenueForecast": "$3.31B",
       "revenueActual": null,
       "surprise": null
     }
