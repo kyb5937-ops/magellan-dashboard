@@ -17,7 +17,7 @@
       "epsPreviousYoY": "$1.60",
       "revenueForecast": "$6.99B",
       "revenueActual": "$8.84B",
-      "surprise": "+13.4%"
+      "surprise": "+13.7%"
     },
     {
       "date": "2026-11-05",
@@ -47,7 +47,7 @@
       "epsForecast": "$1.51",
       "epsActual": "$1.75",
       "epsPreviousYoY": "$1.70",
-      "revenueForecast": "$2.23B",
+      "revenueForecast": "$2.18B",
       "revenueActual": "$2.39B",
       "surprise": "+15.8%"
     },
@@ -79,7 +79,7 @@
       "epsForecast": "$2.16",
       "epsActual": "$2.17",
       "epsPreviousYoY": "$3.00",
-      "revenueForecast": "$10.57B",
+      "revenueForecast": "$10.62B",
       "revenueActual": "$10.32B",
       "surprise": "+0.5%"
     },
@@ -95,7 +95,7 @@
       "epsForecast": "$10.75",
       "epsActual": "$11.68",
       "epsPreviousYoY": "$9.86",
-      "revenueForecast": "$113.21B",
+      "revenueForecast": "$113.82B",
       "revenueActual": "$110.96B",
       "surprise": "+8.6%"
     },
@@ -159,7 +159,7 @@
       "epsForecast": "$3.83",
       "epsActual": null,
       "epsPreviousYoY": "$3.74",
-      "revenueForecast": "$42.74B",
+      "revenueForecast": "$42.77B",
       "revenueActual": null,
       "surprise": null
     },
