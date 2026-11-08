@@ -15,13 +15,13 @@
       "epsForecast": "$6.14",
       "epsActual": "$5.94",
       "epsPreviousYoY": "$6.25",
-      "revenueForecast": null,
+      "revenueForecast": "$104.02B",
       "revenueActual": null,
       "surprise": "-3.2%"
     },
     {
-      "date": "2026-11-08",
-      "dayOfWeek": "일",
+      "date": "2026-11-10",
+      "dayOfWeek": "화",
       "time": "AMC",
       "country": "US",
       "symbol": "BRK.B",
@@ -31,7 +31,7 @@
       "epsForecast": "$6.14",
       "epsActual": null,
       "epsPreviousYoY": "$6.25",
-      "revenueForecast": null,
+      "revenueForecast": "$104.02B",
       "revenueActual": null,
       "surprise": null
     },
