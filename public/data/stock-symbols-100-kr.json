@@ -377,21 +377,21 @@
     },
     {
       "rank": 63,
+      "symbol": "000720",
+      "name": "현대건설",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 64,
       "symbol": "0126Z0",
       "name": "삼성에피스홀딩스",
       "market": "KOSPI"
     },
     {
-      "rank": 64,
+      "rank": 65,
       "symbol": "247540",
       "name": "에코프로비엠",
       "market": "KOSDAQ"
-    },
-    {
-      "rank": 65,
-      "symbol": "000720",
-      "name": "현대건설",
-      "market": "KOSPI"
     },
     {
       "rank": 66,
@@ -437,20 +437,20 @@
     },
     {
       "rank": 73,
+      "symbol": "021240",
+      "name": "코웨이",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 74,
       "symbol": "307950",
       "name": "현대오토에버",
       "market": "KOSPI"
     },
     {
-      "rank": 74,
+      "rank": 75,
       "symbol": "078930",
       "name": "GS",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 75,
-      "symbol": "021240",
-      "name": "코웨이",
       "market": "KOSPI"
     },
     {
@@ -461,14 +461,14 @@
     },
     {
       "rank": 77,
-      "symbol": "326030",
-      "name": "SK바이오팜",
+      "symbol": "032640",
+      "name": "LG유플러스",
       "market": "KOSPI"
     },
     {
       "rank": 78,
-      "symbol": "032640",
-      "name": "LG유플러스",
+      "symbol": "326030",
+      "name": "SK바이오팜",
       "market": "KOSPI"
     },
     {
@@ -491,8 +491,8 @@
     },
     {
       "rank": 82,
-      "symbol": "352820",
-      "name": "하이브",
+      "symbol": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
       "market": "KOSPI"
     },
     {
@@ -503,8 +503,8 @@
     },
     {
       "rank": 84,
-      "symbol": "079550",
-      "name": "LIG디펜스앤에어로스페이스",
+      "symbol": "352820",
+      "name": "하이브",
       "market": "KOSPI"
     },
     {
@@ -563,14 +563,14 @@
     },
     {
       "rank": 94,
-      "symbol": "039490",
-      "name": "키움증권",
+      "symbol": "271560",
+      "name": "오리온",
       "market": "KOSPI"
     },
     {
       "rank": 95,
-      "symbol": "271560",
-      "name": "오리온",
+      "symbol": "039490",
+      "name": "키움증권",
       "market": "KOSPI"
     },
     {
