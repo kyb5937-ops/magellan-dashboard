@@ -2,5 +2,50 @@
   "weekStart": "2026-11-07",
   "weekEnd": "2026-11-23",
   "lastUpdated": "2026-11-09",
-  "events": []
+  "events": [
+    {
+      "date": "2026-11-09",
+      "dayOfWeek": "월",
+      "time": "AMC",
+      "country": "KR",
+      "symbol": "015760",
+      "name": "한국전력",
+      "marketCapRank": 29,
+      "quarter": "26Q3",
+      "epsForecast": null,
+      "epsActual": null,
+      "epsPreviousYoY": null,
+      "revenueForecast": null,
+      "revenueActual": null,
+      "revenuePreviousYoY": null,
+      "revenueSurprise": null,
+      "operatingIncomeForecast": null,
+      "operatingIncomeActual": null,
+      "operatingIncomePreviousYoY": null,
+      "operatingIncomeSurprise": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-11-09",
+      "dayOfWeek": "월",
+      "time": "AMC",
+      "country": "KR",
+      "symbol": "000150",
+      "name": "두산",
+      "marketCapRank": 61,
+      "quarter": "26Q3",
+      "epsForecast": null,
+      "epsActual": null,
+      "epsPreviousYoY": null,
+      "revenueForecast": null,
+      "revenueActual": "5.4조원",
+      "revenuePreviousYoY": "4.4조원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": null,
+      "operatingIncomeActual": "4,594억원",
+      "operatingIncomePreviousYoY": "2,315억원",
+      "operatingIncomeSurprise": null,
+      "surprise": null
+    }
+  ]
 }
