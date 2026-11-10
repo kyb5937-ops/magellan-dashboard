@@ -167,14 +167,14 @@
     },
     {
       "rank": 28,
-      "symbol": "015760",
-      "name": "한국전력",
+      "symbol": "011200",
+      "name": "HMM",
       "market": "KOSPI"
     },
     {
       "rank": 29,
-      "symbol": "011200",
-      "name": "HMM",
+      "symbol": "015760",
+      "name": "한국전력",
       "market": "KOSPI"
     },
     {
@@ -377,15 +377,15 @@
     },
     {
       "rank": 63,
-      "symbol": "086520",
-      "name": "에코프로",
-      "market": "KOSDAQ"
-    },
-    {
-      "rank": 64,
       "symbol": "000150",
       "name": "두산",
       "market": "KOSPI"
+    },
+    {
+      "rank": 64,
+      "symbol": "086520",
+      "name": "에코프로",
+      "market": "KOSDAQ"
     },
     {
       "rank": 65,
@@ -491,14 +491,14 @@
     },
     {
       "rank": 82,
-      "symbol": "016360",
-      "name": "삼성증권",
+      "symbol": "011070",
+      "name": "LG이노텍",
       "market": "KOSPI"
     },
     {
       "rank": 83,
-      "symbol": "011070",
-      "name": "LG이노텍",
+      "symbol": "016360",
+      "name": "삼성증권",
       "market": "KOSPI"
     },
     {
