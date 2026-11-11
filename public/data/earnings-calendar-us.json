@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-11-08",
-  "weekEnd": "2026-11-24",
-  "lastUpdated": "2026-11-10",
+  "weekStart": "2026-11-09",
+  "weekEnd": "2026-11-25",
+  "lastUpdated": "2026-11-11",
   "events": [
     {
       "date": "2026-11-13",
@@ -160,6 +160,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$2.26",
       "revenueForecast": "$4.32B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-11-25",
+      "dayOfWeek": "수",
+      "time": "BMO",
+      "country": "US",
+      "symbol": "DE",
+      "name": "디어",
+      "marketCapRank": 69,
+      "quarter": "26Q3",
+      "epsForecast": "$4.06",
+      "epsActual": null,
+      "epsPreviousYoY": "$3.93",
+      "revenueForecast": "$10.35B",
       "revenueActual": null,
       "surprise": null
     }
