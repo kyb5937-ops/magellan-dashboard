@@ -1,10 +1,10 @@
 {
   "date": "2026-11-13",
-  "updatedAt": "2026-11-14T01:26:21Z",
+  "updatedAt": "2026-11-14T21:40:23Z",
   "sp500": {
     "value": 7561.67,
     "change_pct": -0.4,
-    "change_pt": -30.73,
+    "change_pt": -30.72,
     "prevClose": 7592.4,
     "source": "eodhd",
     "tradeDate": "2026-11-13"
