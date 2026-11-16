@@ -2,5 +2,28 @@
   "weekStart": "2026-11-14",
   "weekEnd": "2026-11-30",
   "lastUpdated": "2026-11-16",
-  "events": []
+  "events": [
+    {
+      "date": "2026-11-16",
+      "dayOfWeek": "월",
+      "time": "AMC",
+      "country": "KR",
+      "symbol": "006400",
+      "name": "삼성SDI",
+      "marketCapRank": 13,
+      "quarter": "26Q3",
+      "epsForecast": null,
+      "epsActual": null,
+      "epsPreviousYoY": null,
+      "revenueForecast": null,
+      "revenueActual": "4.7조원",
+      "revenuePreviousYoY": "3.1조원",
+      "revenueSurprise": null,
+      "operatingIncomeForecast": null,
+      "operatingIncomeActual": "4,078억원",
+      "operatingIncomePreviousYoY": "-5,913억원",
+      "operatingIncomeSurprise": null,
+      "surprise": null
+    }
+  ]
 }
