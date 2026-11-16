@@ -1,40 +1,8 @@
 {
-  "weekStart": "2026-11-13",
-  "weekEnd": "2026-11-29",
-  "lastUpdated": "2026-11-15",
+  "weekStart": "2026-11-14",
+  "weekEnd": "2026-11-30",
+  "lastUpdated": "2026-11-16",
   "events": [
-    {
-      "date": "2026-11-13",
-      "dayOfWeek": "금",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "CSCO",
-      "name": "시스코",
-      "marketCapRank": 37,
-      "quarter": "26Q3",
-      "epsForecast": "$1.33",
-      "epsActual": "$1.40",
-      "epsPreviousYoY": "$1.00",
-      "revenueForecast": "$18.16B",
-      "revenueActual": null,
-      "surprise": "+5.6%"
-    },
-    {
-      "date": "2026-11-13",
-      "dayOfWeek": "금",
-      "time": "AMC",
-      "country": "US",
-      "symbol": "AMAT",
-      "name": "어플라이드머티어리얼즈",
-      "marketCapRank": 65,
-      "quarter": "26Q3",
-      "epsForecast": "$4.05",
-      "epsActual": "$4.16",
-      "epsPreviousYoY": "$2.17",
-      "revenueForecast": "$11.10B",
-      "revenueActual": null,
-      "surprise": "+2.6%"
-    },
     {
       "date": "2026-11-17",
       "dayOfWeek": "화",
