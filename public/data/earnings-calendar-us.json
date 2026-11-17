@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-11-14",
-  "weekEnd": "2026-11-30",
-  "lastUpdated": "2026-11-16",
+  "weekStart": "2026-11-15",
+  "weekEnd": "2026-12-01",
+  "lastUpdated": "2026-11-17",
   "events": [
     {
       "date": "2026-11-17",
@@ -31,7 +31,7 @@
       "epsForecast": "$1.68",
       "epsActual": null,
       "epsPreviousYoY": "$1.11",
-      "revenueForecast": "$25.16B",
+      "revenueForecast": "$25.17B",
       "revenueActual": null,
       "surprise": null
     },
@@ -44,7 +44,7 @@
       "name": "TJX",
       "marketCapRank": 76,
       "quarter": "26Q3",
-      "epsForecast": "$1.33",
+      "epsForecast": "$1.34",
       "epsActual": null,
       "epsPreviousYoY": "$1.28",
       "revenueForecast": "$15.85B",
@@ -63,7 +63,7 @@
       "epsForecast": "$2.47",
       "epsActual": null,
       "epsPreviousYoY": "$1.30",
-      "revenueForecast": "$108.73B",
+      "revenueForecast": "$108.71B",
       "revenueActual": null,
       "surprise": null
     },
@@ -79,7 +79,7 @@
       "epsForecast": "$0.64",
       "epsActual": null,
       "epsPreviousYoY": "$0.62",
-      "revenueForecast": "$187.26B",
+      "revenueForecast": "$187.25B",
       "revenueActual": null,
       "surprise": null
     },
