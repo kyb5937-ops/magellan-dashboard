@@ -15,7 +15,7 @@
       "epsForecast": "$3.84",
       "epsActual": "$3.86",
       "epsPreviousYoY": "$3.74",
-      "revenueForecast": null,
+      "revenueForecast": "$42.78B",
       "revenueActual": null,
       "surprise": "+0.6%"
     },
@@ -31,7 +31,7 @@
       "epsForecast": "$1.68",
       "epsActual": "$1.77",
       "epsPreviousYoY": "$1.11",
-      "revenueForecast": null,
+      "revenueForecast": "$25.17B",
       "revenueActual": null,
       "surprise": "+5.4%"
     },
@@ -47,7 +47,7 @@
       "epsForecast": "$1.34",
       "epsActual": null,
       "epsPreviousYoY": "$1.28",
-      "revenueForecast": null,
+      "revenueForecast": "$15.85B",
       "revenueActual": null,
       "surprise": null
     },
@@ -63,7 +63,7 @@
       "epsForecast": "$2.47",
       "epsActual": null,
       "epsPreviousYoY": "$1.30",
-      "revenueForecast": null,
+      "revenueForecast": "$108.71B",
       "revenueActual": null,
       "surprise": null
     },
@@ -79,7 +79,7 @@
       "epsForecast": "$0.64",
       "epsActual": null,
       "epsPreviousYoY": "$0.62",
-      "revenueForecast": null,
+      "revenueForecast": "$187.25B",
       "revenueActual": null,
       "surprise": null
     },
@@ -95,7 +95,7 @@
       "epsForecast": "$0.97",
       "epsActual": null,
       "epsPreviousYoY": "$0.93",
-      "revenueForecast": null,
+      "revenueForecast": "$3.31B",
       "revenueActual": null,
       "surprise": null
     },
@@ -111,7 +111,7 @@
       "epsForecast": "$2.64",
       "epsActual": null,
       "epsPreviousYoY": "$3.34",
-      "revenueForecast": null,
+      "revenueForecast": "$4.31B",
       "revenueActual": null,
       "surprise": null
     },
@@ -127,7 +127,7 @@
       "epsForecast": "$3.88",
       "epsActual": null,
       "epsPreviousYoY": "$2.26",
-      "revenueForecast": null,
+      "revenueForecast": "$4.32B",
       "revenueActual": null,
       "surprise": null
     },
@@ -143,7 +143,7 @@
       "epsForecast": "$4.06",
       "epsActual": null,
       "epsPreviousYoY": "$3.93",
-      "revenueForecast": null,
+      "revenueForecast": "$10.34B",
       "revenueActual": null,
       "surprise": null
     }
