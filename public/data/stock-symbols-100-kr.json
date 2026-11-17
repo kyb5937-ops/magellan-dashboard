@@ -257,14 +257,14 @@
     },
     {
       "rank": 43,
-      "symbol": "035720",
-      "name": "카카오",
+      "symbol": "010140",
+      "name": "삼성중공업",
       "market": "KOSPI"
     },
     {
       "rank": 44,
-      "symbol": "010140",
-      "name": "삼성중공업",
+      "symbol": "035720",
+      "name": "카카오",
       "market": "KOSPI"
     },
     {
@@ -275,14 +275,14 @@
     },
     {
       "rank": 46,
-      "symbol": "028050",
-      "name": "삼성E&A",
+      "symbol": "267260",
+      "name": "HD현대일렉트릭",
       "market": "KOSPI"
     },
     {
       "rank": 47,
-      "symbol": "267260",
-      "name": "HD현대일렉트릭",
+      "symbol": "028050",
+      "name": "삼성E&A",
       "market": "KOSPI"
     },
     {
@@ -317,14 +317,14 @@
     },
     {
       "rank": 53,
-      "symbol": "006800",
-      "name": "미래에셋증권",
+      "symbol": "005830",
+      "name": "DB손해보험",
       "market": "KOSPI"
     },
     {
       "rank": 54,
-      "symbol": "005830",
-      "name": "DB손해보험",
+      "symbol": "006800",
+      "name": "미래에셋증권",
       "market": "KOSPI"
     },
     {
@@ -347,8 +347,8 @@
     },
     {
       "rank": 58,
-      "symbol": "0126Z0",
-      "name": "삼성에피스홀딩스",
+      "symbol": "267250",
+      "name": "HD현대",
       "market": "KOSPI"
     },
     {
@@ -359,8 +359,8 @@
     },
     {
       "rank": 60,
-      "symbol": "267250",
-      "name": "HD현대",
+      "symbol": "0126Z0",
+      "name": "삼성에피스홀딩스",
       "market": "KOSPI"
     },
     {
@@ -419,44 +419,44 @@
     },
     {
       "rank": 70,
-      "symbol": "090430",
-      "name": "아모레퍼시픽",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 71,
-      "symbol": "079550",
-      "name": "LIG디펜스앤에어로스페이스",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 72,
-      "symbol": "078930",
-      "name": "GS",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 73,
       "symbol": "000150",
       "name": "두산",
       "market": "KOSPI"
     },
     {
-      "rank": 74,
+      "rank": 71,
+      "symbol": "090430",
+      "name": "아모레퍼시픽",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 72,
+      "symbol": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 73,
       "symbol": "307950",
       "name": "현대오토에버",
       "market": "KOSPI"
     },
     {
+      "rank": 74,
+      "symbol": "078930",
+      "name": "GS",
+      "market": "KOSPI"
+    },
+    {
       "rank": 75,
-      "symbol": "064400",
-      "name": "LG씨엔에스",
+      "symbol": "021240",
+      "name": "코웨이",
       "market": "KOSPI"
     },
     {
       "rank": 76,
-      "symbol": "021240",
-      "name": "코웨이",
+      "symbol": "064400",
+      "name": "LG씨엔에스",
       "market": "KOSPI"
     },
     {
