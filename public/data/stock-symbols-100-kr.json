@@ -77,26 +77,26 @@
     },
     {
       "rank": 13,
-      "symbol": "006400",
-      "name": "삼성SDI",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 14,
       "symbol": "000270",
       "name": "기아",
       "market": "KOSPI"
     },
     {
+      "rank": 14,
+      "symbol": "006400",
+      "name": "삼성SDI",
+      "market": "KOSPI"
+    },
+    {
       "rank": 15,
-      "symbol": "034730",
-      "name": "SK",
+      "symbol": "086790",
+      "name": "하나금융지주",
       "market": "KOSPI"
     },
     {
       "rank": 16,
-      "symbol": "086790",
-      "name": "하나금융지주",
+      "symbol": "034730",
+      "name": "SK",
       "market": "KOSPI"
     },
     {
@@ -179,26 +179,26 @@
     },
     {
       "rank": 30,
-      "symbol": "096770",
-      "name": "SK이노베이션",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 31,
       "symbol": "018260",
       "name": "삼성에스디에스",
       "market": "KOSPI"
     },
     {
+      "rank": 31,
+      "symbol": "096770",
+      "name": "SK이노베이션",
+      "market": "KOSPI"
+    },
+    {
       "rank": 32,
-      "symbol": "010130",
-      "name": "고려아연",
+      "symbol": "010120",
+      "name": "LS ELECTRIC",
       "market": "KOSPI"
     },
     {
       "rank": 33,
-      "symbol": "010120",
-      "name": "LS ELECTRIC",
+      "symbol": "010130",
+      "name": "고려아연",
       "market": "KOSPI"
     },
     {
@@ -221,20 +221,20 @@
     },
     {
       "rank": 37,
-      "symbol": "051910",
-      "name": "LG화학",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 38,
       "symbol": "298040",
       "name": "효성중공업",
       "market": "KOSPI"
     },
     {
-      "rank": 39,
+      "rank": 38,
       "symbol": "024110",
       "name": "기업은행",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 39,
+      "symbol": "051910",
+      "name": "LG화학",
       "market": "KOSPI"
     },
     {
@@ -359,21 +359,21 @@
     },
     {
       "rank": 60,
-      "symbol": "0126Z0",
-      "name": "삼성에피스홀딩스",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 61,
       "symbol": "086520",
       "name": "에코프로",
       "market": "KOSDAQ"
     },
     {
-      "rank": 62,
+      "rank": 61,
       "symbol": "247540",
       "name": "에코프로비엠",
       "market": "KOSDAQ"
+    },
+    {
+      "rank": 62,
+      "symbol": "0126Z0",
+      "name": "삼성에피스홀딩스",
+      "market": "KOSPI"
     },
     {
       "rank": 63,
@@ -383,20 +383,20 @@
     },
     {
       "rank": 64,
+      "symbol": "278470",
+      "name": "에이피알",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 65,
       "symbol": "000720",
       "name": "현대건설",
       "market": "KOSPI"
     },
     {
-      "rank": 65,
+      "rank": 66,
       "symbol": "047050",
       "name": "포스코인터내셔널",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 66,
-      "symbol": "278470",
-      "name": "에이피알",
       "market": "KOSPI"
     },
     {
@@ -425,38 +425,38 @@
     },
     {
       "rank": 71,
-      "symbol": "090430",
-      "name": "아모레퍼시픽",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 72,
-      "symbol": "079550",
-      "name": "LIG디펜스앤에어로스페이스",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 73,
-      "symbol": "307950",
-      "name": "현대오토에버",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 74,
       "symbol": "078930",
       "name": "GS",
       "market": "KOSPI"
     },
     {
+      "rank": 72,
+      "symbol": "307950",
+      "name": "현대오토에버",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 73,
+      "symbol": "090430",
+      "name": "아모레퍼시픽",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 74,
+      "symbol": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
+      "market": "KOSPI"
+    },
+    {
       "rank": 75,
-      "symbol": "021240",
-      "name": "코웨이",
+      "symbol": "064400",
+      "name": "LG씨엔에스",
       "market": "KOSPI"
     },
     {
       "rank": 76,
-      "symbol": "064400",
-      "name": "LG씨엔에스",
+      "symbol": "021240",
+      "name": "코웨이",
       "market": "KOSPI"
     },
     {
@@ -587,14 +587,14 @@
     },
     {
       "rank": 98,
-      "symbol": "047040",
-      "name": "대우건설",
+      "symbol": "377300",
+      "name": "카카오페이",
       "market": "KOSPI"
     },
     {
       "rank": 99,
-      "symbol": "377300",
-      "name": "카카오페이",
+      "symbol": "047040",
+      "name": "대우건설",
       "market": "KOSPI"
     },
     {
