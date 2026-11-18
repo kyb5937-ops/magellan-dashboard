@@ -83,14 +83,14 @@
     },
     {
       "rank": 14,
-      "symbol": "006400",
-      "name": "삼성SDI",
+      "symbol": "034730",
+      "name": "SK",
       "market": "KOSPI"
     },
     {
       "rank": 15,
-      "symbol": "034730",
-      "name": "SK",
+      "symbol": "006400",
+      "name": "삼성SDI",
       "market": "KOSPI"
     },
     {
@@ -155,14 +155,14 @@
     },
     {
       "rank": 26,
-      "symbol": "005490",
-      "name": "POSCO홀딩스",
+      "symbol": "138040",
+      "name": "메리츠금융지주",
       "market": "KOSPI"
     },
     {
       "rank": 27,
-      "symbol": "138040",
-      "name": "메리츠금융지주",
+      "symbol": "005490",
+      "name": "POSCO홀딩스",
       "market": "KOSPI"
     },
     {
@@ -179,14 +179,14 @@
     },
     {
       "rank": 30,
-      "symbol": "018260",
-      "name": "삼성에스디에스",
+      "symbol": "017670",
+      "name": "SK텔레콤",
       "market": "KOSPI"
     },
     {
       "rank": 31,
-      "symbol": "017670",
-      "name": "SK텔레콤",
+      "symbol": "018260",
+      "name": "삼성에스디에스",
       "market": "KOSPI"
     },
     {
@@ -359,15 +359,15 @@
     },
     {
       "rank": 60,
-      "symbol": "086520",
-      "name": "에코프로",
-      "market": "KOSDAQ"
-    },
-    {
-      "rank": 61,
       "symbol": "259960",
       "name": "크래프톤",
       "market": "KOSPI"
+    },
+    {
+      "rank": 61,
+      "symbol": "086520",
+      "name": "에코프로",
+      "market": "KOSDAQ"
     },
     {
       "rank": 62,
@@ -413,14 +413,14 @@
     },
     {
       "rank": 69,
-      "symbol": "307950",
-      "name": "현대오토에버",
+      "symbol": "443060",
+      "name": "HD현대마린솔루션",
       "market": "KOSPI"
     },
     {
       "rank": 70,
-      "symbol": "443060",
-      "name": "HD현대마린솔루션",
+      "symbol": "307950",
+      "name": "현대오토에버",
       "market": "KOSPI"
     },
     {
@@ -569,14 +569,14 @@
     },
     {
       "rank": 95,
-      "symbol": "009830",
-      "name": "한화솔루션",
+      "symbol": "088980",
+      "name": "맥쿼리인프라",
       "market": "KOSPI"
     },
     {
       "rank": 96,
-      "symbol": "088980",
-      "name": "맥쿼리인프라",
+      "symbol": "009830",
+      "name": "한화솔루션",
       "market": "KOSPI"
     },
     {
