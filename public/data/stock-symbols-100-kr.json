@@ -197,14 +197,14 @@
     },
     {
       "rank": 33,
-      "symbol": "009540",
-      "name": "HD한국조선해양",
+      "symbol": "015760",
+      "name": "한국전력",
       "market": "KOSPI"
     },
     {
       "rank": 34,
-      "symbol": "015760",
-      "name": "한국전력",
+      "symbol": "009540",
+      "name": "HD한국조선해양",
       "market": "KOSPI"
     },
     {
@@ -221,38 +221,38 @@
     },
     {
       "rank": 37,
-      "symbol": "180640",
-      "name": "한진칼",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 38,
       "symbol": "024110",
       "name": "기업은행",
       "market": "KOSPI"
     },
     {
-      "rank": 39,
+      "rank": 38,
       "symbol": "086280",
       "name": "현대글로비스",
       "market": "KOSPI"
     },
     {
-      "rank": 40,
+      "rank": 39,
       "symbol": "042700",
       "name": "한미반도체",
       "market": "KOSPI"
     },
     {
+      "rank": 40,
+      "symbol": "180640",
+      "name": "한진칼",
+      "market": "KOSPI"
+    },
+    {
       "rank": 41,
-      "symbol": "051910",
-      "name": "LG화학",
+      "symbol": "003670",
+      "name": "포스코퓨처엠",
       "market": "KOSPI"
     },
     {
       "rank": 42,
-      "symbol": "003670",
-      "name": "포스코퓨처엠",
+      "symbol": "051910",
+      "name": "LG화학",
       "market": "KOSPI"
     },
     {
@@ -275,14 +275,14 @@
     },
     {
       "rank": 46,
-      "symbol": "042660",
-      "name": "한화오션",
+      "symbol": "003550",
+      "name": "LG",
       "market": "KOSPI"
     },
     {
       "rank": 47,
-      "symbol": "003550",
-      "name": "LG",
+      "symbol": "042660",
+      "name": "한화오션",
       "market": "KOSPI"
     },
     {
@@ -305,15 +305,15 @@
     },
     {
       "rank": 51,
-      "symbol": "010950",
-      "name": "S-Oil",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 52,
       "symbol": "196170",
       "name": "알테오젠",
       "market": "KOSDAQ"
+    },
+    {
+      "rank": 52,
+      "symbol": "010950",
+      "name": "S-Oil",
+      "market": "KOSPI"
     },
     {
       "rank": 53,
@@ -365,15 +365,15 @@
     },
     {
       "rank": 61,
-      "symbol": "259960",
-      "name": "크래프톤",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 62,
       "symbol": "247540",
       "name": "에코프로비엠",
       "market": "KOSDAQ"
+    },
+    {
+      "rank": 62,
+      "symbol": "259960",
+      "name": "크래프톤",
+      "market": "KOSPI"
     },
     {
       "rank": 63,
@@ -413,27 +413,27 @@
     },
     {
       "rank": 69,
-      "symbol": "090430",
-      "name": "아모레퍼시픽",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 70,
       "symbol": "307950",
       "name": "현대오토에버",
       "market": "KOSPI"
     },
     {
-      "rank": 71,
-      "symbol": "000150",
-      "name": "두산",
+      "rank": 70,
+      "symbol": "090430",
+      "name": "아모레퍼시픽",
       "market": "KOSPI"
     },
     {
-      "rank": 72,
+      "rank": 71,
       "symbol": "277810",
       "name": "레인보우로보틱스",
       "market": "KOSDAQ"
+    },
+    {
+      "rank": 72,
+      "symbol": "000150",
+      "name": "두산",
+      "market": "KOSPI"
     },
     {
       "rank": 73,
@@ -443,8 +443,8 @@
     },
     {
       "rank": 74,
-      "symbol": "078930",
-      "name": "GS",
+      "symbol": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
       "market": "KOSPI"
     },
     {
@@ -455,8 +455,8 @@
     },
     {
       "rank": 76,
-      "symbol": "079550",
-      "name": "LIG디펜스앤에어로스페이스",
+      "symbol": "078930",
+      "name": "GS",
       "market": "KOSPI"
     },
     {
