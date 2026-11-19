@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-11-16",
-  "weekEnd": "2026-12-02",
-  "lastUpdated": "2026-11-18",
+  "weekStart": "2026-11-17",
+  "weekEnd": "2026-12-03",
+  "lastUpdated": "2026-11-19",
   "events": [
     {
       "date": "2026-11-17",
@@ -32,7 +32,7 @@
       "epsActual": "$1.77",
       "epsPreviousYoY": "$1.11",
       "revenueForecast": "$27.85B",
-      "revenueActual": null,
+      "revenueActual": "$25.95B",
       "surprise": "+5.4%"
     },
     {
@@ -93,11 +93,11 @@
       "marketCapRank": 73,
       "quarter": "26Q3",
       "epsForecast": "$0.97",
-      "epsActual": null,
+      "epsActual": "$1.05",
       "epsPreviousYoY": "$0.93",
       "revenueForecast": "$3.31B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+8.2%"
     },
     {
       "date": "2026-11-20",
@@ -144,6 +144,22 @@
       "epsActual": null,
       "epsPreviousYoY": "$3.93",
       "revenueForecast": "$10.34B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-12-03",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "CRM",
+      "name": "세일즈포스",
+      "marketCapRank": 24,
+      "quarter": "26Q3",
+      "epsForecast": "$3.45",
+      "epsActual": null,
+      "epsPreviousYoY": "$3.25",
+      "revenueForecast": "$11.46B",
       "revenueActual": null,
       "surprise": null
     }
