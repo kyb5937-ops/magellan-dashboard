@@ -1,40 +1,8 @@
 {
-  "weekStart": "2026-11-17",
-  "weekEnd": "2026-12-03",
-  "lastUpdated": "2026-11-19",
+  "weekStart": "2026-11-18",
+  "weekEnd": "2026-12-04",
+  "lastUpdated": "2026-11-20",
   "events": [
-    {
-      "date": "2026-11-17",
-      "dayOfWeek": "화",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "HD",
-      "name": "홈디포",
-      "marketCapRank": 20,
-      "quarter": "26Q3",
-      "epsForecast": "$3.84",
-      "epsActual": "$3.86",
-      "epsPreviousYoY": "$3.74",
-      "revenueForecast": "$39.12B",
-      "revenueActual": null,
-      "surprise": "+0.6%"
-    },
-    {
-      "date": "2026-11-17",
-      "dayOfWeek": "화",
-      "time": "BMO",
-      "country": "US",
-      "symbol": "DIS",
-      "name": "디즈니",
-      "marketCapRank": 44,
-      "quarter": "26Q3",
-      "epsForecast": "$1.68",
-      "epsActual": "$1.77",
-      "epsPreviousYoY": "$1.11",
-      "revenueForecast": "$27.94B",
-      "revenueActual": "$25.95B",
-      "surprise": "+5.4%"
-    },
     {
       "date": "2026-11-18",
       "dayOfWeek": "수",
@@ -109,11 +77,11 @@
       "marketCapRank": 60,
       "quarter": "26Q3",
       "epsForecast": "$2.64",
-      "epsActual": null,
+      "epsActual": "$2.91",
       "epsPreviousYoY": "$3.34",
-      "revenueForecast": "$4.31B",
+      "revenueForecast": "$5.11B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "+10.2%"
     },
     {
       "date": "2026-11-24",
