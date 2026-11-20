@@ -191,14 +191,14 @@
     },
     {
       "rank": 32,
-      "symbol": "180640",
-      "name": "한진칼",
+      "symbol": "096770",
+      "name": "SK이노베이션",
       "market": "KOSPI"
     },
     {
       "rank": 33,
-      "symbol": "096770",
-      "name": "SK이노베이션",
+      "symbol": "180640",
+      "name": "한진칼",
       "market": "KOSPI"
     },
     {
@@ -395,14 +395,14 @@
     },
     {
       "rank": 66,
-      "symbol": "000720",
-      "name": "현대건설",
+      "symbol": "047050",
+      "name": "포스코인터내셔널",
       "market": "KOSPI"
     },
     {
       "rank": 67,
-      "symbol": "047050",
-      "name": "포스코인터내셔널",
+      "symbol": "000720",
+      "name": "현대건설",
       "market": "KOSPI"
     },
     {
@@ -443,8 +443,8 @@
     },
     {
       "rank": 74,
-      "symbol": "161390",
-      "name": "한국타이어앤테크놀로지",
+      "symbol": "000150",
+      "name": "두산",
       "market": "KOSPI"
     },
     {
@@ -455,8 +455,8 @@
     },
     {
       "rank": 76,
-      "symbol": "000150",
-      "name": "두산",
+      "symbol": "161390",
+      "name": "한국타이어앤테크놀로지",
       "market": "KOSPI"
     },
     {
@@ -473,9 +473,9 @@
     },
     {
       "rank": 79,
-      "symbol": "036930",
-      "name": "주성엔지니어링",
-      "market": "KOSDAQ"
+      "symbol": "071050",
+      "name": "한국금융지주",
+      "market": "KOSPI"
     },
     {
       "rank": 80,
@@ -485,9 +485,9 @@
     },
     {
       "rank": 81,
-      "symbol": "071050",
-      "name": "한국금융지주",
-      "market": "KOSPI"
+      "symbol": "036930",
+      "name": "주성엔지니어링",
+      "market": "KOSDAQ"
     },
     {
       "rank": 82,
