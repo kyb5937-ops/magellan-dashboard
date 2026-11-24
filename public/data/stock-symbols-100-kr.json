@@ -101,14 +101,14 @@
     },
     {
       "rank": 17,
-      "symbol": "012330",
-      "name": "현대모비스",
+      "symbol": "012450",
+      "name": "한화에어로스페이스",
       "market": "KOSPI"
     },
     {
       "rank": 18,
-      "symbol": "012450",
-      "name": "한화에어로스페이스",
+      "symbol": "012330",
+      "name": "현대모비스",
       "market": "KOSPI"
     },
     {
@@ -227,20 +227,20 @@
     },
     {
       "rank": 38,
+      "symbol": "024110",
+      "name": "기업은행",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 39,
       "symbol": "051910",
       "name": "LG화학",
       "market": "KOSPI"
     },
     {
-      "rank": 39,
+      "rank": 40,
       "symbol": "180640",
       "name": "한진칼",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 40,
-      "symbol": "024110",
-      "name": "기업은행",
       "market": "KOSPI"
     },
     {
@@ -275,14 +275,14 @@
     },
     {
       "rank": 46,
-      "symbol": "042660",
-      "name": "한화오션",
+      "symbol": "010140",
+      "name": "삼성중공업",
       "market": "KOSPI"
     },
     {
       "rank": 47,
-      "symbol": "010140",
-      "name": "삼성중공업",
+      "symbol": "042660",
+      "name": "한화오션",
       "market": "KOSPI"
     },
     {
@@ -353,14 +353,14 @@
     },
     {
       "rank": 59,
-      "symbol": "086520",
-      "name": "에코프로",
+      "symbol": "247540",
+      "name": "에코프로비엠",
       "market": "KOSDAQ"
     },
     {
       "rank": 60,
-      "symbol": "247540",
-      "name": "에코프로비엠",
+      "symbol": "086520",
+      "name": "에코프로",
       "market": "KOSDAQ"
     },
     {
@@ -551,14 +551,14 @@
     },
     {
       "rank": 92,
-      "symbol": "241560",
-      "name": "두산밥캣",
+      "symbol": "377300",
+      "name": "카카오페이",
       "market": "KOSPI"
     },
     {
       "rank": 93,
-      "symbol": "377300",
-      "name": "카카오페이",
+      "symbol": "241560",
+      "name": "두산밥캣",
       "market": "KOSPI"
     },
     {
@@ -575,14 +575,14 @@
     },
     {
       "rank": 96,
-      "symbol": "088980",
-      "name": "맥쿼리인프라",
+      "symbol": "271560",
+      "name": "오리온",
       "market": "KOSPI"
     },
     {
       "rank": 97,
-      "symbol": "271560",
-      "name": "오리온",
+      "symbol": "088980",
+      "name": "맥쿼리인프라",
       "market": "KOSPI"
     },
     {
