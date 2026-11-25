@@ -28,12 +28,12 @@
       "name": "디어",
       "marketCapRank": 69,
       "quarter": "26Q3",
-      "epsForecast": "$4.06",
-      "epsActual": null,
+      "epsForecast": "$4.05",
+      "epsActual": "$3.89",
       "epsPreviousYoY": "$3.93",
-      "revenueForecast": "$10.34B",
+      "revenueForecast": "$8.58B",
       "revenueActual": null,
-      "surprise": null
+      "surprise": "-4.0%"
     },
     {
       "date": "2026-12-03",
