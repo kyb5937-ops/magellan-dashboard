@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-11-22",
-  "weekEnd": "2026-12-08",
-  "lastUpdated": "2026-11-24",
+  "weekStart": "2026-11-23",
+  "weekEnd": "2026-12-09",
+  "lastUpdated": "2026-11-25",
   "events": [
     {
       "date": "2026-11-24",
@@ -15,7 +15,7 @@
       "epsForecast": "$3.88",
       "epsActual": "$4.06",
       "epsPreviousYoY": "$2.26",
-      "revenueForecast": "$4.32B",
+      "revenueForecast": "$4.40B",
       "revenueActual": null,
       "surprise": "+4.6%"
     },
