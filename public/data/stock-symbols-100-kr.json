@@ -215,8 +215,8 @@
     },
     {
       "rank": 36,
-      "symbol": "018260",
-      "name": "삼성에스디에스",
+      "symbol": "086280",
+      "name": "현대글로비스",
       "market": "KOSPI"
     },
     {
@@ -227,20 +227,20 @@
     },
     {
       "rank": 38,
-      "symbol": "086280",
-      "name": "현대글로비스",
+      "symbol": "018260",
+      "name": "삼성에스디에스",
       "market": "KOSPI"
     },
     {
       "rank": 39,
-      "symbol": "003670",
-      "name": "포스코퓨처엠",
+      "symbol": "051910",
+      "name": "LG화학",
       "market": "KOSPI"
     },
     {
       "rank": 40,
-      "symbol": "051910",
-      "name": "LG화학",
+      "symbol": "003670",
+      "name": "포스코퓨처엠",
       "market": "KOSPI"
     },
     {
@@ -317,14 +317,14 @@
     },
     {
       "rank": 53,
-      "symbol": "005830",
-      "name": "DB손해보험",
+      "symbol": "003490",
+      "name": "대한항공",
       "market": "KOSPI"
     },
     {
       "rank": 54,
-      "symbol": "003490",
-      "name": "대한항공",
+      "symbol": "005830",
+      "name": "DB손해보험",
       "market": "KOSPI"
     },
     {
@@ -443,14 +443,14 @@
     },
     {
       "rank": 74,
-      "symbol": "161390",
-      "name": "한국타이어앤테크놀로지",
+      "symbol": "000720",
+      "name": "현대건설",
       "market": "KOSPI"
     },
     {
       "rank": 75,
-      "symbol": "000720",
-      "name": "현대건설",
+      "symbol": "161390",
+      "name": "한국타이어앤테크놀로지",
       "market": "KOSPI"
     },
     {
@@ -479,26 +479,26 @@
     },
     {
       "rank": 80,
-      "symbol": "064400",
-      "name": "LG씨엔에스",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 81,
       "symbol": "078930",
       "name": "GS",
       "market": "KOSPI"
     },
     {
+      "rank": 81,
+      "symbol": "064350",
+      "name": "현대로템",
+      "market": "KOSPI"
+    },
+    {
       "rank": 82,
-      "symbol": "032640",
-      "name": "LG유플러스",
+      "symbol": "064400",
+      "name": "LG씨엔에스",
       "market": "KOSPI"
     },
     {
       "rank": 83,
-      "symbol": "064350",
-      "name": "현대로템",
+      "symbol": "032640",
+      "name": "LG유플러스",
       "market": "KOSPI"
     },
     {
@@ -593,14 +593,14 @@
     },
     {
       "rank": 99,
-      "symbol": "222800",
-      "name": "심텍",
+      "symbol": "108490",
+      "name": "로보티즈",
       "market": "KOSDAQ"
     },
     {
       "rank": 100,
-      "symbol": "108490",
-      "name": "로보티즈",
+      "symbol": "222800",
+      "name": "심텍",
       "market": "KOSDAQ"
     }
   ]
