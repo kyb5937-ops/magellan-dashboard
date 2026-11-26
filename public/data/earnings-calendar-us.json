@@ -1,7 +1,7 @@
 {
-  "weekStart": "2026-11-23",
-  "weekEnd": "2026-12-09",
-  "lastUpdated": "2026-11-25",
+  "weekStart": "2026-11-24",
+  "weekEnd": "2026-12-10",
+  "lastUpdated": "2026-11-26",
   "events": [
     {
       "date": "2026-11-24",
@@ -48,6 +48,38 @@
       "epsActual": null,
       "epsPreviousYoY": "$3.25",
       "revenueForecast": "$11.46B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-12-10",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "AVGO",
+      "name": "브로드컴",
+      "marketCapRank": 8,
+      "quarter": "26Q3",
+      "epsForecast": "$3.83",
+      "epsActual": null,
+      "epsPreviousYoY": "$1.95",
+      "revenueForecast": "$34.91B",
+      "revenueActual": null,
+      "surprise": null
+    },
+    {
+      "date": "2026-12-10",
+      "dayOfWeek": "목",
+      "time": "AMC",
+      "country": "US",
+      "symbol": "ADBE",
+      "name": "어도비",
+      "marketCapRank": 35,
+      "quarter": "26Q3",
+      "epsForecast": "$6.33",
+      "epsActual": null,
+      "epsPreviousYoY": "$5.50",
+      "revenueForecast": "$6.83B",
       "revenueActual": null,
       "surprise": null
     }
