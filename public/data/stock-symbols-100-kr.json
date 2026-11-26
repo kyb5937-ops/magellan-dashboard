@@ -221,14 +221,14 @@
     },
     {
       "rank": 37,
-      "symbol": "024110",
-      "name": "기업은행",
+      "symbol": "018260",
+      "name": "삼성에스디에스",
       "market": "KOSPI"
     },
     {
       "rank": 38,
-      "symbol": "018260",
-      "name": "삼성에스디에스",
+      "symbol": "024110",
+      "name": "기업은행",
       "market": "KOSPI"
     },
     {
@@ -317,20 +317,20 @@
     },
     {
       "rank": 53,
+      "symbol": "006800",
+      "name": "미래에셋증권",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 54,
       "symbol": "003490",
       "name": "대한항공",
       "market": "KOSPI"
     },
     {
-      "rank": 54,
+      "rank": 55,
       "symbol": "005830",
       "name": "DB손해보험",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 55,
-      "symbol": "006800",
-      "name": "미래에셋증권",
       "market": "KOSPI"
     },
     {
@@ -479,20 +479,20 @@
     },
     {
       "rank": 80,
+      "symbol": "064400",
+      "name": "LG씨엔에스",
+      "market": "KOSPI"
+    },
+    {
+      "rank": 81,
       "symbol": "078930",
       "name": "GS",
       "market": "KOSPI"
     },
     {
-      "rank": 81,
+      "rank": 82,
       "symbol": "064350",
       "name": "현대로템",
-      "market": "KOSPI"
-    },
-    {
-      "rank": 82,
-      "symbol": "064400",
-      "name": "LG씨엔에스",
       "market": "KOSPI"
     },
     {
